@@ -8,6 +8,9 @@ const resources = {
   en: {
     translation: {
       "markku-customs": "Markku Customs",
+      "home":"Home",
+      "store":"Store",
+      "contact":"Contact",
       hero: {
         heading: "We Build. <br/> You Play.",
         description:
@@ -23,6 +26,9 @@ const resources = {
   fi: {
     translation: {
       "markku-customs": "Markkulan Kustomsit",
+      "home":"Koti",
+      "store":"Kauppa",
+      "contact":"Yhteyshenkilö",
       hero: {
         heading: "Me Rakennamme. <br/> Te Pelaatte.",
         description:

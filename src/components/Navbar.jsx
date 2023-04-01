@@ -17,17 +17,17 @@ const Navbar = () => {
           <ul className="grow flex gap-6 justify-between items-center">
             <Link to="/#home">
               <li className="text-base hover:text-red-600 hover:scale-110">
-                Home
+                {t("home")}
               </li>
             </Link>
             <Link to="/#store">
               <li className="text-base hover:text-red-600 hover:scale-110">
-                Store
+                {t("store")}
               </li>
             </Link>
             <Link to="/#contact">
               <li className="text-base hover:text-red-600 hover:scale-110">
-                Contact
+                {t("contact")}
               </li>
             </Link>
           </ul>
