@@ -7,14 +7,34 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   en: {
     translation: {
-      "markku-customs": "Markku Customs"
-    }
+      "markku-customs": "Markku Customs",
+      hero: {
+        heading: "We Build. <br/> You Play.",
+        description:
+          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem cum, quod ullam amet minima rerum eos ad mollitia maxime commodi, natus et quaerat quidem nulla.",
+        buttons: {
+          store: "View Store",
+          contact: "Contact Us",
+        },
+      },
+      footer: "© {{year}} Markku Customs. All rights reserved.",
+    },
   },
   fi: {
     translation: {
-      "markku-customs": "Markkulan Kustomsit"
-    }
-  }
+      "markku-customs": "Markkulan Kustomsit",
+      hero: {
+        heading: "Me Rakennamme. <br/> Te Pelaatte.",
+        description:
+          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem cum, quod ullam amet minima rerum eos ad mollitia maxime commodi, natus et quaerat quidem nulla.",
+        buttons: {
+          store: "Näytä Valikoima",
+          contact: "Ota Yhteyttä",
+        },
+      },
+      footer: "© {{year}} Markku Customs. Kaikki oikeudet pidätetään.",
+    },
+  },
 };
 
 i18n
@@ -26,8 +46,8 @@ i18n
     // if you're using a language detector, do not define the lng option
 
     interpolation: {
-      escapeValue: false // react already safes from xss
-    }
+      escapeValue: false, // react already safes from xss
+    },
   });
 
-  export default i18n;
+export default i18n;
