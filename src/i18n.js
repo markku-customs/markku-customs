@@ -11,7 +11,7 @@ const resources = {
       hero: {
         heading: "We Build. <br/> You Play.",
         description:
-          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem cum, quod ullam amet minima rerum eos ad mollitia maxime commodi, natus et quaerat quidem nulla.",
+          "We build custom high-performance PCs tailored to your needs and budget, using only the highest quality components. Contact us to get started on your perfect PC!",
         buttons: {
           store: "View Store",
           contact: "Contact Us",
@@ -26,7 +26,7 @@ const resources = {
       hero: {
         heading: "Me Rakennamme. <br/> Te Pelaatte.",
         description:
-          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem cum, quod ullam amet minima rerum eos ad mollitia maxime commodi, natus et quaerat quidem nulla.",
+          "Rakennamme asiakkaan tarpeisiin ja budjettiin räätälöityjä, korkean suorituskyvyn tietokoneita käyttäen vain laadukkaimpia komponentteja. Ota yhteyttä aloittaaksesi täydellisen tietokoneen rakentamisen!",
         buttons: {
           store: "Näytä Valikoima",
           contact: "Ota Yhteyttä",

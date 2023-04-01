@@ -6,35 +6,31 @@ const Hero = () => {
 
   return (
     <div className="hero" id="home">
-      <div className="container mx-auto">
-        <h1 className="text-white ff-heading text-6xl md:text-8xl mt-20 hero-text">
+      <div className="container">
+        <h1 className="font-heading text-6xl md:text-8xl mt-12 sm:mt-20 hero-text">
           <Trans i18nKey={"hero.heading"}>
             You Build.
             <br />
             We Play.
           </Trans>
         </h1>
-        <p className="text-white hero-description mt-10 leading-8 max-w-prose">
+        <p className="mt-6 sm:mt-8 max-w-prose text-sm sm:text-base leading-8">
           {t("hero.description")}
         </p>
-        <ul className="flex gap-4 mt-10">
-          <li className="hover:scale-110 transition duration-100">
-            <Link
-              to="/#store"
-              className="px-10 bg-red-600 border-white text-xs py-4 uppercase tracking-[.30em] font-semibold"
-            >
-              {t("hero.buttons.store")}
-            </Link>
-          </li>
-          <li className="hover:scale-110 transition duration-100">
-            <Link
-              to="#contact"
-              className="px-10 bg-zinc-950 text-white border-red-600 text-xs py-4 uppercase tracking-[.30em] font-semibold"
-            >
-              {t("hero.buttons.contact")}
-            </Link>
-          </li>
-        </ul>
+        <div className="flex flex-wrap gap-4 mt-6 sm:mt-8">
+          <Link
+            to="/#store"
+            className="button | bg-red-600 hover:brightness-125"
+          >
+            {t("hero.buttons.store")}
+          </Link>
+          <Link
+            to="/#contact"
+            className="button | bg-zinc-950 hover:brightness-125"
+          >
+            {t("hero.buttons.contact")}
+          </Link>
+        </div>
       </div>
     </div>
   );

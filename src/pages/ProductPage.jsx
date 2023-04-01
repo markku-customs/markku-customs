@@ -22,7 +22,7 @@ const ProductPage = () => {
         <div className="container">
           <div className="flex">
             <div className="store-item-left gap-2">
-              <h3 className="text-4xl">{item.name}</h3>
+              <h3 className="text-4xl font-heading">{item.name}</h3>
               <p className="text-2xl">{item.price} €</p>
               <p>{item.description}</p>
             </div>

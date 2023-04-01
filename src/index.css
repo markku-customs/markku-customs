@@ -8,25 +8,25 @@
 @layer base {
   body {
     font-family: "Inter", sans-serif;
-  }
-
-  .ff-heading {
-    font-family: "Goldman", sans-serif;
-  }
-
-  .ff-body {
-    font-family: "Inter", sans-serif;
+    color: white;
+    background-color: hsl(240, 6%, 5%);
   }
 }
 
-body {
-  background-color: #0e0e0e;
-  color: white;
+@layer components {
+  .button {
+    @apply px-8 py-4 text-xs uppercase tracking-[.30em] font-semibold transition duration-100 hover:scale-110;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 66px;
 }
 
 .hero {
   background-image: url("/hero.png");
-  height: calc(100vh - 61.6px);
+  height: calc(100vh - 66px);
   overflow: hidden;
   background-repeat: no-repeat;
   background-position: center;

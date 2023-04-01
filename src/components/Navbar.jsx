@@ -10,39 +10,37 @@ const Navbar = () => {
         <Link to="/">
           <div className="flex gap-4">
             <img src="/logo.svg" alt="" />
-            <h1 className="text-white text-xl ff-heading">
-              {t("markku-customs")}
-            </h1>
+            <h1 className="text-xl font-heading">{t("markku-customs")}</h1>
           </div>
         </Link>
         <div className="flex gap-6 ff-body">
-          <ul className="grow flex gap-4 justify-between items-center">
+          <ul className="grow flex gap-6 justify-between items-center">
             <Link to="/#home">
-              <li className="text-base hover:text-red-600 hover:scale-125">
+              <li className="text-base hover:text-red-600 hover:scale-110">
                 Home
               </li>
             </Link>
             <Link to="/#store">
-              <li className="text-base hover:text-red-600 hover:scale-125">
+              <li className="text-base hover:text-red-600 hover:scale-110">
                 Store
               </li>
             </Link>
             <Link to="/#contact">
-              <li className="text-base hover:text-red-600 hover:scale-125">
+              <li className="text-base hover:text-red-600 hover:scale-110">
                 Contact
               </li>
             </Link>
           </ul>
-          <div className="grow flex gap-4">
+          <div className="grow flex gap-4 items-center">
             <img
               onClick={() => i18n.changeLanguage("en")}
-              className="hover:scale-125"
+              className="hover:scale-110 h-4 transition duration-100"
               src="/england.svg"
               alt="English"
             />
             <img
               onClick={() => i18n.changeLanguage("fi")}
-              className="hover:scale-125"
+              className="hover:scale-110 h-4 transition duration-100"
               src="/finland.svg"
               alt="Finnish"
             />

@@ -7,9 +7,9 @@ const Store = () => {
   const items = useContext(StoreItemsContext);
 
   return (
-    <section className="py-16" id="store">
+    <section className="py-12 sm:py-16" id="store">
       <div className="container mx-auto">
-        <h2 className="ff-heading text-4xl md:text-6xl mb-8">Store</h2>
+        <h2 className="font-heading text-4xl md:text-6xl mb-8">Store</h2>
         <div className="store-grid">
           {items.map((item, idx) => (
             <Link to={`/products/${idx}`}>
