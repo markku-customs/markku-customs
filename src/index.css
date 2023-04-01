@@ -1,27 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Goldman&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Goldman&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
   }
 
   .ff-heading {
-    font-family: 'Goldman', sans-serif;
+    font-family: "Goldman", sans-serif;
   }
 
   .ff-body {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
   }
 }
 
 body {
-  background-color: #0E0E0E;
+  background-color: #0e0e0e;
   color: white;
 }
 
@@ -34,19 +33,13 @@ body {
   background-size: cover;
 }
 
-.hero-text{
-  max-width: 60%;
-}
-.hero-description{
-  max-width: 60%;
-}
-.store-grid{
+.store-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
 }
 
-.contact-image{
+.contact-image {
   max-height: 35vh;
   min-width: 100%;
   background-position: center;
@@ -54,9 +47,9 @@ body {
   object-fit: cover;
 }
 
-.store-item-left{
+.store-item-left {
   min-width: 30%;
 }
-.store-item-right{
+.store-item-right {
   min-width: 70%;
 }
