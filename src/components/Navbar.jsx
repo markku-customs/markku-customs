@@ -5,7 +5,7 @@ const Navbar = () => {
   const { t, i18n } = useTranslation();
 
   return (
-    <nav className="bg-zinc-950 py-4 border-b-2 border-red-600 sticky top-0 left-0 z-50">
+    <nav className="bg-zinc-950 py-4 border-b-2 border-red-600 sticky top-0 z-50">
       <div className="container mx-auto flex gap-3 justify-between">
         <Link to="/">
           <div className="flex gap-4">
