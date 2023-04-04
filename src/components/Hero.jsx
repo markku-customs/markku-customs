@@ -5,7 +5,7 @@ const Hero = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="hero" id="home">
+    <section className="hero" id="home">
       <div className="container">
         <h1 className="font-heading text-6xl md:text-8xl mt-12 sm:mt-20 hero-text">
           <Trans i18nKey={"hero.heading"}>
@@ -32,7 +32,7 @@ const Hero = () => {
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
