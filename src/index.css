@@ -11,6 +11,34 @@
     color: white;
     background-color: hsl(240, 6%, 5%);
   }
+
+  .specifications table {
+    @apply w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-5
+  }
+
+  .specifications thead {
+    @apply text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400
+  }
+
+  .specifications tr {
+    @apply bg-white border-b dark:bg-gray-800 dark:border-gray-700
+  }
+
+  .specifications th, .specifications td {
+    @apply px-6 py-4
+  }
+
+  .specifications ul, .specifications ol {
+    @apply max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400
+  }
+
+  .specifications a {
+    @apply font-medium text-blue-600 dark:text-blue-500 hover:underline
+  }
+
+  .specifications h1 {
+    @apply text-2xl font-bold mt-5
+  }
 }
 
 @layer components {
@@ -49,8 +77,8 @@ html {
 
 .product-page-grid{
   display: grid;
-  grid-template-rows: [hero-title-row] 2.5Fr [description-row] 1.5Fr [last-row] 1.75Fr;
-  grid-template-columns: [first-column] 6Fr [end-column] 4Fr;
+  grid-template-rows: [hero-title-row] 1fr [description-row] 1.5fr [last-row] 0.25fr;
+  grid-template-columns: [first-column] 6fr [end-column] 4fr;
   column-gap: 2rem;
   margin-top: 5vh;
 }
@@ -62,12 +90,14 @@ html {
   grid-column: first-column/end-column;
   grid-gap: 10px;
 }
+
 .game-grid-container{
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   grid-row: last-row/last-row;
-  padding: 1rem;
 }
+
 .fps-text{
   text-align: center;
 }
@@ -90,9 +120,11 @@ html {
 .store-product-heading-text{
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  max-height: 40vh;
 }
 
-.store-product-specific-description{
+.specifications-container{
   grid-row: description-row/description-row;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }

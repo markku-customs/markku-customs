@@ -1,3 +1,4 @@
+import { HashLink as Link } from "react-router-hash-link";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -40,12 +41,12 @@ const ProductPage = () => {
               <h3 className="text-4xl font-heading">{fields.name}</h3>
               <p className="text-2xl">{fields.price} €</p>
               <p>{fields.description}</p>
-              <a
+              <Link
                 href=""
                 className="p-2 border-2 border-red-600 w-40 text-center hover:scale-110 rounded "
               >
                 Contact us now
-              </a>
+              </Link>
             </div>
 
             <div className="store-product-main-image-container">
@@ -56,11 +57,13 @@ const ProductPage = () => {
               />
             </div>
 
-            <div className="store-product-specific-description"></div>
+            <div className="specifications-container">
+            <div className="specifications">{documentToReactComponents(fields.specifications)}</div>
+            </div>
 
             <div className="game-grid-container">
               <div>
-                <h1 className="game-grid-heading text-lg text-bold">
+                <h1 className="game-grid-heading text-2xl font-bold">
                   Games You Can Play With This PC
                 </h1>
               </div>
@@ -71,7 +74,7 @@ const ProductPage = () => {
                     src="/game-1.png"
                     alt=""
                   />
-                  <pre className="fps-text text-sm font-bold">190FPS</pre>
+                  <pre className="fps-text text-sm font-bold">100FPS</pre>
                 </div>
                 <div className="game-grid-box">
                   <img
@@ -79,7 +82,7 @@ const ProductPage = () => {
                     src="/game-2.png"
                     alt=""
                   />
-                  <pre className="fps-text text-sm font-bold">120FPS</pre>
+                  <pre className="fps-text text-sm font-bold">240FPS</pre>
                 </div>
                 <div className="game-grid-box">
                   <img
@@ -87,7 +90,7 @@ const ProductPage = () => {
                     src="/game-3.png"
                     alt=""
                   />
-                  <pre className="fps-text text-sm font-bold">250FPS</pre>
+                  <pre className="fps-text text-sm font-bold">175FPS</pre>
                 </div>{" "}
                 <div className="game-grid-box">
                   <img
@@ -95,7 +98,7 @@ const ProductPage = () => {
                     src="/game-4.png"
                     alt=""
                   />
-                  <pre className="fps-text text-sm font-bold">300FPS</pre>
+                  <pre className="fps-text text-sm font-bold">200FPS</pre>
                 </div>
                 <div className="game-grid-box">
                   <img
@@ -103,7 +106,7 @@ const ProductPage = () => {
                     src="/game-5.png"
                     alt=""
                   />
-                  <pre className="fps-text text-sm font-bold">520FPS</pre>
+                  <pre className="fps-text text-sm font-bold">185FPS</pre>
                 </div>
                 <div className="game-grid-box">
                   <img
@@ -111,14 +114,10 @@ const ProductPage = () => {
                     src="/game-6.png"
                     alt=""
                   />
-                  <pre className="fps-text text-sm font-bold">95FPS</pre>
+                  <pre className="fps-text text-sm font-bold">175FPS</pre>
                 </div>
               </div>
             </div>
-          </div>
-          <div>
-            <h4 className="text-2xl font-bold">Specifications</h4>
-            {documentToReactComponents(fields.specifications)}
           </div>
         </div>
       </Layout>

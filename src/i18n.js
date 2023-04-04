@@ -8,9 +8,9 @@ const resources = {
   en: {
     translation: {
       "markku-customs": "Markku Customs",
-      "home":"Home",
-      "store":"Store",
-      "contact":"Contact",
+      home: "Home",
+      store: "Store",
+      contact: "Contact",
       hero: {
         heading: "We Build. <br/> You Play.",
         description:
@@ -26,11 +26,11 @@ const resources = {
   fi: {
     translation: {
       "markku-customs": "Markkulan Kustomsit",
-      "home":"Koti",
-      "store":"Kauppa",
-      "contact":"Yhteyshenkilö",
+      home: "Koti",
+      store: "Kauppa",
+      contact: "Yhteystiedot",
       hero: {
-        heading: "Me Rakennamme. <br/> Te Pelaatte.",
+        heading: "We Build. <br/> You Play.",
         description:
           "Rakennamme asiakkaan tarpeisiin ja budjettiin räätälöityjä, korkean suorituskyvyn tietokoneita käyttäen vain laadukkaimpia komponentteja. Ota yhteyttä aloittaaksesi täydellisen tietokoneen rakentamisen!",
         buttons: {
