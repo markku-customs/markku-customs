@@ -47,9 +47,52 @@ html {
   object-fit: cover;
 }
 
-.store-item-left {
-  min-width: 30%;
+.product-page-grid{
+  display: grid;
+  grid-template-rows: [hero-title-row] 2.5Fr [description-row] 1.5Fr [last-row] 1.75Fr;
+  grid-template-columns: [first-column] 6Fr [end-column] 4Fr;
+  column-gap: 2rem;
+  margin-top: 5vh;
 }
-.store-item-right {
-  min-width: 70%;
+
+.game-grid{
+  display: grid;
+  grid-template-columns: repeat(6, 0.9fr);
+  grid-row: last-row/last-row;
+  grid-column: first-column/end-column;
+  grid-gap: 10px;
+}
+.game-grid-container{
+  display: flex;
+  flex-direction: column;
+  grid-row: last-row/last-row;
+  padding: 1rem;
+}
+.fps-text{
+  text-align: center;
+}
+.game-grid-heading{
+  text-align: left;
+  margin-bottom: 2vh;
+}
+
+.store-product-main-image-container{
+  grid-row: hero-title-row/hero-title-row ;
+  height: 50vh;
+}
+
+.store-product-main-image{
+  height: 100%;
+  min-width: 100%;
+  object-fit: cover;
+}
+
+.store-product-heading-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.store-product-specific-description{
+  grid-row: description-row/description-row;
 }
