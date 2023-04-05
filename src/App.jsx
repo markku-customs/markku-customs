@@ -1,9 +1,11 @@
+import { useState, useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+import { createClient } from "contentful";
+
+import { StoreItemsContext } from "./contexts/StoreItemsContext";
+
 import HomePage from "./pages/HomePage";
 import ProductPage from "./pages/ProductPage";
-import { Route, Routes } from "react-router-dom";
-import { StoreItemsContext } from "./contexts/StoreItemsContext";
-import { createClient } from "contentful";
-import { useState, useEffect } from "react";
 
 const client = createClient({
   space: import.meta.env.VITE_CONTENTFUL_SPACE_ID,

@@ -32,6 +32,7 @@ const Hero = () => {
           </Link>
         </div>
       </div>
+      <div className="gradient"></div>
     </section>
   );
 };

@@ -1,5 +1,5 @@
-import { HashLink as Link } from "react-router-hash-link";
 import { useState, useEffect } from "react";
+import { HashLink as Link } from "react-router-hash-link";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { createClient } from "contentful";
@@ -37,15 +37,15 @@ const ProductPage = () => {
       <Layout>
         <div className="container">
           <div className="product-page-grid">
-            <div className="store-product-heading-text gap-2">
+            <div className="store-product-heading-text gap-4">
               <h3 className="text-4xl font-heading">{fields.name}</h3>
               <p className="text-2xl">{fields.price} €</p>
-              <p>{fields.description}</p>
+              <p className="text-sm text-gray-400">{fields.description}</p>
               <Link
-                href=""
-                className="p-2 border-2 border-red-600 w-40 text-center hover:scale-110 rounded "
+                to="/#contact"
+                className="button | bg-red-600 hover:brightness-125 w-fit"
               >
-                Contact us now
+                Order Now
               </Link>
             </div>
 

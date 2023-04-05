@@ -1,8 +1,12 @@
+import { useTranslation } from "react-i18next";
+
 const Contact = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="py-12 sm:py-16" id="contact">
       <div className="container mx-auto gap-2">
-        <h2 className="font-heading text-4xl md:text-6xl mb-8">Contact Us</h2>
+        <h2 className="font-heading text-4xl md:text-6xl mb-8"><span className="text-red-600 mr-4">#</span>{t("contact")}</h2>
         <ul className="flex gap-10 mb-2 flex-wrap">
           <li className="flex text-sm items-center gap-1">
             <pre className="font-bold text-sm">Phone Number</pre>:{" "}
