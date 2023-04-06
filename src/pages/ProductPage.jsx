@@ -2,8 +2,9 @@ import { useState, useEffect, Children, cloneElement } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 import { createClient } from "contentful";
-import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
+import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import Layout from "../components/Layout";
@@ -14,9 +15,6 @@ const client = createClient({
 });
 
 const options = {
-  // renderMark: {
-  //   [MARKS.BOLD]: (text) => <Bold>{text}</Bold>,
-  // },
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => (
       <p className="text-zinc-400 leading-8 my-2">{children}</p>
@@ -100,11 +98,12 @@ const options = {
 const ProductPage = () => {
   const [product, setProduct] = useState(null);
   const { id } = useParams();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     client
-      .getEntries({ content_type: "product", "sys.id": id })
-      .then((entries) => setProduct(entries.items[0]))
+      .getEntry(id, { content_type: "product", locale: "*" })
+      .then((entry) => setProduct(entry))
       .catch((err) => console.log(err));
   }, []);
 
@@ -112,10 +111,14 @@ const ProductPage = () => {
 
   const { fields } = product;
 
+  const { name, price, description, specifications, images } = fields;
+
+  const lng = i18n.language;
+
   return (
     <>
       <Helmet>
-        <title>{fields.name} | Markku Customs</title>
+        <title>{fields.name[lng]} | Markku Customs</title>
         <meta name="description" content="Markku Customs Official Website" />
       </Helmet>
 
@@ -123,28 +126,34 @@ const ProductPage = () => {
         <div className="container">
           <div className="product-page-grid">
             <div className="store-product-heading-text gap-4">
-              <h3 className="text-4xl font-heading">{fields.name}</h3>
-              <p className="text-2xl">{fields.price} €</p>
-              <p className="text-sm text-gray-400">{fields.description}</p>
+              <h3 className="text-4xl font-heading">{name[lng]}</h3>
+              <p className="text-2xl">{price["en-US"]} €</p>
+              <p className="text-sm text-gray-400">
+                {description[lng] || description["en-US"]}
+              </p>
               <Link
                 to="/#contact"
                 className="button | bg-red-600 hover:brightness-125 w-fit"
               >
-                Order Now
+                {t("order")}
               </Link>
             </div>
 
             <div className="store-product-main-image-container">
               <img
                 className="store-product-main-image"
-                src="/store-item-dummy-pic.png"
-                alt=""
+                src={
+                  images
+                    ? `https:${images["en-US"][0].fields.file["en-US"].url}`
+                    : "/display-dummy-picture.jpeg"
+                }
+                alt={name[lng]}
               />
             </div>
 
             <div className="specifications-container">
               <div className="specifications">
-                {documentToReactComponents(fields.specifications, options)}
+                {documentToReactComponents(specifications[lng], options)}
               </div>
             </div>
 

@@ -60,14 +60,14 @@ const Navbar = ({ open, setOpen }) => {
                 </li>
               </ul>
               <div className="flex gap-4 items-center">
-                <button onClick={() => i18n.changeLanguage("en")}>
+                <button onClick={() => i18n.changeLanguage("en-US")}>
                   <img
                     className="hover:scale-110 h-4 transition duration-100"
                     src={englishFlag}
                     alt="English"
                   />
                 </button>
-                <button onClick={() => i18n.changeLanguage("fi")}>
+                <button onClick={() => i18n.changeLanguage("fi-FI")}>
                   <img
                     className="hover:scale-110 h-4 transition duration-100"
                     src={finnishFlag}
@@ -118,14 +118,14 @@ const Navbar = ({ open, setOpen }) => {
             </Link>
             <li>
               <div className="grow flex gap-4 items-center">
-                <button onClick={() => i18n.changeLanguage("en")}>
+                <button onClick={() => i18n.changeLanguage("en-US")}>
                   <img
                     className="hover:scale-110 h-4 transition duration-100"
                     src={englishFlag}
                     alt="English"
                   />
                 </button>
-                <button onClick={() => i18n.changeLanguage("fi")}>
+                <button onClick={() => i18n.changeLanguage("fi-FI")}>
                   <img
                     className="hover:scale-110 h-4 transition duration-100"
                     src={finnishFlag}
