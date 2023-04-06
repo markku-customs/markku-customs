@@ -9,41 +9,43 @@
   body {
     font-family: "Inter", sans-serif;
     color: white;
-    background-color: #0c0c0e
+    background-color: #0c0c0e;
   }
 
   .specifications table {
-    @apply w-full text-sm text-left text-gray-400 mt-5
+    @apply w-full text-sm text-left text-gray-400 mt-5;
   }
 
   .specifications thead {
-    @apply text-xs text-gray-400 uppercase bg-gray-700
+    @apply text-xs text-gray-400 uppercase bg-gray-700;
   }
 
   .specifications tr {
-    @apply border-b bg-gray-800 border-gray-700
+    @apply border-b bg-gray-800 border-gray-700;
   }
 
-  .specifications th, .specifications td {
-    @apply px-6 py-4
+  .specifications th,
+  .specifications td {
+    @apply px-6 py-4;
   }
 
-  .specifications ul, .specifications ol {
-    @apply max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400
+  .specifications ul,
+  .specifications ol {
+    @apply max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400;
   }
 
   .specifications a {
-    @apply font-medium text-blue-600 dark:text-blue-500 hover:underline
+    @apply font-medium text-blue-600 dark:text-blue-500 hover:underline;
   }
 
   .specifications h1 {
-    @apply text-2xl font-bold mt-5
+    @apply text-2xl font-bold mt-5;
   }
 }
 
 @layer components {
   .button {
-    @apply px-8 py-4 text-xs uppercase tracking-[.30em] font-semibold transition duration-100
+    @apply px-8 py-4 text-xs uppercase tracking-[.30em] font-semibold transition duration-100;
   }
 }
 
@@ -109,7 +111,7 @@ html {
   object-fit: cover;
 }
 
-.product-page-grid{
+.product-page-grid {
   display: grid;
   grid-template-rows: [hero-title-row] auto [description-row] 1.5fr [last-row] 0.25fr;
   grid-template-columns: [first-column] 6fr [end-column] 4fr;
@@ -117,7 +119,7 @@ html {
   margin-top: 5vh;
 }
 
-.game-grid{
+.game-grid {
   display: grid;
   grid-template-columns: repeat(6, 0.9fr);
   grid-row: last-row/last-row;
@@ -125,17 +127,17 @@ html {
   grid-gap: 10px;
 }
 
-.game-grid-container{
+.game-grid-container {
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
   grid-row: last-row/last-row;
 }
 
-.fps-text{
+.fps-text {
   text-align: center;
 }
-.game-grid-heading{
+.game-grid-heading {
   text-align: left;
   margin-bottom: 2vh;
 }
@@ -145,51 +147,40 @@ html {
   max-height: 24rem;
 }
 
-.store-product-main-image{
+.store-product-main-image {
   height: 100%;
   min-width: 100%;
   object-fit: cover;
 }
 
-.store-product-heading-text{
+.store-product-heading-text {
   display: flex;
   flex-direction: column;
   max-height: 40vh;
 }
 
-.specifications-container{
+.specifications-container {
   grid-row: description-row/description-row;
   grid-column-start: 1;
   grid-column-end: 3;
 }
 
-.mobile-nav{
+.mobile-nav {
   display: none;
 }
-.open-menu{
+.open-menu {
   display: none;
 }
-.closed-menu{
-  display: none;
-}
-.menu-container{
+.closed-menu {
   display: none;
 }
 
-@media only screen and (max-width: 750px){
-  .nav-bar-items{
-    display: none;
-  }
-  .closed-menu{
+@media only screen and (max-width: 750px) {
+  .closed-menu {
     display: block;
   }
 
-  .open-menu{
+  .open-menu {
     display: none;
   }
-
-  .menu-container{
-    display: block;
-  }
 }
-
