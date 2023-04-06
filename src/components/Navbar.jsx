@@ -9,19 +9,19 @@ const Navbar = ({ open, setOpen }) => {
   const { t, i18n } = useTranslation();
 
   const openMenuRef = useRef();
-  const MenuRef = useRef();
-  const MobileNavRef = useRef();
+  const closeMenuRef = useRef();
+  const mobileNavRef = useRef();
 
   const openMobileMenu = () => {
-    MenuRef.current.style.display = "none";
+    closeMenuRef.current.style.display = "none";
     openMenuRef.current.style.display = "block";
-    MobileNavRef.current.style.display = "block";
+    mobileNavRef.current.style.display = "block";
   };
 
   const closeMobileMenu = () => {
-    MenuRef.current.style.display = "block";
+    closeMenuRef.current.style.display = "block";
     openMenuRef.current.style.display = "none";
-    MobileNavRef.current.style.display = "none";
+    mobileNavRef.current.style.display = "none";
   };
 
   return (
@@ -77,41 +77,43 @@ const Navbar = ({ open, setOpen }) => {
               </div>
             </div>
             <div className="block sm:hidden">
-              <img
-                ref={MenuRef}
-                onClick={openMobileMenu}
-                className="closed-menu"
-                src="/menu.png"
-                alt=""
-              />
-              <img
-                ref={openMenuRef}
-                onClick={closeMobileMenu}
-                className="open-menu"
-                src="/menu-open.png"
-                alt=""
-              />
+              <button onClick={openMobileMenu}>
+                <img
+                  ref={closeMenuRef}
+                  className="closed-menu"
+                  src="/menu-open.svg"
+                  alt=""
+                />
+              </button>
+              <button onClick={closeMobileMenu}>
+                <img
+                  ref={openMenuRef}
+                  className="open-menu"
+                  src="/menu-close.svg"
+                  alt=""
+                />
+              </button>
             </div>
           </div>
         </nav>
         <nav
-          ref={MobileNavRef}
+          ref={mobileNavRef}
           className="mobile-nav border-b-2 bg-zinc-950 border-red-600"
         >
           <ul className="flex gap-4 flex-col justify-between items-center p-3">
             <Link to="/#home">
               <li className="text-base hover:text-red-600 hover:scale-110">
-                {t("home")}
+                {t("links.home")}
               </li>
             </Link>
             <Link to="/#store">
               <li className="text-base hover:text-red-600 hover:scale-110">
-                {t("store")}
+                {t("links.store")}
               </li>
             </Link>
             <Link to="/#contact">
               <li className="text-base hover:text-red-600 hover:scale-110">
-                {t("contact")}
+                {t("links.contact")}
               </li>
             </Link>
             <li>

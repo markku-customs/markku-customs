@@ -71,7 +71,7 @@ const options = {
       <th className="px-6 py-4 bg-zinc-900">
         {Children.map(children, (child) =>
           cloneElement(child, {
-            className: "text-zinc-200 leading-8 uppercase my-0",
+            className: "text-zinc-200 leading-8 my-0",
           })
         )}
       </th>
