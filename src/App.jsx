@@ -17,7 +17,7 @@ const App = () => {
 
   useEffect(() => {
     client
-      .getEntries({ content_type: "product" })
+      .getEntries({ content_type: "product", locale: "*" })
       .then((entries) => setProducts(entries.items))
       .catch((err) => console.log(err));
   }, []);

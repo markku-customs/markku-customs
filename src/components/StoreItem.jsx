@@ -1,5 +1,13 @@
+import { useTranslation } from "react-i18next";
+
 const StoreItem = ({ product }) => {
+  const { i18n } = useTranslation();
+
   const { fields } = product;
+
+  const { name, price, images } = fields;
+
+  const lng = i18n.language;
 
   console.log(fields);
 
@@ -8,16 +16,16 @@ const StoreItem = ({ product }) => {
       <div className="image-container max-h-48">
         <img
           src={
-            fields.images
-              ? `https:${fields.images[0].fields.file.url}`
+            images
+              ? `https:${images["en-US"][0].fields.file["en-US"].url}`
               : "/store-item-dummy-pic.png"
           }
-          alt={fields.images ? fields.images[0].fields.title : fields.name}
+          alt={name[lng]}
         />
       </div>
       <div className="p-4">
-        <h2 className="font-heading">{fields.name}</h2>
-        <p className="font-heading text-3xl mt-1">{fields.price} €</p>
+        <h2 className="font-heading">{name[lng]}</h2>
+        <p className="font-heading text-3xl mt-1">{price["en-US"]} €</p>
       </div>
     </article>
   );
