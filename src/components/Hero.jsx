@@ -14,7 +14,7 @@ const Hero = () => {
             We Play.
           </Trans>
         </h1>
-        <p className="mt-6 sm:mt-8 max-w-prose text-sm sm:text-base leading-8">
+        <p className="mt-6 sm:mt-8 max-w-prose text-sm sm:text-base leading-8 text-zinc-300">
           {t("hero.description")}
         </p>
         <div className="flex flex-wrap gap-4 mt-6 sm:mt-8">

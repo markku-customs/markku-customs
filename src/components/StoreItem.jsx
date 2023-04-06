@@ -3,7 +3,7 @@ const StoreItem = ({ product }) => {
 
   return (
     <article className="bg-zinc-900 hover:bg-zinc-800 transition duration-400">
-      <div className="image-container">
+      <div className="image-container max-h-48">
         <img src="/hero.png" alt="" />
       </div>
       <div className="p-4">

@@ -37,41 +37,43 @@ const Navbar = ({ open, setOpen }) => {
                 height={32}
                 width={32}
               />
-              <span className="text-xl font-heading">
+              <span className="font-heading text-xl">
                 {t("markku-customs")}
               </span>
             </Link>
             <div className="hidden sm:flex gap-6">
               <ul className="flex -my-4">
-                <li className="text-xs uppercase tracking-[.30em] font-semibold h-full px-6 flex items-center hover:bg-zinc-900 pointer-events-none transition duration-200">
+                <li className="text-xs uppercase tracking-[.30em] font-semibold h-full px-4 md:px-6 flex items-center hover:bg-zinc-900 pointer-events-none transition duration-200">
                   <Link to="/#home" className="pointer-events-auto">
-                    {t("home")}
+                    {t("links.home")}
                   </Link>
                 </li>
-                <li className="text-xs uppercase tracking-[.30em] font-semibold h-full px-6 flex items-center hover:bg-zinc-900 pointer-events-none transition duration-200">
+                <li className="text-xs uppercase tracking-[.30em] font-semibold h-full px-4 md:px-6 flex items-center hover:bg-zinc-900 pointer-events-none transition duration-200">
                   <Link to="/#store" className="pointer-events-auto">
-                    {t("store")}
+                    {t("links.store")}
                   </Link>
                 </li>
-                <li className="text-xs uppercase tracking-[.30em] font-semibold h-full px-6 flex items-center hover:bg-zinc-900 pointer-events-none transition duration-200">
+                <li className="text-xs uppercase tracking-[.30em] font-semibold h-full px-4 md:px-6 flex items-center hover:bg-zinc-900 pointer-events-none transition duration-200">
                   <Link to="/#contact" className="pointer-events-auto">
-                    {t("contact")}
+                    {t("links.contact")}
                   </Link>
                 </li>
               </ul>
               <div className="flex gap-4 items-center">
-                <img
-                  onClick={() => i18n.changeLanguage("en")}
-                  className="hover:scale-110 h-4 transition duration-100"
-                  src={englishFlag}
-                  alt="English"
-                />
-                <img
-                  onClick={() => i18n.changeLanguage("fi")}
-                  className="hover:scale-110 h-4 transition duration-100"
-                  src={finnishFlag}
-                  alt="Suomi"
-                />
+                <button onClick={() => i18n.changeLanguage("en")}>
+                  <img
+                    className="hover:scale-110 h-4 transition duration-100"
+                    src={englishFlag}
+                    alt="English"
+                  />
+                </button>
+                <button onClick={() => i18n.changeLanguage("fi")}>
+                  <img
+                    className="hover:scale-110 h-4 transition duration-100"
+                    src={finnishFlag}
+                    alt="Suomi"
+                  />
+                </button>
               </div>
             </div>
             <div className="block sm:hidden">
@@ -114,18 +116,20 @@ const Navbar = ({ open, setOpen }) => {
             </Link>
             <li>
               <div className="grow flex gap-4 items-center">
-                <img
-                  onClick={() => i18n.changeLanguage("en")}
-                  className="hover:scale-110 h-4 transition duration-100"
-                  src={englishFlag}
-                  alt="English"
-                />
-                <img
-                  onClick={() => i18n.changeLanguage("fi")}
-                  className="hover:scale-110 h-4 transition duration-100"
-                  src={finnishFlag}
-                  alt="Finnish"
-                />
+                <button onClick={() => i18n.changeLanguage("en")}>
+                  <img
+                    className="hover:scale-110 h-4 transition duration-100"
+                    src={englishFlag}
+                    alt="English"
+                  />
+                </button>
+                <button onClick={() => i18n.changeLanguage("fi")}>
+                  <img
+                    className="hover:scale-110 h-4 transition duration-100"
+                    src={finnishFlag}
+                    alt="Finnish"
+                  />
+                </button>
               </div>
             </li>
           </ul>
