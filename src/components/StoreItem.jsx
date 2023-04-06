@@ -1,10 +1,19 @@
 const StoreItem = ({ product }) => {
   const { fields } = product;
 
+  console.log(fields);
+
   return (
     <article className="bg-zinc-900 hover:bg-zinc-800 transition duration-400">
       <div className="image-container max-h-48">
-        <img src="/hero.png" alt="" />
+        <img
+          src={
+            fields.images
+              ? `https:${fields.images[0].fields.file.url}`
+              : "/store-item-dummy-pic.png"
+          }
+          alt={fields.images ? fields.images[0].fields.title : fields.name}
+        />
       </div>
       <div className="p-4">
         <h2 className="font-heading">{fields.name}</h2>

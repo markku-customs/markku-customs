@@ -137,8 +137,14 @@ const ProductPage = () => {
             <div className="store-product-main-image-container">
               <img
                 className="store-product-main-image"
-                src="/store-item-dummy-pic.png"
-                alt=""
+                src={
+                  fields.images
+                    ? `https:${fields.images[0].fields.file.url}`
+                    : "/store-product-dummy-picture.jpeg"
+                }
+                alt={
+                  fields.images ? fields.images[0].fields.title : fields.name
+                }
               />
             </div>
 
