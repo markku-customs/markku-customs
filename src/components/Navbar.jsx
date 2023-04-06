@@ -44,17 +44,17 @@ const Navbar = ({ open, setOpen }) => {
             <div className="hidden sm:flex gap-6">
               <ul className="flex -my-4">
                 <li className="text-xs uppercase tracking-[.30em] font-semibold h-full px-4 md:px-6 flex items-center hover:bg-zinc-900 pointer-events-none transition duration-200">
-                  <Link to="/#home" className="pointer-events-auto">
+                  <Link to="/#home" className="pointer-events-auto w-full h-full flex items-center">
                     {t("links.home")}
                   </Link>
                 </li>
                 <li className="text-xs uppercase tracking-[.30em] font-semibold h-full px-4 md:px-6 flex items-center hover:bg-zinc-900 pointer-events-none transition duration-200">
-                  <Link to="/#store" className="pointer-events-auto">
+                  <Link to="/#store" className="pointer-events-auto w-full h-full flex items-center">
                     {t("links.store")}
                   </Link>
                 </li>
                 <li className="text-xs uppercase tracking-[.30em] font-semibold h-full px-4 md:px-6 flex items-center hover:bg-zinc-900 pointer-events-none transition duration-200">
-                  <Link to="/#contact" className="pointer-events-auto">
+                  <Link to="/#contact" className="pointer-events-auto w-full h-full flex items-center">
                     {t("links.contact")}
                   </Link>
                 </li>
