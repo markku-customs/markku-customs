@@ -115,6 +115,8 @@ const ProductPage = () => {
 
   const lng = i18n.language;
 
+  const desc = description[lng] || description["en-US"]
+
   return (
     <>
       <Helmet>
@@ -128,9 +130,9 @@ const ProductPage = () => {
             <div className="store-product-heading-text gap-4">
               <h3 className="text-4xl font-heading">{name[lng]}</h3>
               <p className="text-2xl">{price["en-US"]} €</p>
-              <p className="text-sm text-gray-400">
-                {description[lng] || description["en-US"]}
-              </p>
+              {desc.split(/\n/g).filter(e => e).map(text => (
+                <p className="text-sm text-gray-400">{text}</p>
+              ))}
               <Link
                 to="/#contact"
                 className="button | bg-red-600 hover:brightness-125 w-fit"
@@ -158,62 +160,66 @@ const ProductPage = () => {
             </div>
 
             <div className="game-grid-container">
-              <div>
-                <h1 className="game-grid-heading text-2xl font-bold">
-                  Games You Can Play With This PC
-                </h1>
-              </div>
+              <h4 className="text-2xl font-bold mb-4">
+                FPS Performance
+              </h4>
               <div className="game-grid">
                 <div className="game-grid-box">
                   <img
-                    className="h-30 w-32 object-cover"
+                    className="aspect-square w-full object-cover"
                     src="/game-1.png"
-                    alt=""
+                    alt="Fortnite"
                   />
-                  <pre className="fps-text text-sm font-bold">100FPS</pre>
+                  <pre className="fps-text text-sm font-bold">100 FPS</pre>
                 </div>
                 <div className="game-grid-box">
                   <img
-                    className="h-30 w-32 object-cover"
+                    className="aspect-square w-full object-cover"
                     src="/game-2.png"
-                    alt=""
+                    alt="Counter-Strike: Global Offensive"
                   />
-                  <pre className="fps-text text-sm font-bold">240FPS</pre>
+                  <pre className="fps-text text-sm font-bold">240 FPS</pre>
                 </div>
                 <div className="game-grid-box">
                   <img
-                    className="h-30 w-32 object-cover"
+                    className="aspect-square w-full object-cover"
                     src="/game-3.png"
-                    alt=""
+                    alt="Valorant"
                   />
-                  <pre className="fps-text text-sm font-bold">175FPS</pre>
-                </div>{" "}
+                  <pre className="fps-text text-sm font-bold">175 FPS</pre>
+                </div>
                 <div className="game-grid-box">
                   <img
-                    className="h-30 w-32 object-cover"
+                    className="aspect-square w-full object-cover"
                     src="/game-4.png"
-                    alt=""
+                    alt="League of Legends"
                   />
-                  <pre className="fps-text text-sm font-bold">200FPS</pre>
+                  <pre className="fps-text text-sm font-bold">200 FPS</pre>
                 </div>
                 <div className="game-grid-box">
                   <img
-                    className="h-30 w-32 object-cover"
+                    className="aspect-square w-full object-cover"
                     src="/game-5.png"
-                    alt=""
+                    alt="Overwatch"
                   />
-                  <pre className="fps-text text-sm font-bold">185FPS</pre>
+                  <pre className="fps-text text-sm font-bold">185 FPS</pre>
                 </div>
                 <div className="game-grid-box">
                   <img
-                    className="h-30 w-32 object-cover"
+                    className="aspect-square w-full object-cover"
                     src="/game-6.png"
-                    alt=""
+                    alt="Tom Clancy's Rainbow Six Siege"
                   />
-                  <pre className="fps-text text-sm font-bold">175FPS</pre>
+                  <pre className="fps-text text-sm font-bold">175 FPS</pre>
                 </div>
               </div>
             </div>
+{/* 
+            <div className="gaming-video-container p">
+              <video className="rounded" controls muted>
+                <source src="/dummy-video.mp4" type="video/mp4" />
+              </video>
+            </div> */}
           </div>
         </div>
       </Layout>

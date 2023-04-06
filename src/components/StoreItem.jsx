@@ -9,8 +9,6 @@ const StoreItem = ({ product }) => {
 
   const lng = i18n.language;
 
-  console.log(fields);
-
   return (
     <article className="bg-zinc-900 hover:bg-zinc-800 transition duration-400">
       <div className="image-container max-h-48">

@@ -98,34 +98,10 @@ html {
 
 .product-page-grid {
   display: grid;
-  grid-template-rows: [hero-title-row] auto [description-row] 1.5fr [last-row] 0.25fr;
+  grid-template-rows: [hero-title-row] auto [specifications-row] auto [last-row] auto;
   grid-template-columns: [first-column] 6fr [end-column] 4fr;
-  column-gap: 2rem;
-  margin-top: 5vh;
-}
-
-.game-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-row: last-row/last-row;
-  grid-column: first-column/end-column;
-  grid-gap: 10px;
-}
-
-.game-grid-container {
+  gap: 2rem;
   margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  grid-row: last-row/last-row;
-}
-
-.fps-text {
-  text-align: center;
-}
-
-.game-grid-heading {
-  text-align: left;
-  margin-bottom: 2vh;
 }
 
 .store-product-main-image-container {
@@ -136,24 +112,44 @@ html {
 .store-product-main-image {
   height: 100%;
   min-width: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background-color: #111114;
 }
 
 .store-product-heading-text {
   display: flex;
   flex-direction: column;
-  max-height: 40vh;
 }
 
 .specifications-container {
-  grid-row: description-row/description-row;
+  grid-row: specifications-row/specifications-row;
   grid-column-start: 1;
   grid-column-end: 3;
 }
-.gaming-video-container{
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-row: last-row/last-row;
+  grid-column: first-column/end-column;
+  grid-gap: 1rem;
+}
+
+.game-grid-container {
+  display: flex;
+  flex-direction: column;
+  grid-row: last-row/last-row;
+}
+
+.fps-text {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/* .gaming-video-container{
   grid-row: last-row/last-row;
   grid-column: end-column/end-column;
-}
+} */
 
 /* Navbar */
 
@@ -177,31 +173,26 @@ html {
   .open-menu {
     display: none;
   }
-}
-  .product-page-grid{
-    display: grid;
-    grid-template-rows: [hero-image] 0.5fr [text-description] 0.5fr [specifications] 0.55fr [game-performance] 0.2fr;
-    grid-template-columns: [only] 100%;
-    column-gap: 0;
-    row-gap: 2rem;
-  }
-  .specifications-container {
-    grid-row: specifications/specifications;
-  }
-  .game-grid-container {
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  grid-row: game-performance;
-  }
-  .store-product-main-image-container {
-  grid-row: hero-image;
-  max-height: 24rem;
-  }
-  .store-product-heading-text {
-  display: flex;
-  flex-direction: column;
-  max-height: 40vh;
-  grid-row: text-description;
-}
 
+  .product-page-grid {
+    grid-template-rows: [image] auto [description] auto [specifications] auto [games] auto;
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+  
+  .store-product-main-image-container {
+    grid-row: image;
+  }
+
+  .store-product-heading-text {
+    grid-row: description;
+  }
+
+  .specifications-container {
+    grid-row: specifications;
+  }
+
+  .game-grid-container {
+    grid-row: games;
+  }
+}
