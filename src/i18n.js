@@ -8,9 +8,11 @@ const resources = {
   en: {
     translation: {
       "markku-customs": "Markku Customs",
-      home: "Home",
-      store: "Store",
-      contact: "Contact",
+      links: {
+        home: "Home",
+        store: "Store",
+        contact: "Contact",
+      },
       hero: {
         heading: "We Build. <br/> You Play.",
         description:
@@ -20,15 +22,22 @@ const resources = {
           contact: "Contact Us",
         },
       },
+      contact: {
+        phone: "Phone Number",
+        email: "Email",
+        instagram: "Instagram",
+      },
       footer: "© {{year}} Markku Customs. All rights reserved.",
     },
   },
   fi: {
     translation: {
       "markku-customs": "Markkulan Kustomsit",
-      home: "Koti",
-      store: "Kauppa",
-      contact: "Yhteystiedot",
+      links: {
+        home: "Koti",
+        store: "Kauppa",
+        contact: "Yhteystiedot",
+      },
       hero: {
         heading: "We Build. <br/> You Play.",
         description:
@@ -37,6 +46,11 @@ const resources = {
           store: "Näytä Valikoima",
           contact: "Ota Yhteyttä",
         },
+      },
+      contact: {
+        phone: "Puhelinnumero",
+        email: "Sähköposti",
+        instagram: "Instagram",
       },
       footer: "© {{year}} Markku Customs. Kaikki oikeudet pidätetään.",
     },

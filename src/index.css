@@ -9,41 +9,13 @@
   body {
     font-family: "Inter", sans-serif;
     color: white;
-    background-color: #0c0c0e
-  }
-
-  .specifications table {
-    @apply w-full text-sm text-left text-gray-400 mt-5
-  }
-
-  .specifications thead {
-    @apply text-xs text-gray-400 uppercase bg-gray-700
-  }
-
-  .specifications tr {
-    @apply border-b bg-gray-800 border-gray-700
-  }
-
-  .specifications th, .specifications td {
-    @apply px-6 py-4
-  }
-
-  .specifications ul, .specifications ol {
-    @apply max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400
-  }
-
-  .specifications a {
-    @apply font-medium text-blue-600 dark:text-blue-500 hover:underline
-  }
-
-  .specifications h1 {
-    @apply text-2xl font-bold mt-5
+    background-color: #0c0c0e;
   }
 }
 
 @layer components {
   .button {
-    @apply px-8 py-4 text-xs uppercase tracking-[.30em] font-semibold transition duration-100
+    @apply px-8 py-4 text-xs uppercase tracking-[.30em] font-semibold transition duration-100;
   }
 }
 
@@ -51,6 +23,8 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 66px;
 }
+
+/* Home Page | Hero Section */
 
 .hero {
   background-image: url("/hero.png");
@@ -77,6 +51,8 @@ html {
   background: linear-gradient(0deg, #0c0c0e 0%, #00000000 100%);
 }
 
+/* Home Page | Store Section */
+
 .store-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -87,19 +63,28 @@ html {
   overflow: hidden;
 }
 
+.store-grid .image-container {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transition: 200ms;
+}
+
+.store-grid article:hover .image-container {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
+}
+
 .store-grid img {
   aspect-ratio: 16/9;
   object-fit: cover;
   height: 100%;
   width: 100%;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   transition: 200ms;
 }
 
 .store-grid article:hover img {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
   scale: 1.2;
 }
+
+/* Home Page | Contact Section */
 
 .contact-image {
   max-height: 35vh;
@@ -109,7 +94,9 @@ html {
   object-fit: cover;
 }
 
-.product-page-grid{
+/* Product Page */
+
+.product-page-grid {
   display: grid;
   grid-template-rows: [hero-title-row] auto [description-row] 1.5fr [last-row] 0.25fr;
   grid-template-columns: [first-column] 6fr [end-column] 4fr;
@@ -117,7 +104,7 @@ html {
   margin-top: 5vh;
 }
 
-.game-grid{
+.game-grid {
   display: grid;
   grid-template-columns: repeat(6, 0.9fr);
   grid-row: last-row/last-row;
@@ -125,17 +112,18 @@ html {
   grid-gap: 10px;
 }
 
-.game-grid-container{
+.game-grid-container {
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
   grid-row: last-row/last-row;
 }
 
-.fps-text{
+.fps-text {
   text-align: center;
 }
-.game-grid-heading{
+
+.game-grid-heading {
   text-align: left;
   margin-bottom: 2vh;
 }
@@ -145,51 +133,44 @@ html {
   max-height: 24rem;
 }
 
-.store-product-main-image{
+.store-product-main-image {
   height: 100%;
   min-width: 100%;
   object-fit: cover;
 }
 
-.store-product-heading-text{
+.store-product-heading-text {
   display: flex;
   flex-direction: column;
   max-height: 40vh;
 }
 
-.specifications-container{
+.specifications-container {
   grid-row: description-row/description-row;
   grid-column-start: 1;
   grid-column-end: 3;
 }
 
-.mobile-nav{
-  display: none;
-}
-.open-menu{
-  display: none;
-}
-.closed-menu{
-  display: none;
-}
-.menu-container{
+/* Navbar */
+
+.mobile-nav {
   display: none;
 }
 
-@media only screen and (max-width: 750px){
-  .nav-bar-items{
-    display: none;
-  }
-  .closed-menu{
+.open-menu {
+  display: none;
+}
+
+.closed-menu {
+  display: none;
+}
+
+@media only screen and (max-width: 750px) {
+  .closed-menu {
     display: block;
   }
 
-  .open-menu{
+  .open-menu {
     display: none;
   }
-
-  .menu-container{
-    display: block;
-  }
 }
-

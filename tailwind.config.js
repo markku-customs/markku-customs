@@ -3,7 +3,7 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontFamily: {
-      heading: ["Goldman", "cursive"],
+      heading: ["Goldman", "sans-serif"],
       body: ["Inter", "sans-serif"],
     },
     container: {
