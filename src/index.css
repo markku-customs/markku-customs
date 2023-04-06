@@ -54,6 +54,8 @@ html {
   scroll-padding-top: 66px;
 }
 
+/* Home Page | Hero Section */
+
 .hero {
   background-image: url("/hero.png");
   height: calc(100vh - 66px);
@@ -79,6 +81,8 @@ html {
   background: linear-gradient(0deg, #0c0c0e 0%, #00000000 100%);
 }
 
+/* Home Page | Store Section */
+
 .store-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -89,19 +93,28 @@ html {
   overflow: hidden;
 }
 
+.store-grid .image-container {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transition: 200ms;
+}
+
+.store-grid article:hover .image-container {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
+}
+
 .store-grid img {
   aspect-ratio: 16/9;
   object-fit: cover;
   height: 100%;
   width: 100%;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   transition: 200ms;
 }
 
 .store-grid article:hover img {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
   scale: 1.2;
 }
+
+/* Home Page | Contact Section */
 
 .contact-image {
   max-height: 35vh;
@@ -110,6 +123,8 @@ html {
   background-repeat: no-repeat;
   object-fit: cover;
 }
+
+/* Product Page */
 
 .product-page-grid {
   display: grid;
@@ -137,6 +152,7 @@ html {
 .fps-text {
   text-align: center;
 }
+
 .game-grid-heading {
   text-align: left;
   margin-bottom: 2vh;
@@ -165,12 +181,16 @@ html {
   grid-column-end: 3;
 }
 
+/* Navbar */
+
 .mobile-nav {
   display: none;
 }
+
 .open-menu {
   display: none;
 }
+
 .closed-menu {
   display: none;
 }
