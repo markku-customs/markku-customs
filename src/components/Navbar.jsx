@@ -5,7 +5,7 @@ import React, { useRef } from "react";
 import englishFlag from "../assets/english-flag.svg";
 import finnishFlag from "../assets/finnish-flag.svg";
 
-const Navbar = ({ open, setOpen }) => {
+const Navbar = () => {
   const { t, i18n } = useTranslation();
 
   const openMenuRef = useRef();
