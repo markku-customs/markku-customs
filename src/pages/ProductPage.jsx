@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { HashLink as Link } from "react-router-hash-link";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
 import { createClient } from "contentful";
@@ -106,13 +106,17 @@ const options = {
 const ProductPage = () => {
   const [product, setProduct] = useState(null);
   const { id } = useParams();
+  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
     client
       .getEntry(id, { content_type: "product", locale: "*" })
       .then((entry) => setProduct(entry))
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        navigate("*", { replace: true });
+        console.log(err);
+      });
   }, []);
 
   if (!product) return null;
@@ -167,7 +171,7 @@ const ProductPage = () => {
                   />
                 ))
               ) : (
-                <img src="/store-item-dummy-pic.png" alt={name[lng]} />
+                <img src="/product-default.png" alt={name[lng]} />
               )}
             </Carousel>
 
