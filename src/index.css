@@ -106,14 +106,25 @@ html {
 
 .store-product-main-image-container {
   grid-row: hero-title-row/hero-title-row;
-  max-height: 24rem;
 }
 
-.store-product-main-image {
-  height: 100%;
+/* .store-product-main-image {
   min-width: 100%;
   object-fit: contain;
   background-color: #111114;
+  max-height: 4rem;
+} */
+
+.carousel .thumb img {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.carousel .slide img {
+  max-height: 32rem;
+  object-fit: contain;
+  background-color: #111114;
+  width: auto;
 }
 
 .store-product-heading-text {

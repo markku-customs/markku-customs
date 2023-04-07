@@ -7,6 +7,9 @@ import { createClient } from "contentful";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
+
 import Layout from "../components/Layout";
 
 const client = createClient({
@@ -115,7 +118,7 @@ const ProductPage = () => {
 
   const lng = i18n.language;
 
-  const desc = description[lng] || description["en-US"]
+  const desc = description[lng] || description["en-US"];
 
   return (
     <>
@@ -130,9 +133,12 @@ const ProductPage = () => {
             <div className="store-product-heading-text gap-4">
               <h3 className="text-4xl font-heading">{name[lng]}</h3>
               <p className="text-2xl">{price["en-US"]} €</p>
-              {desc.split(/\n/g).filter(e => e).map(text => (
-                <p className="text-sm text-gray-400">{text}</p>
-              ))}
+              {desc
+                .split(/\n/g)
+                .filter((e) => e)
+                .map((text) => (
+                  <p className="text-sm text-gray-400">{text}</p>
+                ))}
               <Link
                 to="/#contact"
                 className="button | bg-red-600 hover:brightness-125 w-fit"
@@ -141,17 +147,28 @@ const ProductPage = () => {
               </Link>
             </div>
 
-            <div className="store-product-main-image-container">
-              <img
-                className="store-product-main-image"
-                src={
-                  images
-                    ? `https:${images["en-US"][0].fields.file["en-US"].url}`
-                    : "/display-dummy-picture.jpeg"
-                }
-                alt={name[lng]}
-              />
-            </div>
+            <Carousel
+              className="store-product-main-image-container"
+              useKeyboardArrows={true}
+              dynamicHeight={true}
+            >
+              <div className="store-product-main-image">
+                <img
+                  src={
+                    images
+                      ? `https:${images["en-US"][0].fields.file["en-US"].url}`
+                      : "/display-dummy-picture.jpeg"
+                  }
+                  alt={name[lng]}
+                />
+              </div>
+              <div className="store-product-main-image">
+                <img src="/display-dummy-picture.jpeg" alt="" />
+              </div>
+              <div className="store-product-main-image">
+                <img src="/display-dummy-picture.jpeg" alt="" />
+              </div>
+            </Carousel>
 
             <div className="specifications-container">
               <div className="specifications">
@@ -160,9 +177,7 @@ const ProductPage = () => {
             </div>
 
             <div className="game-grid-container">
-              <h4 className="text-2xl font-bold mb-4">
-                FPS Performance
-              </h4>
+              <h4 className="text-2xl font-bold mb-4">FPS Performance</h4>
               <div className="game-grid">
                 <div className="game-grid-box">
                   <img
@@ -214,7 +229,7 @@ const ProductPage = () => {
                 </div>
               </div>
             </div>
-{/* 
+            {/* 
             <div className="gaming-video-container p">
               <video className="rounded" controls muted>
                 <source src="/dummy-video.mp4" type="video/mp4" />
