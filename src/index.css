@@ -195,4 +195,8 @@ html {
   .game-grid-container {
     grid-row: games;
   }
+
+  .hero{
+    background-image: url("/hero-phone.png");
+  }
 }
