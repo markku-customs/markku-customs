@@ -5,7 +5,7 @@ import React, { useRef } from "react";
 import englishFlag from "../assets/english-flag.svg";
 import finnishFlag from "../assets/finnish-flag.svg";
 
-const Navbar = ({ open, setOpen }) => {
+const Navbar = () => {
   const { t, i18n } = useTranslation();
 
   const openMenuRef = useRef();
@@ -43,18 +43,27 @@ const Navbar = ({ open, setOpen }) => {
             </Link>
             <div className="hidden sm:flex gap-6">
               <ul className="flex -my-4">
-                <li className="text-xs uppercase tracking-[.30em] font-semibold h-full px-4 md:px-6 flex items-center hover:bg-zinc-900 pointer-events-none transition duration-200">
-                  <Link to="/#home" className="pointer-events-auto w-full h-full flex items-center">
+                <li className="text-xs uppercase tracking-[.30em] font-semibold">
+                  <Link
+                    to="/#home"
+                    className="w-full h-full px-4 md:px-6 flex items-center hover:bg-zinc-900 transition duration-200"
+                  >
                     {t("links.home")}
                   </Link>
                 </li>
-                <li className="text-xs uppercase tracking-[.30em] font-semibold h-full px-4 md:px-6 flex items-center hover:bg-zinc-900 pointer-events-none transition duration-200">
-                  <Link to="/#store" className="pointer-events-auto w-full h-full flex items-center">
+                <li className="text-xs uppercase tracking-[.30em] font-semibold">
+                  <Link
+                    to="/#store"
+                    className="w-full h-full px-4 md:px-6 flex items-center hover:bg-zinc-900 transition duration-200"
+                  >
                     {t("links.store")}
                   </Link>
                 </li>
-                <li className="text-xs uppercase tracking-[.30em] font-semibold h-full px-4 md:px-6 flex items-center hover:bg-zinc-900 pointer-events-none transition duration-200">
-                  <Link to="/#contact" className="pointer-events-auto w-full h-full flex items-center">
+                <li className="text-xs uppercase tracking-[.30em] font-semibold">
+                  <Link
+                    to="/#contact"
+                    className="w-full h-full px-4 md:px-6 flex items-center hover:bg-zinc-900 transition duration-200"
+                  >
                     {t("links.contact")}
                   </Link>
                 </li>
@@ -77,20 +86,22 @@ const Navbar = ({ open, setOpen }) => {
               </div>
             </div>
             <div className="block sm:hidden">
-              <button onClick={openMobileMenu}>
+              <button onClick={openMobileMenu} aria-label="open menu">
                 <img
                   ref={closeMenuRef}
                   className="closed-menu"
                   src="/menu-open.svg"
                   alt=""
+                  aria-hidden="true"
                 />
               </button>
-              <button onClick={closeMobileMenu}>
+              <button onClick={closeMobileMenu} aria-label="close menu">
                 <img
                   ref={openMenuRef}
                   className="open-menu"
                   src="/menu-close.svg"
                   alt=""
+                  aria-hidden="true"
                 />
               </button>
             </div>
@@ -100,41 +111,48 @@ const Navbar = ({ open, setOpen }) => {
           ref={mobileNavRef}
           className="mobile-nav border-b-2 bg-zinc-950 border-red-600"
         >
-          <ul className="flex gap-4 flex-col justify-between items-center p-3">
-            <Link to="/#home">
-              <li className="text-base hover:text-red-600 hover:scale-110">
+          <ul className="flex flex-col">
+            <li className="text-xs uppercase tracking-[.30em] font-semibold">
+              <Link
+                to="/#home"
+                className="w-full h-full py-6 flex justify-center hover:bg-zinc-900 transition duration-200"
+              >
                 {t("links.home")}
-              </li>
-            </Link>
-            <Link to="/#store">
-              <li className="text-base hover:text-red-600 hover:scale-110">
+              </Link>
+            </li>
+            <li className="text-xs uppercase tracking-[.30em] font-semibold">
+              <Link
+                to="/#store"
+                className="w-full h-full py-6 flex justify-center hover:bg-zinc-900 transition duration-200"
+              >
                 {t("links.store")}
-              </li>
-            </Link>
-            <Link to="/#contact">
-              <li className="text-base hover:text-red-600 hover:scale-110">
+              </Link>
+            </li>
+            <li className="text-xs uppercase tracking-[.30em] font-semibold">
+              <Link
+                to="/#contact"
+                className="w-full h-full py-6 flex justify-center hover:bg-zinc-900 transition duration-200"
+              >
                 {t("links.contact")}
-              </li>
-            </Link>
-            <li>
-              <div className="grow flex gap-4 items-center">
-                <button onClick={() => i18n.changeLanguage("en-US")}>
-                  <img
-                    className="hover:scale-110 h-4 transition duration-100"
-                    src={englishFlag}
-                    alt="English"
-                  />
-                </button>
-                <button onClick={() => i18n.changeLanguage("fi-FI")}>
-                  <img
-                    className="hover:scale-110 h-4 transition duration-100"
-                    src={finnishFlag}
-                    alt="Finnish"
-                  />
-                </button>
-              </div>
+              </Link>
             </li>
           </ul>
+          <div className="p-4 flex gap-4 justify-center">
+            <button onClick={() => i18n.changeLanguage("en-US")}>
+              <img
+                className="hover:scale-110 h-4 transition duration-100"
+                src={englishFlag}
+                alt="English"
+              />
+            </button>
+            <button onClick={() => i18n.changeLanguage("fi-FI")}>
+              <img
+                className="hover:scale-110 h-4 transition duration-100"
+                src={finnishFlag}
+                alt="Finnish"
+              />
+            </button>
+          </div>
         </nav>
       </div>
     </>

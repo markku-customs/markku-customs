@@ -1,4 +1,4 @@
-import { useState, useEffect, Children, cloneElement } from "react";
+import React, { useState, useEffect } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -6,6 +6,9 @@ import { useTranslation } from "react-i18next";
 import { createClient } from "contentful";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
 import Layout from "../components/Layout";
 
@@ -49,8 +52,8 @@ const options = {
     ),
     [BLOCKS.LIST_ITEM]: (node, children) => (
       <li className="list-item">
-        {Children.map(children, (child) =>
-          cloneElement(child, {
+        {React.Children.map(children, (child) =>
+          React.cloneElement(child, {
             className: `text-zinc-400 inline-block leading-8 my-0"`,
           })
         )}
@@ -67,8 +70,8 @@ const options = {
     ),
     [BLOCKS.TABLE_HEADER_CELL]: (node, children) => (
       <th className="px-6 py-4 bg-zinc-900">
-        {Children.map(children, (child) =>
-          cloneElement(child, {
+        {React.Children.map(children, (child) =>
+          React.cloneElement(child, {
             className: "text-zinc-200 leading-8 my-0",
           })
         )}
@@ -76,12 +79,17 @@ const options = {
     ),
     [BLOCKS.TABLE_CELL]: (node, children) => (
       <td className="px-6 py-4">
-        {Children.map(children, (child) =>
-          cloneElement(child, {
+        {React.Children.map(children, (child) =>
+          React.cloneElement(child, {
             className: "text-zinc-400 leading-8 my-0",
           })
         )}
       </td>
+    ),
+    [BLOCKS.QUOTE]: (node, children) => (
+      <blockquote class="p-4 my-4 border-l-4 border-red-600 bg-zinc-800">
+        <p class="italic font-semibold">{children}</p>
+      </blockquote>
     ),
     [INLINES.HYPERLINK]: (node, children) => (
       <a
@@ -115,7 +123,9 @@ const ProductPage = () => {
 
   const lng = i18n.language;
 
-  const desc = description[lng] || description["en-US"]
+  const desc = description[lng] || description["en-US"];
+
+  console.log(fields);
 
   return (
     <>
@@ -128,11 +138,14 @@ const ProductPage = () => {
         <div className="container">
           <div className="product-page-grid">
             <div className="store-product-heading-text gap-4">
-              <h3 className="text-4xl font-heading">{name[lng]}</h3>
+              <h1 className="text-4xl font-heading">{name[lng]}</h1>
               <p className="text-2xl">{price["en-US"]} €</p>
-              {desc.split(/\n/g).filter(e => e).map(text => (
-                <p className="text-sm text-gray-400">{text}</p>
-              ))}
+              {desc
+                .split(/\n/g)
+                .filter((e) => e)
+                .map((text) => (
+                  <p className="text-sm text-gray-400">{text}</p>
+                ))}
               <Link
                 to="/#contact"
                 className="button | bg-red-600 hover:brightness-125 w-fit"
@@ -141,28 +154,33 @@ const ProductPage = () => {
               </Link>
             </div>
 
-            <div className="store-product-main-image-container">
-              <img
-                className="store-product-main-image"
-                src={
-                  images
-                    ? `https:${images["en-US"][0].fields.file["en-US"].url}`
-                    : "/display-dummy-picture.jpeg"
-                }
-                alt={name[lng]}
-              />
-            </div>
+            <Carousel
+              className="store-product-main-image-container"
+              useKeyboardArrows={true}
+              dynamicHeight={true}
+            >
+              {images ? (
+                images["en-US"].map((image) => (
+                  <img
+                    src={`https:${image.fields.file["en-US"].url}`}
+                    alt={name[lng]}
+                  />
+                ))
+              ) : (
+                <img src="/store-item-dummy-pic.png" alt={name[lng]} />
+              )}
+            </Carousel>
 
-            <div className="specifications-container">
-              <div className="specifications">
-                {documentToReactComponents(specifications[lng], options)}
+            {specifications && (
+              <div className="specifications-container">
+                <div className="specifications">
+                  {documentToReactComponents(specifications[lng], options)}
+                </div>
               </div>
-            </div>
+            )}
 
             <div className="game-grid-container">
-              <h4 className="text-2xl font-bold mb-4">
-                FPS Performance
-              </h4>
+              <h4 className="text-2xl font-bold mb-4">FPS Performance</h4>
               <div className="game-grid">
                 <div className="game-grid-box">
                   <img
@@ -214,7 +232,7 @@ const ProductPage = () => {
                 </div>
               </div>
             </div>
-{/* 
+            {/* 
             <div className="gaming-video-container p">
               <video className="rounded" controls muted>
                 <source src="/dummy-video.mp4" type="video/mp4" />

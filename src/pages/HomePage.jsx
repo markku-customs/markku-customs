@@ -9,7 +9,7 @@ const HomePage = () => {
   return (
     <>
       <Helmet>
-        <title>Markku Customs - We Build. You Play.</title>
+        <title>Markku Customs</title>
         <meta name="description" content="Markku Customs Official Website" />
       </Helmet>
 

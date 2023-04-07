@@ -84,16 +84,6 @@ html {
   scale: 1.2;
 }
 
-/* Home Page | Contact Section */
-
-.contact-image {
-  max-height: 35vh;
-  min-width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  object-fit: cover;
-}
-
 /* Product Page */
 
 .product-page-grid {
@@ -106,14 +96,28 @@ html {
 
 .store-product-main-image-container {
   grid-row: hero-title-row/hero-title-row;
-  max-height: 24rem;
 }
 
-.store-product-main-image {
-  height: 100%;
+/* .store-product-main-image {
   min-width: 100%;
   object-fit: contain;
   background-color: #111114;
+  max-height: 4rem;
+} */
+
+.carousel .thumb img {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.carousel .slide {
+  background-color: #18181d;
+}
+
+.carousel .slide img {
+  max-height: 24rem;
+  object-fit: contain;
+  width: auto;
 }
 
 .store-product-heading-text {
@@ -132,7 +136,7 @@ html {
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-row: last-row/last-row;
   grid-column: first-column/end-column;
-  grid-gap: 1rem;
+  gap: 1rem;
 }
 
 .game-grid-container {
@@ -179,7 +183,7 @@ html {
     grid-template-columns: 1fr;
     column-gap: 0;
   }
-  
+
   .store-product-main-image-container {
     grid-row: image;
   }
@@ -196,7 +200,7 @@ html {
     grid-row: games;
   }
 
-  .hero{
+  .hero {
     background-image: url("/hero-phone.png");
   }
 }
