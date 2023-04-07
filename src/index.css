@@ -179,7 +179,7 @@ html {
     grid-template-columns: 1fr;
     column-gap: 0;
   }
-  
+
   .store-product-main-image-container {
     grid-row: image;
   }
@@ -196,7 +196,7 @@ html {
     grid-row: games;
   }
 
-  .hero{
+  .hero {
     background-image: url("/hero-phone.png");
   }
 }
