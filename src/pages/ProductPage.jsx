@@ -120,6 +120,8 @@ const ProductPage = () => {
 
   const desc = description[lng] || description["en-US"];
 
+  console.log(fields);
+
   return (
     <>
       <Helmet>
@@ -152,22 +154,16 @@ const ProductPage = () => {
               useKeyboardArrows={true}
               dynamicHeight={true}
             >
-              <div className="store-product-main-image">
-                <img
-                  src={
-                    images
-                      ? `https:${images["en-US"][0].fields.file["en-US"].url}`
-                      : "/display-dummy-picture.jpeg"
-                  }
-                  alt={name[lng]}
-                />
-              </div>
-              <div className="store-product-main-image">
-                <img src="/display-dummy-picture.jpeg" alt="" />
-              </div>
-              <div className="store-product-main-image">
-                <img src="/display-dummy-picture.jpeg" alt="" />
-              </div>
+              {images ? (
+                images["en-US"].map((image) => (
+                  <img
+                    src={`https:${image.fields.file["en-US"].url}`}
+                    alt={name[lng]}
+                  />
+                ))
+              ) : (
+                <img src="/store-item-dummy-pic.png" alt={name[lng]} />
+              )}
             </Carousel>
 
             <div className="specifications-container">
