@@ -6,9 +6,9 @@ import Footer from "./Footer";
 const Layout = ({ children }) => {
   return (
     <div className="flex flex-col h-screen">
-      <div>
+      <div className="flex flex-col grow">
         <Navbar />
-        <main className="relative">{children}</main>
+        <main className="grow">{children}</main>
       </div>
       <Footer />
     </div>

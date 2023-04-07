@@ -6,6 +6,7 @@ import { StoreItemsContext } from "./contexts/StoreItemsContext";
 
 import HomePage from "./pages/HomePage";
 import ProductPage from "./pages/ProductPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const client = createClient({
   space: import.meta.env.VITE_CONTENTFUL_SPACE_ID,
@@ -27,6 +28,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/products/:id" element={<ProductPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </StoreItemsContext.Provider>
   );
