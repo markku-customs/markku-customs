@@ -167,7 +167,7 @@ const ProductPage = () => {
                   />
                 ))
               ) : (
-                <img src="/store-item-dummy-pic.png" alt={name[lng]} />
+                <img src="/product-default.png" alt={name[lng]} />
               )}
             </Carousel>
 
