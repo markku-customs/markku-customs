@@ -204,16 +204,16 @@ const ProductPage = () => {
                   {gameNames['en-US'].map((game, idx) => (
                     <div className="game-grid-box" key={game.sys.id}>
                       <img
-                        className="aspect-square object-cover"
+                        className="aspect-square w-full object-cover"
                         src={
                           game.fields.image['en-US'].fields.file['en-US'].url
                         }
                         alt={game.fields.name['en-US']}
                       />
-                      <span className="block mt-2">
+                      <span className="block mt-2 text-zinc-400 text-sm">
                         {game.fields.name['en-US']}
                       </span>
-                      <span className="fps-text block mt-2 font-semibold">
+                      <span className="fps-text block mt-1 font-semibold">
                         {gameFrameRates['en-US'][idx] || '000'} FPS
                       </span>
                     </div>
