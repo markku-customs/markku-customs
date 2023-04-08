@@ -99,6 +99,8 @@ const Navbar = () => {
                 className="closed-menu"
                 src="/menu-open.svg"
                 alt=""
+                height={32}
+                width={32}
                 aria-hidden="true"
               />
             </button>
@@ -112,6 +114,8 @@ const Navbar = () => {
                 className="open-menu"
                 src="/menu-close.svg"
                 alt=""
+                height={32}
+                width={32}
                 aria-hidden="true"
               />
             </button>

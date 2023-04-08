@@ -153,7 +153,7 @@ const ProductPage = () => {
             <section className="store-product-heading-text gap-4">
               <h1 className="text-4xl font-heading">{name[lng]}</h1>
               <p className="text-2xl">
-                {price ? `${price['en-US']}€` : 'Variable'}
+                {price ? `${price['en-US']}€` : t('variable')}
               </p>
               {desc
                 .split(/\n/g)
