@@ -8,7 +8,7 @@ const Contact = () => {
   return (
     <section className="py-12 md:py-16" id="contact">
       <div className="container gap-2">
-        <SectionHeading heading={t('links.contact')} />
+        <SectionHeading className="mb-8">{t('links.contact')}</SectionHeading>
         <ul className="flex gap-8 lg:gap-12 flex-wrap">
           <li className="flex items-center gap-4">
             <img className="rounded-md" src="/phone-icon.png" alt="" />

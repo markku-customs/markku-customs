@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 const StoreItem = ({ product }) => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const { fields } = product;
 
@@ -24,7 +24,7 @@ const StoreItem = ({ product }) => {
       <div className="p-4">
         <h2 className="font-heading">{name[lng]}</h2>
         <p className="font-heading text-3xl mt-1">
-          {price ? `${price['en-US']}€` : 'Variable'}
+          {price ? `${price['en-US']}€` : t('variable')}
         </p>
       </div>
     </article>

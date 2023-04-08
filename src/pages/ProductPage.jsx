@@ -152,7 +152,9 @@ const ProductPage = () => {
           <div className="product-page-grid">
             <section className="store-product-heading-text gap-4">
               <h1 className="text-4xl font-heading">{name[lng]}</h1>
-              <p className="text-2xl">{price['en-US']}€</p>
+              <p className="text-2xl">
+                {price ? `${price['en-US']}€` : t('variable')}
+              </p>
               {desc
                 .split(/\n/g)
                 .filter((e) => e)
@@ -169,23 +171,21 @@ const ProductPage = () => {
               </Link>
             </section>
 
-            <Carousel
-              className="store-product-main-image-container"
-              useKeyboardArrows
-              dynamicHeight
-            >
-              {images ? (
-                images['en-US'].map((image) => (
-                  <img
-                    src={`https:${image.fields.file['en-US'].url}`}
-                    alt={name[lng]}
-                    key={image.fields.file['en-US'].url}
-                  />
-                ))
-              ) : (
-                <img src="/product-default.png" alt={name[lng]} />
-              )}
-            </Carousel>
+            <section className="store-product-main-image-container">
+              <Carousel useKeyboardArrows dynamicHeight infiniteLoop>
+                {images ? (
+                  images['en-US'].map((image) => (
+                    <img
+                      src={`https:${image.fields.file['en-US'].url}`}
+                      alt={name[lng]}
+                      key={image.fields.file['en-US'].url}
+                    />
+                  ))
+                ) : (
+                  <img src="/product-default.png" alt={name[lng]} />
+                )}
+              </Carousel>
+            </section>
 
             {specifications && (
               <section className="specifications-container">
@@ -196,7 +196,7 @@ const ProductPage = () => {
             )}
 
             {gameNames && gameFrameRates && (
-              <section className="game-grid-container my-8">
+              <section className="game-grid-container">
                 <h2 className="text-2xl font-bold mb-4">
                   {t('fps-performance')}
                 </h2>
@@ -204,16 +204,16 @@ const ProductPage = () => {
                   {gameNames['en-US'].map((game, idx) => (
                     <div className="game-grid-box" key={game.sys.id}>
                       <img
-                        className="aspect-square object-cover"
+                        className="aspect-square w-full object-cover"
                         src={
                           game.fields.image['en-US'].fields.file['en-US'].url
                         }
                         alt={game.fields.name['en-US']}
                       />
-                      <span className="block mt-2">
+                      <span className="block mt-2 text-zinc-400 text-sm">
                         {game.fields.name['en-US']}
                       </span>
-                      <span className="fps-text block mt-2 font-semibold">
+                      <span className="fps-text block mt-1 font-semibold">
                         {gameFrameRates['en-US'][idx] || '000'} FPS
                       </span>
                     </div>
