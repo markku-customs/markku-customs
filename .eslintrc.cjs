@@ -39,5 +39,6 @@ module.exports = {
         html: false,
       },
     ],
+    'import/no-extraneous-dependencies': 0,
   },
 };
