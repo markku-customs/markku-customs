@@ -152,7 +152,9 @@ const ProductPage = () => {
           <div className="product-page-grid">
             <section className="store-product-heading-text gap-4">
               <h1 className="text-4xl font-heading">{name[lng]}</h1>
-              <p className="text-2xl">{price['en-US']}€</p>
+              <p className="text-2xl">
+                {price ? `${price['en-US']}€` : 'Variable'}
+              </p>
               {desc
                 .split(/\n/g)
                 .filter((e) => e)
@@ -169,23 +171,21 @@ const ProductPage = () => {
               </Link>
             </section>
 
-            <Carousel
-              className="store-product-main-image-container"
-              useKeyboardArrows
-              dynamicHeight
-            >
-              {images ? (
-                images['en-US'].map((image) => (
-                  <img
-                    src={`https:${image.fields.file['en-US'].url}`}
-                    alt={name[lng]}
-                    key={image.fields.file['en-US'].url}
-                  />
-                ))
-              ) : (
-                <img src="/product-default.png" alt={name[lng]} />
-              )}
-            </Carousel>
+            <section className="store-product-main-image-container">
+              <Carousel useKeyboardArrows dynamicHeight infiniteLoop>
+                {images ? (
+                  images['en-US'].map((image) => (
+                    <img
+                      src={`https:${image.fields.file['en-US'].url}`}
+                      alt={name[lng]}
+                      key={image.fields.file['en-US'].url}
+                    />
+                  ))
+                ) : (
+                  <img src="/product-default.png" alt={name[lng]} />
+                )}
+              </Carousel>
+            </section>
 
             {specifications && (
               <section className="specifications-container">

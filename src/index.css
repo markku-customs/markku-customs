@@ -96,14 +96,8 @@ html {
 
 .store-product-main-image-container {
   grid-row: hero-title-row/hero-title-row;
+  overflow: hidden;
 }
-
-/* .store-product-main-image {
-  min-width: 100%;
-  object-fit: contain;
-  background-color: #111114;
-  max-height: 4rem;
-} */
 
 .carousel .thumb img {
   width: 100% !important;
@@ -168,7 +162,7 @@ html {
   display: none;
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 640px) {
   .closed-menu {
     display: block;
   }
@@ -177,6 +171,12 @@ html {
     display: none;
   }
 
+  .hero {
+    background-image: url('/hero-phone.png');
+  }
+}
+
+@media only screen and (max-width: 1024px) {
   .product-page-grid {
     grid-template-rows: [image] auto [description] auto [specifications] auto [games] auto;
     grid-template-columns: 1fr;
@@ -197,9 +197,5 @@ html {
 
   .game-grid-container {
     grid-row: games;
-  }
-
-  .hero {
-    background-image: url('/hero-phone.png');
   }
 }
