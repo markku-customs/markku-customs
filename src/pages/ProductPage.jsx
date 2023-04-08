@@ -196,7 +196,7 @@ const ProductPage = () => {
             )}
 
             {gameNames && gameFrameRates && (
-              <section className="game-grid-container my-8">
+              <section className="game-grid-container">
                 <h2 className="text-2xl font-bold mb-4">
                   {t('fps-performance')}
                 </h2>

@@ -91,7 +91,7 @@ html {
   grid-template-rows: [hero-title-row] auto [specifications-row] auto [last-row] auto;
   grid-template-columns: [first-column] 6fr [end-column] 4fr;
   gap: 2rem;
-  margin-top: 2rem;
+  padding-block: 2rem;
 }
 
 .store-product-main-image-container {
