@@ -150,6 +150,10 @@ html {
   margin-top: 0.5rem;
 }
 
+.message-input{
+  width: 40rem;
+}
+
 /* .gaming-video-container{
   grid-row: last-row/last-row;
   grid-column: end-column/end-column;
