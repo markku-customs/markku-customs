@@ -96,12 +96,11 @@ const Contact = () => {
                 className="h-4 w-4"
               />
               <span>
-                By selecting this, you agree to our
+                By selecting this, you agree to our{' '}
                 <a
                   href="#contact"
                   className="text-sm hover:decoration-solid text-red-600"
                 >
-                  {' '}
                   privacy policy
                 </a>
                 .

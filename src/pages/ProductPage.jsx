@@ -114,9 +114,9 @@ const ProductPage = () => {
     client
       .getEntry(id, { content_type: 'product', locale: '*' })
       .then((entry) => setProduct(entry))
-      .catch((err) => {
+      .catch(() => {
         navigate('*', { replace: true });
-        console.log(err);
+        // console.log(err);
       });
   }, []);
 
@@ -124,13 +124,21 @@ const ProductPage = () => {
 
   const { fields } = product;
 
-  const { name, price, description, specifications, images } = fields;
+  const {
+    name,
+    price,
+    description,
+    specifications,
+    images,
+    gameNames,
+    gameFrameRates,
+  } = fields;
 
   const lng = i18n.language;
 
   const desc = description[lng] || description['en-US'];
 
-  console.log(fields);
+  // console.log(fields);
 
   return (
     <>
@@ -142,14 +150,14 @@ const ProductPage = () => {
       <Layout>
         <div className="container">
           <div className="product-page-grid">
-            <div className="store-product-heading-text gap-4">
+            <section className="store-product-heading-text gap-4">
               <h1 className="text-4xl font-heading">{name[lng]}</h1>
-              <p className="text-2xl">{price['en-US']} €</p>
+              <p className="text-2xl">{price['en-US']}€</p>
               {desc
                 .split(/\n/g)
                 .filter((e) => e)
-                .map((text, idx) => (
-                  <p className="text-sm text-gray-400" key={idx}>
+                .map((text) => (
+                  <p className="text-sm text-gray-400" key={text.slice(0, 32)}>
                     {text}
                   </p>
                 ))}
@@ -159,12 +167,12 @@ const ProductPage = () => {
               >
                 {t('order')}
               </Link>
-            </div>
+            </section>
 
             <Carousel
               className="store-product-main-image-container"
-              useKeyboardArrows={true}
-              dynamicHeight={true}
+              useKeyboardArrows
+              dynamicHeight
             >
               {images ? (
                 images['en-US'].map((image) => (
@@ -180,68 +188,40 @@ const ProductPage = () => {
             </Carousel>
 
             {specifications && (
-              <div className="specifications-container">
+              <section className="specifications-container">
                 <div className="specifications">
                   {documentToReactComponents(specifications[lng], options)}
                 </div>
-              </div>
+              </section>
             )}
 
-            <div className="game-grid-container">
-              <h4 className="text-2xl font-bold mb-4">FPS Performance</h4>
-              <div className="game-grid">
-                <div className="game-grid-box">
-                  <img
-                    className="aspect-square w-full object-cover"
-                    src="/game-1.png"
-                    alt="Fortnite"
-                  />
-                  <pre className="fps-text text-sm font-bold">100 FPS</pre>
+            {gameNames && gameFrameRates && (
+              <section className="game-grid-container my-8">
+                <h2 className="text-2xl font-bold mb-4">
+                  {t('fps-performance')}
+                </h2>
+                <div className="game-grid">
+                  {gameNames['en-US'].map((game, idx) => (
+                    <div className="game-grid-box" key={game.sys.id}>
+                      <img
+                        className="aspect-square object-cover"
+                        src={
+                          game.fields.image['en-US'].fields.file['en-US'].url
+                        }
+                        alt={game.fields.name['en-US']}
+                      />
+                      <span className="block mt-2">
+                        {game.fields.name['en-US']}
+                      </span>
+                      <span className="fps-text block mt-2 font-semibold">
+                        {gameFrameRates['en-US'][idx] || '000'} FPS
+                      </span>
+                    </div>
+                  ))}
                 </div>
-                <div className="game-grid-box">
-                  <img
-                    className="aspect-square w-full object-cover"
-                    src="/game-2.png"
-                    alt="Counter-Strike: Global Offensive"
-                  />
-                  <pre className="fps-text text-sm font-bold">240 FPS</pre>
-                </div>
-                <div className="game-grid-box">
-                  <img
-                    className="aspect-square w-full object-cover"
-                    src="/game-3.png"
-                    alt="Valorant"
-                  />
-                  <pre className="fps-text text-sm font-bold">175 FPS</pre>
-                </div>
-                <div className="game-grid-box">
-                  <img
-                    className="aspect-square w-full object-cover"
-                    src="/game-4.png"
-                    alt="League of Legends"
-                  />
-                  <pre className="fps-text text-sm font-bold">200 FPS</pre>
-                </div>
-                <div className="game-grid-box">
-                  <img
-                    className="aspect-square w-full object-cover"
-                    src="/game-5.png"
-                    alt="Overwatch"
-                  />
-                  <pre className="fps-text text-sm font-bold">185 FPS</pre>
-                </div>
-                <div className="game-grid-box">
-                  <img
-                    className="aspect-square w-full object-cover"
-                    src="/game-6.png"
-                    alt="Tom Clancy's Rainbow Six Siege"
-                  />
-                  <pre className="fps-text text-sm font-bold">175 FPS</pre>
-                </div>
-              </div>
-            </div>
-            {/* 
-            <div className="gaming-video-container p">
+              </section>
+            )}
+            {/* <div className="gaming-video-container p">
               <video className="rounded" controls muted>
                 <source src="/dummy-video.mp4" type="video/mp4" />
               </video>
