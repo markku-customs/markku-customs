@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 const StoreItem = ({ product }) => {
   const { i18n } = useTranslation();
@@ -15,8 +15,8 @@ const StoreItem = ({ product }) => {
         <img
           src={
             featuredImage
-              ? `https:${featuredImage["en-US"].fields.file["en-US"].url}`
-              : "/product-default.png"
+              ? `https:${featuredImage['en-US'].fields.file['en-US'].url}`
+              : '/product-default.png'
           }
           alt={name[lng]}
         />
@@ -24,7 +24,7 @@ const StoreItem = ({ product }) => {
       <div className="p-4">
         <h2 className="font-heading">{name[lng]}</h2>
         <p className="font-heading text-3xl mt-1">
-          {price ? `${price["en-US"]}€` : "Variable"}
+          {price ? `${price['en-US']}€` : 'Variable'}
         </p>
       </div>
     </article>
