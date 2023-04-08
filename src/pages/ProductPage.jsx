@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { HashLink as Link } from "react-router-hash-link";
-import { useParams, useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet";
-import { useTranslation } from "react-i18next";
-import { createClient } from "contentful";
-import { BLOCKS, INLINES } from "@contentful/rich-text-types";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import React, { useState, useEffect } from 'react';
+import { HashLink as Link } from 'react-router-hash-link';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import { useTranslation } from 'react-i18next';
+import { createClient } from 'contentful';
+import { BLOCKS, INLINES } from '@contentful/rich-text-types';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
 
-import Layout from "../components/Layout";
+import Layout from '../components/Layout';
 
 const client = createClient({
   space: import.meta.env.VITE_CONTENTFUL_SPACE_ID,
@@ -72,7 +72,7 @@ const options = {
       <th className="px-6 py-4 bg-zinc-900">
         {React.Children.map(children, (child) =>
           React.cloneElement(child, {
-            className: "text-zinc-200 leading-8 my-0",
+            className: 'text-zinc-200 leading-8 my-0',
           })
         )}
       </th>
@@ -81,20 +81,21 @@ const options = {
       <td className="px-6 py-4">
         {React.Children.map(children, (child) =>
           React.cloneElement(child, {
-            className: "text-zinc-400 leading-8 my-0",
+            className: 'text-zinc-400 leading-8 my-0',
           })
         )}
       </td>
     ),
     [BLOCKS.QUOTE]: (node, children) => (
-      <blockquote class="p-4 my-4 border-l-4 border-red-600 bg-zinc-800">
-        <p class="italic font-semibold">{children}</p>
+      <blockquote className="p-4 my-4 border-l-4 border-red-600 bg-zinc-800">
+        <p className="italic font-semibold">{children}</p>
       </blockquote>
     ),
-    [INLINES.HYPERLINK]: (node, children) => (
+    [INLINES.HYPERLINK]: ({ data }, children) => (
       <a
-        href={node.data.uri}
+        href={data.uri}
         target="_blank"
+        rel="noreferrer"
         className="font-semibold text-red-600 hover:underline"
       >
         {children}
@@ -111,10 +112,10 @@ const ProductPage = () => {
 
   useEffect(() => {
     client
-      .getEntry(id, { content_type: "product", locale: "*" })
+      .getEntry(id, { content_type: 'product', locale: '*' })
       .then((entry) => setProduct(entry))
       .catch((err) => {
-        navigate("*", { replace: true });
+        navigate('*', { replace: true });
         console.log(err);
       });
   }, []);
@@ -127,7 +128,7 @@ const ProductPage = () => {
 
   const lng = i18n.language;
 
-  const desc = description[lng] || description["en-US"];
+  const desc = description[lng] || description['en-US'];
 
   console.log(fields);
 
@@ -143,18 +144,20 @@ const ProductPage = () => {
           <div className="product-page-grid">
             <div className="store-product-heading-text gap-4">
               <h1 className="text-4xl font-heading">{name[lng]}</h1>
-              <p className="text-2xl">{price["en-US"]} €</p>
+              <p className="text-2xl">{price['en-US']} €</p>
               {desc
                 .split(/\n/g)
                 .filter((e) => e)
-                .map((text) => (
-                  <p className="text-sm text-gray-400">{text}</p>
+                .map((text, idx) => (
+                  <p className="text-sm text-gray-400" key={idx}>
+                    {text}
+                  </p>
                 ))}
               <Link
                 to="/#contact"
                 className="button | bg-red-600 hover:brightness-125 w-fit"
               >
-                {t("order")}
+                {t('order')}
               </Link>
             </div>
 
@@ -164,10 +167,11 @@ const ProductPage = () => {
               dynamicHeight={true}
             >
               {images ? (
-                images["en-US"].map((image) => (
+                images['en-US'].map((image) => (
                   <img
-                    src={`https:${image.fields.file["en-US"].url}`}
+                    src={`https:${image.fields.file['en-US'].url}`}
                     alt={name[lng]}
+                    key={image.fields.file['en-US'].url}
                   />
                 ))
               ) : (
