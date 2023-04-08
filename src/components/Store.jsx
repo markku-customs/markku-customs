@@ -13,7 +13,7 @@ const Store = () => {
   return (
     <section className="py-12 md:py-16" id="store">
       <div className="container">
-        <SectionHeading heading={t('links.store')} />
+        <SectionHeading className="mb-8">{t('links.store')}</SectionHeading>
         <div className="store-grid">
           {products.map((product) => {
             const { id } = product.sys;
