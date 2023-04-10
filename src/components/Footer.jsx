@@ -10,6 +10,29 @@ const Footer = () => {
           © {{ year }} Markku Customs. All rights reserved.
         </Trans>
       </div>
+      <hr />
+      <div className="flex justify-center mt-2 gap-3">
+        <div>
+          <a
+            className="text-xs text-red-600 flex gap-1"
+            href="https://www.iubenda.com/privacy-policy/59126036"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <pre className="text-white">Privary Policy</pre>⇗
+          </a>
+        </div>
+        <div>
+          <a
+            className="text-xs text-red-600 flex gap-1"
+            href="https://www.termsfeed.com/live/cf5f6825-5ec1-4164-a2f4-c2dae01df582"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <pre className="text-white">Terms of Service</pre>⇗
+          </a>
+        </div>
+      </div>
     </footer>
   );
 };

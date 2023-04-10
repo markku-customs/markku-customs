@@ -98,10 +98,12 @@ const Contact = () => {
               <span>
                 By selecting this, you agree to our{' '}
                 <a
-                  href="#contact"
-                  className="text-sm hover:decoration-solid text-red-600"
+                  className=" text-red-600 underline"
+                  href="https://www.iubenda.com/privacy-policy/59126036"
+                  target="_blank"
+                  rel="noreferrer"
                 >
-                  privacy policy
+                  Privacy Policy
                 </a>
                 .
               </span>
