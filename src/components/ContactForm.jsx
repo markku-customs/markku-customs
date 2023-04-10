@@ -1,5 +1,7 @@
 import { useTranslation, Trans } from 'react-i18next';
 
+import Button from './Button';
+
 const ContactForm = () => {
   const { t } = useTranslation();
 
@@ -64,12 +66,9 @@ const ContactForm = () => {
         </label>
       </div>
       <div className="mt-4">
-        <button
-          type="submit"
-          className="button | bg-red-600 hover:brightness-125"
-        >
+        <Button type="submit" onClick={(e) => e.preventDefault()}>
           {t('contact.send')}
-        </button>
+        </Button>
       </div>
     </form>
   );

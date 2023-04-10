@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
 import Layout from '../components/Layout';
+import Button from '../components/Button';
 
 const NotFoundPage = () => {
   return (
@@ -15,12 +16,9 @@ const NotFoundPage = () => {
         <div className="container h-full flex flex-col justify-center items-center">
           <h1 className="font-heading text-8xl">404</h1>
           <p className="font-semibold">Page Not Found</p>
-          <Link
-            to="/"
-            className="button | bg-red-600 hover:brightness-125 inline-block mt-4"
-          >
+          <Button as={Link} to="/" className="mt-8">
             Return Home
-          </Link>
+          </Button>
         </div>
       </Layout>
     </>

@@ -11,6 +11,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 
 import Layout from '../components/Layout';
+import Button from '../components/Button';
 
 const client = createClient({
   space: import.meta.env.VITE_CONTENTFUL_SPACE_ID,
@@ -157,12 +158,9 @@ const ProductPage = () => {
                     {text}
                   </p>
                 ))}
-              <Link
-                to="/#contact"
-                className="button | bg-red-600 hover:brightness-125 w-fit"
-              >
+              <Button as={Link} to="/#contact" className="w-fit">
                 {t('order')}
-              </Link>
+              </Button>
             </section>
 
             <section className="store-product-main-image-container">
