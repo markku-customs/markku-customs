@@ -54,7 +54,7 @@ const Contact = () => {
         </ul>
         <form className="w-full lg:w-3/5 flex flex-col gap-4">
           <div className="mt-12 flex flex-col sm:flex-row gap-4">
-            <div className="grow">
+            <div className="flex-1">
               <label className="text-sm" htmlFor="email-input">
                 {t('contact.email')}
                 <input
@@ -64,7 +64,7 @@ const Contact = () => {
                 />
               </label>
             </div>
-            <div className="grow">
+            <div className="flex-1">
               <label className="text-sm" htmlFor="name-input">
                 {t('contact.name')}
                 <input
@@ -93,7 +93,7 @@ const Contact = () => {
               <input
                 id="privacy-policy-checkbox"
                 type="checkbox"
-                className="h-4 w-4"
+                className="h-4 w-4 accent-red-600"
               />
               <span>
                 By selecting this, you agree to our{' '}
