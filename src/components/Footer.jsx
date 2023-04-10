@@ -5,7 +5,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-zinc-950 py-4 mt-auto">
-      <div className="container text-center text-xs text-zinc-400">
+      <div className="container text-center text-xs p-2 text-zinc-400">
         <Trans i18nKey="footer" year={year}>
           © {{ year }} Markku Customs. All rights reserved.
         </Trans>
