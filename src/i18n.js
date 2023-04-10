@@ -36,7 +36,11 @@ const resources = {
       variable: 'Variable',
       order: 'Order Now',
       'fps-performance': 'FPS Performance',
-      footer: '© {{year}} Markku Customs. All rights reserved.',
+      footer: {
+        copyright: '© {{year}} Markku Customs. All rights reserved.',
+        privacy: 'Privacy Policy',
+        terms: 'Terms of Service',
+      },
     },
   },
   'fi-FI': {
@@ -68,7 +72,11 @@ const resources = {
       variable: 'Muuttuva',
       order: 'Tilaa Nyt',
       'fps-performance': 'FPS-toimivuus',
-      footer: '© {{year}} Markku Customs. Kaikki oikeudet pidätetään.',
+      footer: {
+        copyright: '© {{year}} Markku Customs. Kaikki oikeudet pidätetään.',
+        privacy: 'Tietosuojaseloste',
+        terms: 'Käyttöehdot',
+      },
     },
   },
 };
