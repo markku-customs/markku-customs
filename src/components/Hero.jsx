@@ -1,6 +1,8 @@
 import { HashLink as Link } from 'react-router-hash-link';
 import { useTranslation, Trans } from 'react-i18next';
 
+import Button from './Button';
+
 const Hero = () => {
   const { t } = useTranslation();
 
@@ -18,18 +20,12 @@ const Hero = () => {
           {t('hero.description')}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 mt-6 sm:mt-8">
-          <Link
-            to="/#store"
-            className="button | bg-red-600 hover:brightness-125"
-          >
+          <Button as={Link} to="/#store">
             {t('hero.buttons.store')}
-          </Link>
-          <Link
-            to="/#contact"
-            className="button | bg-zinc-950 hover:brightness-125"
-          >
+          </Button>
+          <Button as={Link} to="/#contact" variant="secondary">
             {t('hero.buttons.contact')}
-          </Link>
+          </Button>
         </div>
       </div>
       <div className="gradient"></div>

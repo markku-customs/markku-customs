@@ -1,9 +1,13 @@
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import Layout from '../components/Layout';
+import Button from '../components/Button';
 
 const NotFoundPage = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Helmet>
@@ -14,13 +18,10 @@ const NotFoundPage = () => {
       <Layout>
         <div className="container h-full flex flex-col justify-center items-center">
           <h1 className="font-heading text-8xl">404</h1>
-          <p className="font-semibold">Page Not Found</p>
-          <Link
-            to="/"
-            className="button | bg-red-600 hover:brightness-125 inline-block mt-4"
-          >
-            Return Home
-          </Link>
+          <p className="font-semibold">{t('404.subtitle')}</p>
+          <Button as={Link} to="/" className="mt-8">
+            {t('404.button')}
+          </Button>
         </div>
       </Layout>
     </>
