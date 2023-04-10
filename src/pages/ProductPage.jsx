@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { HashLink as Link } from "react-router-hash-link";
-import { useParams, useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet";
-import { useTranslation } from "react-i18next";
-import { createClient } from "contentful";
-import { BLOCKS, INLINES } from "@contentful/rich-text-types";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import React, { useState, useEffect } from 'react';
+import { HashLink as Link } from 'react-router-hash-link';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import { useTranslation } from 'react-i18next';
+import { createClient } from 'contentful';
+import { BLOCKS, INLINES } from '@contentful/rich-text-types';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
 
-import Layout from "../components/Layout";
+import Layout from '../components/Layout';
 
 const client = createClient({
   space: import.meta.env.VITE_CONTENTFUL_SPACE_ID,
@@ -72,7 +72,7 @@ const options = {
       <th className="px-6 py-4 bg-zinc-900">
         {React.Children.map(children, (child) =>
           React.cloneElement(child, {
-            className: "text-zinc-200 leading-8 my-0",
+            className: 'text-zinc-200 leading-8 my-0',
           })
         )}
       </th>
@@ -81,20 +81,21 @@ const options = {
       <td className="px-6 py-4">
         {React.Children.map(children, (child) =>
           React.cloneElement(child, {
-            className: "text-zinc-400 leading-8 my-0",
+            className: 'text-zinc-400 leading-8 my-0',
           })
         )}
       </td>
     ),
     [BLOCKS.QUOTE]: (node, children) => (
-      <blockquote class="p-4 my-4 border-l-4 border-red-600 bg-zinc-800">
-        <p class="italic font-semibold">{children}</p>
+      <blockquote className="p-4 my-4 border-l-4 border-red-600 bg-zinc-800">
+        <p className="italic font-semibold">{children}</p>
       </blockquote>
     ),
-    [INLINES.HYPERLINK]: (node, children) => (
+    [INLINES.HYPERLINK]: ({ data }, children) => (
       <a
-        href={node.data.uri}
+        href={data.uri}
         target="_blank"
+        rel="noreferrer"
         className="font-semibold text-red-600 hover:underline"
       >
         {children}
@@ -111,11 +112,11 @@ const ProductPage = () => {
 
   useEffect(() => {
     client
-      .getEntry(id, { content_type: "product", locale: "*" })
+      .getEntry(id, { content_type: 'product', locale: '*' })
       .then((entry) => setProduct(entry))
-      .catch((err) => {
-        navigate("*", { replace: true });
-        console.log(err);
+      .catch(() => {
+        navigate('*', { replace: true });
+        // console.log(err);
       });
   }, []);
 
@@ -123,13 +124,21 @@ const ProductPage = () => {
 
   const { fields } = product;
 
-  const { name, price, description, specifications, images } = fields;
+  const {
+    name,
+    price,
+    description,
+    specifications,
+    images,
+    gameNames,
+    gameFrameRates,
+  } = fields;
 
   const lng = i18n.language;
 
-  const desc = description[lng] || description["en-US"];
+  const desc = description[lng] || description['en-US'];
 
-  console.log(fields);
+  // console.log(fields);
 
   return (
     <>
@@ -141,103 +150,78 @@ const ProductPage = () => {
       <Layout>
         <div className="container">
           <div className="product-page-grid">
-            <div className="store-product-heading-text gap-4">
+            <section className="store-product-heading-text gap-4">
               <h1 className="text-4xl font-heading">{name[lng]}</h1>
-              <p className="text-2xl">{price["en-US"]} €</p>
+              <p className="text-2xl">
+                {price ? `${price['en-US']}€` : t('variable')}
+              </p>
               {desc
                 .split(/\n/g)
                 .filter((e) => e)
                 .map((text) => (
-                  <p className="text-sm text-gray-400">{text}</p>
+                  <p className="text-sm text-gray-400" key={text.slice(0, 32)}>
+                    {text}
+                  </p>
                 ))}
               <Link
                 to="/#contact"
                 className="button | bg-red-600 hover:brightness-125 w-fit"
               >
-                {t("order")}
+                {t('order')}
               </Link>
-            </div>
+            </section>
 
-            <Carousel
-              className="store-product-main-image-container"
-              useKeyboardArrows={true}
-              dynamicHeight={true}
-            >
-              {images ? (
-                images["en-US"].map((image) => (
-                  <img
-                    src={`https:${image.fields.file["en-US"].url}`}
-                    alt={name[lng]}
-                  />
-                ))
-              ) : (
-                <img src="/product-default.png" alt={name[lng]} />
-              )}
-            </Carousel>
+            <section className="store-product-main-image-container">
+              <Carousel useKeyboardArrows dynamicHeight infiniteLoop>
+                {images ? (
+                  images['en-US'].map((image) => (
+                    <img
+                      src={`https:${image.fields.file['en-US'].url}`}
+                      alt={name[lng]}
+                      key={image.fields.file['en-US'].url}
+                    />
+                  ))
+                ) : (
+                  <img src="/product-default.png" alt={name[lng]} />
+                )}
+              </Carousel>
+            </section>
 
             {specifications && (
-              <div className="specifications-container">
+              <section className="specifications-container">
                 <div className="specifications">
                   {documentToReactComponents(specifications[lng], options)}
                 </div>
-              </div>
+              </section>
             )}
 
-            <div className="game-grid-container">
-              <h4 className="text-2xl font-bold mb-4">FPS Performance</h4>
-              <div className="game-grid">
-                <div className="game-grid-box">
-                  <img
-                    className="aspect-square w-full object-cover"
-                    src="/game-1.png"
-                    alt="Fortnite"
-                  />
-                  <pre className="fps-text text-sm font-bold">100 FPS</pre>
+            {gameNames && gameFrameRates && (
+              <section className="game-grid-container">
+                <h2 className="text-2xl font-bold mb-4">
+                  {t('fps-performance')}
+                </h2>
+                <div className="game-grid">
+                  {gameNames['en-US'].map((game, idx) => (
+                    <div className="game-grid-box" key={game.sys.id}>
+                      <img
+                        className="aspect-square w-full object-cover"
+                        src={
+                          game.fields.image['en-US'].fields.file['en-US'].url
+                        }
+                        alt={game.fields.name['en-US']}
+                      />
+                      <span className="block mt-2 text-zinc-400 text-sm">
+                        {game.fields.name['en-US']}
+                      </span>
+                      <span className="fps-text block mt-1 font-semibold">
+                        {gameFrameRates['en-US'][idx] || '000'} FPS
+                      </span>
+                    </div>
+                  ))}
                 </div>
-                <div className="game-grid-box">
-                  <img
-                    className="aspect-square w-full object-cover"
-                    src="/game-2.png"
-                    alt="Counter-Strike: Global Offensive"
-                  />
-                  <pre className="fps-text text-sm font-bold">240 FPS</pre>
-                </div>
-                <div className="game-grid-box">
-                  <img
-                    className="aspect-square w-full object-cover"
-                    src="/game-3.png"
-                    alt="Valorant"
-                  />
-                  <pre className="fps-text text-sm font-bold">175 FPS</pre>
-                </div>
-                <div className="game-grid-box">
-                  <img
-                    className="aspect-square w-full object-cover"
-                    src="/game-4.png"
-                    alt="League of Legends"
-                  />
-                  <pre className="fps-text text-sm font-bold">200 FPS</pre>
-                </div>
-                <div className="game-grid-box">
-                  <img
-                    className="aspect-square w-full object-cover"
-                    src="/game-5.png"
-                    alt="Overwatch"
-                  />
-                  <pre className="fps-text text-sm font-bold">185 FPS</pre>
-                </div>
-                <div className="game-grid-box">
-                  <img
-                    className="aspect-square w-full object-cover"
-                    src="/game-6.png"
-                    alt="Tom Clancy's Rainbow Six Siege"
-                  />
-                  <pre className="fps-text text-sm font-bold">175 FPS</pre>
-                </div>
-              </div>
-            </div>
-            {/* 
-            <div className="gaming-video-container p">
+              </section>
+            )}
+            {/* <div className="gaming-video-container p">
               <video className="rounded" controls muted>
                 <source src="/dummy-video.mp4" type="video/mp4" />
               </video>

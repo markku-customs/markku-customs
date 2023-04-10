@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
-import { createClient } from "contentful";
+import { useState, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { createClient } from 'contentful';
 
-import { StoreItemsContext } from "./contexts/StoreItemsContext";
+import StoreItemsContext from './contexts/StoreItemsContext';
 
-import HomePage from "./pages/HomePage";
-import ProductPage from "./pages/ProductPage";
-import NotFoundPage from "./pages/NotFoundPage";
+import HomePage from './pages/HomePage';
+import ProductPage from './pages/ProductPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 const client = createClient({
   space: import.meta.env.VITE_CONTENTFUL_SPACE_ID,
@@ -18,7 +18,7 @@ const App = () => {
 
   useEffect(() => {
     client
-      .getEntries({ content_type: "product", locale: "*" })
+      .getEntries({ content_type: 'product', locale: '*' })
       .then((entries) => setProducts(entries.items))
       .catch((err) => console.log(err));
   }, []);
