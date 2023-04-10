@@ -23,6 +23,7 @@
     "send": "Send Message"
   },
   "variable": "Variable",
+  "privacy-checkbox": "By selecting this, you agree to our <2>privacy policy</2>.",
   "order": "Order Now",
   "fps-performance": "FPS Performance",
   "footer": {

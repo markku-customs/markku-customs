@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 
 const ContactForm = () => {
   const { t } = useTranslation();
@@ -48,16 +48,18 @@ const ContactForm = () => {
             className="h-4 w-4 accent-red-600"
           />
           <span>
-            By selecting this, you agree to our{' '}
-            <a
-              className=" text-red-600 underline"
-              href="https://www.iubenda.com/privacy-policy/59126036"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Privacy Policy
-            </a>
-            .
+            <Trans i18nKey="privacy-checkbox">
+              By selecting this, you agree to our{' '}
+              <a
+                className=" text-red-600 underline"
+                href="https://www.iubenda.com/privacy-policy/59126036"
+                target="_blank"
+                rel="noreferrer"
+              >
+                privacy policy
+              </a>
+              .
+            </Trans>
           </span>
         </label>
       </div>

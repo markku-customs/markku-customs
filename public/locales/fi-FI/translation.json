@@ -23,6 +23,7 @@
     "send": "Lähetä Viesti"
   },
   "variable": "Muuttuva",
+  "privacy-checkbox": "Valitsemalla tämän hyväksyt <2>tietosuojaselosteemme</2>.",
   "order": "Tilaa Nyt",
   "fps-performance": "FPS-toimivuus",
   "footer": {
