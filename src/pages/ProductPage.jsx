@@ -23,22 +23,16 @@ const options = {
       <p className="text-zinc-400 leading-8 my-2">{children}</p>
     ),
     [BLOCKS.HEADING_1]: (node, children) => (
-      <h1 className="leading-8 text-2xl font-semibold my-6">{children}</h1>
+      <h2 className="leading-8 text-2xl font-semibold my-6">{children}</h2>
     ),
     [BLOCKS.HEADING_2]: (node, children) => (
-      <h2 className="leading-8 text-xl font-semibold my-4">{children}</h2>
+      <h3 className="leading-8 text-xl font-semibold my-4">{children}</h3>
     ),
     [BLOCKS.HEADING_3]: (node, children) => (
-      <h3 className="leading-8 text-xl my-4">{children}</h3>
-    ),
-    [BLOCKS.HEADING_4]: (node, children) => (
       <h4 className="leading-8 text-lg font-semibold my-2">{children}</h4>
     ),
-    [BLOCKS.HEADING_5]: (node, children) => (
-      <h5 className="leading-8 text-lg my-2">{children}</h5>
-    ),
-    [BLOCKS.HEADING_6]: (node, children) => (
-      <h6 className="leading-8 text-base font-semibold my-1">{children}</h6>
+    [BLOCKS.HEADING_4]: (node, children) => (
+      <h5 className="leading-8 text-base font-semibold my-1">{children}</h5>
     ),
     [BLOCKS.UL_LIST]: (node, children) => (
       <ul className="list-disc list-inside marker:text-zinc-600 my-4">
