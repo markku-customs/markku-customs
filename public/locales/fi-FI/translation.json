@@ -1,0 +1,33 @@
+{
+  "markku-customs": "Markkulan Kustomsit",
+  "links": {
+    "home": "Koti",
+    "store": "Kauppa",
+    "contact": "Yhteystiedot"
+  },
+  "hero": {
+    "heading": "We Build. <br/> You Play.",
+    "description": "Rakennamme asiakkaan tarpeisiin ja budjettiin räätälöityjä, korkean suorituskyvyn tietokoneita käyttäen vain laadukkaimpia komponentteja. Ota yhteyttä aloittaaksesi täydellisen tietokoneen rakentamisen!",
+    "buttons": {
+      "store": "Näytä Valikoima",
+      "contact": "Ota Yhteyttä"
+    }
+  },
+  "contact": {
+    "phone": "Puhelinnumero",
+    "email": "Sähköposti",
+    "instagram": "Instagram",
+    "name": "Nimi",
+    "message": "Viesti",
+    "type-message": "Kirjoita viestisi tähän...",
+    "send": "Lähetä Viesti"
+  },
+  "variable": "Muuttuva",
+  "order": "Tilaa Nyt",
+  "fps-performance": "FPS-toimivuus",
+  "footer": {
+    "copyright": "© {{year}} Markku Customs. Kaikki oikeudet pidätetään.",
+    "privacy": "Tietosuojaseloste",
+    "terms": "Käyttöehdot"
+  }
+}
