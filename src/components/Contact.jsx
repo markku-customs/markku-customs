@@ -11,7 +11,15 @@ const Contact = () => {
         <SectionHeading className="mb-8">{t('links.contact')}</SectionHeading>
         <ul className="flex gap-8 lg:gap-12 flex-wrap">
           <li className="flex items-center gap-4">
-            <img className="rounded-md" src="/phone-icon.png" alt="" />
+            <div className="bg-red-600 p-2 rounded-md">
+              <img
+                src="/phone-icon.svg"
+                alt=""
+                height={32}
+                width={32}
+                aria-hidden="true"
+              />
+            </div>
             <div>
               <span className="block text-zinc-400 text-sm">
                 {t('contact.phone')}
@@ -22,7 +30,15 @@ const Contact = () => {
             </div>
           </li>
           <li className="flex items-center gap-4">
-            <img className="rounded-md" src="/email-icon.png" alt="" />
+            <div className="bg-red-600 p-2 rounded-md">
+              <img
+                src="/email-icon.svg"
+                alt=""
+                height={32}
+                width={32}
+                aria-hidden="true"
+              />
+            </div>
             <div>
               <span className="block text-zinc-400 text-sm">
                 {t('contact.email')}
@@ -36,7 +52,15 @@ const Contact = () => {
             </div>
           </li>
           <li className="flex items-center gap-4">
-            <img className="rounded-md" src="/instagram-icon.png" alt="" />
+            <div className="bg-red-600 p-2 rounded-md">
+              <img
+                src="/instagram-icon.svg"
+                alt=""
+                height={32}
+                width={32}
+                aria-hidden="true"
+              />
+            </div>
             <div>
               <span className="block text-zinc-400 text-sm">
                 {t('contact.instagram')}
