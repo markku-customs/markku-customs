@@ -1,0 +1,34 @@
+{
+  "markku-customs": "Markku Customs",
+  "links": {
+    "home": "Home",
+    "store": "Store",
+    "contact": "Contact"
+  },
+  "hero": {
+    "heading": "We Build. <br/> You Play.",
+    "description": "We build custom high-performance PCs tailored to your needs and budget, using only the highest quality components. Contact us to get started on your perfect PC!",
+    "buttons": {
+      "store": "View Store",
+      "contact": "Contact Us"
+    }
+  },
+  "contact": {
+    "phone": "Phone Number",
+    "email": "Email",
+    "instagram": "Instagram",
+    "name": "Name",
+    "message": "Message",
+    "type-message": "Type your message here...",
+    "send": "Send Message"
+  },
+  "variable": "Variable",
+  "privacy-checkbox": "By selecting this, you agree to our <2>privacy policy</2>.",
+  "order": "Order Now",
+  "fps-performance": "FPS Performance",
+  "footer": {
+    "copyright": "© {{year}} Markku Customs. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  }
+}

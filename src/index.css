@@ -15,7 +15,7 @@
 
 @layer components {
   .button {
-    @apply px-8 py-4 text-xs uppercase tracking-[.30em] font-semibold transition duration-100;
+    @apply px-8 py-4 text-xs uppercase tracking-[.30em] font-semibold transition duration-100 flex justify-center w-full sm:w-auto;
   }
 }
 
@@ -197,24 +197,5 @@ html {
 
   .game-grid-container {
     grid-row: games;
-  }
-
-  .hero-button-responsive{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    margin-top: 5rem;
-  }
-
-  .button{
-    width: 20rem;
-    display: inherit;
-    justify-content: center;
-  }
-  .hero-catchphrase{
-    display: flex;
-    justify-content: center;
-    font-size: clamp(6.6rem, -24.375rem + 60vw, 8.7rem);
   }
 }

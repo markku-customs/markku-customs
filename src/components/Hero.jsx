@@ -17,7 +17,7 @@ const Hero = () => {
         <p className="mt-6 sm:mt-8 max-w-prose text-sm sm:text-base leading-8 text-zinc-300">
           {t('hero.description')}
         </p>
-        <div className="flex flex-wrap gap-4 mt-6 sm:mt-8 hero-button-responsive">
+        <div className="flex flex-col sm:flex-row gap-4 mt-6 sm:mt-8">
           <Link
             to="/#store"
             className="button | bg-red-600 hover:brightness-125"
