@@ -14,7 +14,9 @@ const App = () => {
     fetch('/.netlify/functions/getProducts')
       .then((res) => res.json())
       .then((data) => setProducts(data.items))
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return (
