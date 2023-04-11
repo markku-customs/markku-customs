@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import SectionHeading from './SectionHeading';
+import SectionHeading from '../../components/SectionHeading';
 import ContactLinks from './ContactLinks';
 import ContactForm from './ContactForm';
 

@@ -3,20 +3,20 @@ import { HashLink as Link } from 'react-router-hash-link';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
-import { createClient } from 'contentful';
+// import { createClient } from 'contentful';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 
-import Layout from '../components/Layout';
-import Button from '../components/Button';
+import Layout from '../../components/Layout';
+import Button from '../../components/Button';
 
-const client = createClient({
-  space: import.meta.env.VITE_CONTENTFUL_SPACE_ID,
-  accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN,
-});
+// const client = createClient({
+//   space: import.meta.env.VITE_CONTENTFUL_SPACE_ID,
+//   accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN,
+// });
 
 const options = {
   renderNode: {
@@ -106,13 +106,17 @@ const ProductPage = () => {
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
-    client
-      .getEntry(id, { content_type: 'product', locale: '*' })
-      .then((entry) => setProduct(entry))
-      .catch(() => {
-        navigate('*', { replace: true });
-        // console.log(err);
-      });
+    fetch(`/.netlify/functions/getProduct?id=${id}`)
+      .then((res) => res.json())
+      .then((data) => setProduct(data))
+      .catch(() => navigate('*', { replace: true }));
+    // client
+    //   .getEntry(id, { content_type: 'product', locale: '*' })
+    //   .then((entry) => setProduct(entry))
+    //   .catch(() => {
+    //     navigate('*', { replace: true });
+    //     // console.log(err);
+    //   });
   }, []);
 
   if (!product) return null;

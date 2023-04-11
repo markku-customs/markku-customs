@@ -1,9 +1,9 @@
 import { Helmet } from 'react-helmet';
 
-import Layout from '../components/Layout';
-import Hero from '../components/Hero';
-import Store from '../components/Store';
-import Contact from '../components/Contact';
+import Layout from '../../components/Layout';
+import Hero from './Hero';
+import Store from './Store';
+import Contact from './Contact';
 
 const HomePage = () => {
   return (
