@@ -103,8 +103,9 @@ const ProductPage = () => {
     fetch(`/.netlify/functions/getProduct?id=${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data))
-      .catch(() => {
-        navigate('*', { replace: true });
+      .catch((err) => {
+        navigate('/', { replace: true });
+        console.log(err);
       });
   }, []);
 
