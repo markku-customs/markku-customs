@@ -1,3 +1,7 @@
+import { ToastContainer } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+
 import Navbar from './Navbar';
 import Footer from './Footer';
 
@@ -9,6 +13,7 @@ const Layout = ({ children }) => {
         <main className="grow">{children}</main>
       </div>
       <Footer />
+      <ToastContainer />
     </div>
   );
 };

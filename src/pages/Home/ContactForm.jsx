@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
+import { toast } from 'react-toastify';
 
 import Button from '../../components/Button';
 
@@ -9,25 +10,30 @@ const ContactForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = async (data) => {
-    console.log(data);
 
+  const { t } = useTranslation();
+
+  const onSubmit = async (data) => {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     };
 
-    const response = await fetch(
-      '/.netlify/functions/sendEmail',
-      requestOptions
-    );
-    const jsonData = await response.json();
+    try {
+      const response = await fetch(
+        '/.netlify/functions/sendEmail',
+        requestOptions
+      );
+      const jsonData = await response.json();
 
-    console.log(jsonData);
+      console.log(jsonData);
+      toast.success('Submission successful!');
+    } catch (error) {
+      console.log(error);
+      toast.error('An error occured! See console for more details.');
+    }
   };
-
-  const { t } = useTranslation();
 
   return (
     <form

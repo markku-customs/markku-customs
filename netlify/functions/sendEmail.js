@@ -25,13 +25,13 @@ exports.handler = async (event) => {
     if (info.messageId) {
       return {
         statusCode: 200,
-        body: nodemailer.getTestMessageUrl(info),
+        body: JSON.stringify({ message: nodemailer.getTestMessageUrl(info) }),
       };
     }
 
     return {
       statusCode: 400,
-      body: 'Oops',
+      body: JSON.stringify({ message: 'Oops' }),
     };
   } catch (error) {
     return {
