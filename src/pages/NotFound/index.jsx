@@ -11,7 +11,7 @@ const NotFoundPage = () => {
   return (
     <>
       <Helmet>
-        <title>Markku Customs</title>
+        <title>404 | Markku Customs</title>
         <meta name="description" content="Markku Customs Official Website" />
       </Helmet>
 

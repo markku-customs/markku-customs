@@ -9,8 +9,11 @@ const HomePage = () => {
   return (
     <>
       <Helmet>
-        <title>Markku Customs</title>
-        <meta name="description" content="Markku Customs Official Website" />
+        <title>Markku Customs: High-Quality Custom Gaming PCs</title>
+        <meta
+          name="description"
+          content="Markku Customs on tietokonekauppa Turussa. Rakennamme räätälöityjä pelitietokoneita käyttämällä sekä uusia että kunnostettuja korkealaatuisia komponentteja."
+        />
       </Helmet>
 
       <Layout>

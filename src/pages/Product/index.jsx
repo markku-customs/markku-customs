@@ -133,7 +133,10 @@ const ProductPage = () => {
     <>
       <Helmet>
         <title>{fields.name[lng]} | Markku Customs</title>
-        <meta name="description" content="Markku Customs Official Website" />
+        <meta
+          name="description"
+          content="Markku Customs on tietokonekauppa Turussa. Rakennamme räätälöityjä pelitietokoneita käyttämällä sekä uusia että kunnostettuja korkealaatuisia komponentteja."
+        />
       </Helmet>
 
       <Layout>
