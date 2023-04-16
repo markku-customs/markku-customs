@@ -10,6 +10,8 @@ const ContactForm = () => {
     formState: { isValid, errors },
   } = useForm();
   const onSubmit = async (data) => {
+    console.log(data);
+
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -110,9 +112,7 @@ const ContactForm = () => {
         </label>
       </div>
       <div className="mt-4">
-        <Button type="submit" disabled={!isValid}>
-          {t('contact.send')}
-        </Button>
+        <Button type="submit">{t('contact.send')}</Button>
       </div>
     </form>
   );

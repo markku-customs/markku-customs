@@ -24,9 +24,7 @@ const Button = ({
     <Component
       className={`text-xs uppercase tracking-[.30em] font-semibold flex justify-center ${
         variants[variant]
-      } ${sizes[size]} ${
-        transition && 'transition duration-500'
-      } disabled:contrast-50 ${className}`}
+      } ${sizes[size]} ${transition && 'transition duration-500'} ${className}`}
       {...props}
     >
       {children}
