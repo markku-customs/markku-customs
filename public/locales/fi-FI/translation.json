@@ -1,5 +1,5 @@
 {
-  "markku-customs": "Markkulan Kustomsit",
+  "markku-customs": "Markku Customs",
   "links": {
     "home": "Koti",
     "store": "Kauppa",
@@ -7,7 +7,7 @@
   },
   "hero": {
     "heading": "We Build. <br/> You Play.",
-    "description": "Rakennamme asiakkaan tarpeisiin ja budjettiin räätälöityjä, korkean suorituskyvyn tietokoneita käyttäen vain laadukkaimpia komponentteja. Ota yhteyttä aloittaaksesi täydellisen tietokoneen rakentamisen!",
+    "description": "Tervetuloa Markku Customsiin! Rakennamme räätälöityjä pelitietokoneita käyttämällä sekä uusia että kunnostettuja korkealaatuisia komponentteja. Kokeneneet teknikkomme voivat auttaa sinua luomaan koneen, joka tarjoaa tarvitsemasi suorituskyvyn ja luotettavuuden. Tarjoamme myös päivitys-, korjaus- ja huoltopalveluita. Ota meihin yhteyttä jo tänään saadaksesi lisätietoja ja aloittaaksesi juuri sinun pelitietokoneen rakentamisen!",
     "buttons": {
       "store": "Näytä Valikoima",
       "contact": "Ota Yhteyttä"

@@ -20,12 +20,18 @@ exports.handler = async (event) => {
       html: `Name: ${name}<br>Email: ${email}<br>Message: ${message}`,
     };
 
-    await transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        console.log(error);
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (info.messageId) {
+        return {
+          statusCode: 200,
+          body: nodemailer.getTestMessageUrl(info),
+        };
       }
 
-      console.log('Email sent.', info.response);
+      return {
+        statusCode: 500,
+        body: JSON.stringify(error),
+      };
     });
 
     return {
