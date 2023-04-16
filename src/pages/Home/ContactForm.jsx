@@ -1,17 +1,44 @@
+import { useForm } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
 
 import Button from '../../components/Button';
 
 const ContactForm = () => {
+  const {
+    register,
+    handleSubmit,
+    // watch,
+    // formState: { errors },
+  } = useForm();
+  const onSubmit = async (data) => {
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    };
+
+    const response = await fetch(
+      './netlify/functions/sendEmail',
+      requestOptions
+    );
+    const jsonData = await response.json();
+
+    console.log(jsonData);
+  };
+
   const { t } = useTranslation();
 
   return (
-    <form className="w-full lg:w-3/5 flex flex-col gap-4">
+    <form
+      className="w-full lg:w-3/5 flex flex-col gap-4"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div className="mt-12 flex flex-col sm:flex-row gap-4">
         <div className="flex-1">
           <label className="text-sm" htmlFor="email-input">
             {t('contact.email')}
             <input
+              {...register('email')}
               id="email-input"
               type="text"
               className="mt-2 p-4 w-full bg-zinc-800"
@@ -22,6 +49,7 @@ const ContactForm = () => {
           <label className="text-sm" htmlFor="name-input">
             {t('contact.name')}
             <input
+              {...register('name')}
               id="name-input"
               type="text"
               className="mt-2 p-4 w-full bg-zinc-800"
@@ -33,6 +61,7 @@ const ContactForm = () => {
         <label className="text-sm" htmlFor="message-input">
           {t('contact.message')}
           <textarea
+            {...register('message')}
             id="message-input"
             placeholder={t('contact.type-message')}
             className="w-full mt-2 p-4 h-32 text-sm resize-none text-start bg-zinc-800"
@@ -66,9 +95,7 @@ const ContactForm = () => {
         </label>
       </div>
       <div className="mt-4">
-        <Button type="submit" onClick={(e) => e.preventDefault()}>
-          {t('contact.send')}
-        </Button>
+        <Button type="submit">{t('contact.send')}</Button>
       </div>
     </form>
   );
