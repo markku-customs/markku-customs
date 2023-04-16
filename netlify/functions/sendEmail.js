@@ -20,8 +20,8 @@ exports.handler = async (event) => {
       html: `Name: ${name}<br>Email: ${email}<br>Message: ${message}`,
     };
 
-    transporter.sendMail(mailOptions, (_, info) => {
-      console.log(`Email sent: ${info.response}`);
+    transporter.sendMail(mailOptions, () => {
+      console.log('Email sent.');
     });
 
     return {
