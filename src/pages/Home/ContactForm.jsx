@@ -7,8 +7,7 @@ const ContactForm = () => {
   const {
     register,
     handleSubmit,
-    // watch,
-    // formState: { errors },
+    formState: { isValid, errors },
   } = useForm();
   const onSubmit = async (data) => {
     const requestOptions = {
@@ -18,7 +17,7 @@ const ContactForm = () => {
     };
 
     const response = await fetch(
-      './netlify/functions/sendEmail',
+      '/.netlify/functions/sendEmail',
       requestOptions
     );
     const jsonData = await response.json();
@@ -38,22 +37,31 @@ const ContactForm = () => {
           <label className="text-sm" htmlFor="email-input">
             {t('contact.email')}
             <input
-              {...register('email')}
+              {...register('email', {
+                required: true,
+                pattern: /^[\w-/.]+@([\w-]+\.)+[\w-]{2,4}$/,
+              })}
               id="email-input"
               type="text"
               className="mt-2 p-4 w-full bg-zinc-800"
             />
+            {errors.email && (
+              <span className="text-red-600">{t('input.required')}</span>
+            )}
           </label>
         </div>
         <div className="flex-1">
           <label className="text-sm" htmlFor="name-input">
             {t('contact.name')}
             <input
-              {...register('name')}
+              {...register('name', { required: true })}
               id="name-input"
               type="text"
               className="mt-2 p-4 w-full bg-zinc-800"
             />
+            {errors.name && (
+              <span className="text-red-600">{t('input.required')}</span>
+            )}
           </label>
         </div>
       </div>
@@ -61,11 +69,14 @@ const ContactForm = () => {
         <label className="text-sm" htmlFor="message-input">
           {t('contact.message')}
           <textarea
-            {...register('message')}
+            {...register('message', { required: true })}
             id="message-input"
             placeholder={t('contact.type-message')}
             className="w-full mt-2 p-4 h-32 text-sm resize-none text-start bg-zinc-800"
           ></textarea>
+          {errors.message && (
+            <span className="text-red-600">{t('input.required')}</span>
+          )}
         </label>
       </div>
       <div>
@@ -74,6 +85,7 @@ const ContactForm = () => {
           htmlFor="privacy-policy-checkbox"
         >
           <input
+            {...register('privacy', { required: true })}
             id="privacy-policy-checkbox"
             type="checkbox"
             className="h-4 w-4 accent-red-600"
@@ -92,10 +104,15 @@ const ContactForm = () => {
               .
             </Trans>
           </span>
+          {errors.privacy && (
+            <span className="text-red-600">{t('input.required')}</span>
+          )}
         </label>
       </div>
       <div className="mt-4">
-        <Button type="submit">{t('contact.send')}</Button>
+        <Button type="submit" disabled={!isValid}>
+          {t('contact.send')}
+        </Button>
       </div>
     </form>
   );

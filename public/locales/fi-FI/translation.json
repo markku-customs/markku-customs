@@ -34,5 +34,8 @@
   "404": {
     "subtitle": "Sivua ei löydy",
     "button": "Palaa kotisivulle"
+  },
+  "input": {
+    "required": "Tämä kenttä on pakollinen."
   }
 }

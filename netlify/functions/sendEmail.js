@@ -13,10 +13,11 @@ exports.handler = async (event) => {
     });
 
     const mailOptions = {
-      from: 'foo@example.com>',
+      from: email,
       to: 'markkucustoms@gmail.com',
-      subject: 'New Message from Someone',
-      text: `Name: ${name}, Email: ${email}, Message: ${message}`,
+      subject: `New Message from ${name}`,
+      text: `Name: ${name}; Email: ${email}; Message: ${message}`,
+      html: `Name: ${name}<br>Email: ${email}<br>Message: ${message}`,
     };
 
     transporter.sendMail(mailOptions, (_, info) => {

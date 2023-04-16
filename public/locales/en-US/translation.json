@@ -34,5 +34,8 @@
   "404": {
     "subtitle": "Page Not Found",
     "button": "Return to Homepage"
+  },
+  "input": {
+    "required": "This input is required."
   }
 }
