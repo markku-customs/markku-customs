@@ -124,9 +124,10 @@ const Navbar = () => {
       </nav>
       <nav
         ref={mobileNavRef}
+        aria-controls="menu"
         className="mobile-nav border-b-2 bg-zinc-950 border-red-600"
       >
-        <ul className="flex flex-col">
+        <ul className="flex flex-col" role="menu">
           <li className="text-xs uppercase tracking-[.30em] font-semibold">
             <Link
               to="/#home"
