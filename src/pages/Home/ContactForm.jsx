@@ -7,7 +7,7 @@ const ContactForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { isValid, errors },
+    formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
     console.log(data);
