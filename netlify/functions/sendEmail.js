@@ -20,7 +20,11 @@ exports.handler = async (event) => {
       html: `Name: ${name}<br>Email: ${email}<br>Message: ${message}`,
     };
 
-    await transporter.sendMail(mailOptions, (_, info) => {
+    await transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error);
+      }
+
       console.log('Email sent.', info.response);
     });
 
