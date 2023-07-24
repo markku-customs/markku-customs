@@ -10,6 +10,7 @@ exports.handler = async () => {
     const entries = await client.getEntries({
       content_type: 'product',
       locale: '*',
+      order: 'fields.price',
     });
 
     return {
