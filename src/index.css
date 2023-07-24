@@ -143,34 +143,13 @@ html {
   width: 40rem;
 }
 
-/* .gaming-video-container{
-  grid-row: last-row/last-row;
-  grid-column: end-column/end-column;
-} */
-
-/* Navbar */
-
-.mobile-nav {
-  display: none;
-}
-
-.open-menu {
-  display: none;
-}
-
-.closed-menu {
-  display: none;
+@media only screen and (min-width: 640px) {
+  .mobile-nav {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 640px) {
-  .closed-menu {
-    display: block;
-  }
-
-  .open-menu {
-    display: none;
-  }
-
   .hero {
     background-image: url('/hero-phone.png');
   }
