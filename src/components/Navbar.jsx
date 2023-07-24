@@ -1,6 +1,6 @@
 import { HashLink as Link } from 'react-router-hash-link';
 import { useTranslation } from 'react-i18next';
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 
 import englishFlag from '../assets/english-flag.svg';
 import finnishFlag from '../assets/finnish-flag.svg';
@@ -8,21 +8,7 @@ import finnishFlag from '../assets/finnish-flag.svg';
 const Navbar = () => {
   const { t, i18n } = useTranslation();
 
-  const openMenuRef = useRef();
-  const closeMenuRef = useRef();
-  const mobileNavRef = useRef();
-
-  const openMobileMenu = () => {
-    closeMenuRef.current.style.display = 'none';
-    openMenuRef.current.style.display = 'block';
-    mobileNavRef.current.style.display = 'block';
-  };
-
-  const closeMobileMenu = () => {
-    closeMenuRef.current.style.display = 'block';
-    openMenuRef.current.style.display = 'none';
-    mobileNavRef.current.style.display = 'none';
-  };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <div className="sticky top-0 z-50">
@@ -91,12 +77,11 @@ const Navbar = () => {
           <div className="block sm:hidden">
             <button
               type="button"
-              onClick={openMobileMenu}
+              className={isMenuOpen ? 'hidden' : 'block'}
+              onClick={() => setIsMenuOpen(true)}
               aria-label="open menu"
             >
               <img
-                ref={closeMenuRef}
-                className="closed-menu"
                 src="/menu-open.svg"
                 alt=""
                 height={32}
@@ -106,12 +91,11 @@ const Navbar = () => {
             </button>
             <button
               type="button"
-              onClick={closeMobileMenu}
+              className={isMenuOpen ? 'block' : 'hidden'}
+              onClick={() => setIsMenuOpen(false)}
               aria-label="close menu"
             >
               <img
-                ref={openMenuRef}
-                className="open-menu"
                 src="/menu-close.svg"
                 alt=""
                 height={32}
@@ -123,9 +107,10 @@ const Navbar = () => {
         </div>
       </nav>
       <nav
-        ref={mobileNavRef}
         aria-controls="menu"
-        className="mobile-nav border-b-2 bg-zinc-950 border-red-600"
+        className={`mobile-nav border-b-2 bg-zinc-950 border-red-600 ${
+          isMenuOpen ? 'block' : 'hidden'
+        }`}
       >
         <ul className="flex flex-col" role="menu">
           <li className="text-xs uppercase tracking-[.30em] font-semibold">

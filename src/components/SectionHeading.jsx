@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 const SectionHeading = ({ children, className = '' }) => {
   return (
     <h2 className={`font-heading text-4xl md:text-6xl ${className}`}>
-      <span className="text-red-600 mr-4">#</span>
+      <span className="text-red-600 mr-4" aria-hidden="true">
+        #
+      </span>
       {children}
     </h2>
   );
