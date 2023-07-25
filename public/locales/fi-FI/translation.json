@@ -3,6 +3,7 @@
   "links": {
     "home": "Koti",
     "store": "Kauppa",
+    "reviews": "Arvostelut",
     "contact": "Yhteystiedot"
   },
   "hero": {
