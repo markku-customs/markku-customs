@@ -22,6 +22,7 @@
     "type-message": "Kirjoita viestisi tähän...",
     "send": "Lähetä Viesti"
   },
+  "optional": "Valinnainen",
   "variable": "Muuttuva",
   "privacy-checkbox": "Valitsemalla tämän hyväksyt <2>tietosuojaselosteemme</2>.",
   "order": "Tilaa Nyt",

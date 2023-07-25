@@ -76,7 +76,7 @@ const ContactForm = () => {
       </div>
       <div>
         <label className="text-sm" htmlFor="phone-input">
-          {t('contact.phone')}
+          {t('contact.phone')} ({t('optional')})
           <InputMask
             mask="+358 99 999 9999"
             maskChar={null}

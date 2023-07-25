@@ -22,6 +22,7 @@
     "type-message": "Type your message here...",
     "send": "Send Message"
   },
+  "optional": "Optional",
   "variable": "Variable",
   "privacy-checkbox": "By selecting this, you agree to our <2>privacy policy</2>.",
   "order": "Order Now",
