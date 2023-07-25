@@ -8,9 +8,16 @@ import Reviews from './Reviews';
 import Contact from './Contact';
 
 const HomePage = () => {
+  const [products, setProducts] = useState([]);
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
+    fetch('/.netlify/functions/getProducts')
+      .then((res) => res.json())
+      .then((data) => setProducts(data.items))
+      .catch((err) => {
+        console.log(err);
+      });
     fetch('/.netlify/functions/getReviews')
       .then((res) => res.json())
       .then((data) => setReviews(data.items))
@@ -18,8 +25,6 @@ const HomePage = () => {
         console.log(err);
       });
   }, []);
-
-  console.log(reviews);
 
   return (
     <>
@@ -33,7 +38,7 @@ const HomePage = () => {
 
       <Layout>
         <Hero />
-        <Store />
+        <Store products={products} />
         <Reviews reviews={reviews} />
         <Contact />
       </Layout>
