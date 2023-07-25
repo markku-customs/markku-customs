@@ -27,6 +27,7 @@
       "error": "An error occured! See console for more details."
     }
   },
+  "write-review": "Write Review",
   "optional": "Optional",
   "variable": "Variable",
   "privacy-checkbox": "By selecting this, you agree to our <2>privacy policy</2>.",

@@ -14,7 +14,7 @@ const ReviewItem = ({ review }) => {
       <article className="p-4 flex flex-col gap-2 bg-zinc-900 hover:bg-zinc-800 transition duration-400">
         <h3 className="font-heading text-lg">{name['en-US']}</h3>
 
-        <div>{rating['en-US']}</div>
+        <div className="text-red-600 font-semibold">{rating['en-US']}/5</div>
 
         {content['en-US']
           .split(/\n/g)
@@ -25,7 +25,7 @@ const ReviewItem = ({ review }) => {
             </p>
           ))}
 
-        <p className="text-sm text-gray-400 capitalize">
+        <p className="text-xs text-gray-400 capitalize">
           {new Intl.DateTimeFormat(lng, {
             month: 'long',
             year: 'numeric',
