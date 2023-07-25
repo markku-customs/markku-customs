@@ -22,7 +22,7 @@ const StoreItem = ({ product }) => {
         />
       </div>
       <div className="p-4">
-        <h2 className="font-heading">{name[lng]}</h2>
+        <h3 className="font-heading">{name[lng]}</h3>
         <p className="font-heading text-3xl mt-1">
           {price ? `${price['en-US']}€` : t('variable')}
         </p>

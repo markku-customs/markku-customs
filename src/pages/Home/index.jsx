@@ -34,7 +34,7 @@ const HomePage = () => {
       <Layout>
         <Hero />
         <Store />
-        <Reviews />
+        <Reviews reviews={reviews} />
         <Contact />
       </Layout>
     </>

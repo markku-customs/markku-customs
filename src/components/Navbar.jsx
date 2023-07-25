@@ -44,6 +44,14 @@ const Navbar = () => {
               </li>
               <li className="text-xs uppercase tracking-[.30em] font-semibold">
                 <Link
+                  to="/#reviews"
+                  className="w-full h-full px-4 md:px-6 flex items-center hover:bg-zinc-900 transition duration-200"
+                >
+                  {t('links.reviews')}
+                </Link>
+              </li>
+              <li className="text-xs uppercase tracking-[.30em] font-semibold">
+                <Link
                   to="/#contact"
                   className="w-full h-full px-4 md:px-6 flex items-center hover:bg-zinc-900 transition duration-200"
                 >
@@ -127,6 +135,14 @@ const Navbar = () => {
               className="w-full h-full py-6 flex justify-center hover:bg-zinc-900 transition duration-200"
             >
               {t('links.store')}
+            </Link>
+          </li>
+          <li className="text-xs uppercase tracking-[.30em] font-semibold">
+            <Link
+              to="/#reviews"
+              className="w-full h-full py-6 flex justify-center hover:bg-zinc-900 transition duration-200"
+            >
+              {t('links.reviews')}
             </Link>
           </li>
           <li className="text-xs uppercase tracking-[.30em] font-semibold">

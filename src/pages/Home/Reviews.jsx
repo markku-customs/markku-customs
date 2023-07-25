@@ -1,25 +1,22 @@
 import { useTranslation } from 'react-i18next';
 
 import SectionHeading from '../../components/SectionHeading';
+import ReviewItem from './ReviewItem';
 
-const Reviews = () => {
+const Reviews = ({ reviews }) => {
   const { t } = useTranslation();
 
   return (
     <section className="py-12 md:py-16" id="reviews">
       <div className="container">
         <SectionHeading className="mb-8">{t('links.reviews')}</SectionHeading>
-        {/* <div className="store-grid">
-          {products.map((product) => {
-            const { id } = product.sys;
+        <div className="review-grid">
+          {reviews.map((review) => {
+            const { id } = review.sys;
 
-            return (
-              <Link to={`/products/${id}`} key={id}>
-                <StoreItem product={product} />
-              </Link>
-            );
+            return <ReviewItem key={id} review={review} />;
           })}
-        </div> */}
+        </div>
       </div>
     </section>
   );
