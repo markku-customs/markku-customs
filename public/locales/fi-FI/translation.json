@@ -20,7 +20,11 @@
     "name": "Nimi",
     "message": "Viesti",
     "type-message": "Kirjoita viestisi tähän...",
-    "send": "Lähetä Viesti"
+    "send": "Lähetä Viesti",
+    "feedback": {
+      "success": "Lähetys onnistui!",
+      "error": "Tapahtui virhe! Katso lisätietoja konsolista."
+    }
   },
   "optional": "Valinnainen",
   "variable": "Muuttuva",

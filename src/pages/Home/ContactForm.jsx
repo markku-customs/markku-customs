@@ -29,10 +29,10 @@ const ContactForm = () => {
       const jsonData = await response.json();
 
       console.log(jsonData);
-      toast.success('Submission successful!');
+      toast.success(t('contact.feedback.success'));
     } catch (error) {
       console.log(error);
-      toast.error('An error occured! See console for more details.');
+      toast.error(t('contact.feedback.error'));
     }
   };
 
@@ -83,9 +83,11 @@ const ContactForm = () => {
             alwaysShowMask
             {...register('phone')}
             id="phone-input"
-            type="tel"
             className="w-full mt-2 p-4 bg-zinc-800"
           />
+          {errors.phone && (
+            <span className="text-red-600">{t('input.required')}</span>
+          )}
         </label>
       </div>
       <div>
