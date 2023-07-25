@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 
 import Layout from '../../components/Layout';
@@ -6,6 +7,19 @@ import Store from './Store';
 import Contact from './Contact';
 
 const HomePage = () => {
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    fetch('/.netlify/functions/getReviews')
+      .then((res) => res.json())
+      .then((data) => setReviews(data.items))
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  console.log(reviews);
+
   return (
     <>
       <Helmet>
