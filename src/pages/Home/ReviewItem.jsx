@@ -14,7 +14,14 @@ const ReviewItem = ({ review }) => {
       <article className="p-4 h-full flex flex-col gap-2 bg-zinc-900 hover:bg-zinc-800 transition duration-400">
         <h3 className="font-heading text-lg">{name['en-US']}</h3>
 
-        <div className="text-red-600 font-semibold">{rating['en-US']}/5</div>
+        <div className="flex gap-1">
+          {[...Array(rating['en-US']).keys()].map((_) => (
+            <img key={_} src="/star-red.svg" alt="" className="h-4 w-4" />
+          ))}
+          {[...Array(5 - rating['en-US']).keys()].map((_) => (
+            <img key={_} src="/star-gray.svg" alt="" className="h-4 w-4" />
+          ))}
+        </div>
 
         {content['en-US']
           .split(/\n/g)
