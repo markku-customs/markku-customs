@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
 import { toast } from 'react-toastify';
+import InputMask from 'react-input-mask';
 
 import Button from '../../components/Button';
 
@@ -72,6 +73,20 @@ const ContactForm = () => {
             )}
           </label>
         </div>
+      </div>
+      <div>
+        <label className="text-sm" htmlFor="phone-input">
+          {t('contact.phone')}
+          <InputMask
+            mask="+358 99 999 9999"
+            maskChar={null}
+            alwaysShowMask
+            {...register('phone')}
+            id="phone-input"
+            type="tel"
+            className="w-full mt-2 p-4 bg-zinc-800"
+          />
+        </label>
       </div>
       <div>
         <label className="text-sm" htmlFor="message-input">
