@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
 import { toast } from 'react-toastify';
+import InputMask from 'react-input-mask';
 
 import Button from '../../components/Button';
 
@@ -28,10 +29,10 @@ const ContactForm = () => {
       const jsonData = await response.json();
 
       console.log(jsonData);
-      toast.success('Submission successful!');
+      toast.success(t('contact.feedback.success'));
     } catch (error) {
       console.log(error);
-      toast.error('An error occured! See console for more details.');
+      toast.error(t('contact.feedback.error'));
     }
   };
 
@@ -72,6 +73,22 @@ const ContactForm = () => {
             )}
           </label>
         </div>
+      </div>
+      <div>
+        <label className="text-sm" htmlFor="phone-input">
+          {t('contact.phone')} ({t('optional')})
+          <InputMask
+            mask="+358 99 999 9999"
+            maskChar={null}
+            alwaysShowMask
+            {...register('phone')}
+            id="phone-input"
+            className="w-full mt-2 p-4 bg-zinc-800"
+          />
+          {errors.phone && (
+            <span className="text-red-600">{t('input.required')}</span>
+          )}
+        </label>
       </div>
       <div>
         <label className="text-sm" htmlFor="message-input">

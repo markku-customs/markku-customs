@@ -20,8 +20,13 @@
     "name": "Name",
     "message": "Message",
     "type-message": "Type your message here...",
-    "send": "Send Message"
+    "send": "Send Message",
+    "feedback": {
+      "success": "Submission successful!",
+      "error": "An error occured! See console for more details."
+    }
   },
+  "optional": "Optional",
   "variable": "Variable",
   "privacy-checkbox": "By selecting this, you agree to our <2>privacy policy</2>.",
   "order": "Order Now",
