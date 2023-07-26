@@ -1,8 +1,0 @@
-POST http://markkucustoms.com/.netlify/functions/sendEmail HTTP/1.1
-content-type: application/json
-
-{
-    "name": "my name 1",
-    "email": "my email 1",
-    "message": "my message 1"
-}

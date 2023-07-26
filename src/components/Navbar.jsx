@@ -24,12 +24,12 @@ const Navbar = () => {
             />
             <span className="font-heading text-xl">{t('markku-customs')}</span>
           </Link>
-          <div className="hidden sm:flex gap-6">
+          <div className="hidden md:flex gap-6">
             <ul className="flex -my-4">
               <li className="text-xs uppercase tracking-[.30em] font-semibold">
                 <Link
                   to="/#home"
-                  className="w-full h-full px-4 md:px-6 flex items-center hover:bg-zinc-900 transition duration-200"
+                  className="w-full h-full px-4 lg:px-6 flex items-center hover:bg-zinc-900 transition duration-200"
                 >
                   {t('links.home')}
                 </Link>
@@ -37,15 +37,23 @@ const Navbar = () => {
               <li className="text-xs uppercase tracking-[.30em] font-semibold">
                 <Link
                   to="/#store"
-                  className="w-full h-full px-4 md:px-6 flex items-center hover:bg-zinc-900 transition duration-200"
+                  className="w-full h-full px-4 lg:px-6 flex items-center hover:bg-zinc-900 transition duration-200"
                 >
                   {t('links.store')}
                 </Link>
               </li>
               <li className="text-xs uppercase tracking-[.30em] font-semibold">
                 <Link
+                  to="/#reviews"
+                  className="w-full h-full px-4 lg:px-6 flex items-center hover:bg-zinc-900 transition duration-200"
+                >
+                  {t('links.reviews')}
+                </Link>
+              </li>
+              <li className="text-xs uppercase tracking-[.30em] font-semibold">
+                <Link
                   to="/#contact"
-                  className="w-full h-full px-4 md:px-6 flex items-center hover:bg-zinc-900 transition duration-200"
+                  className="w-full h-full px-4 lg:px-6 flex items-center hover:bg-zinc-900 transition duration-200"
                 >
                   {t('links.contact')}
                 </Link>
@@ -53,28 +61,30 @@ const Navbar = () => {
             </ul>
             <div className="flex gap-4 items-center">
               <button
+                className="w-6"
                 type="button"
                 onClick={() => i18n.changeLanguage('en-US')}
               >
                 <img
-                  className="hover:scale-110 h-4 transition duration-100"
+                  className="hover:scale-110 transition duration-100"
                   src={englishFlag}
                   alt="English"
                 />
               </button>
               <button
+                className="w-6"
                 type="button"
                 onClick={() => i18n.changeLanguage('fi-FI')}
               >
                 <img
-                  className="hover:scale-110 h-4 transition duration-100"
+                  className="hover:scale-110 transition duration-100"
                   src={finnishFlag}
                   alt="Suomi"
                 />
               </button>
             </div>
           </div>
-          <div className="block sm:hidden">
+          <div className="block md:hidden">
             <button
               type="button"
               className={isMenuOpen ? 'hidden' : 'block'}
@@ -127,6 +137,14 @@ const Navbar = () => {
               className="w-full h-full py-6 flex justify-center hover:bg-zinc-900 transition duration-200"
             >
               {t('links.store')}
+            </Link>
+          </li>
+          <li className="text-xs uppercase tracking-[.30em] font-semibold">
+            <Link
+              to="/#reviews"
+              className="w-full h-full py-6 flex justify-center hover:bg-zinc-900 transition duration-200"
+            >
+              {t('links.reviews')}
             </Link>
           </li>
           <li className="text-xs uppercase tracking-[.30em] font-semibold">

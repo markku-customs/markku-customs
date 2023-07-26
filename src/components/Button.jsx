@@ -22,7 +22,7 @@ const Button = ({
 }) => {
   return (
     <Component
-      className={`text-xs uppercase tracking-[.30em] font-semibold flex justify-center ${
+      className={`text-xs uppercase tracking-[.30em] font-semibold flex justify-center cursor-pointer ${
         variants[variant]
       } ${sizes[size]} ${transition && 'transition duration-500'} ${className}`}
       {...props}

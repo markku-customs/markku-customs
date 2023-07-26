@@ -21,7 +21,7 @@ const Footer = () => {
           rel="noreferrer"
         >
           <span className="text-zinc-200">{t('footer.privacy')}</span>
-          <img src="/arrow-outward.svg" alt="" height={24} width={24} />
+          <img src="/arrow-outward-red.svg" alt="" height={24} width={24} />
         </a>
         <a
           className="text-xs font-semibold flex items-center gap-1"
@@ -30,7 +30,7 @@ const Footer = () => {
           rel="noreferrer"
         >
           <span className="text-zinc-200">{t('footer.terms')}</span>
-          <img src="/arrow-outward.svg" alt="" height={24} width={24} />
+          <img src="/arrow-outward-red.svg" alt="" height={24} width={24} />
         </a>
       </div>
     </footer>

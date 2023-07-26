@@ -3,6 +3,7 @@
   "links": {
     "home": "Koti",
     "store": "Kauppa",
+    "reviews": "Arvostelut",
     "contact": "Yhteystiedot"
   },
   "hero": {
@@ -26,6 +27,8 @@
       "error": "Tapahtui virhe! Katso lisätietoja konsolista."
     }
   },
+  "write-review": "Kirjoita Arvostelu",
+  "view-reviews": "Katso Kaikki Arvostelut",
   "optional": "Valinnainen",
   "variable": "Muuttuva",
   "privacy-checkbox": "Valitsemalla tämän hyväksyt <2>tietosuojaselosteemme</2>.",

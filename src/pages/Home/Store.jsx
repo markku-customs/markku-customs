@@ -1,14 +1,11 @@
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import StoreItemsContext from '../../contexts/StoreItemsContext';
 
 import SectionHeading from '../../components/SectionHeading';
 import StoreItem from './StoreItem';
 
-const Store = () => {
+const Store = ({ products }) => {
   const { t } = useTranslation();
-  const products = useContext(StoreItemsContext);
 
   return (
     <section className="py-12 md:py-16" id="store">

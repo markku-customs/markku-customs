@@ -84,6 +84,26 @@ html {
   scale: 1.2;
 }
 
+/* Home Page | Reviews Section */
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
+}
+
+.slick-track {
+  display: flex !important;
+}
+
+.slick-slide {
+  height: inherit !important;
+}
+
+.slick-slide > div {
+  height: 100% !important;
+}
+
 /* Product Page */
 
 .product-page-grid {
@@ -143,7 +163,7 @@ html {
   width: 40rem;
 }
 
-@media only screen and (min-width: 640px) {
+@media only screen and (min-width: 768px) {
   .mobile-nav {
     display: none;
   }
