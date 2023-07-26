@@ -24,6 +24,7 @@ const Reviews = ({ reviews }) => {
       {
         breakpoint: 768,
         settings: {
+          centerMode: false,
           slidesToShow: 1,
         },
       },
