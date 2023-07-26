@@ -128,6 +128,7 @@ const Navbar = () => {
           <li className="text-xs font-semibold uppercase tracking-[.30em]">
             <Link
               to="/#home"
+              onClick={() => setIsMenuOpen(false)}
               className="flex h-full w-full justify-center py-6 transition duration-200 hover:bg-zinc-900"
             >
               {t('links.home')}
@@ -136,6 +137,7 @@ const Navbar = () => {
           <li className="text-xs font-semibold uppercase tracking-[.30em]">
             <Link
               to="/#store"
+              onClick={() => setIsMenuOpen(false)}
               className="flex h-full w-full justify-center py-6 transition duration-200 hover:bg-zinc-900"
             >
               {t('links.store')}
@@ -144,6 +146,7 @@ const Navbar = () => {
           <li className="text-xs font-semibold uppercase tracking-[.30em]">
             <Link
               to="/#reviews"
+              onClick={() => setIsMenuOpen(false)}
               className="flex h-full w-full justify-center py-6 transition duration-200 hover:bg-zinc-900"
             >
               {t('links.reviews')}
@@ -152,6 +155,7 @@ const Navbar = () => {
           <li className="text-xs font-semibold uppercase tracking-[.30em]">
             <Link
               to="/#contact"
+              onClick={() => setIsMenuOpen(false)}
               className="flex h-full w-full justify-center py-6 transition duration-200 hover:bg-zinc-900"
             >
               {t('links.contact')}
