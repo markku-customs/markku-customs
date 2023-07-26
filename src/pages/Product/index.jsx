@@ -210,11 +210,6 @@ const ProductPage = () => {
                 </div>
               </section>
             )}
-            {/* <div className="gaming-video-container p">
-              <video className="rounded" controls muted>
-                <source src="/dummy-video.mp4" type="video/mp4" />
-              </video>
-            </div> */}
           </div>
         </div>
       </Layout>
