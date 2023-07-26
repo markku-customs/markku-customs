@@ -33,6 +33,7 @@
   "variable": "Variable",
   "privacy-checkbox": "By selecting this, you agree to our <2>privacy policy</2>.",
   "order": "Order Now",
+  "fps-note": "NB. Results recorded on 1080p monitor with Medium quality settings.",
   "fps-performance": "FPS Performance",
   "footer": {
     "copyright": "© {{year}} Markku Customs. All rights reserved.",
