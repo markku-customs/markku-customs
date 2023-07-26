@@ -151,7 +151,7 @@ const ProductPage = () => {
                 .split(/\n/g)
                 .filter((e) => e)
                 .map((text) => (
-                  <p className="text-sm text-gray-400" key={text.slice(0, 32)}>
+                  <p className="text-sm text-zinc-400" key={text.slice(0, 32)}>
                     {text}
                   </p>
                 ))}

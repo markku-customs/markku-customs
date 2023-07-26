@@ -16,7 +16,7 @@ const Hero = () => {
             We Play.
           </Trans>
         </h1>
-        <p className="mt-6 max-w-prose text-sm leading-8 text-zinc-300 sm:mt-8 sm:text-base">
+        <p className="mt-6 max-w-prose text-sm leading-8 text-zinc-300 sm:mt-8 md:text-base">
           {t('hero.description')}
         </p>
         <div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:flex-row">

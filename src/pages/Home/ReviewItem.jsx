@@ -33,13 +33,13 @@ const ReviewItem = ({ review }) => {
             .split(/\n/g)
             .filter((e) => e)
             .map((text) => (
-              <p className="text-sm text-gray-200" key={text.slice(0, 32)}>
+              <p className="text-sm text-zinc-200" key={text.slice(0, 32)}>
                 {text}
               </p>
             ))}
         </div>
 
-        <p className="mt-auto text-xs capitalize text-gray-400">
+        <p className="mt-auto text-xs capitalize text-zinc-400">
           {new Intl.DateTimeFormat(lng, {
             month: 'long',
             year: 'numeric',
