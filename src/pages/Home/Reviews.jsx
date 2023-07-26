@@ -47,7 +47,7 @@ const Reviews = ({ reviews }) => {
         <div className="flex flex-wrap gap-4">
           <Button
             as="a"
-            className="w-max flex gap-2 item-center"
+            className="item-center flex w-max gap-2"
             href="https://g.page/r/CUxzjc1LVcAjEB0/review"
             target="_blank"
             rel="noreferrer"
@@ -64,7 +64,7 @@ const Reviews = ({ reviews }) => {
           <Button
             as="a"
             variant="secondary"
-            className="w-max flex gap-2 items-center"
+            className="flex w-max items-center gap-2"
             href="https://www.google.com/maps/place/Markku+Customs/@60.4319644,21.8945733,10z/data=!4m18!1m9!3m8!1s0x468c7719ea889cb5:0x23c0554bcd8d734c!2sMarkku+Customs!8m2!3d60.4320325!4d22.2242091!9m1!1b1!16s%2Fg%2F11tgf7cv01!3m7!1s0x468c7719ea889cb5:0x23c0554bcd8d734c!8m2!3d60.4320325!4d22.2242091!9m1!1b1!16s%2Fg%2F11tgf7cv01?authuser=2&entry=ttu"
             target="_blank"
             rel="noreferrer"

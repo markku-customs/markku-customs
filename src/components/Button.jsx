@@ -24,7 +24,7 @@ const Button = ({
   return (
     <Component
       className={clsx(
-        'text-xs uppercase tracking-[.30em] font-semibold flex justify-center cursor-pointer',
+        'flex cursor-pointer justify-center text-xs font-semibold uppercase tracking-[.30em]',
         variants[variant],
         sizes[size],
         transition && 'transition duration-500',

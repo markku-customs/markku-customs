@@ -13,8 +13,8 @@ const Navbar = () => {
 
   return (
     <div className="sticky top-0 z-50">
-      <nav className="bg-zinc-950 py-4 border-b-2 border-red-600">
-        <div className="container flex gap-4 justify-between">
+      <nav className="border-b-2 border-red-600 bg-zinc-950 py-4">
+        <div className="container flex justify-between gap-4">
           <Link to="/" className="flex items-center gap-4">
             <img
               className="h-8 w-8"
@@ -25,49 +25,49 @@ const Navbar = () => {
             />
             <span className="font-heading text-xl">{t('markku-customs')}</span>
           </Link>
-          <div className="hidden md:flex gap-6">
-            <ul className="flex -my-4">
-              <li className="text-xs uppercase tracking-[.30em] font-semibold">
+          <div className="hidden gap-6 md:flex">
+            <ul className="-my-4 flex">
+              <li className="text-xs font-semibold uppercase tracking-[.30em]">
                 <Link
                   to="/#home"
-                  className="w-full h-full px-4 lg:px-6 flex items-center hover:bg-zinc-900 transition duration-200"
+                  className="flex h-full w-full items-center px-4 transition duration-200 hover:bg-zinc-900 lg:px-6"
                 >
                   {t('links.home')}
                 </Link>
               </li>
-              <li className="text-xs uppercase tracking-[.30em] font-semibold">
+              <li className="text-xs font-semibold uppercase tracking-[.30em]">
                 <Link
                   to="/#store"
-                  className="w-full h-full px-4 lg:px-6 flex items-center hover:bg-zinc-900 transition duration-200"
+                  className="flex h-full w-full items-center px-4 transition duration-200 hover:bg-zinc-900 lg:px-6"
                 >
                   {t('links.store')}
                 </Link>
               </li>
-              <li className="text-xs uppercase tracking-[.30em] font-semibold">
+              <li className="text-xs font-semibold uppercase tracking-[.30em]">
                 <Link
                   to="/#reviews"
-                  className="w-full h-full px-4 lg:px-6 flex items-center hover:bg-zinc-900 transition duration-200"
+                  className="flex h-full w-full items-center px-4 transition duration-200 hover:bg-zinc-900 lg:px-6"
                 >
                   {t('links.reviews')}
                 </Link>
               </li>
-              <li className="text-xs uppercase tracking-[.30em] font-semibold">
+              <li className="text-xs font-semibold uppercase tracking-[.30em]">
                 <Link
                   to="/#contact"
-                  className="w-full h-full px-4 lg:px-6 flex items-center hover:bg-zinc-900 transition duration-200"
+                  className="flex h-full w-full items-center px-4 transition duration-200 hover:bg-zinc-900 lg:px-6"
                 >
                   {t('links.contact')}
                 </Link>
               </li>
             </ul>
-            <div className="flex gap-4 items-center">
+            <div className="flex items-center gap-4">
               <button
                 className="w-6"
                 type="button"
                 onClick={() => i18n.changeLanguage('en-US')}
               >
                 <img
-                  className="hover:scale-110 transition duration-100"
+                  className="transition duration-100 hover:scale-110"
                   src={englishFlag}
                   alt="English"
                 />
@@ -78,7 +78,7 @@ const Navbar = () => {
                 onClick={() => i18n.changeLanguage('fi-FI')}
               >
                 <img
-                  className="hover:scale-110 transition duration-100"
+                  className="transition duration-100 hover:scale-110"
                   src={finnishFlag}
                   alt="Suomi"
                 />
@@ -120,55 +120,55 @@ const Navbar = () => {
       <nav
         aria-controls="menu"
         className={clsx(
-          'mobile-nav border-b-2 bg-zinc-950 border-red-600',
+          'mobile-nav border-b-2 border-red-600 bg-zinc-950',
           isMenuOpen ? 'block' : 'hidden'
         )}
       >
         <ul className="flex flex-col" role="menu">
-          <li className="text-xs uppercase tracking-[.30em] font-semibold">
+          <li className="text-xs font-semibold uppercase tracking-[.30em]">
             <Link
               to="/#home"
-              className="w-full h-full py-6 flex justify-center hover:bg-zinc-900 transition duration-200"
+              className="flex h-full w-full justify-center py-6 transition duration-200 hover:bg-zinc-900"
             >
               {t('links.home')}
             </Link>
           </li>
-          <li className="text-xs uppercase tracking-[.30em] font-semibold">
+          <li className="text-xs font-semibold uppercase tracking-[.30em]">
             <Link
               to="/#store"
-              className="w-full h-full py-6 flex justify-center hover:bg-zinc-900 transition duration-200"
+              className="flex h-full w-full justify-center py-6 transition duration-200 hover:bg-zinc-900"
             >
               {t('links.store')}
             </Link>
           </li>
-          <li className="text-xs uppercase tracking-[.30em] font-semibold">
+          <li className="text-xs font-semibold uppercase tracking-[.30em]">
             <Link
               to="/#reviews"
-              className="w-full h-full py-6 flex justify-center hover:bg-zinc-900 transition duration-200"
+              className="flex h-full w-full justify-center py-6 transition duration-200 hover:bg-zinc-900"
             >
               {t('links.reviews')}
             </Link>
           </li>
-          <li className="text-xs uppercase tracking-[.30em] font-semibold">
+          <li className="text-xs font-semibold uppercase tracking-[.30em]">
             <Link
               to="/#contact"
-              className="w-full h-full py-6 flex justify-center hover:bg-zinc-900 transition duration-200"
+              className="flex h-full w-full justify-center py-6 transition duration-200 hover:bg-zinc-900"
             >
               {t('links.contact')}
             </Link>
           </li>
         </ul>
-        <div className="p-4 flex gap-4 justify-center">
+        <div className="flex justify-center gap-4 p-4">
           <button type="button" onClick={() => i18n.changeLanguage('en-US')}>
             <img
-              className="hover:scale-110 h-4 transition duration-100"
+              className="h-4 transition duration-100 hover:scale-110"
               src={englishFlag}
               alt="English"
             />
           </button>
           <button type="button" onClick={() => i18n.changeLanguage('fi-FI')}>
             <img
-              className="hover:scale-110 h-4 transition duration-100"
+              className="h-4 transition duration-100 hover:scale-110"
               src={finnishFlag}
               alt="Finnish"
             />
