@@ -10,8 +10,13 @@ const ReviewItem = ({ review }) => {
   const lng = i18n.language;
 
   return (
-    <a href={link['en-US']} target="_blank" rel="noreferrer">
-      <article className="p-4 h-full flex flex-col gap-2 bg-zinc-900 hover:bg-zinc-800 transition duration-400">
+    <a
+      href={link['en-US']}
+      target="_blank"
+      rel="noreferrer"
+      className="block mr-4 h-full"
+    >
+      <article className="p-4 h-full flex flex-col gap-4 bg-zinc-900 hover:bg-zinc-800 transition duration-400">
         <h3 className="font-heading text-lg">{name['en-US']}</h3>
 
         <div className="flex gap-1">
@@ -23,14 +28,16 @@ const ReviewItem = ({ review }) => {
           ))}
         </div>
 
-        {content['en-US']
-          .split(/\n/g)
-          .filter((e) => e)
-          .map((text) => (
-            <p className="text-sm" key={text.slice(0, 32)}>
-              {text}
-            </p>
-          ))}
+        <div className="flex flex-col gap-2">
+          {content['en-US']
+            .split(/\n/g)
+            .filter((e) => e)
+            .map((text) => (
+              <p className="text-sm text-gray-200" key={text.slice(0, 32)}>
+                {text}
+              </p>
+            ))}
+        </div>
 
         <p className="text-xs mt-auto text-gray-400 capitalize">
           {new Intl.DateTimeFormat(lng, {

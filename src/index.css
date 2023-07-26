@@ -92,6 +92,18 @@ html {
   gap: 2rem;
 }
 
+.slick-track {
+  display: flex !important;
+}
+
+.slick-slide {
+  height: inherit !important;
+}
+
+.slick-slide > div {
+  height: 100% !important;
+}
+
 /* Product Page */
 
 .product-page-grid {
