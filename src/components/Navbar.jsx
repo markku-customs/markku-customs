@@ -1,6 +1,7 @@
 import { HashLink as Link } from 'react-router-hash-link';
 import { useTranslation } from 'react-i18next';
-import React, { useState } from 'react';
+import { useState } from 'react';
+import clsx from 'clsx';
 
 import englishFlag from '../assets/english-flag.svg';
 import finnishFlag from '../assets/finnish-flag.svg';
@@ -118,9 +119,10 @@ const Navbar = () => {
       </nav>
       <nav
         aria-controls="menu"
-        className={`mobile-nav border-b-2 bg-zinc-950 border-red-600 ${
+        className={clsx(
+          'mobile-nav border-b-2 bg-zinc-950 border-red-600',
           isMenuOpen ? 'block' : 'hidden'
-        }`}
+        )}
       >
         <ul className="flex flex-col" role="menu">
           <li className="text-xs uppercase tracking-[.30em] font-semibold">
