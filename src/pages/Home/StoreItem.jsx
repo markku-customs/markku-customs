@@ -10,7 +10,7 @@ const StoreItem = ({ product }) => {
   const lng = i18n.language;
 
   return (
-    <article className="bg-zinc-900 hover:bg-zinc-800 transition duration-400">
+    <article className="duration-400 bg-zinc-900 transition hover:bg-zinc-800">
       <div className="image-container max-h-64">
         <img
           src={
@@ -23,7 +23,7 @@ const StoreItem = ({ product }) => {
       </div>
       <div className="p-4">
         <h3 className="font-heading">{name[lng]}</h3>
-        <p className="font-heading text-3xl mt-1">
+        <p className="mt-1 font-heading text-3xl">
           {price ? `${price['en-US']}€` : t('variable')}
         </p>
       </div>

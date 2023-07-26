@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 
-import Layout from '../../components/Layout';
+import Layout from '@/components/Layout';
 import Hero from './Hero';
 import Store from './Store';
 import Reviews from './Reviews';

@@ -3,7 +3,7 @@ import { useTranslation, Trans } from 'react-i18next';
 import { toast } from 'react-toastify';
 import InputMask from 'react-input-mask';
 
-import Button from '../../components/Button';
+import Button from '@/components/Button';
 
 const ContactForm = () => {
   const {
@@ -38,10 +38,10 @@ const ContactForm = () => {
 
   return (
     <form
-      className="w-full lg:w-3/5 flex flex-col gap-4"
+      className="flex w-full flex-col gap-4 lg:w-3/5"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <div className="mt-12 flex flex-col sm:flex-row gap-4">
+      <div className="mt-12 flex flex-col gap-4 sm:flex-row">
         <div className="flex-1">
           <label className="text-sm" htmlFor="email-input">
             {t('contact.email')}
@@ -52,7 +52,7 @@ const ContactForm = () => {
               })}
               id="email-input"
               type="text"
-              className="mt-2 p-4 w-full bg-zinc-800"
+              className="mt-2 w-full bg-zinc-800 p-4"
             />
             {errors.email && (
               <span className="text-red-600">{t('input.required')}</span>
@@ -66,7 +66,7 @@ const ContactForm = () => {
               {...register('name', { required: true })}
               id="name-input"
               type="text"
-              className="mt-2 p-4 w-full bg-zinc-800"
+              className="mt-2 w-full bg-zinc-800 p-4"
             />
             {errors.name && (
               <span className="text-red-600">{t('input.required')}</span>
@@ -83,7 +83,7 @@ const ContactForm = () => {
             alwaysShowMask
             {...register('phone')}
             id="phone-input"
-            className="w-full mt-2 p-4 bg-zinc-800"
+            className="mt-2 w-full bg-zinc-800 p-4"
           />
           {errors.phone && (
             <span className="text-red-600">{t('input.required')}</span>
@@ -97,7 +97,7 @@ const ContactForm = () => {
             {...register('message', { required: true })}
             id="message-input"
             placeholder={t('contact.type-message')}
-            className="w-full mt-2 p-4 h-32 text-sm resize-none text-start bg-zinc-800"
+            className="mt-2 h-32 w-full resize-none bg-zinc-800 p-4 text-start text-sm"
           ></textarea>
           {errors.message && (
             <span className="text-red-600">{t('input.required')}</span>
@@ -106,7 +106,7 @@ const ContactForm = () => {
       </div>
       <div>
         <label
-          className="text-sm flex gap-4 items-center"
+          className="flex items-center gap-4 text-sm"
           htmlFor="privacy-policy-checkbox"
         >
           <input

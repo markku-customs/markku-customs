@@ -6,7 +6,7 @@ const ContactLinks = () => {
   const { t } = useTranslation();
 
   return (
-    <ul className="flex gap-8 lg:gap-12 flex-wrap">
+    <ul className="flex flex-wrap gap-8 lg:gap-12">
       <ContactLink
         icon="/phone-icon.svg"
         title={t('contact.phone')}

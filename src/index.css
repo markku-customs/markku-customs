@@ -15,7 +15,7 @@
 
 @layer components {
   .button {
-    @apply px-8 py-4 text-xs uppercase tracking-[.30em] font-semibold transition duration-100 flex justify-center w-full sm:w-auto;
+    @apply flex w-full justify-center px-8 py-4 text-xs font-semibold uppercase tracking-[.30em] transition duration-100 sm:w-auto;
   }
 }
 

@@ -33,6 +33,7 @@
   "variable": "Muuttuva",
   "privacy-checkbox": "Valitsemalla tämän hyväksyt <2>tietosuojaselosteemme</2>.",
   "order": "Tilaa Nyt",
+  "fps-note": "Huom. Tulokset tallennettu 1080p-näytöllä Medium-kuvanlaatuasetuksilla.",
   "fps-performance": "FPS-toimivuus",
   "footer": {
     "copyright": "© {{year}} Markku Customs. Kaikki oikeudet pidätetään.",

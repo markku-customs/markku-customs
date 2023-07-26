@@ -9,33 +9,33 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 
-import Layout from '../../components/Layout';
-import Button from '../../components/Button';
+import Layout from '@/components/Layout';
+import Button from '@/components/Button';
 
 const options = {
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => (
-      <p className="text-zinc-400 leading-8 my-2">{children}</p>
+      <p className="my-2 leading-8 text-zinc-400">{children}</p>
     ),
     [BLOCKS.HEADING_1]: (node, children) => (
-      <h2 className="leading-8 text-2xl font-semibold my-6">{children}</h2>
+      <h2 className="my-6 text-2xl font-semibold leading-8">{children}</h2>
     ),
     [BLOCKS.HEADING_2]: (node, children) => (
-      <h3 className="leading-8 text-xl font-semibold my-4">{children}</h3>
+      <h3 className="my-4 text-xl font-semibold leading-8">{children}</h3>
     ),
     [BLOCKS.HEADING_3]: (node, children) => (
-      <h4 className="leading-8 text-lg font-semibold my-2">{children}</h4>
+      <h4 className="my-2 text-lg font-semibold leading-8">{children}</h4>
     ),
     [BLOCKS.HEADING_4]: (node, children) => (
-      <h5 className="leading-8 text-base font-semibold my-1">{children}</h5>
+      <h5 className="my-1 text-base font-semibold leading-8">{children}</h5>
     ),
     [BLOCKS.UL_LIST]: (node, children) => (
-      <ul className="list-disc list-inside marker:text-zinc-600 my-4">
+      <ul className="my-4 list-inside list-disc marker:text-zinc-600">
         {children}
       </ul>
     ),
     [BLOCKS.OL_LIST]: (node, children) => (
-      <ol className="list-decimal list-inside marker:text-zinc-600 my-4">
+      <ol className="my-4 list-inside list-decimal marker:text-zinc-600">
         {children}
       </ol>
     ),
@@ -48,17 +48,17 @@ const options = {
         )}
       </li>
     ),
-    [BLOCKS.HR]: () => <hr className="h-px my-8 bg-zinc-800 border-none" />,
+    [BLOCKS.HR]: () => <hr className="my-8 h-px border-none bg-zinc-800" />,
     [BLOCKS.TABLE]: (node, children) => (
-      <table className="w-full text-sm text-left my-4">
+      <table className="my-4 w-full text-left text-sm">
         <tbody>{children}</tbody>
       </table>
     ),
     [BLOCKS.TABLE_ROW]: (node, children) => (
-      <tr className="border-b bg-zinc-800 border-zinc-700">{children}</tr>
+      <tr className="border-b border-zinc-700 bg-zinc-800">{children}</tr>
     ),
     [BLOCKS.TABLE_HEADER_CELL]: (node, children) => (
-      <th className="px-6 py-4 bg-zinc-900">
+      <th className="bg-zinc-900 px-6 py-4">
         {React.Children.map(children, (child) =>
           React.cloneElement(child, {
             className: 'text-zinc-200 leading-8 my-0',
@@ -76,8 +76,8 @@ const options = {
       </td>
     ),
     [BLOCKS.QUOTE]: (node, children) => (
-      <blockquote className="p-4 my-4 border-l-4 border-red-600 bg-zinc-800">
-        <p className="italic font-semibold">{children}</p>
+      <blockquote className="my-4 border-l-4 border-red-600 bg-zinc-800 p-4">
+        <p className="font-semibold italic">{children}</p>
       </blockquote>
     ),
     [INLINES.HYPERLINK]: ({ data }, children) => (
@@ -143,7 +143,7 @@ const ProductPage = () => {
         <div className="container">
           <div className="product-page-grid">
             <section className="store-product-heading-text gap-4">
-              <h1 className="text-4xl font-heading">{name[lng]}</h1>
+              <h1 className="font-heading text-4xl">{name[lng]}</h1>
               <p className="text-2xl">
                 {price ? `${price['en-US']}€` : t('variable')}
               </p>
@@ -151,7 +151,7 @@ const ProductPage = () => {
                 .split(/\n/g)
                 .filter((e) => e)
                 .map((text) => (
-                  <p className="text-sm text-gray-400" key={text.slice(0, 32)}>
+                  <p className="text-sm text-zinc-400" key={text.slice(0, 32)}>
                     {text}
                   </p>
                 ))}
@@ -186,9 +186,10 @@ const ProductPage = () => {
 
             {gameNames && gameFrameRates && (
               <section className="game-grid-container">
-                <h2 className="text-2xl font-bold mb-4">
+                <h2 className="mb-4 text-2xl font-bold">
                   {t('fps-performance')}
                 </h2>
+                <p className="mb-4 text-sm text-zinc-400">{t('fps-note')}</p>
                 <div className="game-grid">
                   {gameNames['en-US'].map((game, idx) => (
                     <div className="game-grid-box" key={game.sys.id}>
@@ -199,10 +200,10 @@ const ProductPage = () => {
                         }
                         alt={game.fields.name['en-US']}
                       />
-                      <span className="block mt-2 text-zinc-400 text-sm">
+                      <span className="mt-2 block text-sm text-zinc-400">
                         {game.fields.name['en-US']}
                       </span>
-                      <span className="fps-text block mt-1 font-semibold">
+                      <span className="fps-text mt-1 block font-semibold">
                         {gameFrameRates['en-US'][idx] || '000'} FPS
                       </span>
                     </div>
@@ -210,11 +211,6 @@ const ProductPage = () => {
                 </div>
               </section>
             )}
-            {/* <div className="gaming-video-container p">
-              <video className="rounded" controls muted>
-                <source src="/dummy-video.mp4" type="video/mp4" />
-              </video>
-            </div> */}
           </div>
         </div>
       </Layout>

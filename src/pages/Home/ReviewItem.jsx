@@ -14,9 +14,9 @@ const ReviewItem = ({ review }) => {
       href={link['en-US']}
       target="_blank"
       rel="noreferrer"
-      className="block mr-4 h-full"
+      className="mr-4 block h-full"
     >
-      <article className="p-4 h-full flex flex-col gap-4 bg-zinc-900 hover:bg-zinc-800 transition duration-400">
+      <article className="duration-400 flex h-full flex-col gap-4 bg-zinc-900 p-4 transition hover:bg-zinc-800">
         <h3 className="font-heading text-lg">{name['en-US']}</h3>
 
         <div className="flex gap-1">
@@ -33,13 +33,13 @@ const ReviewItem = ({ review }) => {
             .split(/\n/g)
             .filter((e) => e)
             .map((text) => (
-              <p className="text-sm text-gray-200" key={text.slice(0, 32)}>
+              <p className="text-sm text-zinc-200" key={text.slice(0, 32)}>
                 {text}
               </p>
             ))}
         </div>
 
-        <p className="text-xs mt-auto text-gray-400 capitalize">
+        <p className="mt-auto text-xs capitalize text-zinc-400">
           {new Intl.DateTimeFormat(lng, {
             month: 'long',
             year: 'numeric',

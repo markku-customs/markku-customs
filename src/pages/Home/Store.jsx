@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import SectionHeading from '../../components/SectionHeading';
+import SectionHeading from '@/components/SectionHeading';
 import StoreItem from './StoreItem';
 
 const Store = ({ products }) => {

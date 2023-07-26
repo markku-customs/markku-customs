@@ -6,11 +6,11 @@ const ContactLink = ({ icon, title, content, href, blank = false }) => {
 
   return (
     <li className="flex items-center gap-4">
-      <div className="bg-red-600 p-2 rounded-md">
+      <div className="rounded-md bg-red-600 p-2">
         <img src={icon} alt="" height={32} width={32} aria-hidden="true" />
       </div>
       <div>
-        <span className="block text-zinc-400 text-sm">{title}</span>
+        <span className="block text-sm text-zinc-400">{title}</span>
         <a className="hover:text-red-600" href={href} target={target} rel={rel}>
           {content}
         </a>
