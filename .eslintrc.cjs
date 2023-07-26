@@ -10,6 +10,14 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:prettier/recommended',
   ],
+  settings: {
+    'import/resolver': {
+      alias: {
+        map: [['@', './src/']],
+        extensions: ['.js', '.jsx'],
+      },
+    },
+  },
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',

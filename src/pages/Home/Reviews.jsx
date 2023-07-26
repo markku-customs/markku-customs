@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import Slider from 'react-slick';
 
-import SectionHeading from '../../components/SectionHeading';
+import SectionHeading from '@/components/SectionHeading';
+import Button from '@/components/Button';
 import ReviewItem from './ReviewItem';
-import Button from '../../components/Button';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';

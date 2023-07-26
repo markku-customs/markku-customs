@@ -9,8 +9,8 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 
-import Layout from '../../components/Layout';
-import Button from '../../components/Button';
+import Layout from '@/components/Layout';
+import Button from '@/components/Button';
 
 const options = {
   renderNode: {

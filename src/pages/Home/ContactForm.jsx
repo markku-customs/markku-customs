@@ -3,7 +3,7 @@ import { useTranslation, Trans } from 'react-i18next';
 import { toast } from 'react-toastify';
 import InputMask from 'react-input-mask';
 
-import Button from '../../components/Button';
+import Button from '@/components/Button';
 
 const ContactForm = () => {
   const {
