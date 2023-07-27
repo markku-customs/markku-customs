@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 
 import { Transition } from '@headlessui/react';
 import { useTranslation } from 'react-i18next';
@@ -99,6 +99,7 @@ const Navbar = () => {
         </div>
       </nav>
       <Transition
+        as={Fragment}
         show={isMenuOpen}
         enter="transition-all ease-out duration-500"
         enterFrom="opacity-0 -translate-y-6"

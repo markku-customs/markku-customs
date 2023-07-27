@@ -1,24 +1,26 @@
 import { useTranslation } from 'react-i18next';
 
+import { EmailIcon, InstagramIcon, PhoneIcon } from '@/icons';
+
 import ContactLink from './ContactLink';
 
 const links = [
   {
-    icon: '/phone-icon.svg',
+    icon: PhoneIcon,
     key: 'contact.phone',
     content: '+358 40 932 3040',
     href: 'tel: +358409323040',
     blank: false,
   },
   {
-    icon: '/email-icon.svg',
+    icon: EmailIcon,
     key: 'contact.email',
     content: 'markkucustoms@gmail.com',
     href: 'mailto: markkucustoms@gmail.com',
     blank: false,
   },
   {
-    icon: '/instagram-icon.svg',
+    icon: InstagramIcon,
     key: 'contact.instagram',
     content: '@markku.customs',
     href: 'https://www.instagram.com/markku.customs/',
