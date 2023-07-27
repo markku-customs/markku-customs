@@ -61,28 +61,20 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
               <button
-                className="w-6"
+                className="w-10 rounded bg-zinc-950 p-2 transition hover:bg-zinc-900"
                 type="button"
                 onClick={() => i18n.changeLanguage('en-US')}
               >
-                <img
-                  className="transition duration-100 hover:scale-110"
-                  src={englishFlag}
-                  alt="English"
-                />
+                <img src={englishFlag} alt="english" />
               </button>
               <button
-                className="w-6"
+                className="w-10 rounded bg-zinc-950 p-2 transition hover:bg-zinc-900"
                 type="button"
                 onClick={() => i18n.changeLanguage('fi-FI')}
               >
-                <img
-                  className="transition duration-100 hover:scale-110"
-                  src={finnishFlag}
-                  alt="Suomi"
-                />
+                <img src={finnishFlag} alt="suomi" />
               </button>
             </div>
           </div>
@@ -163,20 +155,20 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
-        <div className="flex justify-center gap-4 p-4">
-          <button type="button" onClick={() => i18n.changeLanguage('en-US')}>
-            <img
-              className="h-4 transition duration-100 hover:scale-110"
-              src={englishFlag}
-              alt="English"
-            />
+        <div className="flex justify-center gap-2 p-4">
+          <button
+            className="w-10 rounded bg-zinc-950 p-2 transition hover:bg-zinc-900"
+            type="button"
+            onClick={() => i18n.changeLanguage('en-US')}
+          >
+            <img src={englishFlag} alt="english" />
           </button>
-          <button type="button" onClick={() => i18n.changeLanguage('fi-FI')}>
-            <img
-              className="h-4 transition duration-100 hover:scale-110"
-              src={finnishFlag}
-              alt="Finnish"
-            />
+          <button
+            className="w-10 rounded bg-zinc-950 p-2 transition hover:bg-zinc-900"
+            type="button"
+            onClick={() => i18n.changeLanguage('fi-FI')}
+          >
+            <img src={finnishFlag} alt="suomi" />
           </button>
         </div>
       </nav>
