@@ -7,6 +7,13 @@ import { HashLink as Link } from 'react-router-hash-link';
 import englishFlag from '../assets/english-flag.svg';
 import finnishFlag from '../assets/finnish-flag.svg';
 
+const links = [
+  { key: 'links.home', to: '/#home' },
+  { key: 'links.store', to: '/#store' },
+  { key: 'links.reviews', to: '/#reviews' },
+  { key: 'links.contact', to: '/#contact' },
+];
+
 const Navbar = () => {
   const { t, i18n } = useTranslation();
 
@@ -28,38 +35,19 @@ const Navbar = () => {
           </Link>
           <div className="hidden gap-6 md:flex">
             <ul className="-my-4 flex">
-              <li className="text-xs font-semibold uppercase tracking-[.30em]">
-                <Link
-                  to="/#home"
-                  className="flex h-full w-full items-center px-4 transition duration-200 hover:bg-zinc-900 lg:px-6"
+              {links.map(({ key, to }) => (
+                <li
+                  key={key}
+                  className="text-xs font-semibold uppercase tracking-[.30em]"
                 >
-                  {t('links.home')}
-                </Link>
-              </li>
-              <li className="text-xs font-semibold uppercase tracking-[.30em]">
-                <Link
-                  to="/#store"
-                  className="flex h-full w-full items-center px-4 transition duration-200 hover:bg-zinc-900 lg:px-6"
-                >
-                  {t('links.store')}
-                </Link>
-              </li>
-              <li className="text-xs font-semibold uppercase tracking-[.30em]">
-                <Link
-                  to="/#reviews"
-                  className="flex h-full w-full items-center px-4 transition duration-200 hover:bg-zinc-900 lg:px-6"
-                >
-                  {t('links.reviews')}
-                </Link>
-              </li>
-              <li className="text-xs font-semibold uppercase tracking-[.30em]">
-                <Link
-                  to="/#contact"
-                  className="flex h-full w-full items-center px-4 transition duration-200 hover:bg-zinc-900 lg:px-6"
-                >
-                  {t('links.contact')}
-                </Link>
-              </li>
+                  <Link
+                    to={to}
+                    className="flex h-full w-full items-center px-4 transition duration-200 hover:bg-zinc-900 lg:px-6"
+                  >
+                    {t(key)}
+                  </Link>
+                </li>
+              ))}
             </ul>
             <div className="flex items-center gap-2">
               <button
@@ -124,42 +112,20 @@ const Navbar = () => {
           className="mobile-nav absolute w-full border-b-2 border-red-600 bg-zinc-950"
         >
           <ul className="flex flex-col" role="menu">
-            <li className="text-sm font-semibold uppercase tracking-[.30em]">
-              <Link
-                to="/#home"
-                onClick={() => setIsMenuOpen(false)}
-                className="flex h-full w-full justify-center py-6 transition duration-200 hover:bg-zinc-900"
+            {links.map(({ key, to }) => (
+              <li
+                key={key}
+                className="text-sm font-semibold uppercase tracking-[.30em]"
               >
-                {t('links.home')}
-              </Link>
-            </li>
-            <li className="text-sm font-semibold uppercase tracking-[.30em]">
-              <Link
-                to="/#store"
-                onClick={() => setIsMenuOpen(false)}
-                className="flex h-full w-full justify-center py-6 transition duration-200 hover:bg-zinc-900"
-              >
-                {t('links.store')}
-              </Link>
-            </li>
-            <li className="text-sm font-semibold uppercase tracking-[.30em]">
-              <Link
-                to="/#reviews"
-                onClick={() => setIsMenuOpen(false)}
-                className="flex h-full w-full justify-center py-6 transition duration-200 hover:bg-zinc-900"
-              >
-                {t('links.reviews')}
-              </Link>
-            </li>
-            <li className="text-sm font-semibold uppercase tracking-[.30em]">
-              <Link
-                to="/#contact"
-                onClick={() => setIsMenuOpen(false)}
-                className="flex h-full w-full justify-center py-6 transition duration-200 hover:bg-zinc-900"
-              >
-                {t('links.contact')}
-              </Link>
-            </li>
+                <Link
+                  to={to}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex h-full w-full justify-center py-6 transition duration-200 hover:bg-zinc-900"
+                >
+                  {t(key)}
+                </Link>
+              </li>
+            ))}
           </ul>
           <div className="flex justify-center gap-2 p-4">
             <button
