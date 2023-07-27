@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 
-const ContactLink = ({ icon, title, content, href, blank = false }) => {
+const ContactLink = ({ icon: Icon, title, content, href, blank = false }) => {
   const target = blank ? '_blank' : undefined;
   const rel = blank ? 'noreferrer' : undefined;
 
   return (
     <li className="flex items-center gap-4">
       <div className="rounded-md bg-red-600 p-2">
-        <img src={icon} alt="" height={32} width={32} aria-hidden="true" />
+        <Icon />
       </div>
       <div>
         <span className="block text-sm text-zinc-400">{title}</span>
@@ -20,7 +20,7 @@ const ContactLink = ({ icon, title, content, href, blank = false }) => {
 };
 
 ContactLink.propTypes = {
-  icon: PropTypes.string.isRequired,
+  icon: PropTypes.elementType.isRequired,
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
