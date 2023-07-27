@@ -98,6 +98,11 @@ html {
 
 .slick-slide {
   height: inherit !important;
+  margin-inline: 1rem !important;
+}
+
+.slick-list {
+  margin-inline: -1rem !important;
 }
 
 .slick-slide > div {
