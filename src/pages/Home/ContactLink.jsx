@@ -7,7 +7,7 @@ const ContactLink = ({ icon: Icon, title, content, href, blank = false }) => {
   return (
     <li className="flex items-center gap-4">
       <div className="rounded-md bg-red-600 p-2">
-        <Icon className="text-white" />
+        <Icon />
       </div>
       <div>
         <span className="block text-sm text-zinc-400">{title}</span>
