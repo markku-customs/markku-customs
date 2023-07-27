@@ -112,10 +112,10 @@ const Navbar = () => {
       </nav>
       <Transition
         show={isMenuOpen}
-        enter="transition-all ease-in-out duration-500"
-        enterFrom="opacity-0 -translate-y-12"
+        enter="transition-all ease-out duration-500"
+        enterFrom="opacity-0 -translate-y-6"
         enterTo="opacity-100 translate-x-0"
-        leave="transition-all ease-in-out duration-200"
+        leave="transition-all duration-200"
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
