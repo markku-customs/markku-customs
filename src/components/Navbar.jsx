@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 import { Transition } from '@headlessui/react';
-import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 import { HashLink as Link } from 'react-router-hash-link';
 
@@ -122,12 +121,10 @@ const Navbar = () => {
       >
         <nav
           aria-controls="menu"
-          className={clsx(
-            'mobile-nav absolute w-full border-b-2 border-red-600 bg-zinc-950'
-          )}
+          className="mobile-nav absolute w-full border-b-2 border-red-600 bg-zinc-950"
         >
           <ul className="flex flex-col" role="menu">
-            <li className="text-xs font-semibold uppercase tracking-[.30em]">
+            <li className="text-sm font-semibold uppercase tracking-[.30em]">
               <Link
                 to="/#home"
                 onClick={() => setIsMenuOpen(false)}
@@ -136,7 +133,7 @@ const Navbar = () => {
                 {t('links.home')}
               </Link>
             </li>
-            <li className="text-xs font-semibold uppercase tracking-[.30em]">
+            <li className="text-sm font-semibold uppercase tracking-[.30em]">
               <Link
                 to="/#store"
                 onClick={() => setIsMenuOpen(false)}
@@ -145,7 +142,7 @@ const Navbar = () => {
                 {t('links.store')}
               </Link>
             </li>
-            <li className="text-xs font-semibold uppercase tracking-[.30em]">
+            <li className="text-sm font-semibold uppercase tracking-[.30em]">
               <Link
                 to="/#reviews"
                 onClick={() => setIsMenuOpen(false)}
@@ -154,7 +151,7 @@ const Navbar = () => {
                 {t('links.reviews')}
               </Link>
             </li>
-            <li className="text-xs font-semibold uppercase tracking-[.30em]">
+            <li className="text-sm font-semibold uppercase tracking-[.30em]">
               <Link
                 to="/#contact"
                 onClick={() => setIsMenuOpen(false)}
