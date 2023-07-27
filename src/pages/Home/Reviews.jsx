@@ -4,6 +4,8 @@ import Slider from 'react-slick';
 import Button from '@/components/Button';
 import SectionHeading from '@/components/SectionHeading';
 
+import { ArrowOutwardIcon } from '@/icons';
+
 import ReviewItem from './ReviewItem';
 
 import 'slick-carousel/slick/slick-theme.css';
@@ -54,13 +56,7 @@ const Reviews = ({ reviews }) => {
             rel="noreferrer"
           >
             {t('write-review')}
-            <img
-              src="/arrow-outward-white.svg"
-              alt=""
-              aria-hidden="true"
-              height={16}
-              width={16}
-            />
+            <ArrowOutwardIcon className="h-4 w-4" />
           </Button>
           <Button
             as="a"
@@ -71,13 +67,7 @@ const Reviews = ({ reviews }) => {
             rel="noreferrer"
           >
             {t('view-reviews')}
-            <img
-              src="/arrow-outward-white.svg"
-              alt=""
-              aria-hidden="true"
-              height={16}
-              width={16}
-            />
+            <ArrowOutwardIcon className="h-4 w-4" />
           </Button>
         </div>
       </div>

@@ -1,5 +1,7 @@
 import { Trans, useTranslation } from 'react-i18next';
 
+import { ArrowOutwardIcon } from '@/icons';
+
 const links = [
   {
     key: 'footer.privacy',
@@ -28,13 +30,13 @@ const Footer = () => {
         {links.map(({ key, href }) => (
           <a
             key={key}
-            className="flex items-center gap-1 text-xs font-semibold"
+            className="flex items-center gap-1 text-xs font-semibold text-zinc-200"
             href={href}
             target="_blank"
             rel="noreferrer"
           >
-            <span className="text-zinc-200">{t(key)}</span>
-            <img src="/arrow-outward-red.svg" alt="" height={24} width={24} />
+            {t(key)}
+            <ArrowOutwardIcon className="h-4 w-4 text-red-600" />
           </a>
         ))}
       </div>
