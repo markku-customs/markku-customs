@@ -14,7 +14,7 @@ const ReviewItem = ({ review }) => {
       href={link['en-US']}
       target="_blank"
       rel="noreferrer"
-      className="mr-4 block h-full"
+      className="block h-full"
     >
       <article className="duration-400 flex h-full flex-col gap-4 bg-zinc-900 p-4 transition hover:bg-zinc-800">
         <h3 className="font-heading text-lg">{name['en-US']}</h3>

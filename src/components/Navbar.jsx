@@ -1,7 +1,8 @@
-import { HashLink as Link } from 'react-router-hash-link';
-import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
-import clsx from 'clsx';
+
+import { Transition } from '@headlessui/react';
+import { useTranslation } from 'react-i18next';
+import { HashLink as Link } from 'react-router-hash-link';
 
 import englishFlag from '../assets/english-flag.svg';
 import finnishFlag from '../assets/finnish-flag.svg';
@@ -13,7 +14,7 @@ const Navbar = () => {
 
   return (
     <div className="sticky top-0 z-50">
-      <nav className="border-b-2 border-red-600 bg-zinc-950 py-4">
+      <nav className="relative z-50 border-b-2 border-red-600 bg-zinc-950 py-4">
         <div className="container flex justify-between gap-4">
           <Link to="/" className="flex items-center gap-4">
             <img
@@ -60,28 +61,20 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
               <button
-                className="w-6"
+                className="w-10 rounded bg-zinc-950 p-2 transition hover:bg-zinc-900"
                 type="button"
                 onClick={() => i18n.changeLanguage('en-US')}
               >
-                <img
-                  className="transition duration-100 hover:scale-110"
-                  src={englishFlag}
-                  alt="English"
-                />
+                <img src={englishFlag} alt="english" />
               </button>
               <button
-                className="w-6"
+                className="w-10 rounded bg-zinc-950 p-2 transition hover:bg-zinc-900"
                 type="button"
                 onClick={() => i18n.changeLanguage('fi-FI')}
               >
-                <img
-                  className="transition duration-100 hover:scale-110"
-                  src={finnishFlag}
-                  alt="Suomi"
-                />
+                <img src={finnishFlag} alt="suomi" />
               </button>
             </div>
           </div>
@@ -117,68 +110,75 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      <nav
-        aria-controls="menu"
-        className={clsx(
-          'mobile-nav border-b-2 border-red-600 bg-zinc-950',
-          isMenuOpen ? 'block' : 'hidden'
-        )}
+      <Transition
+        show={isMenuOpen}
+        enter="transition-all ease-in-out duration-500"
+        enterFrom="opacity-0 -translate-y-12"
+        enterTo="opacity-100 translate-x-0"
+        leave="transition-all ease-in-out duration-200"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
       >
-        <ul className="flex flex-col" role="menu">
-          <li className="text-xs font-semibold uppercase tracking-[.30em]">
-            <Link
-              to="/#home"
-              onClick={() => setIsMenuOpen(false)}
-              className="flex h-full w-full justify-center py-6 transition duration-200 hover:bg-zinc-900"
+        <nav
+          aria-controls="menu"
+          className="mobile-nav absolute w-full border-b-2 border-red-600 bg-zinc-950"
+        >
+          <ul className="flex flex-col" role="menu">
+            <li className="text-sm font-semibold uppercase tracking-[.30em]">
+              <Link
+                to="/#home"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex h-full w-full justify-center py-6 transition duration-200 hover:bg-zinc-900"
+              >
+                {t('links.home')}
+              </Link>
+            </li>
+            <li className="text-sm font-semibold uppercase tracking-[.30em]">
+              <Link
+                to="/#store"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex h-full w-full justify-center py-6 transition duration-200 hover:bg-zinc-900"
+              >
+                {t('links.store')}
+              </Link>
+            </li>
+            <li className="text-sm font-semibold uppercase tracking-[.30em]">
+              <Link
+                to="/#reviews"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex h-full w-full justify-center py-6 transition duration-200 hover:bg-zinc-900"
+              >
+                {t('links.reviews')}
+              </Link>
+            </li>
+            <li className="text-sm font-semibold uppercase tracking-[.30em]">
+              <Link
+                to="/#contact"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex h-full w-full justify-center py-6 transition duration-200 hover:bg-zinc-900"
+              >
+                {t('links.contact')}
+              </Link>
+            </li>
+          </ul>
+          <div className="flex justify-center gap-2 p-4">
+            <button
+              className="w-10 rounded bg-zinc-950 p-2 transition hover:bg-zinc-900"
+              type="button"
+              onClick={() => i18n.changeLanguage('en-US')}
             >
-              {t('links.home')}
-            </Link>
-          </li>
-          <li className="text-xs font-semibold uppercase tracking-[.30em]">
-            <Link
-              to="/#store"
-              onClick={() => setIsMenuOpen(false)}
-              className="flex h-full w-full justify-center py-6 transition duration-200 hover:bg-zinc-900"
+              <img src={englishFlag} alt="english" />
+            </button>
+            <button
+              className="w-10 rounded bg-zinc-950 p-2 transition hover:bg-zinc-900"
+              type="button"
+              onClick={() => i18n.changeLanguage('fi-FI')}
             >
-              {t('links.store')}
-            </Link>
-          </li>
-          <li className="text-xs font-semibold uppercase tracking-[.30em]">
-            <Link
-              to="/#reviews"
-              onClick={() => setIsMenuOpen(false)}
-              className="flex h-full w-full justify-center py-6 transition duration-200 hover:bg-zinc-900"
-            >
-              {t('links.reviews')}
-            </Link>
-          </li>
-          <li className="text-xs font-semibold uppercase tracking-[.30em]">
-            <Link
-              to="/#contact"
-              onClick={() => setIsMenuOpen(false)}
-              className="flex h-full w-full justify-center py-6 transition duration-200 hover:bg-zinc-900"
-            >
-              {t('links.contact')}
-            </Link>
-          </li>
-        </ul>
-        <div className="flex justify-center gap-4 p-4">
-          <button type="button" onClick={() => i18n.changeLanguage('en-US')}>
-            <img
-              className="h-4 transition duration-100 hover:scale-110"
-              src={englishFlag}
-              alt="English"
-            />
-          </button>
-          <button type="button" onClick={() => i18n.changeLanguage('fi-FI')}>
-            <img
-              className="h-4 transition duration-100 hover:scale-110"
-              src={finnishFlag}
-              alt="Finnish"
-            />
-          </button>
-        </div>
-      </nav>
+              <img src={finnishFlag} alt="suomi" />
+            </button>
+          </div>
+        </nav>
+      </Transition>
     </div>
   );
 };

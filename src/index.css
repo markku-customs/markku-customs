@@ -98,6 +98,7 @@ html {
 
 .slick-slide {
   height: inherit !important;
+  margin-inline: 1rem !important;
 }
 
 .slick-slide > div {
@@ -172,6 +173,16 @@ html {
 @media only screen and (max-width: 640px) {
   .hero {
     background-image: url('/hero-phone.png');
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .slick-list {
+    margin-inline: -1rem !important;
+  }
+
+  .slick-arrow {
+    z-index: 10;
   }
 }
 

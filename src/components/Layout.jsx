@@ -1,9 +1,9 @@
 import { ToastContainer } from 'react-toastify';
 
-import 'react-toastify/dist/ReactToastify.css';
-
-import Navbar from './Navbar';
 import Footer from './Footer';
+import Navbar from './Navbar';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const Layout = ({ children }) => {
   return (

@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { HashLink as Link } from 'react-router-hash-link';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
-import { BLOCKS, INLINES } from '@contentful/rich-text-types';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { Carousel } from 'react-responsive-carousel';
+import { useNavigate, useParams } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
+
+import Button from '@/components/Button';
+import Layout from '@/components/Layout';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
-
-import Layout from '@/components/Layout';
-import Button from '@/components/Button';
 
 const options = {
   renderNode: {
