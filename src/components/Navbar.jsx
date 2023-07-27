@@ -1,7 +1,8 @@
-import { HashLink as Link } from 'react-router-hash-link';
-import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
+
 import clsx from 'clsx';
+import { useTranslation } from 'react-i18next';
+import { HashLink as Link } from 'react-router-hash-link';
 
 import englishFlag from '../assets/english-flag.svg';
 import finnishFlag from '../assets/finnish-flag.svg';

@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
 
-import SectionHeading from '../../components/SectionHeading';
-import ContactLinks from './ContactLinks';
+import SectionHeading from '@/components/SectionHeading';
+
 import ContactForm from './ContactForm';
+import ContactLinks from './ContactLinks';
 
 const Contact = () => {
   const { t } = useTranslation();

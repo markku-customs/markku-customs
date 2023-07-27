@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
-import { useTranslation, Trans } from 'react-i18next';
-import { toast } from 'react-toastify';
+import { Trans, useTranslation } from 'react-i18next';
 import InputMask from 'react-input-mask';
+import { toast } from 'react-toastify';
 
 import Button from '@/components/Button';
 

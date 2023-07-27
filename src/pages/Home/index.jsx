@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
 import { Helmet } from 'react-helmet';
 
 import Layout from '@/components/Layout';
-import Hero from './Hero';
-import Store from './Store';
-import Reviews from './Reviews';
+
 import Contact from './Contact';
+import Hero from './Hero';
+import Reviews from './Reviews';
+import Store from './Store';
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
