@@ -8,6 +8,7 @@ import { HashLink as Link } from 'react-router-hash-link';
 import Button from '@/components/Button';
 import Layout from '@/components/Layout';
 
+import Games from './Games';
 import ImageCarousel from './ImageCarousel';
 import Specifications from './Specifications';
 
@@ -83,31 +84,7 @@ const ProductPage = () => {
             )}
 
             {gameNames && gameFrameRates && (
-              <section className="game-grid-container">
-                <h2 className="mb-4 text-2xl font-bold">
-                  {t('fps-performance')}
-                </h2>
-                <p className="mb-4 text-sm text-zinc-400">{t('fps-note')}</p>
-                <div className="game-grid">
-                  {gameNames['en-US'].map((game, idx) => (
-                    <div className="game-grid-box" key={game.sys.id}>
-                      <img
-                        className="aspect-square w-full object-cover"
-                        src={
-                          game.fields.image['en-US'].fields.file['en-US'].url
-                        }
-                        alt={game.fields.name['en-US']}
-                      />
-                      <span className="mt-2 block text-sm text-zinc-400">
-                        {game.fields.name['en-US']}
-                      </span>
-                      <span className="fps-text mt-1 block font-semibold">
-                        {gameFrameRates['en-US'][idx] || '000'} FPS
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </section>
+              <Games gameNames={gameNames} gameFrameRates={gameFrameRates} />
             )}
           </div>
         </div>
