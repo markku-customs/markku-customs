@@ -1,4 +1,4 @@
-const MenuClosedIcon = (props) => {
+const MenuCloseIcon = (props) => {
   return (
     <svg
       width={32}
@@ -17,4 +17,4 @@ const MenuClosedIcon = (props) => {
   );
 };
 
-export default MenuClosedIcon;
+export default MenuCloseIcon;

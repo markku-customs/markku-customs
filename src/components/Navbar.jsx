@@ -4,7 +4,7 @@ import { Transition } from '@headlessui/react';
 import { useTranslation } from 'react-i18next';
 import { HashLink as Link } from 'react-router-hash-link';
 
-import { MenuClosedIcon, MenuOpenIcon } from '@/icons';
+import { MenuCloseIcon, MenuOpenIcon } from '@/icons';
 
 import englishFlag from '../assets/english-flag.svg';
 import finnishFlag from '../assets/finnish-flag.svg';
@@ -83,7 +83,7 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
               aria-label="close menu"
             >
-              <MenuClosedIcon />
+              <MenuCloseIcon />
             </button>
           </div>
         </div>
