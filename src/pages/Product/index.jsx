@@ -3,20 +3,19 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
-import { HashLink as Link } from 'react-router-hash-link';
 
-import Button from '@/components/Button';
 import Layout from '@/components/Layout';
 
 import Games from './Games';
 import ImageCarousel from './ImageCarousel';
+import Information from './Information';
 import Specifications from './Specifications';
 
 const ProductPage = () => {
   const [product, setProduct] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     fetch(`/.netlify/functions/getProduct?id=${id}`)
@@ -44,8 +43,6 @@ const ProductPage = () => {
 
   const lng = i18n.language;
 
-  const desc = description[lng] || description['en-US'];
-
   return (
     <>
       <Helmet>
@@ -59,23 +56,11 @@ const ProductPage = () => {
       <Layout>
         <div className="container">
           <div className="product-page-grid">
-            <section className="store-product-heading-text gap-4">
-              <h1 className="font-heading text-4xl">{name[lng]}</h1>
-              <p className="text-2xl">
-                {price ? `${price['en-US']}€` : t('variable')}
-              </p>
-              {desc
-                .split(/\n/g)
-                .filter((e) => e)
-                .map((text) => (
-                  <p className="text-sm text-zinc-400" key={text.slice(0, 32)}>
-                    {text}
-                  </p>
-                ))}
-              <Button as={Link} to="/#contact" className="w-fit">
-                {t('order')}
-              </Button>
-            </section>
+            <Information
+              name={name[lng]}
+              price={price}
+              description={description[lng] || description['en-US']}
+            />
 
             <ImageCarousel images={images} name={name[lng]} />
 
