@@ -24,7 +24,7 @@ export default Games;
 
 const Game = ({ game, fps }) => {
   return (
-    <div className="game-grid-box" key={game.sys.id}>
+    <div className="game-grid-box">
       <img
         className="aspect-square w-full object-cover"
         src={game.fields.image['en-US'].fields.file['en-US'].url}
