@@ -1,7 +1,6 @@
-import { clsx } from 'clsx';
 import { useTranslation } from 'react-i18next';
 
-import { StarIcon } from '@/icons';
+import StarRating from '@/components/StarRating';
 
 const ReviewItem = ({ review }) => {
   const { i18n } = useTranslation();
@@ -22,17 +21,7 @@ const ReviewItem = ({ review }) => {
       <article className="duration-400 flex h-full flex-col gap-4 bg-zinc-900 p-4 transition hover:bg-zinc-800">
         <h3 className="font-heading text-lg">{name['en-US']}</h3>
 
-        <div className="flex gap-1">
-          {[...Array(5).keys()].map((_, idx) => (
-            <StarIcon
-              key={_}
-              className={clsx(
-                'h-4 w-4',
-                idx < rating['en-US'] ? 'text-red-600' : 'text-zinc-700'
-              )}
-            />
-          ))}
-        </div>
+        <StarRating rating={rating['en-US']} />
 
         <div className="flex flex-col gap-2">
           {content['en-US']
