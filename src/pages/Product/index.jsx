@@ -2,16 +2,14 @@ import React, { useEffect, useState } from 'react';
 
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
-import { Carousel } from 'react-responsive-carousel';
 import { useNavigate, useParams } from 'react-router-dom';
 import { HashLink as Link } from 'react-router-hash-link';
 
 import Button from '@/components/Button';
 import Layout from '@/components/Layout';
 
+import ImageCarousel from './ImageCarousel';
 import Specifications from './Specifications';
-
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const ProductPage = () => {
   const [product, setProduct] = useState(null);
@@ -78,21 +76,7 @@ const ProductPage = () => {
               </Button>
             </section>
 
-            <section className="store-product-main-image-container">
-              <Carousel useKeyboardArrows dynamicHeight infiniteLoop>
-                {images ? (
-                  images['en-US'].map((image) => (
-                    <img
-                      src={`https:${image.fields.file['en-US'].url}`}
-                      alt={name[lng]}
-                      key={image.fields.file['en-US'].url}
-                    />
-                  ))
-                ) : (
-                  <img src="/product-default.png" alt={name[lng]} />
-                )}
-              </Carousel>
-            </section>
+            <ImageCarousel images={images} name={name[lng]} />
 
             {specifications && (
               <Specifications specifications={specifications[lng]} />
