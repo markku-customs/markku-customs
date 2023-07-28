@@ -18,6 +18,7 @@ const Button = ({
   variant = 'primary',
   size = 'base',
   transition = true,
+  icon,
   className = '',
   ...props
 }) => {
@@ -28,11 +29,13 @@ const Button = ({
         variants[variant],
         sizes[size],
         transition && 'transition duration-500',
+        icon && 'flex items-center gap-2',
         className
       )}
       {...props}
     >
       {children}
+      {icon && icon}
     </Component>
   );
 };
@@ -43,6 +46,7 @@ Button.propTypes = {
   variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
   size: PropTypes.oneOf(['small', 'base']),
   transition: PropTypes.bool,
+  icon: PropTypes.element,
   className: PropTypes.string,
 };
 
@@ -51,6 +55,7 @@ Button.defaultProps = {
   variant: 'primary',
   size: 'base',
   transition: true,
+  icon: null,
   className: '',
 };
 
