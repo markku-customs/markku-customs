@@ -31,7 +31,7 @@ const Game = ({ game, fps }) => {
     <div className="game-grid-box">
       <img
         className="aspect-square w-full object-cover"
-        src={getImageSrc(image['en-US'])}
+        src={`${getImageSrc(image['en-US'])}?fm=webp&w=256&h=256`}
         alt={name['en-US']}
       />
       <span className="mt-2 block text-sm text-zinc-400">{name['en-US']}</span>
