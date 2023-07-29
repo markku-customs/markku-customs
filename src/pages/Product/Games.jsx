@@ -1,5 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
+import { getImageSrc } from '@/utils';
+
 const Games = ({ gameNames, gameFrameRates }) => {
   const { t } = useTranslation();
 
@@ -23,16 +25,16 @@ const Games = ({ gameNames, gameFrameRates }) => {
 export default Games;
 
 const Game = ({ game, fps }) => {
+  const { image, name } = game.fields;
+
   return (
     <div className="game-grid-box">
       <img
         className="aspect-square w-full object-cover"
-        src={game.fields.image['en-US'].fields.file['en-US'].url}
-        alt={game.fields.name['en-US']}
+        src={getImageSrc(image['en-US'])}
+        alt={name['en-US']}
       />
-      <span className="mt-2 block text-sm text-zinc-400">
-        {game.fields.name['en-US']}
-      </span>
+      <span className="mt-2 block text-sm text-zinc-400">{name['en-US']}</span>
       <span className="fps-text mt-1 block font-semibold">{fps} FPS</span>
     </div>
   );

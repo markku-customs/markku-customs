@@ -6,9 +6,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import Layout from '@/components/Layout';
 
+import BasicInformation from './BasicInformation';
 import Games from './Games';
 import ImageCarousel from './ImageCarousel';
-import Information from './Information';
 import Specifications from './Specifications';
 
 const ProductPage = () => {
@@ -56,7 +56,7 @@ const ProductPage = () => {
       <Layout>
         <div className="container">
           <div className="product-page-grid">
-            <Information
+            <BasicInformation
               name={name[lng]}
               price={price}
               description={description[lng] || description['en-US']}
