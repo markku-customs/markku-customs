@@ -5,16 +5,21 @@ import { getImageSrc } from '@/utils';
 const Games = ({ gameNames, gameFrameRates }) => {
   const { t } = useTranslation();
 
+  const min = Math.min(
+    gameNames['en-US'].length,
+    gameFrameRates['en-US'].length
+  );
+
   return (
     <section className="game-grid-container">
       <h2 className="mb-4 text-2xl font-bold">{t('fps-performance')}</h2>
       <p className="mb-4 text-sm text-zinc-400">{t('fps-note')}</p>
       <div className="game-grid">
-        {gameNames['en-US'].map((game, idx) => (
+        {gameNames['en-US'].slice(0, min).map((game, idx) => (
           <Game
             key={game.sys.id}
             game={game}
-            fps={gameFrameRates['en-US'][idx] || '000'}
+            fps={gameFrameRates['en-US'][idx]}
           />
         ))}
       </div>
