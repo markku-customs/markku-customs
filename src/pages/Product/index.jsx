@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import Layout from '@/components/Layout';
 
+import NotFoundPage from '../NotFound';
 import BasicInformation from './BasicInformation';
 import Games from './Games';
 import ImageCarousel from './ImageCarousel';
@@ -13,19 +14,26 @@ import Specifications from './Specifications';
 
 const ProductPage = () => {
   const [product, setProduct] = useState(null);
+  const [notFound, setNotFound] = useState(false);
   const { id } = useParams();
-  const navigate = useNavigate();
   const { i18n } = useTranslation();
 
   useEffect(() => {
     fetch(`/.netlify/functions/getProduct?id=${id}`)
       .then((res) => res.json())
-      .then((data) => setProduct(data))
+      .then((data) => {
+        if (data.sys.id === 'NotFound') {
+          setNotFound(true);
+          throw new Error(data);
+        }
+        setProduct(data);
+      })
       .catch((err) => {
-        navigate('/', { replace: true });
         console.log(err);
       });
   }, []);
+
+  if (notFound) return <NotFoundPage />;
 
   if (!product) return null;
 
