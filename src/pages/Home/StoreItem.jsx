@@ -1,5 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
+import { getImageSrc } from '@/utils';
+
 const StoreItem = ({ product }) => {
   const { t, i18n } = useTranslation();
 
@@ -15,7 +17,7 @@ const StoreItem = ({ product }) => {
         <img
           src={
             featuredImage
-              ? `https:${featuredImage['en-US'].fields.file['en-US'].url}?fm=webp&w=600`
+              ? `${getImageSrc(featuredImage['en-US'])}?fm=webp&w=600`
               : '/product-default.png'
           }
           alt={name[lng]}

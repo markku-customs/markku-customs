@@ -1,5 +1,7 @@
 import { Carousel } from 'react-responsive-carousel';
 
+import { getImageSrc } from '@/utils';
+
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const ImageCarousel = ({ images, name }) => {
@@ -9,7 +11,7 @@ const ImageCarousel = ({ images, name }) => {
         {images ? (
           images['en-US'].map((image) => (
             <img
-              src={`https:${image.fields.file['en-US'].url}`}
+              src={`${getImageSrc(image)}?fm=webp&w=1000`}
               alt={name}
               key={image.fields.file['en-US'].url}
             />

@@ -2,6 +2,8 @@ import { useTranslation } from 'react-i18next';
 
 import StarRating from '@/components/StarRating';
 
+import { splitLineBreaks } from '@/utils';
+
 const ReviewItem = ({ review }) => {
   const { i18n } = useTranslation();
 
@@ -24,14 +26,11 @@ const ReviewItem = ({ review }) => {
         <StarRating rating={rating['en-US']} />
 
         <div className="flex flex-col gap-2">
-          {content['en-US']
-            .split(/\n/g)
-            .filter((e) => e)
-            .map((text) => (
-              <p className="text-sm text-zinc-200" key={text.slice(0, 32)}>
-                {text}
-              </p>
-            ))}
+          {splitLineBreaks(content['en-US'], (text, key) => (
+            <p className="text-sm text-zinc-400" key={key}>
+              {text}
+            </p>
+          ))}
         </div>
 
         <p className="mt-auto text-xs capitalize text-zinc-400">
