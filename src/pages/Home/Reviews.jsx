@@ -52,7 +52,7 @@ const Reviews = ({ reviews }) => {
             target="_blank"
             rel="noreferrer"
           >
-            {t('write-review')}
+            {t('reviews.write')}
           </Button>
           <Button
             as="a"
@@ -63,7 +63,7 @@ const Reviews = ({ reviews }) => {
             target="_blank"
             rel="noreferrer"
           >
-            {t('view-reviews')}
+            {t('reviews.view')}
           </Button>
         </div>
       </div>

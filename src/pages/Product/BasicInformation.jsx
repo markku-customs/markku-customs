@@ -12,6 +12,14 @@ const BasicInformation = ({ name, description, price }) => {
     <section className="store-product-heading-text gap-4">
       <h1 className="font-heading text-4xl">{name}</h1>
       <p className="text-2xl">{price ? `${price['en-US']}€` : t('variable')}</p>
+      <div className="flex flex-wrap gap-2">
+        <span className="rounded-full bg-zinc-800 px-4 py-1 text-sm font-semibold">
+          {t('money-back')}
+        </span>
+        <span className="rounded-full bg-zinc-800 px-4 py-1 text-sm font-semibold">
+          {t('warranty')}
+        </span>
+      </div>
       <div className="flex flex-col gap-2">
         {splitLineBreaks(description, (text, key) => (
           <p className="text-sm text-zinc-400" key={key}>

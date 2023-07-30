@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import { getImageSrc } from '@/utils';
 
-const Games = ({ gameNames, gameFrameRates }) => {
+const GamePerformance = ({ gameNames, gameFrameRates }) => {
   const { t } = useTranslation();
 
   const min = Math.min(
@@ -27,7 +27,7 @@ const Games = ({ gameNames, gameFrameRates }) => {
   );
 };
 
-export default Games;
+export default GamePerformance;
 
 const Game = ({ game, fps }) => {
   const { image, name } = game.fields;

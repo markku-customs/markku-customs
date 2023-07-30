@@ -8,7 +8,7 @@ import Layout from '@/components/Layout';
 
 import NotFoundPage from '../NotFound';
 import BasicInformation from './BasicInformation';
-import Games from './Games';
+import GamePerformance from './GamePerformance';
 import ImageCarousel from './ImageCarousel';
 import Specifications from './Specifications';
 
@@ -77,7 +77,10 @@ const ProductPage = () => {
             )}
 
             {gameNames && gameFrameRates && (
-              <Games gameNames={gameNames} gameFrameRates={gameFrameRates} />
+              <GamePerformance
+                gameNames={gameNames}
+                gameFrameRates={gameFrameRates}
+              />
             )}
           </div>
         </div>

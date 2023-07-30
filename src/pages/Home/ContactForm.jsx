@@ -15,6 +15,7 @@ const ContactForm = () => {
   const { t } = useTranslation();
 
   const onSubmit = async (data) => {
+    console.log(data);
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
