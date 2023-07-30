@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { HashLink as Link } from 'react-router-hash-link';
 
+import Badge from '@/components/Badge';
 import Button from '@/components/Button';
 
 import { splitLineBreaks } from '@/utils';
@@ -13,12 +14,8 @@ const BasicInformation = ({ name, description, price }) => {
       <h1 className="font-heading text-4xl">{name}</h1>
       <p className="text-2xl">{price ? `${price['en-US']}€` : t('variable')}</p>
       <div className="flex flex-wrap gap-2">
-        <span className="rounded-full bg-zinc-800 px-4 py-1 text-sm font-semibold">
-          {t('money-back')}
-        </span>
-        <span className="rounded-full bg-zinc-800 px-4 py-1 text-sm font-semibold">
-          {t('warranty')}
-        </span>
+        <Badge>{t('money-back')}</Badge>
+        <Badge>{t('warranty')}</Badge>
       </div>
       <div className="flex flex-col gap-2">
         {splitLineBreaks(description, (text, key) => (
