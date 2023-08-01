@@ -4,10 +4,10 @@ import { Transition } from '@headlessui/react';
 import { useTranslation } from 'react-i18next';
 import { HashLink as Link } from 'react-router-hash-link';
 
-import { MenuCloseIcon, MenuOpenIcon } from '@/icons';
+import finlandFlag from '@/assets/finland-flag.svg';
+import unitedKingdomFlag from '@/assets/united-kingdom-flag.svg';
 
-import englishFlag from '../assets/english-flag.svg';
-import finnishFlag from '../assets/finnish-flag.svg';
+import { MenuCloseIcon, MenuOpenIcon } from '@/icons';
 
 const links = [
   { key: 'links.home', to: '/#home' },
@@ -53,18 +53,20 @@ const Navbar = () => {
             </ul>
             <div className="flex items-center gap-2">
               <button
-                className="w-10 rounded bg-zinc-950 p-2 transition hover:bg-zinc-900"
+                className="w-10 rounded bg-zinc-950 px-2 py-1 transition hover:bg-zinc-900"
                 type="button"
                 onClick={() => i18n.changeLanguage('en-US')}
+                aria-label="english"
               >
-                <img src={englishFlag} alt="english" />
+                <img src={unitedKingdomFlag} alt="" aria-hidden="true" />
               </button>
               <button
-                className="w-10 rounded bg-zinc-950 p-2 transition hover:bg-zinc-900"
+                className="w-10 rounded bg-zinc-950 px-2 py-1 transition hover:bg-zinc-900"
                 type="button"
                 onClick={() => i18n.changeLanguage('fi-FI')}
+                aria-label="suomi"
               >
-                <img src={finnishFlag} alt="suomi" />
+                <img src={finlandFlag} alt="" aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -120,18 +122,20 @@ const Navbar = () => {
           </ul>
           <div className="flex justify-center gap-2 p-4">
             <button
-              className="w-10 rounded bg-zinc-950 p-2 transition hover:bg-zinc-900"
+              className="w-10 rounded bg-zinc-950 px-2 py-1 transition hover:bg-zinc-900"
               type="button"
               onClick={() => i18n.changeLanguage('en-US')}
+              aria-label="english"
             >
-              <img src={englishFlag} alt="english" />
+              <img src={unitedKingdomFlag} alt="" aria-hidden="true" />
             </button>
             <button
-              className="w-10 rounded bg-zinc-950 p-2 transition hover:bg-zinc-900"
+              className="w-10 rounded bg-zinc-950 px-2 py-1 transition hover:bg-zinc-900"
               type="button"
               onClick={() => i18n.changeLanguage('fi-FI')}
+              aria-label="suomi"
             >
-              <img src={finnishFlag} alt="suomi" />
+              <img src={finlandFlag} alt="" aria-hidden="true" />
             </button>
           </div>
         </nav>

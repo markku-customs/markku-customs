@@ -8,6 +8,7 @@ module.exports = {
     '<THIRD_PARTY_MODULES>',
     '^@/components/(.*)$',
     '^@/utils$',
+    '^@/assets/(.*)$',
     '^@/icons$',
     '^[./]',
     '.css$',
