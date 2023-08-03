@@ -16,12 +16,16 @@ const BasicInformation = ({ name, description, price }) => {
         {price ? `${price['en-US']}€` : t('variable')}
       </p>
       <div className="flex flex-wrap gap-2">
-        <Badge>{t('money-back')}</Badge>
-        <Badge>{t('warranty')}</Badge>
-        <Badge>{`${t('tabs.pickup')}: 0€`}</Badge>
-        <Badge title={t('tabs.turku-region')}>{`${t(
-          'tabs.home-delivery'
-        )}: 15€`}</Badge>
+        <div className="flex gap-2">
+          <Badge>{`${t('tabs.pickup')}: 0€`}</Badge>
+          <Badge title={t('tabs.turku-region')}>{`${t(
+            'tabs.home-delivery'
+          )}: 15€`}</Badge>
+        </div>
+        <div className="flex gap-2">
+          <Badge>{t('money-back')}</Badge>
+          <Badge>{t('warranty')}</Badge>
+        </div>
       </div>
       <div className="flex flex-col gap-2">
         {splitLineBreaks(description, (text, key) => (
