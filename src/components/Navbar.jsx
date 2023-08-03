@@ -56,7 +56,8 @@ const Navbar = () => {
                 className="w-10 rounded bg-zinc-950 px-2 py-1 transition hover:bg-zinc-900"
                 type="button"
                 onClick={() => i18n.changeLanguage('en-US')}
-                aria-label="english"
+                title="Translate into English"
+                aria-label="translate into english"
               >
                 <img src={unitedKingdomFlag} alt="" aria-hidden="true" />
               </button>
@@ -64,7 +65,8 @@ const Navbar = () => {
                 className="w-10 rounded bg-zinc-950 px-2 py-1 transition hover:bg-zinc-900"
                 type="button"
                 onClick={() => i18n.changeLanguage('fi-FI')}
-                aria-label="suomi"
+                title="Käännä suomeksi"
+                aria-label="käännä suomi"
               >
                 <img src={finlandFlag} alt="" aria-hidden="true" />
               </button>
@@ -125,7 +127,8 @@ const Navbar = () => {
               className="w-10 rounded bg-zinc-950 px-2 py-1 transition hover:bg-zinc-900"
               type="button"
               onClick={() => i18n.changeLanguage('en-US')}
-              aria-label="english"
+              title="Translate into English"
+              aria-label="translate into english"
             >
               <img src={unitedKingdomFlag} alt="" aria-hidden="true" />
             </button>
@@ -133,7 +136,8 @@ const Navbar = () => {
               className="w-10 rounded bg-zinc-950 px-2 py-1 transition hover:bg-zinc-900"
               type="button"
               onClick={() => i18n.changeLanguage('fi-FI')}
-              aria-label="suomi"
+              title="Käännä suomeksi"
+              aria-label="käännä suomeksi"
             >
               <img src={finlandFlag} alt="" aria-hidden="true" />
             </button>

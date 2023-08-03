@@ -31,9 +31,20 @@
       "error": "Tapahtui virhe! Katso lisätietoja konsolista."
     }
   },
+  "tabs": {
+    "delivery-options": "Toimitusvaihtoehdot",
+    "guarantees": "Takaukset",
+    "turku-region": "Turun kaupunkiseutu",
+    "pickup": "Nouto",
+    "home-delivery": "Kotiinkuljetus",
+    "money-back": "Palautusoikeus",
+    "14-days": "14 päivää",
+    "warranty": "Takuu",
+    "1-year": "1 vuosi"
+  },
   "optional": "Valinnainen",
   "variable": "Muuttuva",
-  "delivery": "Toimitus: +0–15€",
+  "delivery": "Toimitus: 0–15€",
   "privacy-checkbox": "Valitsemalla tämän hyväksyt <2>tietosuojaselosteemme</2>.",
   "money-back": "Palautusoikeus: 14 pv",
   "warranty": "Takuu: 1 v",
