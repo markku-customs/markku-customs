@@ -44,16 +44,16 @@ const ContactTabs = () => {
         </Tab.List>
         <Tab.Panels>
           <Tab.Panel className="bg-zinc-900 p-4 lg:p-6">
-            <div className="flex flex-col gap-4">
+            <ul className="flex flex-col gap-4">
               <PanelItem title={`${t('tabs.pickup')} – 0€`} subtitle="Turku" />
               <PanelItem
                 title={`${t('tabs.home-delivery')} – 15€`}
                 subtitle={t('tabs.turku-region')}
               />
-            </div>
+            </ul>
           </Tab.Panel>
           <Tab.Panel className="bg-zinc-900 p-4 lg:p-6">
-            <div className="flex flex-col gap-4">
+            <ul className="flex flex-col gap-4">
               <PanelItem
                 title={t('tabs.money-back')}
                 subtitle={t('tabs.14-days')}
@@ -62,7 +62,7 @@ const ContactTabs = () => {
                 title={t('tabs.warranty')}
                 subtitle={t('tabs.1-year')}
               />
-            </div>
+            </ul>
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>
@@ -74,9 +74,9 @@ export default ContactTabs;
 
 const PanelItem = ({ title, subtitle }) => {
   return (
-    <div className="border-l-4 border-red-600 px-4 py-2">
+    <li className="border-l-4 border-red-600 px-4 py-2">
       <p className="text-sm lg:text-base">{title}</p>
       <p className="text-xs text-zinc-400 lg:text-sm">{subtitle}</p>
-    </div>
+    </li>
   );
 };
