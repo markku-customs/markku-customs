@@ -15,7 +15,12 @@ const ContactTabs = () => {
             {({ selected }) => (
               <button
                 type="button"
-                className={clsx('h-full w-full py-4', selected && 'bg-red-600')}
+                className={clsx(
+                  'h-full w-full py-4',
+                  selected
+                    ? 'bg-red-600'
+                    : 'transition duration-200 hover:bg-zinc-800'
+                )}
               >
                 {t('tabs.delivery-options')}
               </button>
@@ -25,7 +30,12 @@ const ContactTabs = () => {
             {({ selected }) => (
               <button
                 type="button"
-                className={clsx('h-full w-full py-4', selected && 'bg-red-600')}
+                className={clsx(
+                  'h-full w-full py-4',
+                  selected
+                    ? 'bg-red-600'
+                    : 'transition duration-200 hover:bg-zinc-800'
+                )}
               >
                 {t('tabs.guarantees')}
               </button>
