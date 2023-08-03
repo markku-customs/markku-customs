@@ -15,10 +15,7 @@ const ContactTabs = () => {
             {({ selected }) => (
               <button
                 type="button"
-                className={clsx(
-                  'h-full w-full py-4',
-                  selected ? 'bg-red-600' : ''
-                )}
+                className={clsx('h-full w-full py-4', selected && 'bg-red-600')}
               >
                 {t('tabs.delivery-options')}
               </button>
@@ -28,10 +25,7 @@ const ContactTabs = () => {
             {({ selected }) => (
               <button
                 type="button"
-                className={clsx(
-                  'h-full w-full py-4',
-                  selected ? 'bg-red-600' : ''
-                )}
+                className={clsx('h-full w-full py-4', selected && 'bg-red-600')}
               >
                 {t('tabs.guarantees')}
               </button>
@@ -41,9 +35,9 @@ const ContactTabs = () => {
         <Tab.Panels>
           <Tab.Panel className="bg-zinc-900 p-4 lg:p-6">
             <div className="flex flex-col gap-4">
-              <PanelItem title={`${t('tabs.pickup')} – 0 €`} subtitle="Turku" />
+              <PanelItem title={`${t('tabs.pickup')} – 0€`} subtitle="Turku" />
               <PanelItem
-                title={`${t('tabs.home-delivery')} – 15 €`}
+                title={`${t('tabs.home-delivery')} – 15€`}
                 subtitle={t('tabs.turku-region')}
               />
             </div>
