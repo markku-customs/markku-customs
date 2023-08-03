@@ -41,7 +41,7 @@ const ContactForm = () => {
       className="flex w-full flex-col gap-4 lg:w-3/5"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <div className="mt-12 flex flex-col gap-4 sm:flex-row">
+      <div className="flex flex-col gap-4 sm:flex-row">
         <div className="flex-1">
           <label className="text-sm" htmlFor="email-input">
             {t('contact.email')}

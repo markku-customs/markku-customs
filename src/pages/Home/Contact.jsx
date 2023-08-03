@@ -4,6 +4,7 @@ import SectionHeading from '@/components/SectionHeading';
 
 import ContactForm from './ContactForm';
 import ContactLinks from './ContactLinks';
+import ContactTabs from './ContactTabs';
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -13,7 +14,10 @@ const Contact = () => {
       <div className="container gap-2">
         <SectionHeading className="mb-8">{t('links.contact')}</SectionHeading>
         <ContactLinks />
-        <ContactForm />
+        <div className="mt-12 flex flex-col gap-8 lg:flex-row-reverse">
+          <ContactTabs />
+          <ContactForm />
+        </div>
       </div>
     </section>
   );

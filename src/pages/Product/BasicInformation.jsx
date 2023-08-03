@@ -12,10 +12,16 @@ const BasicInformation = ({ name, description, price }) => {
   return (
     <section className="store-product-heading-text gap-4">
       <h1 className="font-heading text-4xl">{name}</h1>
-      <p className="text-2xl">{price ? `${price['en-US']}€` : t('variable')}</p>
+      <p className="text-2xl font-semibold">
+        {price ? `${price['en-US']}€` : t('variable')}
+      </p>
       <div className="flex flex-wrap gap-2">
         <Badge>{t('money-back')}</Badge>
         <Badge>{t('warranty')}</Badge>
+        <Badge>{`${t('tabs.pickup')}: 0€`}</Badge>
+        <Badge title={t('tabs.turku-region')}>{`${t(
+          'tabs.home-delivery'
+        )}: 15€`}</Badge>
       </div>
       <div className="flex flex-col gap-2">
         {splitLineBreaks(description, (text, key) => (

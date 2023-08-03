@@ -31,6 +31,17 @@
       "error": "Tapahtui virhe! Katso lisätietoja konsolista."
     }
   },
+  "tabs": {
+    "delivery-options": "Toimitusvaihtoehdot",
+    "guarantees": "Takaukset",
+    "turku-region": "Turun kaupunkiseutu",
+    "pickup": "Nouto",
+    "home-delivery": "Kotiinkuljetus",
+    "money-back": "Palautusoikeus",
+    "14-days": "14 päivää",
+    "warranty": "Takuu",
+    "1-year": "1 vuosi"
+  },
   "optional": "Valinnainen",
   "variable": "Muuttuva",
   "privacy-checkbox": "Valitsemalla tämän hyväksyt <2>tietosuojaselosteemme</2>.",
@@ -40,7 +51,7 @@
   "fps-note": "Huom. Tulokset tallennettu 1080p-näytöllä Medium-kuvanlaatuasetuksilla.",
   "fps-performance": "FPS-toimivuus",
   "footer": {
-    "copyright": "© {{year}} Markku Customs. Kaikki oikeudet pidätetään.",
+    "copyright": "© {{year}} Markku Customs (3368392-8). Kaikki oikeudet pidätetään.",
     "privacy": "Tietosuojaseloste",
     "terms": "Käyttöehdot"
   },
