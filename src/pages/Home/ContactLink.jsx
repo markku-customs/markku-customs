@@ -11,7 +11,7 @@ const ContactLink = ({ icon: Icon, title, content, href, blank = false }) => {
       </div>
       <div>
         <span className="block text-sm text-zinc-400">{title}</span>
-        <a className="hover:text-red-600" href={href} target={target} rel={rel}>
+        <a className="hover:underline" href={href} target={target} rel={rel}>
           {content}
         </a>
       </div>
