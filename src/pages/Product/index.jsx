@@ -43,6 +43,8 @@ const ProductPage = () => {
     name,
     price,
     description,
+    stockable,
+    itemsInStock,
     specifications,
     images,
     gameNames,
@@ -68,6 +70,8 @@ const ProductPage = () => {
               name={name[lng]}
               price={price}
               description={description[lng] || description['en-US']}
+              stockable={stockable['en-US']}
+              itemsInStock={itemsInStock['en-US']}
             />
 
             <ImageCarousel images={images} name={name[lng]} />

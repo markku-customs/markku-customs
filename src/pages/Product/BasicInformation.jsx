@@ -6,7 +6,13 @@ import Button from '@/components/Button';
 
 import { splitLineBreaks } from '@/utils';
 
-const BasicInformation = ({ name, description, price }) => {
+const BasicInformation = ({
+  name,
+  description,
+  price,
+  stockable,
+  itemsInStock,
+}) => {
   const { t } = useTranslation();
 
   return (
@@ -34,8 +40,25 @@ const BasicInformation = ({ name, description, price }) => {
           </p>
         ))}
       </div>
+      <hr className="h-px border-0 bg-zinc-800" />
+      {stockable ? (
+        itemsInStock > 0 ? (
+          <span className="flex w-max items-center bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
+            {itemsInStock} {t('in-stock')}
+            <span className="ml-2 inline-block h-2 w-2 rounded-full bg-green-500"></span>
+          </span>
+        ) : (
+          <span className="w-max bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
+            {t('sold-out')}
+          </span>
+        )
+      ) : (
+        <span className="w-max bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
+          {t('made-on-order')}
+        </span>
+      )}
       <Button as={Link} to="/#contact" className="w-fit">
-        {t('order')}
+        {stockable && itemsInStock > 0 ? t('buy') : t('order')}
       </Button>
     </section>
   );
