@@ -7,12 +7,14 @@
 
 :root {
   --color-background: #0c0c0e;
+  --color-zinc-900: #18181d;
+  --height-navbar: 66px;
   --transition-200: 200ms;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 66px;
+  scroll-padding-top: var(--height-navbar);
 }
 
 body {
@@ -24,12 +26,9 @@ body {
 /* Home Page | Hero Section */
 
 .hero {
-  background-image: url('/hero.png');
-  height: calc(100vh - 66px);
+  background: url('/hero.png') center / cover no-repeat;
+  height: calc(100vh - var(--height-navbar));
   overflow: hidden;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   position: relative;
 }
 
@@ -40,11 +39,9 @@ body {
 
 .gradient {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  inset: auto 0 0 0;
   z-index: 0;
   height: 80%;
-  width: 100%;
   background: linear-gradient(
     0deg,
     var(--color-background) 0%,
@@ -113,6 +110,8 @@ body {
   padding-block: 2rem;
 }
 
+/* Product Page | Image Carousel Section */
+
 .image-carousel-container {
   grid-area: carousel;
   overflow: hidden;
@@ -124,7 +123,7 @@ body {
 }
 
 .carousel .slide {
-  background-color: #18181d;
+  background-color: var(--color-zinc-900);
 }
 
 .carousel .slide img {
@@ -133,13 +132,19 @@ body {
   width: auto;
 }
 
+/* Product Page | Basic Information Section */
+
 .basic-information-container {
   grid-area: info;
 }
 
+/* Product Page | Specifications Section */
+
 .specifications-container {
   grid-area: specs;
 }
+
+/* Product Page | Game Performance Section */
 
 .game-performance-container {
   grid-area: games;
