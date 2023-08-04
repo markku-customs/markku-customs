@@ -11,7 +11,7 @@ const GamePerformance = ({ gameNames, gameFrameRates }) => {
   );
 
   return (
-    <section className="game-grid-container">
+    <section className="game-performance-container">
       <h2 className="mb-4 text-2xl font-bold">{t('fps-performance')}</h2>
       <p className="mb-4 text-sm text-zinc-400">{t('fps-note')}</p>
       <div className="game-grid">

@@ -1,5 +1,4 @@
 {
-  "markku-customs": "Markku Customs",
   "links": {
     "home": "Koti",
     "store": "Kauppa",
@@ -47,6 +46,10 @@
   "privacy-checkbox": "Valitsemalla tämän hyväksyt <2>tietosuojaselosteemme</2>.",
   "money-back": "Palautusoikeus: 14 pv",
   "warranty": "Takuu: 1 v",
+  "in-stock": "kpl varastossa",
+  "sold-out": "Loppuunmyyty",
+  "made-on-order": "Tehty tilauksesta",
+  "buy": "Osta Nyt",
   "order": "Tilaa Nyt",
   "fps-note": "Huom. Tulokset tallennettu 1080p-näytöllä Medium-kuvanlaatuasetuksilla.",
   "fps-performance": "FPS-toimivuus",

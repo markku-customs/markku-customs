@@ -51,5 +51,6 @@ module.exports = {
     'react-hooks/exhaustive-deps': 0,
     'react/jsx-props-no-spreading': 0,
     'react/display-name': 0,
+    'no-nested-ternary': 0,
   },
 };

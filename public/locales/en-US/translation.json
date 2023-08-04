@@ -1,5 +1,4 @@
 {
-  "markku-customs": "Markku Customs",
   "links": {
     "home": "Home",
     "store": "Store",
@@ -47,6 +46,10 @@
   "privacy-checkbox": "By selecting this, you agree to our <2>privacy policy</2>.",
   "money-back": "Money-Back: 14d",
   "warranty": "Warranty: 1y",
+  "in-stock": "In Stock",
+  "sold-out": "Sold Out",
+  "made-on-order": "Made On Order",
+  "buy": "Buy Now",
   "order": "Order Now",
   "fps-note": "NB. Results recorded on 1080p monitor with Medium quality settings.",
   "fps-performance": "FPS Performance",
