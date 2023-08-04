@@ -16,7 +16,7 @@ const BasicInformation = ({
   const { t } = useTranslation();
 
   return (
-    <section className="store-product-heading-text gap-4">
+    <section className="basic-information-container flex flex-col gap-4">
       <h1 className="font-heading text-4xl">{name}</h1>
       <p className="text-2xl font-semibold">
         {price ? `${price['en-US']}€` : t('variable')}
@@ -41,6 +41,7 @@ const BasicInformation = ({
         ))}
       </div>
       <hr className="h-px border-0 bg-zinc-800" />
+
       {stockable ? (
         itemsInStock > 0 ? (
           <span className="flex w-max items-center bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
@@ -57,6 +58,7 @@ const BasicInformation = ({
           {t('made-on-order')}
         </span>
       )}
+
       <Button as={Link} to="/#contact" className="w-fit">
         {stockable && itemsInStock > 0 ? t('buy') : t('order')}
       </Button>

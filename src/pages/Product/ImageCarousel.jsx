@@ -6,7 +6,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const ImageCarousel = ({ images, name }) => {
   return (
-    <section className="store-product-main-image-container">
+    <section className="image-carousel-container flex flex-col">
       <Carousel useKeyboardArrows dynamicHeight infiniteLoop>
         {images ? (
           images['en-US'].map((image) => (
