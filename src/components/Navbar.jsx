@@ -33,7 +33,7 @@ const Navbar = () => {
               height={32}
               width={32}
             />
-            <span className="font-heading text-xl">{t('markku-customs')}</span>
+            <span className="font-heading text-xl">Markku Customs</span>
           </Link>
           <div className="hidden gap-6 md:flex">
             <ul className="-my-4 flex">

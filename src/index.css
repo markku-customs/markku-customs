@@ -13,12 +13,6 @@
   }
 }
 
-@layer components {
-  .button {
-    @apply flex w-full justify-center px-8 py-4 text-xs font-semibold uppercase tracking-[.30em] transition duration-100 sm:w-auto;
-  }
-}
-
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 66px;
