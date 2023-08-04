@@ -1,4 +1,8 @@
 {
+  "seo": {
+    "title": "Markku Customs: High-Quality Custom Gaming PCs",
+    "description": "Welcome to Markku Customs! We build custom gaming PCs using both new and refurbished high-quality components."
+  },
   "links": {
     "home": "Home",
     "store": "Store",
@@ -7,7 +11,7 @@
   },
   "hero": {
     "heading": "We Build. <br/> You Play.",
-    "description": "Welcome to Markku Customs! We build custom gaming PCs using New and refurbished high-quality components. Our experienced technicians can help you create a machine that delivers the performance and reliability you need. We also offer upgrades, repairs, and maintenance services. Contact us today to learn more and start your custom build! ",
+    "description": "Welcome to Markku Customs! We build custom gaming PCs using both new and refurbished high-quality components. Our experienced technicians can help you create a machine that delivers the performance and reliability you need. We also offer upgrades, repairs, and maintenance services. Contact us today to learn more and start your custom build! ",
     "buttons": {
       "store": "View Store",
       "contact": "Contact Us"
