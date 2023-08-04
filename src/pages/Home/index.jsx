@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-
+// import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
+import useSWR from 'swr';
 
 import Layout from '@/components/Layout';
 
@@ -10,23 +10,8 @@ import Reviews from './Reviews';
 import Store from './Store';
 
 const HomePage = () => {
-  const [products, setProducts] = useState([]);
-  const [reviews, setReviews] = useState([]);
-
-  useEffect(() => {
-    fetch('/.netlify/functions/getProducts')
-      .then((res) => res.json())
-      .then((data) => setProducts(data.items))
-      .catch((err) => {
-        console.log(err);
-      });
-    fetch('/.netlify/functions/getReviews')
-      .then((res) => res.json())
-      .then((data) => setReviews(data.items))
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  const { data: products } = useSWR('/.netlify/functions/getProducts');
+  const { data: reviews } = useSWR('/.netlify/functions/getReviews');
 
   return (
     <>
@@ -40,8 +25,8 @@ const HomePage = () => {
 
       <Layout>
         <Hero />
-        <Store products={products} />
-        <Reviews reviews={reviews} />
+        <Store products={products?.items} />
+        <Reviews reviews={reviews?.items} />
         <Contact />
       </Layout>
     </>

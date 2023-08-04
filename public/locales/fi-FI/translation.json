@@ -64,5 +64,6 @@
   },
   "input": {
     "required": "Tämä kenttä on pakollinen."
-  }
+  },
+  "loading": "Ladataan..."
 }

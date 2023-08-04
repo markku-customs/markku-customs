@@ -64,5 +64,6 @@
   },
   "input": {
     "required": "This input is required."
-  }
+  },
+  "loading": "Loading..."
 }

@@ -12,17 +12,23 @@ const Store = ({ products }) => {
     <section className="py-12 md:py-16" id="store">
       <div className="container">
         <SectionHeading className="mb-8">{t('links.store')}</SectionHeading>
-        <div className="store-grid">
-          {products.map((product) => {
-            const { id } = product.sys;
+        {!products ? (
+          <div className="grid h-32 place-items-center rounded-md bg-zinc-800 text-zinc-400">
+            {t('loading')}
+          </div>
+        ) : (
+          <div className="store-grid">
+            {products.map((product) => {
+              const { id } = product.sys;
 
-            return (
-              <Link to={`/products/${id}`} key={id}>
-                <StoreItem product={product} />
-              </Link>
-            );
-          })}
-        </div>
+              return (
+                <Link to={`/products/${id}`} key={id}>
+                  <StoreItem product={product} />
+                </Link>
+              );
+            })}
+          </div>
+        )}
       </div>
     </section>
   );

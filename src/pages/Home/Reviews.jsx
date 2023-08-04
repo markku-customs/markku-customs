@@ -38,11 +38,17 @@ const Reviews = ({ reviews }) => {
     <section className="py-12 md:py-16" id="reviews">
       <div className="container">
         <SectionHeading className="mb-8">{t('links.reviews')}</SectionHeading>
-        <Slider {...settings} className="mb-8">
-          {reviews.map((review) => (
-            <ReviewItem key={review.sys.id} review={review} />
-          ))}
-        </Slider>
+        {!reviews ? (
+          <div className="mb-8 grid h-32 place-items-center rounded-md bg-zinc-800 text-zinc-400">
+            {t('loading')}
+          </div>
+        ) : (
+          <Slider {...settings} className="mb-8">
+            {reviews.map((review) => (
+              <ReviewItem key={review.sys.id} review={review} />
+            ))}
+          </Slider>
+        )}
         <div className="flex flex-wrap gap-4">
           <Button
             as="a"
