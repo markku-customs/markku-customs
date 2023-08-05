@@ -19,7 +19,13 @@ exports.handler = async () => {
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify(error),
+      body: JSON.stringify({
+        message: {
+          'en-US': 'An unexpected error occured on the server.',
+          'fi-FI': 'Palvelimella tapahtui odottamaton virhe.',
+        },
+        error,
+      }),
     };
   }
 };

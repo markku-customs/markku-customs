@@ -12,7 +12,7 @@ const NotFoundPage = () => {
     <>
       <Helmet>
         <title>404 | Markku Customs</title>
-        <meta name="description" content="Markku Customs Official Website" />
+        <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
       <Layout>
