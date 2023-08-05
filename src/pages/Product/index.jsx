@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import useSWR from 'swr';
 
 import Layout from '@/components/Layout';
+import SEO from '@/components/SEO';
 
 import NotFoundPage from '../NotFound';
 import BasicInformation from './BasicInformation';
@@ -37,13 +37,10 @@ const ProductPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{!product ? t('loading') : name[lng]} | Markku Customs</title>
-        <meta
-          name="description"
-          content="Markku Customs on tietokonekauppa Turussa. Rakennamme räätälöityjä pelitietokoneita käyttämällä sekä uusia että kunnostettuja korkealaatuisia komponentteja."
-        />
-      </Helmet>
+      <SEO
+        title={!product ? t('loading') : name[lng]}
+        description={t('seo.description')}
+      />
 
       <Layout>
         <div className="container">
