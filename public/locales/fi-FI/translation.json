@@ -35,7 +35,8 @@
     }
   },
   "tabs": {
-    "delivery-options": "Toimitusvaihtoehdot",
+    "delivery-options": "Toimitustavat",
+    "payment-options": "Maksutavat",
     "guarantees": "Takaukset",
     "turku-region": "Turun kaupunkiseutu",
     "pickup": "Nouto",
@@ -43,7 +44,9 @@
     "money-back": "Palautusoikeus",
     "14-days": "14 päivää",
     "warranty": "Takuu",
-    "1-year": "1 vuosi"
+    "1-year": "1 vuosi",
+    "cash": "Käteinen",
+    "bank-transfer": "Tilisiirto"
   },
   "optional": "Valinnainen",
   "variable": "Muuttuva",

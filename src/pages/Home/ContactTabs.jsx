@@ -8,9 +8,9 @@ const ContactTabs = () => {
   const { t } = useTranslation();
 
   return (
-    <aside className="w-full lg:max-w-md">
+    <aside className="w-full lg:max-w-lg">
       <Tab.Group>
-        <Tab.List className="flex bg-zinc-900">
+        <Tab.List className="flex flex-col divide-y divide-zinc-800 border-b border-zinc-800 bg-zinc-900 sm:flex-row sm:divide-x sm:divide-y-0">
           <Tab as={Fragment} className="w-full text-sm font-semibold">
             {({ selected }) => (
               <button
@@ -23,6 +23,21 @@ const ContactTabs = () => {
                 )}
               >
                 {t('tabs.delivery-options')}
+              </button>
+            )}
+          </Tab>
+          <Tab as={Fragment} className="w-full text-sm font-semibold">
+            {({ selected }) => (
+              <button
+                type="button"
+                className={clsx(
+                  'h-full w-full py-4',
+                  selected
+                    ? 'bg-red-600'
+                    : 'transition duration-200 hover:bg-zinc-800'
+                )}
+              >
+                {t('tabs.payment-options')}
               </button>
             )}
           </Tab>
@@ -54,6 +69,13 @@ const ContactTabs = () => {
           </Tab.Panel>
           <Tab.Panel className="bg-zinc-900 p-4 lg:p-6">
             <ul className="flex flex-col gap-4">
+              <PanelItem title={t('tabs.cash')} />
+              <PanelItem title="MobilePay" />
+              <PanelItem title={t('tabs.bank-transfer')} />
+            </ul>
+          </Tab.Panel>
+          <Tab.Panel className="bg-zinc-900 p-4 lg:p-6">
+            <ul className="flex flex-col gap-4">
               <PanelItem
                 title={t('tabs.money-back')}
                 subtitle={t('tabs.14-days')}
@@ -76,7 +98,9 @@ const PanelItem = ({ title, subtitle }) => {
   return (
     <li className="border-l-4 border-red-600 px-4 py-2">
       <p className="text-sm lg:text-base">{title}</p>
-      <p className="text-xs text-zinc-400 lg:text-sm">{subtitle}</p>
+      {subtitle && (
+        <p className="text-xs text-zinc-400 lg:text-sm">{subtitle}</p>
+      )}
     </li>
   );
 };

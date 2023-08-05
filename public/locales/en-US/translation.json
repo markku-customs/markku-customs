@@ -36,6 +36,7 @@
   },
   "tabs": {
     "delivery-options": "Delivery Options",
+    "payment-options": "Payment Options",
     "guarantees": "Guarantees",
     "turku-region": "Turku City Region",
     "pickup": "Pickup",
@@ -43,7 +44,9 @@
     "money-back": "Money-Back Guarantee",
     "14-days": "14 days",
     "warranty": "Warranty",
-    "1-year": "1 year"
+    "1-year": "1 year",
+    "cash": "Cash",
+    "bank-transfer": "Bank Transfer"
   },
   "optional": "Optional",
   "variable": "Variable",
