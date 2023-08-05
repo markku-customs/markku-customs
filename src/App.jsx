@@ -10,9 +10,10 @@ const App = () => {
     <SWRConfig
       value={{
         fetcher: (url) => fetch(url).then((res) => res.json()),
-        revalidateIfStale: false,
+        revalidateIfStale: true,
         revalidateOnFocus: false,
         revalidateOnReconnect: false,
+        dedupingInterval: 600000, // 10 mins
       }}
     >
       <Routes>
