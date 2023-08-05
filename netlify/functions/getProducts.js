@@ -18,8 +18,6 @@ exports.handler = async () => {
       body: JSON.stringify(entries),
     };
   } catch (error) {
-    console.log('error', error);
-
     return {
       statusCode: 500,
       body: JSON.stringify({
