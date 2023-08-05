@@ -26,7 +26,7 @@ body {
 /* Home Page | Hero Section */
 
 .hero {
-  background: url('/hero.png') center / cover no-repeat;
+  background: url('/img/hero/hero-2xl-1536.webp') center / cover no-repeat;
   height: calc(100vh - var(--height-navbar));
   overflow: hidden;
   position: relative;
@@ -158,15 +158,35 @@ body {
 
 /* Media Queries */
 
-@media only screen and (min-width: 768px) {
-  .mobile-nav {
-    display: none;
+/* Responsive Hero Image */
+
+@media only screen and (max-width: 1280px) {
+  .hero {
+    background-image: url('/img/hero/hero-xl-1280.webp');
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .hero {
+    background-image: url('/img/hero/hero-lg-1024.webp');
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .hero {
+    background-image: url('/img/hero/hero-md-768.webp');
   }
 }
 
 @media only screen and (max-width: 640px) {
   .hero {
-    background-image: url('/hero-phone.png');
+    background-image: url('/img/hero/hero-sm-640.webp');
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .mobile-nav {
+    display: none;
   }
 }
 
