@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 const variants = {
   primary: 'bg-red-600 hover:brightness-125',
   secondary: 'bg-zinc-950 hover:brightness-125',
-  tertiary: 'bg-zinc-200 text-zinc-950 hover:brightness-75',
 };
 
 const sizes = {
@@ -43,7 +42,7 @@ const Button = ({
 Button.propTypes = {
   children: PropTypes.node.isRequired,
   as: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType]),
-  variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
+  variant: PropTypes.oneOf(['primary', 'secondary']),
   size: PropTypes.oneOf(['small', 'base']),
   transition: PropTypes.bool,
   icon: PropTypes.element,
