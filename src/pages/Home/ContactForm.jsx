@@ -1,3 +1,4 @@
+import { clsx } from 'clsx';
 import { useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 import InputMask from 'react-input-mask';
@@ -52,7 +53,10 @@ const ContactForm = () => {
               })}
               id="email-input"
               type="text"
-              className="mt-2 w-full bg-zinc-800 p-4"
+              className={clsx(
+                'mt-2 w-full bg-zinc-800 p-4',
+                errors.email && 'ring-1 ring-red-600'
+              )}
             />
             {errors.email && (
               <span className="text-red-600">{t('input.required')}</span>
@@ -66,7 +70,10 @@ const ContactForm = () => {
               {...register('name', { required: true })}
               id="name-input"
               type="text"
-              className="mt-2 w-full bg-zinc-800 p-4"
+              className={clsx(
+                'mt-2 w-full bg-zinc-800 p-4',
+                errors.name && 'ring-1 ring-red-600'
+              )}
             />
             {errors.name && (
               <span className="text-red-600">{t('input.required')}</span>
@@ -83,7 +90,10 @@ const ContactForm = () => {
             alwaysShowMask
             {...register('phone')}
             id="phone-input"
-            className="mt-2 w-full bg-zinc-800 p-4"
+            className={clsx(
+              'mt-2 w-full bg-zinc-800 p-4',
+              errors.phone && 'ring-1 ring-red-600'
+            )}
           />
           {errors.phone && (
             <span className="text-red-600">{t('input.required')}</span>
@@ -97,7 +107,10 @@ const ContactForm = () => {
             {...register('message', { required: true })}
             id="message-input"
             placeholder={t('contact.type-message')}
-            className="mt-2 h-32 w-full resize-none bg-zinc-800 p-4 text-start text-sm"
+            className={clsx(
+              'mt-2 h-32 w-full resize-none bg-zinc-800 p-4 text-start text-sm',
+              errors.message && 'ring-1 ring-red-600'
+            )}
           ></textarea>
           {errors.message && (
             <span className="text-red-600">{t('input.required')}</span>
@@ -113,7 +126,10 @@ const ContactForm = () => {
             {...register('privacy', { required: true })}
             id="privacy-policy-checkbox"
             type="checkbox"
-            className="h-4 w-4 accent-red-600"
+            className={clsx(
+              'h-4 w-4 accent-red-600',
+              errors.privacy && 'ring-1 ring-red-600'
+            )}
           />
           <span>
             <Trans i18nKey="privacy-checkbox">
