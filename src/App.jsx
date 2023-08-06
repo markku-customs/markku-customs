@@ -5,11 +5,24 @@ import HomePage from './pages/Home';
 import NotFoundPage from './pages/NotFound';
 import ProductPage from './pages/Product';
 
+const fetcher = async (url) => {
+  const res = await fetch(url);
+
+  if (!res.ok) {
+    const error = new Error('An error occurred while fetching the data.');
+    error.info = await res.json();
+    error.status = res.status;
+    throw error;
+  }
+
+  return res.json();
+};
+
 const App = () => {
   return (
     <SWRConfig
       value={{
-        fetcher: (url) => fetch(url).then((res) => res.json()),
+        fetcher,
         revalidateIfStale: true,
         revalidateOnFocus: false,
         revalidateOnReconnect: false,

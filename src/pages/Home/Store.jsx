@@ -5,16 +5,27 @@ import SectionHeading from '@/components/SectionHeading';
 
 import StoreItem from './StoreItem';
 
-const Store = ({ products }) => {
-  const { t } = useTranslation();
+const Store = ({ products, error }) => {
+  const { t, i18n } = useTranslation();
+
+  const lng = i18n.language;
 
   return (
     <section className="py-12 md:py-16" id="store">
       <div className="container">
         <SectionHeading className="mb-8">{t('links.store')}</SectionHeading>
         {!products ? (
-          <div className="grid h-32 place-items-center rounded-md bg-zinc-800 text-zinc-400">
-            {t('loading')}
+          <div className="grid min-h-[8rem] place-items-center rounded-md bg-zinc-800 p-4 text-zinc-400">
+            {error ? (
+              <div className="text-center">
+                <p>{`${error.status} – ${error.info.message[lng]}`}</p>
+                <p className="mt-2 text-sm text-zinc-500">
+                  {t('automatic-retry')}
+                </p>
+              </div>
+            ) : (
+              t('loading')
+            )}
           </div>
         ) : (
           <div className="store-grid">

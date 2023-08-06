@@ -11,36 +11,47 @@ import ReviewItem from './ReviewItem';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 
-const Reviews = ({ reviews }) => {
-  const { t } = useTranslation();
-
-  const settings = {
-    centerMode: true,
-    infinite: true,
-    autoplay: true,
-    centerPadding: '60px',
-    slidesToShow: 2,
-    speed: 500,
-    autoplaySpeed: 10000,
-    pauseOnHover: true,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          centerMode: false,
-          slidesToShow: 1,
-        },
+const settings = {
+  centerMode: true,
+  infinite: true,
+  autoplay: true,
+  centerPadding: '60px',
+  slidesToShow: 2,
+  speed: 500,
+  autoplaySpeed: 10000,
+  pauseOnHover: true,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        centerMode: false,
+        slidesToShow: 1,
       },
-    ],
-  };
+    },
+  ],
+};
+
+const Reviews = ({ reviews, error }) => {
+  const { t, i18n } = useTranslation();
+
+  const lng = i18n.language;
 
   return (
     <section className="py-12 md:py-16" id="reviews">
       <div className="container">
         <SectionHeading className="mb-8">{t('links.reviews')}</SectionHeading>
         {!reviews ? (
-          <div className="mb-8 grid h-32 place-items-center rounded-md bg-zinc-800 text-zinc-400">
-            {t('loading')}
+          <div className="grid min-h-[8rem] place-items-center rounded-md bg-zinc-800 p-4 text-zinc-400">
+            {error ? (
+              <div className="text-center">
+                <p>{`${error.status} – ${error.info.message[lng]}`}</p>
+                <p className="mt-2 text-sm text-zinc-500">
+                  {t('automatic-retry')}
+                </p>
+              </div>
+            ) : (
+              t('loading')
+            )}
           </div>
         ) : (
           <Slider {...settings} className="mb-8">

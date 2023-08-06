@@ -72,5 +72,6 @@
   "input": {
     "required": "This input is required."
   },
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "automatic-retry": "The website will automatically retry the request to try to fix the issue."
 }

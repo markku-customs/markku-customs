@@ -12,8 +12,12 @@ import Store from './Store';
 const HomePage = () => {
   const { t } = useTranslation();
 
-  const { data: products } = useSWR('/.netlify/functions/getProducts');
-  const { data: reviews } = useSWR('/.netlify/functions/getReviews');
+  const { data: products, error: productsError } = useSWR(
+    '/.netlify/functions/getProducts'
+  );
+  const { data: reviews, error: reviewsError } = useSWR(
+    '/.netlify/functions/getReviews'
+  );
 
   return (
     <>
@@ -21,8 +25,8 @@ const HomePage = () => {
 
       <Layout>
         <Hero />
-        <Store products={products?.items} />
-        <Reviews reviews={reviews?.items} />
+        <Store products={products?.items} error={productsError} />
+        <Reviews reviews={reviews?.items} error={reviewsError} />
         <Contact />
       </Layout>
     </>
