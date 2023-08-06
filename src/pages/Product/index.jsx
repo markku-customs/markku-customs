@@ -17,9 +17,11 @@ const ProductPage = () => {
   const { id } = useParams();
   const { t, i18n } = useTranslation();
 
-  const { data: product } = useSWR(`/.netlify/functions/getProduct?id=${id}`);
+  const { data: product, error } = useSWR(
+    `/.netlify/functions/getProduct?id=${id}`
+  );
 
-  if (product?.sys?.id === 'NotFound') {
+  if (error?.info?.error?.sys?.id === 'NotFound') {
     return <NotFoundPage />;
   }
 
@@ -38,15 +40,24 @@ const ProductPage = () => {
   return (
     <>
       <SEO
-        title={!product ? t('loading') : name[lng]}
+        title={`${!product ? t('loading') : name[lng]} | Markku Customs`}
         description={t('seo.description')}
       />
 
       <Layout>
         <div className="container">
           {!product ? (
-            <div className="mt-8 grid h-32 place-items-center rounded-md bg-zinc-800 text-zinc-400">
-              {t('loading')}
+            <div className="mt-8 grid min-h-[8rem] place-items-center rounded-md bg-zinc-800 p-4 text-zinc-400">
+              {error ? (
+                <div className="text-center">
+                  <p>{`${error.status} – ${error.info.message[lng]}`}</p>
+                  <p className="mt-2 text-sm text-zinc-500">
+                    {t('automatic-retry')}
+                  </p>
+                </div>
+              ) : (
+                t('loading')
+              )}
             </div>
           ) : (
             <div className="product-page-grid">
