@@ -4,6 +4,12 @@ import { Tab } from '@headlessui/react';
 import { clsx } from 'clsx';
 import { useTranslation } from 'react-i18next';
 
+const tabs = [
+  { title: 'tabs.delivery-options' },
+  { title: 'tabs.payment-options' },
+  { title: 'tabs.guarantees' },
+];
+
 const ContactTabs = () => {
   const { t } = useTranslation();
 
@@ -11,51 +17,27 @@ const ContactTabs = () => {
     <aside className="w-full lg:max-w-lg">
       <Tab.Group>
         <Tab.List className="flex flex-col divide-y divide-zinc-800 border-b border-zinc-800 bg-zinc-900 sm:flex-row sm:divide-x sm:divide-y-0">
-          <Tab as={Fragment} className="w-full text-sm font-semibold">
-            {({ selected }) => (
-              <button
-                type="button"
-                className={clsx(
-                  'h-full w-full py-4',
-                  selected
-                    ? 'bg-red-600'
-                    : 'transition duration-200 hover:bg-zinc-800'
-                )}
-              >
-                {t('tabs.delivery-options')}
-              </button>
-            )}
-          </Tab>
-          <Tab as={Fragment} className="w-full text-sm font-semibold">
-            {({ selected }) => (
-              <button
-                type="button"
-                className={clsx(
-                  'h-full w-full py-4',
-                  selected
-                    ? 'bg-red-600'
-                    : 'transition duration-200 hover:bg-zinc-800'
-                )}
-              >
-                {t('tabs.payment-options')}
-              </button>
-            )}
-          </Tab>
-          <Tab as={Fragment} className="w-full text-sm font-semibold">
-            {({ selected }) => (
-              <button
-                type="button"
-                className={clsx(
-                  'h-full w-full py-4',
-                  selected
-                    ? 'bg-red-600'
-                    : 'transition duration-200 hover:bg-zinc-800'
-                )}
-              >
-                {t('tabs.guarantees')}
-              </button>
-            )}
-          </Tab>
+          {tabs.map(({ title }) => (
+            <Tab
+              as={Fragment}
+              className="w-full text-sm font-semibold"
+              key={title}
+            >
+              {({ selected }) => (
+                <button
+                  type="button"
+                  className={clsx(
+                    'h-full w-full py-4',
+                    selected
+                      ? 'bg-red-600'
+                      : 'transition duration-200 hover:bg-zinc-800'
+                  )}
+                >
+                  {t(title)}
+                </button>
+              )}
+            </Tab>
+          ))}
         </Tab.List>
         <Tab.Panels>
           <Tab.Panel className="bg-zinc-900 p-4 lg:p-6">
