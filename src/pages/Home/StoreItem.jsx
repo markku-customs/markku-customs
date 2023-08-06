@@ -17,7 +17,7 @@ const StoreItem = ({ product }) => {
         <img
           src={
             featuredImage
-              ? `${getImageSrc(featuredImage['en-US'])}?fm=webp&w=600`
+              ? `${getImageSrc(featuredImage['en-US'])}?fm=webp&w=500`
               : '/product-default.png'
           }
           alt={name[lng]}
