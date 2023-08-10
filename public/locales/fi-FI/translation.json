@@ -73,5 +73,5 @@
     "required": "Tämä kenttä on pakollinen."
   },
   "loading": "Ladataan...",
-  "automatic-retry": "Sivusto lähettää pyyntöjä automaattisesti uudelleen yrittääkseen korjata ongelman."
+  "automatic-retry": "Sivusto uudelleenlähettää pyyntöjä automaattisesti yrittääkseen korjata ongelman."
 }
