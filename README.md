@@ -4,6 +4,10 @@ This is the official website of Markku Customs, a startup company based in Turku
 
 The website consists of a home page and dedicated product pages for all products. All data is fetched from Contentful, a content management system. The website includes a contact form built using Nodemailer, which sends emails directly to the business owner's inbox. The website is also internationalized, featuring translations in both English and Finnish.
 
+_In Development: April 2023–_
+
+_Deployed @ [markkucustoms.com](https://markkucustoms.com/)_
+
 ## Technologies
 
 ### Frontend
@@ -23,5 +27,3 @@ The website consists of a home page and dedicated product pages for all products
 ### Deployment
 
 - Netlify
-
-_April 2023–_
