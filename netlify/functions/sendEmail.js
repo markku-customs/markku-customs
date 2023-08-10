@@ -33,12 +33,25 @@ exports.handler = async (event) => {
 
     return {
       statusCode: 400,
-      body: JSON.stringify({ message: 'Oops' }),
+      body: JSON.stringify({
+        message: {
+          'en-US':
+            'The server cannot handle that request due to a client error.',
+          'fi-FI':
+            'Palvelin ei voi käsitellä tätä pyyntöä asiakasvirheen vuoksi.',
+        },
+      }),
     };
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify(error),
+      body: JSON.stringify({
+        message: {
+          'en-US': 'An unexpected error occured on the server.',
+          'fi-FI': 'Palvelimella tapahtui odottamaton virhe.',
+        },
+        error,
+      }),
     };
   }
 };

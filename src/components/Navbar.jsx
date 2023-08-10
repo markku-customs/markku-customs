@@ -66,7 +66,7 @@ const Navbar = () => {
                 type="button"
                 onClick={() => i18n.changeLanguage('fi-FI')}
                 title="Käännä suomeksi"
-                aria-label="käännä suomi"
+                aria-label="käännä suomeksi"
               >
                 <img src={finlandFlag} alt="" aria-hidden="true" />
               </button>

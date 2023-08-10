@@ -14,7 +14,7 @@ const GamePerformance = ({ gameNames, gameFrameRates }) => {
     <section className="game-performance-container">
       <h2 className="mb-4 text-2xl font-bold">{t('fps-performance')}</h2>
       <p className="mb-4 text-sm text-zinc-400">{t('fps-note')}</p>
-      <div className="game-grid">
+      <ul className="game-grid">
         {gameNames['en-US'].slice(0, min).map((game, idx) => (
           <Game
             key={game.sys.id}
@@ -22,7 +22,7 @@ const GamePerformance = ({ gameNames, gameFrameRates }) => {
             fps={gameFrameRates['en-US'][idx]}
           />
         ))}
-      </div>
+      </ul>
     </section>
   );
 };
@@ -33,14 +33,14 @@ const Game = ({ game, fps }) => {
   const { image, name } = game.fields;
 
   return (
-    <div className="game-grid-box">
+    <li>
       <img
         className="aspect-square w-full object-cover"
         src={`${getImageSrc(image['en-US'])}?fm=webp&w=256&h=256`}
         alt={name['en-US']}
       />
-      <span className="mt-2 block text-sm text-zinc-400">{name['en-US']}</span>
-      <span className="fps-text mt-1 block font-semibold">{fps} FPS</span>
-    </div>
+      <h3 className="mt-2 text-sm text-zinc-400">{name['en-US']}</h3>
+      <p className="mt-1 font-semibold">{fps} FPS</p>
+    </li>
   );
 };

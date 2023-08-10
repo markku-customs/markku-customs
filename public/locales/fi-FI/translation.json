@@ -1,4 +1,8 @@
 {
+  "seo": {
+    "title": "Markku Customs: Korkealaatuisia Räätälöityjä Pelikoneita",
+    "description": "Tervetuloa Markku Customsiin! Rakennamme räätälöityjä pelitietokoneita käyttämällä sekä uusia että kunnostettuja korkealaatuisia komponentteja."
+  },
   "links": {
     "home": "Koti",
     "store": "Kauppa",
@@ -31,7 +35,8 @@
     }
   },
   "tabs": {
-    "delivery-options": "Toimitusvaihtoehdot",
+    "delivery-options": "Toimitustavat",
+    "payment-options": "Maksutavat",
     "guarantees": "Takaukset",
     "turku-region": "Turun kaupunkiseutu",
     "pickup": "Nouto",
@@ -39,7 +44,9 @@
     "money-back": "Palautusoikeus",
     "14-days": "14 päivää",
     "warranty": "Takuu",
-    "1-year": "1 vuosi"
+    "1-year": "1 vuosi",
+    "cash": "Käteinen",
+    "bank-transfer": "Tilisiirto"
   },
   "optional": "Valinnainen",
   "variable": "Muuttuva",
@@ -64,5 +71,7 @@
   },
   "input": {
     "required": "Tämä kenttä on pakollinen."
-  }
+  },
+  "loading": "Ladataan...",
+  "automatic-retry": "Sivusto uudelleenlähettää pyyntöjä automaattisesti yrittääkseen korjata ongelman."
 }

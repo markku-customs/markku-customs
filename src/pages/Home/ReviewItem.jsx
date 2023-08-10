@@ -33,7 +33,7 @@ const ReviewItem = ({ review }) => {
           ))}
         </div>
 
-        <p className="mt-auto text-xs capitalize text-zinc-400">
+        <p className="mt-auto text-xs capitalize text-zinc-500">
           {new Intl.DateTimeFormat(lng, {
             month: 'long',
             year: 'numeric',
