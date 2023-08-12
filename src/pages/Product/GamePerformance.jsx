@@ -34,11 +34,16 @@ const Game = ({ game, fps }) => {
 
   return (
     <li>
-      <img
-        className="aspect-square w-full object-cover"
-        src={`${getImageSrc(image['en-US'])}?fm=webp&w=256&h=256`}
-        alt={name['en-US']}
-      />
+      <figure className="group relative">
+        <img
+          className="aspect-square w-full object-cover"
+          src={`${getImageSrc(image['en-US'])}?fm=webp&w=256&h=256`}
+          alt={name['en-US']}
+        />
+        <figcaption className="absolute inset-0 hidden bg-black/80 p-4 text-xs group-hover:block">
+          <p>{image['en-US'].fields.description['en-US']}</p>
+        </figcaption>
+      </figure>
       <h3 className="mt-2 text-sm text-zinc-400">{name['en-US']}</h3>
       <p className="mt-1 font-semibold">{fps} FPS</p>
     </li>
