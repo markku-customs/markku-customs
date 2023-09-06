@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 
-exports.handler = async (event) => {
+export default async function handler(event) {
   const { name, email, phone, message } = JSON.parse(event.body);
 
   try {
@@ -54,4 +54,4 @@ exports.handler = async (event) => {
       }),
     };
   }
-};
+}

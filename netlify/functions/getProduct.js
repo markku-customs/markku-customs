@@ -1,6 +1,6 @@
 const { createClient } = require('contentful');
 
-exports.handler = async (event) => {
+export default async function handler(event) {
   try {
     const client = createClient({
       space: process.env.VITE_CONTENTFUL_SPACE_ID,
@@ -30,4 +30,4 @@ exports.handler = async (event) => {
       }),
     };
   }
-};
+}
