@@ -1,6 +1,6 @@
 const { createClient } = require('contentful');
 
-export default async function handler() {
+exports.handler = async () => {
   try {
     const client = createClient({
       space: process.env.VITE_CONTENTFUL_SPACE_ID,
@@ -8,9 +8,8 @@ export default async function handler() {
     });
 
     const entries = await client.getEntries({
-      content_type: 'product',
+      content_type: 'review',
       locale: '*',
-      order: 'fields.price',
     });
 
     return {
@@ -29,4 +28,4 @@ export default async function handler() {
       }),
     };
   }
-}
+};
