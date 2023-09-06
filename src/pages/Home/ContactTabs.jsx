@@ -47,6 +47,10 @@ const ContactTabs = () => {
                 title={`${t('tabs.home-delivery')} – 15€`}
                 subtitle={t('tabs.turku-region')}
               />
+              <PanelItem
+                title={`${t('tabs.post')} – 30€`}
+                subtitle={t('tabs.finland')}
+              />
             </ul>
           </Tab.Panel>
           <Tab.Panel className="bg-zinc-900 p-4 lg:p-6">
