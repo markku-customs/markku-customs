@@ -38,6 +38,7 @@ const ProductPage = () => {
   const images = product?.fields?.images;
   const gameNames = product?.fields?.gameNames;
   const gameFrameRates = product?.fields?.gameFrameRates;
+  const paymentLink = product?.fields?.paymentLink;
 
   const lng = i18n.language;
 
@@ -71,6 +72,7 @@ const ProductPage = () => {
                 description={description[lng] || description['en-US']}
                 stockable={stockable['en-US']}
                 itemsInStock={itemsInStock['en-US']}
+                paymentLink={paymentLink}
               />
 
               <ImageCarousel images={images} name={name[lng]} />
