@@ -12,6 +12,7 @@ const BasicInformation = ({
   price,
   stockable,
   itemsInStock,
+  paymentLink,
 }) => {
   const { t } = useTranslation();
 
@@ -59,9 +60,27 @@ const BasicInformation = ({
         </span>
       )}
 
-      <Button as={Link} to="/#contact" className="w-fit">
-        {stockable && itemsInStock > 0 ? t('buy') : t('order')}
-      </Button>
+      <div className="flex flex-wrap gap-4">
+        {paymentLink ? (
+          <>
+            <Button
+              as="a"
+              href={paymentLink['en-US']}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {stockable && itemsInStock > 0 ? t('buy') : t('order')}
+            </Button>
+            <Button as={Link} to="/#contact" variant="secondary">
+              {t('inquire')}
+            </Button>
+          </>
+        ) : (
+          <Button as={Link} to="/#contact">
+            {t('inquire')}
+          </Button>
+        )}
+      </div>
     </section>
   );
 };
