@@ -50,6 +50,8 @@
     "cash": "Käteinen",
     "bank-transfer": "Tilisiirto"
   },
+  "limited-time": "Erikoistarjous",
+  "view-product": "Näytä tuote",
   "optional": "Valinnainen",
   "variable": "Muuttuva",
   "privacy-checkbox": "Valitsemalla tämän hyväksyt <2>tietosuojaselosteemme</2>.",

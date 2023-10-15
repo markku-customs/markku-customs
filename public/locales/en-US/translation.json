@@ -50,6 +50,8 @@
     "cash": "Cash",
     "bank-transfer": "Bank Transfer"
   },
+  "limited-time": "Limited Time Offer",
+  "view-product": "View Product",
   "optional": "Optional",
   "variable": "Variable",
   "privacy-checkbox": "By selecting this, you agree to our <2>privacy policy</2>.",
