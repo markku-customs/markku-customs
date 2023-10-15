@@ -5,3 +5,4 @@ export { default as MenuCloseIcon } from './MenuCloseIcon';
 export { default as MenuOpenIcon } from './MenuOpenIcon';
 export { default as StarIcon } from './StarIcon';
 export { default as ArrowOutwardIcon } from './ArrowOutwardIcon';
+export { default as TimerIcon } from './TimerIcon';
