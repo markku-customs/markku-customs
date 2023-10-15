@@ -20,18 +20,7 @@ const Footer = () => {
 
   return (
     <footer className="mt-auto bg-zinc-950">
-      <div className="container flex flex-col gap-4 py-4">
-        <div className="flex justify-center">
-          <a href="https://turku.4h.fi/" target="_blank" rel="noreferrer">
-            <img
-              src="/4H-yritys-logo.webp"
-              alt="4H-yritys"
-              className="h-6"
-              height={24}
-              width={74}
-            />
-          </a>
-        </div>
+      <div className="container py-4">
         <div className="flex justify-center gap-6">
           {links.map(({ key, href }) => (
             <a
