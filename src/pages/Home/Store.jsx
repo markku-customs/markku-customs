@@ -11,8 +11,6 @@ const Store = ({ products, error }) => {
 
   const lng = i18n.language;
 
-  console.log(products);
-
   return (
     <section className="py-12 md:py-16" id="store">
       <div className="container">

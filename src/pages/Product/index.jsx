@@ -9,6 +9,7 @@ import SEO from '@/components/SEO';
 
 import NotFoundPage from '../NotFound';
 import BasicInformation from './BasicInformation';
+import Bundles from './Bundles';
 import GamePerformance from './GamePerformance';
 import ImageCarousel from './ImageCarousel';
 import Specifications from './Specifications';
@@ -39,8 +40,11 @@ const ProductPage = () => {
   const gameNames = product?.fields?.gameNames;
   const gameFrameRates = product?.fields?.gameFrameRates;
   const paymentLink = product?.fields?.paymentLink;
+  const bundles = product?.fields?.bundles;
 
   const lng = i18n.language;
+
+  console.log(bundles);
 
   return (
     <>
@@ -76,6 +80,8 @@ const ProductPage = () => {
               />
 
               <ImageCarousel images={images} name={name[lng]} />
+
+              {bundles && <Bundles bundles={bundles} />}
 
               {specifications && (
                 <Specifications specifications={specifications[lng]} />

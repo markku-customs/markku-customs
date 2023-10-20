@@ -118,6 +118,7 @@ body {
   grid-template-columns: 6fr 4fr;
   grid-template-areas:
     'carousel info'
+    'bundles  bundles'
     'specs    specs'
     'games    .';
   gap: 2rem;
@@ -150,6 +151,18 @@ body {
 
 .basic-information-container {
   grid-area: info;
+}
+
+/* Product Page | Bundles Section */
+
+.bundles-container {
+  grid-area: bundles;
+}
+
+.bundles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 2rem;
 }
 
 /* Product Page | Specifications Section */
@@ -232,6 +245,7 @@ body {
     grid-template-areas:
       'carousel'
       'info'
+      'bundles'
       'specs'
       'games';
   }
