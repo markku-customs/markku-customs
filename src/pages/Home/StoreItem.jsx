@@ -16,7 +16,10 @@ const StoreItem = ({ product }) => {
       <div className="image-container relative max-h-64">
         {bundles && (
           <span className="absolute z-20 bg-red-600 px-4 py-2 text-xs font-semibold">
-            {bundles['en-US'].length} Bundle(s)
+            {bundles['en-US'].length}{' '}
+            {bundles['en-US'].length > 1
+              ? t('bundle-plural')
+              : t('bundle-singular')}
           </span>
         )}
         <img

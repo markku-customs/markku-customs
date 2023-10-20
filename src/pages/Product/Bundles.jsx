@@ -5,9 +5,11 @@ import Button from '@/components/Button';
 import { getImageSrc } from '@/utils';
 
 const Bundles = ({ bundles }) => {
+  const { t } = useTranslation();
+
   return (
     <section className="bundles-container">
-      <h2 className="mb-4 text-2xl font-semibold">Bundles</h2>
+      <h2 className="mb-4 text-2xl font-semibold">{t('bundles')}</h2>
       <div className="bundles-grid">
         {bundles['en-US'].map((bundle) => (
           <Bundle key={bundle.sys.id} bundle={bundle} />

@@ -63,6 +63,9 @@
   "buy": "Buy Now",
   "order": "Order Now",
   "inquire": "Make an Inquiry",
+  "bundle-singular": "Bundle",
+  "bundle-plural": "Bundles",
+  "bundles": "Bundles",
   "fps-note": "NB. Results recorded on 1080p monitor with Medium quality settings.",
   "fps-performance": "FPS Performance",
   "footer": {
