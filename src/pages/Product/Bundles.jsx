@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { HashLink as Link } from 'react-router-hash-link';
 
 import Button from '@/components/Button';
 
@@ -22,7 +23,7 @@ const Bundles = ({ bundles }) => {
 export default Bundles;
 
 const Bundle = ({ bundle }) => {
-  const { name, bundleProducts, price } = bundle.fields;
+  const { name, bundleProducts, price, paymentLink } = bundle.fields;
 
   const { t, i18n } = useTranslation();
 
@@ -31,17 +32,17 @@ const Bundle = ({ bundle }) => {
   return (
     <article className="flex gap-4">
       <div className="hidden md:block">
-        {bundleProducts['en-US'][0].fields.image ? (
-          <img
-            className="aspect-square w-[6rem] max-w-[6rem] object-cover"
-            src={`${getImageSrc(
-              bundleProducts['en-US'][0].fields.image['en-US']
-            )}?fm=webp&w=200`}
-            alt=""
-          />
-        ) : (
-          <div className="aspect-square w-[6rem] max-w-[6rem] bg-zinc-800"></div>
-        )}
+        <img
+          className="aspect-square w-[6rem] max-w-[6rem] object-cover"
+          src={
+            bundleProducts['en-US'][0].fields.image
+              ? `${getImageSrc(
+                  bundleProducts['en-US'][0].fields.image['en-US']
+                )}?fm=webp&w=200`
+              : '/product-default.png'
+          }
+          alt=""
+        />
       </div>
       <div className="flex h-full flex-col gap-2">
         <h3 className="font-semibold">{name[lng]}</h3>
@@ -56,9 +57,22 @@ const Bundle = ({ bundle }) => {
             {product.fields.name['en-US']}
           </a>
         ))}
-        <Button size="small" className="mt-2 w-max">
-          {t('order')} — {price['en-US']}€
-        </Button>
+        {paymentLink ? (
+          <Button
+            size="small"
+            className="mt-2 w-max"
+            as="a"
+            href={paymentLink['en-US']}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t('order')} — {price['en-US']}€
+          </Button>
+        ) : (
+          <Button size="small" className="mt-2 w-max" as={Link} to="/#contact">
+            {t('inquire')} — {price['en-US']}€
+          </Button>
+        )}
       </div>
     </article>
   );
