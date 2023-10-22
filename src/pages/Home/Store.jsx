@@ -11,8 +11,6 @@ const Store = ({ products, error }) => {
 
   const lng = i18n.language;
 
-  console.log(products);
-
   return (
     <section className="py-12 md:py-16" id="store">
       <div className="container">
@@ -32,17 +30,20 @@ const Store = ({ products, error }) => {
           </div>
         ) : (
           <>
-            <div className="flex flex-col gap-8">
-              {products
-                .filter((p) => p.fields.isFeatured['en-US'])
-                .map((product) => {
-                  const { id } = product.sys;
+            {products.filter((p) => p.fields.isFeatured['en-US']).length >
+              0 && (
+              <div className="mb-8 flex flex-col gap-8">
+                {products
+                  .filter((p) => p.fields.isFeatured['en-US'])
+                  .map((product) => {
+                    const { id } = product.sys;
 
-                  return <StoreFeaturedItem product={product} key={id} />;
-                })}
-            </div>
+                    return <StoreFeaturedItem product={product} key={id} />;
+                  })}
+              </div>
+            )}
 
-            <div className="store-grid mt-8">
+            <div className="store-grid">
               {products
                 .filter((p) => !p.fields.isFeatured['en-US'])
                 .map((product) => {

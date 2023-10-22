@@ -7,13 +7,21 @@ const StoreItem = ({ product }) => {
 
   const { fields } = product;
 
-  const { name, price, featuredImage } = fields;
+  const { name, price, featuredImage, bundles } = fields;
 
   const lng = i18n.language;
 
   return (
     <article className="duration-400 flex h-full flex-col bg-zinc-900 transition hover:bg-zinc-800">
-      <div className="image-container max-h-64">
+      <div className="image-container relative max-h-64">
+        {bundles && (
+          <span className="absolute z-20 bg-red-600 px-4 py-2 text-xs font-semibold">
+            {bundles['en-US'].length}{' '}
+            {bundles['en-US'].length > 1
+              ? t('bundle-plural')
+              : t('bundle-singular')}
+          </span>
+        )}
         <img
           src={
             featuredImage

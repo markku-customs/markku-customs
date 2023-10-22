@@ -12,6 +12,7 @@ exports.handler = async (event) => {
     const entry = await client.getEntry(id, {
       content_type: 'product',
       locale: '*',
+      include: 3,
     });
 
     return {

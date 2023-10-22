@@ -2,6 +2,8 @@ import { Trans, useTranslation } from 'react-i18next';
 
 import { ArrowOutwardIcon } from '@/icons';
 
+import HorizontalSeparator from './HorizontalSeparator';
+
 const links = [
   {
     key: 'footer.privacy',
@@ -36,7 +38,9 @@ const Footer = () => {
           ))}
         </div>
       </div>
-      <hr className="h-px border-0 bg-zinc-800" />
+
+      <HorizontalSeparator />
+
       <div className="container py-4 text-center text-xs text-zinc-400">
         <Trans i18nKey="footer.copyright" year={year}>
           © {{ year }} Markku Customs. All rights reserved.

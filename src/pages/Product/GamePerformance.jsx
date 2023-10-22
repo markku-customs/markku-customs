@@ -12,7 +12,7 @@ const GamePerformance = ({ gameNames, gameFrameRates }) => {
 
   return (
     <section className="game-performance-container">
-      <h2 className="mb-4 text-2xl font-bold">{t('fps-performance')}</h2>
+      <h2 className="mb-4 text-2xl font-semibold">{t('fps-performance')}</h2>
       <p className="mb-4 text-sm text-zinc-400">{t('fps-note')}</p>
       <ul className="game-grid">
         {gameNames['en-US'].slice(0, min).map((game, idx) => (
