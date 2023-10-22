@@ -3,6 +3,7 @@ import { HashLink as Link } from 'react-router-hash-link';
 
 import Badge from '@/components/Badge';
 import Button from '@/components/Button';
+import HorizontalSeparator from '@/components/HorizontalSeparator';
 
 import { splitLineBreaks } from '@/utils';
 
@@ -41,7 +42,8 @@ const BasicInformation = ({
           </p>
         ))}
       </div>
-      <hr className="h-px border-0 bg-zinc-800" />
+
+      <HorizontalSeparator />
 
       {stockable ? (
         itemsInStock > 0 ? (
