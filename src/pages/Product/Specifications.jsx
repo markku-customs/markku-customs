@@ -41,18 +41,18 @@ const options = {
     ),
     [BLOCKS.HR]: () => <hr className="my-8 h-px border-none bg-zinc-800" />,
     [BLOCKS.TABLE]: (node, children) => (
-      <table className="my-4 w-full text-left text-sm">
+      <table className="my-4 w-full border border-zinc-800 text-left text-sm">
         <tbody>{children}</tbody>
       </table>
     ),
     [BLOCKS.TABLE_ROW]: (node, children) => (
-      <tr className="border-b border-zinc-700 bg-zinc-800">{children}</tr>
+      <tr className="border-b border-zinc-800 bg-zinc-900">{children}</tr>
     ),
     [BLOCKS.TABLE_HEADER_CELL]: (node, children) => (
-      <th className="bg-zinc-900 px-6 py-4">
+      <th className="bg-zinc-800 px-6 py-4">
         {React.Children.map(children, (child) =>
           React.cloneElement(child, {
-            className: 'text-zinc-200 leading-8 my-0',
+            className: 'text-zinc-400 leading-8 my-0',
           })
         )}
       </th>

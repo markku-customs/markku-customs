@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <section className="hero" id="home">
       <div className="container">
-        <h1 className="hero-text mt-12 font-heading text-6xl sm:mt-20 md:text-8xl">
+        <h1 className="hero-text mt-12 font-heading text-6xl sm:mt-16 md:text-8xl">
           <Trans i18nKey="hero.heading">
             You Build.
             <br />

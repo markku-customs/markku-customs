@@ -40,7 +40,7 @@ const StoreFeaturedItem = ({ product }) => {
         <Button
           as={Link}
           to={`/products/${product.sys.id}`}
-          className="mt-4 w-max"
+          className="mt-2 w-max"
         >
           {t('view-product')}
         </Button>
