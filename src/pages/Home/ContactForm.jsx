@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { clsx } from 'clsx';
 import { useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
@@ -10,7 +12,9 @@ const ContactForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    reset,
+    formState,
+    formState: { isSubmitSuccessful, errors },
   } = useForm();
 
   const { t } = useTranslation();
@@ -36,6 +40,12 @@ const ContactForm = () => {
       toast.error(t('contact.feedback.error'));
     }
   };
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset();
+    }
+  }, [formState, reset]);
 
   return (
     <form
