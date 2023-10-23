@@ -5,7 +5,7 @@ import Badge from '@/components/Badge';
 import Button from '@/components/Button';
 import HorizontalSeparator from '@/components/HorizontalSeparator';
 
-import { splitLineBreaks } from '@/utils';
+import { formatPrice, splitLineBreaks } from '@/utils';
 
 const BasicInformation = ({
   name,
@@ -15,20 +15,22 @@ const BasicInformation = ({
   itemsInStock,
   paymentLink,
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const lng = i18n.language;
 
   return (
     <section className="basic-information-container flex flex-col gap-4">
       <h1 className="font-heading text-4xl">{name}</h1>
       <p className="text-2xl font-semibold">
-        {price ? `${price['en-US']}€` : t('variable')}
+        {price ? formatPrice(price['en-US'], lng) : t('variable')}
       </p>
       <div className="flex flex-wrap gap-2">
         <div className="flex gap-2">
-          <Badge>{`${t('tabs.pickup')}: 0€`}</Badge>
+          <Badge>{`${t('tabs.pickup')}: ${formatPrice(0, lng)}`}</Badge>
           <Badge title={t('tabs.turku-region')}>{`${t(
             'tabs.home-delivery'
-          )}: 15€`}</Badge>
+          )}: ${formatPrice(15, lng)}`}</Badge>
         </div>
         <div className="flex gap-2">
           <Badge>{t('money-back')}</Badge>

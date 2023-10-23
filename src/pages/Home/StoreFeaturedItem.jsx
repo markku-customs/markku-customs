@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Button from '@/components/Button';
 
-import { getImageSrc } from '@/utils';
+import { formatPrice, getImageSrc } from '@/utils';
 
 import { TimerIcon } from '@/icons';
 
@@ -34,7 +34,7 @@ const StoreFeaturedItem = ({ product }) => {
         </span>
         <h3 className="font-heading text-xl md:text-2xl">{name[lng]}</h3>
         <p className="font-heading text-4xl md:text-5xl">
-          {price ? `${price['en-US']}€` : t('variable')}
+          {price ? formatPrice(price['en-US'], lng) : t('variable')}
         </p>
         <p className="line-clamp-3 text-sm text-zinc-400">{description[lng]}</p>
         <Button
