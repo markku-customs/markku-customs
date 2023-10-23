@@ -3,7 +3,7 @@ import { HashLink as Link } from 'react-router-hash-link';
 
 import Button from '@/components/Button';
 
-import { getImageSrc } from '@/utils';
+import { formatPrice, getImageSrc } from '@/utils';
 
 const Bundles = ({ bundles }) => {
   const { t } = useTranslation();
@@ -66,11 +66,11 @@ const Bundle = ({ bundle }) => {
             target="_blank"
             rel="noreferrer"
           >
-            {t('order')} — {price['en-US']}€
+            {t('order')} — {formatPrice(price['en-US'], lng)}
           </Button>
         ) : (
           <Button size="small" className="mt-2 w-max" as={Link} to="/#contact">
-            {t('inquire')} — {price['en-US']}€
+            {t('inquire')} — {formatPrice(price['en-US'], lng)}
           </Button>
         )}
       </div>

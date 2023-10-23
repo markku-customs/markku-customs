@@ -8,3 +8,11 @@ export const splitLineBreaks = (paragraph, callback) => {
 export const getImageSrc = (image, lang = 'en-US') => {
   return `https:${image.fields.file[lang].url}`;
 };
+
+export const formatPrice = (price, locale = 'en-US') => {
+  return new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: 'EUR',
+    maximumFractionDigits: 0,
+  }).format(price);
+};

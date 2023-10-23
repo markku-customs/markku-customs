@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { getImageSrc } from '@/utils';
+import { formatPrice, getImageSrc } from '@/utils';
 
 const StoreItem = ({ product }) => {
   const { t, i18n } = useTranslation();
@@ -34,7 +34,7 @@ const StoreItem = ({ product }) => {
       <div className="flex flex-1 flex-col justify-between gap-2 p-4">
         <h3 className="font-heading">{name[lng]}</h3>
         <p className="font-heading text-3xl">
-          {price ? `${price['en-US']}€` : t('variable')}
+          {price ? formatPrice(price['en-US'], lng) : t('variable')}
         </p>
       </div>
     </article>

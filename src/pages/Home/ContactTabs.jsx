@@ -4,6 +4,8 @@ import { Tab } from '@headlessui/react';
 import { clsx } from 'clsx';
 import { useTranslation } from 'react-i18next';
 
+import { formatPrice } from '@/utils';
+
 const tabs = [
   { title: 'tabs.delivery-options' },
   { title: 'tabs.payment-options' },
@@ -11,7 +13,9 @@ const tabs = [
 ];
 
 const ContactTabs = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const lng = i18n.language;
 
   return (
     <aside className="w-full lg:max-w-lg">
@@ -42,13 +46,19 @@ const ContactTabs = () => {
         <Tab.Panels>
           <Tab.Panel className="bg-zinc-900 p-4 lg:p-6">
             <ul className="flex flex-col gap-4">
-              <PanelItem title={`${t('tabs.pickup')} – 0€`} subtitle="Turku" />
               <PanelItem
-                title={`${t('tabs.home-delivery')} – 15€`}
+                title={`${t('tabs.pickup')} \u2013 ${formatPrice(0, lng)}`}
+                subtitle="Turku"
+              />
+              <PanelItem
+                title={`${t('tabs.home-delivery')} \u2013 ${formatPrice(
+                  15,
+                  lng
+                )}`}
                 subtitle={t('tabs.turku-region')}
               />
               <PanelItem
-                title={`${t('tabs.post')} – 30€`}
+                title={`${t('tabs.post')} \u2013 ${formatPrice(30, lng)}`}
                 subtitle={t('tabs.finland')}
               />
             </ul>

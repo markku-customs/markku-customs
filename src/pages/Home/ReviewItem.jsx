@@ -23,7 +23,10 @@ const ReviewItem = ({ review }) => {
       <article className="duration-400 flex h-full flex-col gap-4 bg-zinc-900 p-4 transition hover:bg-zinc-800">
         <h3 className="font-heading text-lg">{name['en-US']}</h3>
 
-        <StarRating rating={rating['en-US']} />
+        <div className="flex items-center gap-2">
+          <StarRating rating={rating['en-US']} />
+          <span className="text-sm text-zinc-400">{rating['en-US']}/5</span>
+        </div>
 
         <div className="flex flex-col gap-2">
           {splitLineBreaks(content['en-US'], (text, key) => (

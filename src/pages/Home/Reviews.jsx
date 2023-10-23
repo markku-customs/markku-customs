@@ -26,6 +26,7 @@ const settings = {
       settings: {
         centerMode: false,
         slidesToShow: 1,
+        autoplay: false,
       },
     },
   ],
