@@ -34,7 +34,7 @@ const ContactTabs = () => {
                     'h-full w-full py-4',
                     selected
                       ? 'bg-red-600'
-                      : 'transition duration-200 hover:bg-zinc-800'
+                      : 'text-zinc-400 transition duration-200 hover:bg-zinc-800'
                   )}
                 >
                   {t(title)}
