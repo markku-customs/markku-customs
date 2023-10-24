@@ -14,7 +14,7 @@ const ContactForm = () => {
     handleSubmit,
     reset,
     formState,
-    formState: { isSubmitSuccessful, errors },
+    formState: { isSubmitting, isSubmitSuccessful, errors },
   } = useForm();
 
   const { t } = useTranslation();
@@ -161,7 +161,9 @@ const ContactForm = () => {
         </label>
       </div>
       <div className="mt-4">
-        <Button type="submit">{t('contact.send')}</Button>
+        <Button type="submit" disabled={isSubmitting}>
+          {t('contact.send')}
+        </Button>
       </div>
     </form>
   );

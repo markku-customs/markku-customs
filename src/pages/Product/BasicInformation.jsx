@@ -5,7 +5,7 @@ import Badge from '@/components/Badge';
 import Button from '@/components/Button';
 import HorizontalSeparator from '@/components/HorizontalSeparator';
 
-import { formatPrice, splitLineBreaks } from '@/utils';
+import { formatPrice, formatUnit, splitLineBreaks } from '@/utils';
 
 const BasicInformation = ({
   name,
@@ -33,8 +33,12 @@ const BasicInformation = ({
           )}: ${formatPrice(15, lng)}`}</Badge>
         </div>
         <div className="flex gap-2">
-          <Badge>{t('money-back')}</Badge>
-          <Badge>{t('warranty')}</Badge>
+          <Badge>
+            {`${t('money-back')}: ${formatUnit(14, { unit: 'day' }, lng)}`}
+          </Badge>
+          <Badge>
+            {`${t('warranty')}: ${formatUnit(1, { unit: 'year' }, lng)}`}
+          </Badge>
         </div>
       </div>
       <div className="flex flex-col gap-2">
