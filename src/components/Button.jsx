@@ -18,19 +18,21 @@ const Button = ({
   size = 'base',
   transition = true,
   icon,
+  disabled = false,
   className = '',
   ...props
 }) => {
   return (
     <Component
       className={clsx(
-        'flex cursor-pointer justify-center text-xs font-semibold uppercase tracking-[.30em]',
+        'flex cursor-pointer justify-center text-xs font-semibold uppercase tracking-[.30em] disabled:pointer-events-none disabled:opacity-25',
         variants[variant],
         sizes[size],
         transition && 'transition duration-500',
         icon && 'flex items-center gap-2',
         className
       )}
+      disabled={disabled}
       {...props}
     >
       {children}
@@ -46,6 +48,7 @@ Button.propTypes = {
   size: PropTypes.oneOf(['small', 'base']),
   transition: PropTypes.bool,
   icon: PropTypes.element,
+  disabled: PropTypes.bool,
   className: PropTypes.string,
 };
 
@@ -55,6 +58,7 @@ Button.defaultProps = {
   size: 'base',
   transition: true,
   icon: null,
+  disabled: false,
   className: '',
 };
 
