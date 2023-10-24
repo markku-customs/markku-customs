@@ -16,3 +16,10 @@ export const formatPrice = (price, locale = 'en-US') => {
     maximumFractionDigits: 0,
   }).format(price);
 };
+
+export const formatUnit = (number, options, locale = 'en-US') => {
+  return new Intl.NumberFormat(locale, {
+    style: 'unit',
+    ...options,
+  }).format(number);
+};

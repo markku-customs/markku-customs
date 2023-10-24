@@ -4,7 +4,7 @@ import { Tab } from '@headlessui/react';
 import { clsx } from 'clsx';
 import { useTranslation } from 'react-i18next';
 
-import { formatPrice } from '@/utils';
+import { formatPrice, formatUnit } from '@/utils';
 
 const tabs = [
   { title: 'tabs.delivery-options' },
@@ -74,11 +74,19 @@ const ContactTabs = () => {
             <ul className="flex flex-col gap-4">
               <PanelItem
                 title={t('tabs.money-back')}
-                subtitle={t('tabs.14-days')}
+                subtitle={formatUnit(
+                  14,
+                  { unit: 'day', unitDisplay: 'long' },
+                  lng
+                )}
               />
               <PanelItem
                 title={t('tabs.warranty')}
-                subtitle={t('tabs.1-year')}
+                subtitle={formatUnit(
+                  1,
+                  { unit: 'year', unitDisplay: 'long' },
+                  lng
+                )}
               />
             </ul>
           </Tab.Panel>
