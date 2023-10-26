@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 import { clsx } from 'clsx';
 import { useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
-import InputMask from 'react-input-mask';
 import { toast } from 'react-toastify';
+import { useHookFormMask } from 'use-mask-input';
 
 import Button from '@/components/Button';
 
@@ -16,6 +16,7 @@ const ContactForm = () => {
     formState,
     formState: { isSubmitting, isSubmitSuccessful, errors },
   } = useForm();
+  const registerWithMask = useHookFormMask(register);
 
   const { t } = useTranslation();
 
@@ -94,11 +95,8 @@ const ContactForm = () => {
       <div>
         <label className="text-sm" htmlFor="phone-input">
           {t('contact.phone')} ({t('optional')})
-          <InputMask
-            mask="+358 99 999 9999"
-            maskChar={null}
-            alwaysShowMask
-            {...register('phone')}
+          <input
+            {...registerWithMask('phone', '+358 99 9999999[9]')}
             id="phone-input"
             className={clsx(
               'mt-2 w-full bg-zinc-800 p-4',
