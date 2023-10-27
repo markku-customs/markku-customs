@@ -61,7 +61,7 @@ const Reviews = ({ reviews, error }) => {
             ))}
           </Slider>
         )}
-        <div className="flex flex-wrap gap-4">
+        <div className="mt-8 flex flex-wrap gap-4">
           <Button
             as="a"
             icon={<ArrowOutwardIcon className="h-4 w-4" />}
