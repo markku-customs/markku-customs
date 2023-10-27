@@ -7,9 +7,9 @@ import Container from '@/components/Container';
 import Layout from '@/components/Layout';
 import Loading from '@/components/Loading';
 
-const HomePage = lazy(() => import('./pages/home'));
-const NotFoundPage = lazy(() => import('./pages/not-found'));
-const ProductPage = lazy(() => import('./pages/product'));
+const HomePage = lazy(() => import('./pages/home/index.jsx'));
+const NotFoundPage = lazy(() => import('./pages/not-found/index.jsx'));
+const ProductPage = lazy(() => import('./pages/product/index.jsx'));
 
 const fetcher = async (url) => {
   const res = await fetch(url);
