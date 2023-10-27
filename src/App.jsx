@@ -1,6 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import { SWRConfig } from 'swr';
 
+import Layout from '@/components/Layout';
+
 import HomePage from './pages/home';
 import NotFoundPage from './pages/not-found';
 import ProductPage from './pages/product';
@@ -29,11 +31,13 @@ const App = () => {
         dedupingInterval: 600000, // 10 mins
       }}
     >
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/products/:id" element={<ProductPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/products/:id" element={<ProductPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Layout>
     </SWRConfig>
   );
 };

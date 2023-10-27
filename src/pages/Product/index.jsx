@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import useSWR from 'swr';
 
-import Layout from '@/components/Layout';
+import Container from '@/components/Container';
 import SEO from '@/components/SEO';
 
 import NotFoundPage from '../not-found';
@@ -45,8 +45,6 @@ const ProductPage = () => {
 
   const lng = i18n.language;
 
-  console.log(bundles);
-
   return (
     <>
       <SEO
@@ -54,51 +52,49 @@ const ProductPage = () => {
         description={t('seo.description')}
       />
 
-      <Layout>
-        <div className="container">
-          {!product ? (
-            <div className="mt-8 grid min-h-[8rem] place-items-center rounded-md bg-zinc-800 p-4 text-zinc-400">
-              {error ? (
-                <div className="text-center">
-                  <p>{`${error.status} – ${error.info.message[lng]}`}</p>
-                  <p className="mt-2 text-sm text-zinc-500">
-                    {t('automatic-retry')}
-                  </p>
-                </div>
-              ) : (
-                t('loading')
-              )}
-            </div>
-          ) : (
-            <div className="product-page-grid">
-              <BasicInformation
-                name={name[lng]}
-                price={price}
-                description={description[lng] || description['en-US']}
-                stockable={stockable['en-US']}
-                itemsInStock={itemsInStock['en-US']}
-                noReturn={noReturn['en-US']}
-                paymentLink={paymentLink}
+      <Container>
+        {!product ? (
+          <div className="mt-8 grid min-h-[8rem] place-items-center rounded-md bg-zinc-800 p-4 text-zinc-400">
+            {error ? (
+              <div className="text-center">
+                <p>{`${error.status} – ${error.info.message[lng]}`}</p>
+                <p className="mt-2 text-sm text-zinc-500">
+                  {t('automatic-retry')}
+                </p>
+              </div>
+            ) : (
+              t('loading')
+            )}
+          </div>
+        ) : (
+          <div className="product-page-grid">
+            <BasicInformation
+              name={name[lng]}
+              price={price}
+              description={description[lng] || description['en-US']}
+              stockable={stockable['en-US']}
+              itemsInStock={itemsInStock['en-US']}
+              noReturn={noReturn['en-US']}
+              paymentLink={paymentLink}
+            />
+
+            <ImageCarousel images={images} name={name[lng]} />
+
+            {bundles && <Bundles bundles={bundles} />}
+
+            {specifications && (
+              <Specifications specifications={specifications[lng]} />
+            )}
+
+            {gameNames && gameFrameRates && (
+              <GamePerformance
+                gameNames={gameNames}
+                gameFrameRates={gameFrameRates}
               />
-
-              <ImageCarousel images={images} name={name[lng]} />
-
-              {bundles && <Bundles bundles={bundles} />}
-
-              {specifications && (
-                <Specifications specifications={specifications[lng]} />
-              )}
-
-              {gameNames && gameFrameRates && (
-                <GamePerformance
-                  gameNames={gameNames}
-                  gameFrameRates={gameFrameRates}
-                />
-              )}
-            </div>
-          )}
-        </div>
-      </Layout>
+            )}
+          </div>
+        )}
+      </Container>
     </>
   );
 };

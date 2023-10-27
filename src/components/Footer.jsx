@@ -1,8 +1,9 @@
 import { Trans, useTranslation } from 'react-i18next';
 
-import { ArrowOutwardIcon } from '@/icons';
+import Container from '@/components/Container';
+import HorizontalSeparator from '@/components/HorizontalSeparator';
 
-import HorizontalSeparator from './HorizontalSeparator';
+import { ArrowOutwardIcon } from '@/icons';
 
 const links = [
   {
@@ -22,7 +23,7 @@ const Footer = () => {
 
   return (
     <footer className="mt-auto bg-zinc-950">
-      <div className="container py-4">
+      <Container className="py-4">
         <div className="flex justify-center gap-6">
           {links.map(({ key, href }) => (
             <a
@@ -37,15 +38,15 @@ const Footer = () => {
             </a>
           ))}
         </div>
-      </div>
+      </Container>
 
       <HorizontalSeparator />
 
-      <div className="container py-4 text-center text-xs text-zinc-400">
+      <Container className="py-4 text-center text-xs text-zinc-400">
         <Trans i18nKey="footer.copyright" year={year}>
           © {{ year }} Markku Customs. All rights reserved.
         </Trans>
-      </div>
+      </Container>
     </footer>
   );
 };

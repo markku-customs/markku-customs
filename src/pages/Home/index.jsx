@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import useSWR from 'swr';
 
-import Layout from '@/components/Layout';
 import SEO from '@/components/SEO';
 
 import Contact from './contact/Contact';
@@ -23,12 +22,10 @@ const HomePage = () => {
     <>
       <SEO title={t('seo.title')} description={t('seo.description')} />
 
-      <Layout>
-        <Hero />
-        <Store products={products?.items} error={productsError} />
-        <Reviews reviews={reviews?.items} error={reviewsError} />
-        <Contact />
-      </Layout>
+      <Hero />
+      <Store products={products?.items} error={productsError} />
+      <Reviews reviews={reviews?.items} error={reviewsError} />
+      <Contact />
     </>
   );
 };

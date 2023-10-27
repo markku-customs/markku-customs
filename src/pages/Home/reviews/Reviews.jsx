@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import Slider from 'react-slick';
 
 import Button from '@/components/Button';
+import Container from '@/components/Container';
 import SectionHeading from '@/components/SectionHeading';
 
 import { ArrowOutwardIcon } from '@/icons';
@@ -39,7 +40,7 @@ const Reviews = ({ reviews, error }) => {
 
   return (
     <section className="py-12 md:py-16" id="reviews">
-      <div className="container">
+      <Container>
         <SectionHeading className="mb-8">{t('links.reviews')}</SectionHeading>
         {!reviews ? (
           <div className="grid min-h-[8rem] place-items-center rounded-md bg-zinc-800 p-4 text-zinc-400">
@@ -84,7 +85,7 @@ const Reviews = ({ reviews, error }) => {
             {t('reviews.view')}
           </Button>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

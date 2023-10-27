@@ -2,13 +2,14 @@ import { Trans, useTranslation } from 'react-i18next';
 import { HashLink as Link } from 'react-router-hash-link';
 
 import Button from '@/components/Button';
+import Container from '@/components/Container';
 
 const Hero = () => {
   const { t } = useTranslation();
 
   return (
     <section className="hero" id="home">
-      <div className="container">
+      <Container>
         <h1 className="hero-text mt-12 font-heading text-6xl sm:mt-16 md:text-8xl">
           <Trans i18nKey="hero.heading">
             You Build.
@@ -27,7 +28,7 @@ const Hero = () => {
             {t('hero.buttons.contact')}
           </Button>
         </div>
-      </div>
+      </Container>
       <div className="gradient"></div>
     </section>
   );
