@@ -4,6 +4,8 @@ import { Transition } from '@headlessui/react';
 import { useTranslation } from 'react-i18next';
 import { HashLink as Link } from 'react-router-hash-link';
 
+import Container from '@/components/Container';
+
 import finlandFlag from '@/assets/finland-flag.svg';
 import unitedKingdomFlag from '@/assets/united-kingdom-flag.svg';
 
@@ -24,7 +26,7 @@ const Navbar = () => {
   return (
     <div className="sticky top-0 z-50">
       <nav className="relative z-50 border-b-2 border-red-600 bg-zinc-950 py-4">
-        <div className="container flex justify-between gap-4">
+        <Container className="flex justify-between gap-4">
           <Link to="/" className="flex items-center gap-4">
             <img
               className="h-8 w-8"
@@ -90,7 +92,7 @@ const Navbar = () => {
               <MenuCloseIcon />
             </button>
           </div>
-        </div>
+        </Container>
       </nav>
       <Transition
         as={Fragment}

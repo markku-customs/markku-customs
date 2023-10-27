@@ -13,6 +13,7 @@ const BasicInformation = ({
   price,
   stockable,
   itemsInStock,
+  noReturn,
   paymentLink,
 }) => {
   const { t, i18n } = useTranslation();
@@ -33,9 +34,11 @@ const BasicInformation = ({
           )}: ${formatPrice(15, lng)}`}</Badge>
         </div>
         <div className="flex gap-2">
-          <Badge>
-            {`${t('money-back')}: ${formatUnit(14, { unit: 'day' }, lng)}`}
-          </Badge>
+          {!noReturn && (
+            <Badge>
+              {`${t('money-back')}: ${formatUnit(14, { unit: 'day' }, lng)}`}
+            </Badge>
+          )}
           <Badge>
             {`${t('warranty')}: ${formatUnit(1, { unit: 'year' }, lng)}`}
           </Badge>

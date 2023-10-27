@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
+import Container from '@/components/Container';
 import SectionHeading from '@/components/SectionHeading';
 
 import StoreFeaturedItem from './StoreFeaturedItem';
@@ -13,7 +14,7 @@ const Store = ({ products, error }) => {
 
   return (
     <section className="py-12 md:py-16" id="store">
-      <div className="container">
+      <Container>
         <SectionHeading className="mb-8">{t('links.store')}</SectionHeading>
         {!products ? (
           <div className="grid min-h-[8rem] place-items-center rounded-md bg-zinc-800 p-4 text-zinc-400">
@@ -58,7 +59,7 @@ const Store = ({ products, error }) => {
             </div>
           </>
         )}
-      </div>
+      </Container>
     </section>
   );
 };

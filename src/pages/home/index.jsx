@@ -1,13 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import useSWR from 'swr';
 
-import Layout from '@/components/Layout';
 import SEO from '@/components/SEO';
 
-import Contact from './Contact';
-import Hero from './Hero';
-import Reviews from './Reviews';
-import Store from './Store';
+import Contact from './contact/Contact';
+import Hero from './hero/Hero';
+import Reviews from './reviews/Reviews';
+import Store from './store/Store';
 
 const HomePage = () => {
   const { t } = useTranslation();
@@ -23,12 +22,10 @@ const HomePage = () => {
     <>
       <SEO title={t('seo.title')} description={t('seo.description')} />
 
-      <Layout>
-        <Hero />
-        <Store products={products?.items} error={productsError} />
-        <Reviews reviews={reviews?.items} error={reviewsError} />
-        <Contact />
-      </Layout>
+      <Hero />
+      <Store products={products?.items} error={productsError} />
+      <Reviews reviews={reviews?.items} error={reviewsError} />
+      <Contact />
     </>
   );
 };
