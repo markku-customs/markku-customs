@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 import { SWRConfig } from 'swr';
 
-import HomePage from './pages/Home';
-import NotFoundPage from './pages/NotFound';
-import ProductPage from './pages/Product';
+import HomePage from './pages/home';
+import NotFoundPage from './pages/not-found';
+import ProductPage from './pages/product';
 
 const fetcher = async (url) => {
   const res = await fetch(url);

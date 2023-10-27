@@ -7,7 +7,7 @@ import useSWR from 'swr';
 import Layout from '@/components/Layout';
 import SEO from '@/components/SEO';
 
-import NotFoundPage from '../NotFound';
+import NotFoundPage from '../not-found';
 import BasicInformation from './BasicInformation';
 import Bundles from './Bundles';
 import GamePerformance from './GamePerformance';
