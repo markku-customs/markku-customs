@@ -1,11 +1,15 @@
+import { Suspense, lazy } from 'react';
+
 import { Route, Routes } from 'react-router-dom';
 import { SWRConfig } from 'swr';
 
+import Container from '@/components/Container';
 import Layout from '@/components/Layout';
+import Loading from '@/components/Loading';
 
-import HomePage from './pages/home';
-import NotFoundPage from './pages/not-found';
-import ProductPage from './pages/product';
+const HomePage = lazy(() => import('./pages/home'));
+const NotFoundPage = lazy(() => import('./pages/not-found'));
+const ProductPage = lazy(() => import('./pages/product'));
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -32,11 +36,19 @@ const App = () => {
       }}
     >
       <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/products/:id" element={<ProductPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+        <Suspense
+          fallback={
+            <Container>
+              <Loading />
+            </Container>
+          }
+        >
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/products/:id" element={<ProductPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Suspense>
       </Layout>
     </SWRConfig>
   );
