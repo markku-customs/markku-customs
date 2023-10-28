@@ -11,9 +11,10 @@ const ImageCarousel = ({ images, name }) => {
         {images ? (
           images['en-US'].map((image) => (
             <img
-              src={`${getImageSrc(image)}?fm=webp&w=1000`}
+              src={`${getImageSrc(image)}?fm=webp&w=840`}
               alt={name}
               key={image.fields.file['en-US'].url}
+              loading="lazy"
             />
           ))
         ) : (

@@ -25,10 +25,11 @@ const StoreItem = ({ product }) => {
         <img
           src={
             featuredImage
-              ? `${getImageSrc(featuredImage['en-US'])}?fm=webp&w=500`
+              ? `${getImageSrc(featuredImage['en-US'])}?fm=webp&w=400`
               : '/product-default.png'
           }
           alt={name[lng]}
+          loading="lazy"
         />
       </div>
       <div className="flex flex-1 flex-col justify-between gap-2 p-4">
