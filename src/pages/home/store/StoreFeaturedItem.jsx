@@ -22,10 +22,11 @@ const StoreFeaturedItem = ({ product }) => {
         className="featured-image"
         src={
           featuredImage
-            ? `${getImageSrc(featuredImage['en-US'])}?fm=webp&w=800`
+            ? `${getImageSrc(featuredImage['en-US'])}?fm=webp&w=640`
             : '/product-default.png'
         }
         alt={name[lng]}
+        loading="lazy"
       />
       <div className="flex flex-col gap-4 p-4 md:p-8">
         <span className="flex w-max items-center gap-2 bg-zinc-950 px-4 py-2 text-sm font-semibold">

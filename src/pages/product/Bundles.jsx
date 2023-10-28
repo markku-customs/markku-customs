@@ -38,10 +38,12 @@ const Bundle = ({ bundle }) => {
             bundleProducts['en-US'][0].fields.image
               ? `${getImageSrc(
                   bundleProducts['en-US'][0].fields.image['en-US']
-                )}?fm=webp&w=200`
+                )}?fm=webp&w=180`
               : '/product-default.png'
           }
-          alt=""
+          alt={name[lng]}
+          height={96}
+          width={96}
         />
       </div>
       <div className="flex h-full flex-col gap-2">
