@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import useSWR from 'swr';
 
 import Container from '@/components/Container';
+import SEO from '@/components/SEO';
 
 import { options } from '@/constants';
 
@@ -22,9 +22,10 @@ const TermsPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Terms | Markku Customs</title>
-      </Helmet>
+      <SEO
+        title={`${t('footer.terms')} | Markku Customs`}
+        description={t('seo.description')}
+      />
 
       <Container className="py-8">
         <h1 className="font-heading text-6xl">{t('footer.terms')}</h1>

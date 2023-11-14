@@ -26,7 +26,7 @@ export const options = {
       </ul>
     ),
     [BLOCKS.OL_LIST]: (node, children) => (
-      <ol className="my-4 list-outside list-decimal pl-6 marker:text-zinc-600">
+      <ol className="my-4 list-outside list-decimal pl-6 marker:font-semibold marker:text-zinc-600">
         {children}
       </ol>
     ),
@@ -34,7 +34,7 @@ export const options = {
       <li className="list-item">
         {React.Children.map(children, (child) =>
           React.cloneElement(child, {
-            className: `text-zinc-400 inline leading-8`,
+            className: `text-zinc-400 pl-4 block leading-8`,
           })
         )}
       </li>

@@ -1,4 +1,5 @@
 import { Trans, useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 import Container from '@/components/Container';
 import HorizontalSeparator from '@/components/HorizontalSeparator';
@@ -9,10 +10,6 @@ const links = [
   {
     key: 'footer.privacy',
     href: 'https://www.iubenda.com/privacy-policy/59126036',
-  },
-  {
-    key: 'footer.terms',
-    href: 'https://www.termsfeed.com/live/cf5f6825-5ec1-4164-a2f4-c2dae01df582',
   },
 ];
 
@@ -37,6 +34,13 @@ const Footer = () => {
               <ArrowOutwardIcon className="h-4 w-4 text-red-600" />
             </a>
           ))}
+          <Link
+            to="/terms"
+            className="flex items-center gap-1 text-xs font-semibold text-zinc-200"
+          >
+            {t('footer.terms')}
+            <ArrowOutwardIcon className="h-4 w-4 text-red-600" />
+          </Link>
         </div>
       </Container>
 
