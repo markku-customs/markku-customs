@@ -66,6 +66,7 @@
   "bundles": "Bundles",
   "fps-note": "NB. Results recorded on 1080p monitor with Medium quality settings.",
   "fps-performance": "FPS Performance",
+  "last-updated": "Last Updated",
   "footer": {
     "copyright": "© {{year}} Markku Customs (3368392-8). All rights reserved.",
     "privacy": "Privacy Policy",

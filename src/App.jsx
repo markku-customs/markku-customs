@@ -10,6 +10,7 @@ import Loading from '@/components/Loading';
 const HomePage = lazy(() => import('./pages/home'));
 const NotFoundPage = lazy(() => import('./pages/not-found'));
 const ProductPage = lazy(() => import('./pages/product'));
+const TermsPage = lazy(() => import('./pages/terms'));
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -45,6 +46,7 @@ const App = () => {
         >
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/terms" element={<TermsPage />} />
             <Route path="/products/:id" element={<ProductPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
