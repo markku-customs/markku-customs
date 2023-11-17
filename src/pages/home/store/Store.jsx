@@ -2,33 +2,21 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 import Container from '@/components/Container';
+import Loading from '@/components/Loading';
 import SectionHeading from '@/components/SectionHeading';
 
 import StoreFeaturedItem from './StoreFeaturedItem';
 import StoreItem from './StoreItem';
 
 const Store = ({ products, error }) => {
-  const { t, i18n } = useTranslation();
-
-  const lng = i18n.language;
+  const { t } = useTranslation();
 
   return (
     <section className="py-12 md:py-16" id="store">
       <Container>
         <SectionHeading className="mb-8">{t('links.store')}</SectionHeading>
         {!products ? (
-          <div className="grid min-h-[8rem] place-items-center rounded-md bg-zinc-800 p-4 text-zinc-400">
-            {error ? (
-              <div className="text-center">
-                <p>{`${error.status} – ${error.info.message[lng]}`}</p>
-                <p className="mt-2 text-sm text-zinc-500">
-                  {t('automatic-retry')}
-                </p>
-              </div>
-            ) : (
-              t('loading')
-            )}
-          </div>
+          <Loading error={error} />
         ) : (
           <>
             {products.filter((p) => p.fields.isFeatured['en-US']).length >

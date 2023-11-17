@@ -53,5 +53,6 @@ module.exports = {
     'react/display-name': 0,
     'no-nested-ternary': 0,
     'import/extensions': 0,
+    'react/forbid-prop-types': 0,
   },
 };
