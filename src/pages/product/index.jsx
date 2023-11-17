@@ -50,7 +50,7 @@ const ProductPage = () => {
     <>
       <SEO
         title={`${!product ? t('loading') : name[lng]} | Markku Customs`}
-        description={t('seo.description')}
+        description={description[lng].slice(0, 160)}
       />
 
       <Container>

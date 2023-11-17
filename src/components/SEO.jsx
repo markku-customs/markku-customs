@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 
 const SEO = ({
   title,
-  description,
+  description = null,
   url = '/',
   image = '/img/hero/hero-2xl-1536.webp',
 }) => {
@@ -11,12 +11,11 @@ const SEO = ({
     <Helmet>
       <title>{title}</title>
       <meta name="title" content={title} />
-      <meta name="description" content={description} />
-
+      {description && <meta name="description" content={description} />}
       <meta property="og:type" content="website" />
       <meta property="og:url" content={`https://markkucustoms.com${url}`} />
       <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
+      {description && <meta property="og:description" content={description} />}
       <meta property="og:image" content={`https://markkucustoms.com${image}`} />
 
       <meta property="twitter:card" content="summary_large_image" />
@@ -25,7 +24,9 @@ const SEO = ({
         content={`https://markkucustoms.com${url}`}
       />
       <meta property="twitter:title" content={title} />
-      <meta property="twitter:description" content={description} />
+      {description && (
+        <meta property="twitter:description" content={description} />
+      )}
       <meta
         property="twitter:image"
         content={`https://markkucustoms.com${image}`}
@@ -41,12 +42,13 @@ const SEO = ({
 
 SEO.propTypes = {
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  description: PropTypes.string,
   url: PropTypes.string,
   image: PropTypes.string,
 };
 
 SEO.defaultProps = {
+  description: null,
   url: '/',
   image: '/img/hero/hero-2xl-1536.webp',
 };

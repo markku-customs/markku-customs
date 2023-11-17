@@ -21,10 +21,7 @@ const TermsPage = () => {
 
   return (
     <>
-      <SEO
-        title={`${t('footer.terms')} | Markku Customs`}
-        description={t('seo.description')}
-      />
+      <SEO title={`${t('footer.terms')} | Markku Customs`} />
 
       <Container className="py-8">
         <h1 className="font-heading text-6xl">{t('footer.terms')}</h1>
