@@ -36,7 +36,7 @@ const BasicInformation = ({
         <div className="flex gap-2">
           {!noReturn && (
             <Badge>
-              {`${t('money-back')}: ${formatUnit(14, { unit: 'day' }, lng)}`}
+              {`${t('money-back')}: ${formatUnit(7, { unit: 'day' }, lng)}`}
             </Badge>
           )}
           <Badge>

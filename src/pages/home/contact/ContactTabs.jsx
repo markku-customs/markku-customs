@@ -75,7 +75,7 @@ const ContactTabs = () => {
               <PanelItem
                 title={t('tabs.money-back')}
                 subtitle={formatUnit(
-                  14,
+                  7,
                   { unit: 'day', unitDisplay: 'long' },
                   lng
                 )}
