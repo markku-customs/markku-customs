@@ -18,8 +18,6 @@ const TermsPage = () => {
     '/.netlify/functions/getPage?slug=terms'
   );
 
-  console.log(page);
-
   return (
     <>
       <SEO

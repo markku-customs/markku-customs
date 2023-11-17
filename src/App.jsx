@@ -40,7 +40,7 @@ const App = () => {
         <Suspense
           fallback={
             <Container>
-              <Loading />
+              <Loading classname="mt-8" />
             </Container>
           }
         >
