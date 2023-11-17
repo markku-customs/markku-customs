@@ -48,10 +48,7 @@ const ProductPage = () => {
 
   return (
     <>
-      <SEO
-        title={`${!product ? t('loading') : name[lng]} | Markku Customs`}
-        description={description[lng].slice(0, 160)}
-      />
+      <SEO title={`${!product ? t('loading') : name[lng]} | Markku Customs`} />
 
       <Container>
         {!product ? (
