@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import useSWR from 'swr';
 
 import Container from '@/components/Container';
+import Loading from '@/components/Loading';
 import SEO from '@/components/SEO';
 
 import NotFoundPage from '../not-found';
@@ -54,18 +55,7 @@ const ProductPage = () => {
 
       <Container>
         {!product ? (
-          <div className="mt-8 grid min-h-[8rem] place-items-center rounded-md bg-zinc-800 p-4 text-zinc-400">
-            {error ? (
-              <div className="text-center">
-                <p>{`${error.status} – ${error.info.message[lng]}`}</p>
-                <p className="mt-2 text-sm text-zinc-500">
-                  {t('automatic-retry')}
-                </p>
-              </div>
-            ) : (
-              t('loading')
-            )}
-          </div>
+          <Loading className="mt-8" error={error} />
         ) : (
           <div className="product-page-grid">
             <BasicInformation

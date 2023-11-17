@@ -2,8 +2,10 @@ import { clsx } from 'clsx';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
-const Loading = ({ className }) => {
-  const { t } = useTranslation();
+const Loading = ({ error, className }) => {
+  const { t, i18n } = useTranslation();
+
+  const lng = i18n.language;
 
   return (
     <div
@@ -12,16 +14,25 @@ const Loading = ({ className }) => {
         className
       )}
     >
-      {t('loading')}
+      {error ? (
+        <div className="text-center">
+          <p>{`${error.status} – ${error.info.message[lng]}`}</p>
+          <p className="mt-2 text-sm text-zinc-500">{t('automatic-retry')}</p>
+        </div>
+      ) : (
+        t('loading')
+      )}
     </div>
   );
 };
 
 Loading.propTypes = {
+  error: PropTypes.object,
   className: PropTypes.string,
 };
 
 Loading.defaultProps = {
+  error: null,
   className: '',
 };
 

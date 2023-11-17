@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 
 import Button from '@/components/Button';
 import Container from '@/components/Container';
+import Loading from '@/components/Loading';
 import SectionHeading from '@/components/SectionHeading';
 
 import { ArrowOutwardIcon } from '@/icons';
@@ -34,27 +35,14 @@ const settings = {
 };
 
 const Reviews = ({ reviews, error }) => {
-  const { t, i18n } = useTranslation();
-
-  const lng = i18n.language;
+  const { t } = useTranslation();
 
   return (
     <section className="py-12 md:py-16" id="reviews">
       <Container>
         <SectionHeading className="mb-8">{t('links.reviews')}</SectionHeading>
         {!reviews ? (
-          <div className="grid min-h-[8rem] place-items-center rounded-md bg-zinc-800 p-4 text-zinc-400">
-            {error ? (
-              <div className="text-center">
-                <p>{`${error.status} – ${error.info.message[lng]}`}</p>
-                <p className="mt-2 text-sm text-zinc-500">
-                  {t('automatic-retry')}
-                </p>
-              </div>
-            ) : (
-              t('loading')
-            )}
-          </div>
+          <Loading error={error} />
         ) : (
           <Slider {...settings} className="mb-8">
             {reviews.map((review) => (
