@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-import Container from '@/components/Container';
 import Loading from '@/components/Loading';
-import SectionHeading from '@/components/SectionHeading';
+import Container from '@/components/layout/Container';
+import SectionHeading from '@/components/ui/SectionHeading';
 
 import StoreFeaturedItem from './StoreFeaturedItem';
 import StoreItem from './StoreItem';

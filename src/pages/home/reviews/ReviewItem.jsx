@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import StarRating from '@/components/StarRating';
+import StarRating from '@/components/ui/StarRating';
 
 import { splitLineBreaks } from '@/utils';
 

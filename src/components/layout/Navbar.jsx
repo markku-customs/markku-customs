@@ -4,7 +4,7 @@ import { Transition } from '@headlessui/react';
 import { useTranslation } from 'react-i18next';
 import { HashLink as Link } from 'react-router-hash-link';
 
-import Container from '@/components/Container';
+import Container from '@/components/layout/Container';
 
 import finlandFlag from '@/assets/finland-flag.svg';
 import unitedKingdomFlag from '@/assets/united-kingdom-flag.svg';

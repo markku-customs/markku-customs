@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { HashLink as Link } from 'react-router-hash-link';
 
-import Badge from '@/components/Badge';
-import Button from '@/components/Button';
-import HorizontalSeparator from '@/components/HorizontalSeparator';
+import Badge from '@/components/ui/Badge';
+import Button from '@/components/ui/Button';
+import HorizontalSeparator from '@/components/ui/HorizontalSeparator';
 
 import { formatPrice, formatUnit, splitLineBreaks } from '@/utils';
 

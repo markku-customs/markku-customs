@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import Slider from 'react-slick';
 
-import Button from '@/components/Button';
-import Container from '@/components/Container';
 import Loading from '@/components/Loading';
-import SectionHeading from '@/components/SectionHeading';
+import Container from '@/components/layout/Container';
+import Button from '@/components/ui/Button';
+import SectionHeading from '@/components/ui/SectionHeading';
 
 import { ArrowOutwardIcon } from '@/icons';
 

@@ -2,8 +2,8 @@ import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-import Button from '@/components/Button';
-import Container from '@/components/Container';
+import Container from '@/components/layout/Container';
+import Button from '@/components/ui/Button';
 
 const NotFoundPage = () => {
   const { t } = useTranslation();

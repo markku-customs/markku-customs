@@ -4,9 +4,9 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { useTranslation } from 'react-i18next';
 import useSWR from 'swr';
 
-import Container from '@/components/Container';
 import Loading from '@/components/Loading';
 import SEO from '@/components/SEO';
+import Container from '@/components/layout/Container';
 
 import { options } from '@/constants';
 

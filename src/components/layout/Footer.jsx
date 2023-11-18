@@ -1,8 +1,8 @@
 import { Trans, useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-import Container from '@/components/Container';
-import HorizontalSeparator from '@/components/HorizontalSeparator';
+import Container from '@/components/layout/Container';
+import HorizontalSeparator from '@/components/ui/HorizontalSeparator';
 
 import { ArrowOutwardIcon } from '@/icons';
 

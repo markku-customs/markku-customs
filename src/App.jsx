@@ -5,10 +5,10 @@ import { useTranslation } from 'react-i18next';
 import { Route, Routes } from 'react-router-dom';
 import { SWRConfig } from 'swr';
 
-import Button from '@/components/Button';
-import Container from '@/components/Container';
-import Layout from '@/components/Layout';
 import Loading from '@/components/Loading';
+import Container from '@/components/layout/Container';
+import Layout from '@/components/layout/Layout';
+import Button from '@/components/ui/Button';
 
 const HomePage = lazy(() => import('./pages/home'));
 const NotFoundPage = lazy(() => import('./pages/not-found'));
