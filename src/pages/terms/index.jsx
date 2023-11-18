@@ -32,7 +32,9 @@ const TermsPage = () => {
           <Loading error={error} />
         ) : (
           <>
-            <h1 className="font-heading text-6xl">{t('footer.terms')}</h1>
+            <h1 className="font-heading text-4xl sm:text-6xl">
+              {t('footer.terms')}
+            </h1>
             <div className="my-4 w-max bg-zinc-900 px-4 py-2 text-sm text-zinc-400">
               {t('last-updated')}:{' '}
               {new Intl.DateTimeFormat(lng).format(
