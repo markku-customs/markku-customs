@@ -1,8 +1,8 @@
 import { Trans, useTranslation } from 'react-i18next';
 import { HashLink as Link } from 'react-router-hash-link';
 
-import Button from '@/components/Button';
-import Container from '@/components/Container';
+import Container from '@/components/layout/Container';
+import Button from '@/components/ui/Button';
 
 const Hero = () => {
   const { t } = useTranslation();

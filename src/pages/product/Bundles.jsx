@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { HashLink as Link } from 'react-router-hash-link';
 
-import Button from '@/components/Button';
+import Button from '@/components/ui/Button';
 
 import { formatPrice, getImageSrc } from '@/utils';
 
@@ -53,7 +53,7 @@ const Bundle = ({ bundle }) => {
             href={product.fields.link['en-US']}
             rel="noreferrer"
             target="_blank"
-            className="text-sm text-zinc-400 underline"
+            className="text-sm text-zinc-400 hover:underline"
             key={product.sys.id}
           >
             {product.fields.name['en-US']}

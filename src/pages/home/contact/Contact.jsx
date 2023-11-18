@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
-import Container from '@/components/Container';
-import SectionHeading from '@/components/SectionHeading';
+import Container from '@/components/layout/Container';
+import SectionHeading from '@/components/ui/SectionHeading';
 
 import ContactForm from './ContactForm';
 import ContactLinks from './ContactLinks';

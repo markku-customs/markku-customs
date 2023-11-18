@@ -6,7 +6,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import { useHookFormMask } from 'use-mask-input';
 
-import Button from '@/components/Button';
+import Button from '@/components/ui/Button';
 
 const ContactForm = () => {
   const {

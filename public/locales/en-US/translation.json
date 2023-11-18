@@ -76,6 +76,11 @@
     "subtitle": "Page Not Found",
     "button": "Return to Homepage"
   },
+  "error": {
+    "title": "Oops! Something went wrong.",
+    "subtitle": "An unexpected error occured in the application. Please try again later.",
+    "button": "Try again"
+  },
   "input": {
     "required": "This input is required."
   },
