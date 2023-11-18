@@ -76,6 +76,11 @@
     "subtitle": "Sivua ei löydy",
     "button": "Palaa kotisivulle"
   },
+  "error": {
+    "title": " Hups! Jotain meni pieleen.",
+    "subtitle": "Sovelluksessa tapahtui odottamaton virhe. Yritä hetken kuluttua uudelleen.",
+    "button": "Yritä uudelleen"
+  },
   "input": {
     "required": "Tämä kenttä on pakollinen."
   },

@@ -17,7 +17,7 @@ const NotFoundPage = () => {
 
       <Container className="flex h-full flex-col items-center justify-center">
         <h1 className="font-heading text-8xl">404</h1>
-        <p className="font-semibold">{t('404.subtitle')}</p>
+        <p className="mt-2 font-semibold">{t('404.subtitle')}</p>
         <Button as={Link} to="/" className="mt-8">
           {t('404.button')}
         </Button>

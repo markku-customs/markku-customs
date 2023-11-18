@@ -1,8 +1,11 @@
 import { Suspense, lazy } from 'react';
 
+import { ErrorBoundary } from 'react-error-boundary';
+import { useTranslation } from 'react-i18next';
 import { Route, Routes } from 'react-router-dom';
 import { SWRConfig } from 'swr';
 
+import Button from '@/components/Button';
 import Container from '@/components/Container';
 import Layout from '@/components/Layout';
 import Loading from '@/components/Loading';
@@ -26,6 +29,8 @@ const fetcher = async (url) => {
 };
 
 const App = () => {
+  const { t } = useTranslation();
+
   return (
     <SWRConfig
       value={{
@@ -37,20 +42,32 @@ const App = () => {
       }}
     >
       <Layout>
-        <Suspense
+        <ErrorBoundary
           fallback={
-            <Container>
-              <Loading className="mt-8" />
+            <Container className="flex h-full flex-col items-center justify-center">
+              <h1 className="font-heading text-6xl">{t('error.title')}</h1>
+              <p className="mt-2 font-semibold">{t('error.subtitle')}</p>
+              <Button onClick={() => window.location.reload()} className="mt-8">
+                {t('error.button')}
+              </Button>
             </Container>
           }
         >
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/terms" element={<TermsPage />} />
-            <Route path="/products/:id" element={<ProductPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </Suspense>
+          <Suspense
+            fallback={
+              <Container>
+                <Loading className="mt-8" />
+              </Container>
+            }
+          >
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/terms" element={<TermsPage />} />
+              <Route path="/products/:id" element={<ProductPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </Suspense>
+        </ErrorBoundary>
       </Layout>
     </SWRConfig>
   );
