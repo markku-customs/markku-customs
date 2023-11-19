@@ -111,6 +111,12 @@ body {
   height: 100% !important;
 }
 
+.contact-links-grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
 /* Product Page */
 
 .product-page-grid {
@@ -245,6 +251,11 @@ body {
 }
 
 @media only screen and (max-width: 1024px) {
+  .contact-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
   .product-page-grid {
     grid-template-columns: 1fr;
     grid-template-areas:
