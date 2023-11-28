@@ -8,6 +8,8 @@ import Loading from '@/components/Loading';
 import SEO from '@/components/SEO';
 import Container from '@/components/layout/Container';
 
+import { formatDate } from '@/utils';
+
 import { options } from '@/constants';
 
 const PrivacyPage = () => {
@@ -34,7 +36,7 @@ const PrivacyPage = () => {
           </h1>
           <div className="my-4 w-max bg-zinc-900 px-4 py-2 text-sm text-zinc-400">
             {t('last-updated')}:{' '}
-            {new Intl.DateTimeFormat(lng).format(new Date(page.sys.updatedAt))}
+            {formatDate(new Date(page.sys.updatedAt), {}, lng)}
           </div>
           <section>
             {documentToReactComponents(page.fields.content[lng], options)}
