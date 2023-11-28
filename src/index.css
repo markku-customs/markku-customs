@@ -63,6 +63,7 @@ body {
   min-height: 100%;
   width: 100%;
   order: 1;
+  object-fit: cover;
 }
 
 .store-grid {

@@ -12,13 +12,13 @@ import { formatDate } from '@/utils';
 
 import { options } from '@/constants';
 
-const TermsPage = () => {
+const PrivacyPage = () => {
   const { t, i18n } = useTranslation();
 
   const lng = i18n.language;
 
   const { data: page, error } = useSWR(
-    '/.netlify/functions/getPage?slug=terms'
+    '/.netlify/functions/getPage?slug=privacy'
   );
 
   useEffect(() => {
@@ -27,12 +27,12 @@ const TermsPage = () => {
 
   return (
     <>
-      <SEO title={`${t('footer.terms')} | Markku Customs`} />
+      <SEO title={`${t('footer.privacy')} | Markku Customs`} />
 
       <Container className="py-8">
         <Suspense fallback={<Loading error={error} />}>
           <h1 className="font-heading text-4xl sm:text-6xl">
-            {t('footer.terms')}
+            {t('footer.privacy')}
           </h1>
           <div className="my-4 w-max bg-zinc-900 px-4 py-2 text-sm text-zinc-400">
             {t('last-updated')}:{' '}
@@ -47,4 +47,4 @@ const TermsPage = () => {
   );
 };
 
-export default TermsPage;
+export default PrivacyPage;
