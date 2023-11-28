@@ -1,14 +1,13 @@
 import { Suspense, lazy } from 'react';
 
 import { ErrorBoundary } from 'react-error-boundary';
-import { useTranslation } from 'react-i18next';
 import { Route, Routes } from 'react-router-dom';
 import { SWRConfig } from 'swr';
 
-import Loading from '@/components/Loading';
-import Container from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
-import Button from '@/components/ui/Button';
+
+import ErrorView from '@/views/error';
+import LoadingView from '@/views/loading';
 
 const HomePage = lazy(() => import('./pages/home'));
 const NotFoundPage = lazy(() => import('./pages/not-found'));
@@ -30,8 +29,6 @@ const fetcher = async (url) => {
 };
 
 const App = () => {
-  const { t } = useTranslation();
-
   return (
     <SWRConfig
       value={{
@@ -44,24 +41,8 @@ const App = () => {
       }}
     >
       <Layout>
-        <ErrorBoundary
-          fallback={
-            <Container className="flex h-full flex-col items-center justify-center">
-              <h1 className="font-heading text-6xl">{t('error.title')}</h1>
-              <p className="mt-2 font-semibold">{t('error.subtitle')}</p>
-              <Button onClick={() => window.location.reload()} className="mt-8">
-                {t('error.button')}
-              </Button>
-            </Container>
-          }
-        >
-          <Suspense
-            fallback={
-              <Container>
-                <Loading className="mt-8" />
-              </Container>
-            }
-          >
+        <ErrorBoundary fallback={<ErrorView />}>
+          <Suspense fallback={<LoadingView />}>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/products/:id" element={<ProductPage />} />
