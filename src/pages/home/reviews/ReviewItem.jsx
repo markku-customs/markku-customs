@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import StarRating from '@/components/ui/StarRating';
 
-import { splitLineBreaks } from '@/utils';
+import { formatDate, splitLineBreaks } from '@/utils';
 
 const ReviewItem = ({ review }) => {
   const { i18n } = useTranslation();
@@ -37,10 +37,14 @@ const ReviewItem = ({ review }) => {
         </div>
 
         <p className="mt-auto text-xs capitalize text-zinc-500">
-          {new Intl.DateTimeFormat(lng, {
-            month: 'long',
-            year: 'numeric',
-          }).format(new Date(date['en-US']))}
+          {formatDate(
+            new Date(date['en-US']),
+            {
+              month: 'long',
+              year: 'numeric',
+            },
+            lng
+          )}
         </p>
       </article>
     </a>

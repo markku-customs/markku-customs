@@ -11,6 +11,7 @@ module.exports = {
     '^@/constants$',
     '^@/assets/(.*)$',
     '^@/icons$',
+    '^@/views/(.*)$',
     '^[./]',
     '.css$',
   ],

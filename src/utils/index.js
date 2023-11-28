@@ -23,3 +23,7 @@ export const formatUnit = (number, options, locale = 'en-US') => {
     ...options,
   }).format(number);
 };
+
+export const formatDate = (date, options, locale = 'en-US') => {
+  return new Intl.DateTimeFormat(locale, options).format(date);
+};
