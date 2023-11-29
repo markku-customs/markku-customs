@@ -65,7 +65,7 @@ const ProductPage = () => {
               paymentLink={paymentLink}
             />
 
-            <ImageCarousel images={images} name={name[lng]} />
+            <ImageCarousel images={images} />
 
             {bundles && <Bundles bundles={bundles} />}
 

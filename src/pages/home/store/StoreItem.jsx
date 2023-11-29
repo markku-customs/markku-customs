@@ -15,7 +15,7 @@ const StoreItem = ({ product }) => {
     <article className="duration-400 flex h-full flex-col bg-zinc-900 transition hover:bg-zinc-800">
       <div className="image-container relative max-h-64">
         {bundles && (
-          <span className="absolute z-20 bg-red-600 px-4 py-2 text-xs font-semibold">
+          <span className="absolute left-4 top-4 z-20 bg-red-600 px-3 py-1.5 text-xs font-semibold">
             {bundles['en-US'].length}{' '}
             {bundles['en-US'].length > 1
               ? t('bundle-plural')
