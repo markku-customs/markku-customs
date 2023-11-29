@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import Slider from 'react-slick';
+import useSWR from 'swr';
 
 import Loading from '@/components/Loading';
 import Container from '@/components/layout/Container';
@@ -36,8 +37,10 @@ const settings = {
   ],
 };
 
-const Reviews = ({ reviews, error }) => {
+const Reviews = () => {
   const { t } = useTranslation();
+
+  const { data: reviews, error } = useSWR('/.netlify/functions/getReviews');
 
   return (
     <section className="py-12 md:py-16" id="reviews">
@@ -45,7 +48,7 @@ const Reviews = ({ reviews, error }) => {
         <SectionHeading className="mb-8">{t('links.reviews')}</SectionHeading>
         <Suspense fallback={<Loading error={error} />}>
           <Slider {...settings} className="mb-8">
-            {reviews.map((review) => (
+            {reviews?.items.map((review) => (
               <ReviewItem key={review.sys.id} review={review} />
             ))}
           </Slider>

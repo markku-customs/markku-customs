@@ -2,6 +2,8 @@ import { clsx } from 'clsx';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
+import Spinner from '@/components/ui/Spinner';
+
 const Loading = ({ error, className }) => {
   const { t, i18n } = useTranslation();
 
@@ -20,7 +22,10 @@ const Loading = ({ error, className }) => {
           <p className="mt-2 text-sm text-zinc-500">{t('automatic-retry')}</p>
         </div>
       ) : (
-        t('loading')
+        <div className="flex items-center gap-2">
+          <Spinner className="h-4 w-4" />
+          {t('loading')}
+        </div>
       )}
     </div>
   );
