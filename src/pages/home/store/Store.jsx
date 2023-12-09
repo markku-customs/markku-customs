@@ -1,5 +1,3 @@
-import { Suspense } from 'react';
-
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import useSWR from 'swr';
@@ -43,25 +41,15 @@ const Store = () => {
                 .map((product) => {
                   const { id } = product.sys;
 
-                  return <StoreFeaturedItem product={product} key={id} />;
+                  return (
+                    <Link to={`/products/${id}`} key={id}>
+                      <StoreItem product={product} />
+                    </Link>
+                  );
                 })}
             </div>
-          )}
-
-          <div className="store-grid">
-            {products
-              .filter((p) => !p.fields.isFeatured['en-US'])
-              .map((product) => {
-                const { id } = product.sys;
-
-                return (
-                  <Link to={`/products/${id}`} key={id}>
-                    <StoreItem product={product} />
-                  </Link>
-                );
-              })}
-          </div>
-        </Suspense>
+          </>
+        )}
       </Container>
     </section>
   );
