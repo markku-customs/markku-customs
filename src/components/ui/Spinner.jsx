@@ -5,7 +5,7 @@ const Spinner = ({ className, ...props }) => {
   return (
     <svg
       aria-hidden="true"
-      className={clsx('animate-spin fill-zinc-200 text-zinc-400', className)}
+      className={clsx('animate-spin fill-zinc-400 text-zinc-500', className)}
       viewBox="0 0 100 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

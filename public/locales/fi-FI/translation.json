@@ -62,14 +62,14 @@
   "buy": "Osta Nyt",
   "order": "Tilaa Nyt",
   "inquire": "Tiedustele",
-  "bundle-singular": "Pakettitarjous",
-  "bundle-plural": "Pakettitarjousta",
+  "bundle-singular": "Paketti",
+  "bundle-plural": "Pakettia",
   "bundles": "Paketit",
   "fps-note": "Huom. Tulokset tallennettu 1080p-näytöllä Medium-kuvanlaatuasetuksilla.",
   "fps-performance": "FPS-toimivuus",
   "last-updated": "Viimeksi Päivitetty",
   "footer": {
-    "copyright": "© {{year}} Markku Customs (3368392-8). Kaikki oikeudet pidätetään.",
+    "copyright": "© {{year}} Markku Customs. Kaikki oikeudet pidätetään.",
     "privacy": "Tietosuojaseloste",
     "terms": "Ehdot"
   },
