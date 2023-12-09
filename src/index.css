@@ -123,11 +123,7 @@ body {
 .product-page-grid {
   display: grid;
   grid-template-columns: 6fr 4fr;
-  grid-template-areas:
-    'carousel info'
-    'bundles  bundles'
-    'specs    specs'
-    'games    .';
+  grid-auto-rows: auto;
   gap: 2rem;
   padding-block: 2rem;
 }
@@ -135,7 +131,7 @@ body {
 /* Product Page | Image Carousel Section */
 
 .image-carousel-container {
-  grid-area: carousel;
+  order: -1;
   overflow: hidden;
 }
 
@@ -162,13 +158,13 @@ body {
 /* Product Page | Basic Information Section */
 
 .basic-information-container {
-  grid-area: info;
+  order: 0;
 }
 
 /* Product Page | Bundles Section */
 
 .bundles-container {
-  grid-area: bundles;
+  grid-column: 1 / 3;
 }
 
 .bundles-grid {
@@ -180,14 +176,10 @@ body {
 /* Product Page | Specifications Section */
 
 .specifications-container {
-  grid-area: specs;
+  grid-column: 1 / 3;
 }
 
 /* Product Page | Game Performance Section */
-
-.game-performance-container {
-  grid-area: games;
-}
 
 .game-grid {
   display: grid;
@@ -259,11 +251,17 @@ body {
 
   .product-page-grid {
     grid-template-columns: 1fr;
-    grid-template-areas:
-      'carousel'
-      'info'
-      'bundles'
-      'specs'
-      'games';
+  }
+
+  .bundles-container {
+    grid-column: 1;
+  }
+
+  .specifications-container {
+    grid-column: 1;
+  }
+
+  .game-performance-container {
+    grid-column: 1;
   }
 }
