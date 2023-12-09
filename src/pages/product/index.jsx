@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
@@ -51,7 +51,9 @@ const ProductPage = () => {
       <SEO title={`${!product ? t('loading') : name[lng]} | Markku Customs`} />
 
       <Container>
-        <Suspense fallback={<Loading className="mt-8" error={error} />}>
+        {!product ? (
+          <Loading className="mt-8" error={error} />
+        ) : (
           <div className="product-page-grid">
             <BasicInformation
               name={name[lng]}
@@ -63,7 +65,7 @@ const ProductPage = () => {
               paymentLink={paymentLink}
             />
 
-            <ImageCarousel images={images} name={name[lng]} />
+            <ImageCarousel images={images} />
 
             {bundles && <Bundles bundles={bundles} />}
 
@@ -78,7 +80,7 @@ const ProductPage = () => {
               />
             )}
           </div>
-        </Suspense>
+        )}
       </Container>
     </>
   );

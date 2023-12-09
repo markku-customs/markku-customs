@@ -69,7 +69,7 @@
   "fps-performance": "FPS-toimivuus",
   "last-updated": "Viimeksi Päivitetty",
   "footer": {
-    "copyright": "© {{year}} Markku Customs (3368392-8). Kaikki oikeudet pidätetään.",
+    "copyright": "© {{year}} Markku Customs. Kaikki oikeudet pidätetään.",
     "privacy": "Tietosuojaseloste",
     "terms": "Ehdot"
   },

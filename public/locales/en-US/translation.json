@@ -62,14 +62,14 @@
   "buy": "Buy Now",
   "order": "Order Now",
   "inquire": "Make an Inquiry",
-  "bundle-singular": "Bundle",
-  "bundle-plural": "Bundles",
+  "bundle-singular": "Bundle Offer",
+  "bundle-plural": "Bundle Offers",
   "bundles": "Bundles",
   "fps-note": "NB. Results recorded on 1080p monitor with Medium quality settings.",
   "fps-performance": "FPS Performance",
   "last-updated": "Last Updated",
   "footer": {
-    "copyright": "© {{year}} Markku Customs (3368392-8). All rights reserved.",
+    "copyright": "© {{year}} Markku Customs. All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
   },
