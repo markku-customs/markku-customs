@@ -37,6 +37,7 @@ const App = () => {
         revalidateOnFocus: false,
         revalidateOnReconnect: false,
         dedupingInterval: 600000, // 10 mins
+        suspense: true,
       }}
     >
       <Layout>

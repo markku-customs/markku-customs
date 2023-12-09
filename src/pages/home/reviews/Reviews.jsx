@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+
 import { useTranslation } from 'react-i18next';
 import Slider from 'react-slick';
 import useSWR from 'swr';
@@ -44,15 +46,13 @@ const Reviews = () => {
     <section className="py-12 md:py-16" id="reviews">
       <Container>
         <SectionHeading className="mb-8">{t('links.reviews')}</SectionHeading>
-        {!reviews ? (
-          <Loading error={error} />
-        ) : (
+        <Suspense fallback={<Loading error={error} />}>
           <Slider {...settings} className="mb-8">
             {reviews?.items.map((review) => (
               <ReviewItem key={review.sys.id} review={review} />
             ))}
           </Slider>
-        )}
+        </Suspense>
         <div className="mt-8 flex flex-wrap gap-4">
           <Button
             as="a"

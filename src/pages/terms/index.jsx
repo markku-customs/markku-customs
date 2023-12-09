@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { useTranslation } from 'react-i18next';
