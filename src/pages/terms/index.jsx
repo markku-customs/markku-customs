@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { useTranslation } from 'react-i18next';
@@ -20,10 +20,6 @@ const TermsPage = () => {
   const { data: page, error } = useSWR(
     '/.netlify/functions/getPage?slug=terms'
   );
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-  }, []);
 
   return (
     <>
