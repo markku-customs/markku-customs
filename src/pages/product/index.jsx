@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
@@ -22,10 +22,6 @@ const ProductPage = () => {
   const { data: product, error } = useSWR(
     `/.netlify/functions/getProduct?id=${id}`
   );
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-  }, []);
 
   if (error?.info?.error?.sys?.id === 'NotFound') {
     return <NotFoundPage />;
