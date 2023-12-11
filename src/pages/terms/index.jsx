@@ -17,7 +17,7 @@ const TermsPage = () => {
   const { t, i18n } = useTranslation();
 
   const lng = i18n.language;
-
+  
   const { page, error } = usePage('terms');
 
   return (
