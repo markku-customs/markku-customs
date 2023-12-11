@@ -2,11 +2,12 @@ import React from 'react';
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { useTranslation } from 'react-i18next';
-import useSWR from 'swr';
 
 import Loading from '@/components/Loading';
 import SEO from '@/components/SEO';
 import Container from '@/components/layout/Container';
+
+import { usePage } from '@/hooks';
 
 import { formatDate } from '@/utils';
 
@@ -17,9 +18,7 @@ const TermsPage = () => {
 
   const lng = i18n.language;
 
-  const { data: page, error } = useSWR(
-    '/.netlify/functions/getPage?slug=terms'
-  );
+  const { page, error } = usePage('terms');
 
   return (
     <>

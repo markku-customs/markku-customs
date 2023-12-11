@@ -2,11 +2,12 @@ import React from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import useSWR from 'swr';
 
 import Loading from '@/components/Loading';
 import SEO from '@/components/SEO';
 import Container from '@/components/layout/Container';
+
+import { useProduct } from '@/hooks';
 
 import NotFoundPage from '../not-found';
 import BasicInformation from './BasicInformation';
@@ -19,9 +20,7 @@ const ProductPage = () => {
   const { id } = useParams();
   const { t, i18n } = useTranslation();
 
-  const { data: product, error } = useSWR(
-    `/.netlify/functions/getProduct?id=${id}`
-  );
+  const { product, error } = useProduct(id);
 
   if (error?.info?.error?.sys?.id === 'NotFound') {
     return <NotFoundPage />;

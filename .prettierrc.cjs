@@ -7,6 +7,7 @@ module.exports = {
     '^(react|react-dom/client)$',
     '<THIRD_PARTY_MODULES>',
     '^@/components/(.*)$',
+    '^@/hooks$',
     '^@/utils$',
     '^@/constants$',
     '^@/assets/(.*)$',
