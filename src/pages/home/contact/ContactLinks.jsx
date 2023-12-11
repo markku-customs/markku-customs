@@ -22,8 +22,8 @@ const links = [
   {
     icon: InstagramIcon,
     key: 'contact.instagram',
-    content: '@markku.customs',
-    href: 'https://www.instagram.com/markku.customs/',
+    content: '@markkucustoms',
+    href: 'https://www.instagram.com/markkucustoms/',
     blank: true,
   },
   {
