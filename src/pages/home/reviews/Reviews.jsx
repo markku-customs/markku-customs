@@ -1,11 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import Slider from 'react-slick';
-import useSWR from 'swr';
 
 import Loading from '@/components/Loading';
 import Container from '@/components/layout/Container';
 import Button from '@/components/ui/Button';
 import SectionHeading from '@/components/ui/SectionHeading';
+
+import { useReviews } from '@/hooks';
 
 import { ArrowOutwardIcon } from '@/icons';
 
@@ -38,7 +39,7 @@ const settings = {
 const Reviews = () => {
   const { t } = useTranslation();
 
-  const { data: reviews, error } = useSWR('/.netlify/functions/getReviews');
+  const { reviews, error } = useReviews();
 
   return (
     <section className="py-12 md:py-16" id="reviews">

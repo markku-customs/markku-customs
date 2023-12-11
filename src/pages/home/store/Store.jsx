@@ -1,10 +1,11 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import useSWR from 'swr';
 
 import Loading from '@/components/Loading';
 import Container from '@/components/layout/Container';
 import SectionHeading from '@/components/ui/SectionHeading';
+
+import { useProducts } from '@/hooks';
 
 import StoreFeaturedItem from './StoreFeaturedItem';
 import StoreItem from './StoreItem';
@@ -12,7 +13,7 @@ import StoreItem from './StoreItem';
 const Store = () => {
   const { t } = useTranslation();
 
-  const { data: products, error } = useSWR('/.netlify/functions/getProducts');
+  const { products, error } = useProducts();
 
   return (
     <section className="py-12 md:py-16" id="store">
