@@ -4,6 +4,7 @@ import SEO from '@/components/SEO';
 
 import Contact from './contact/Contact';
 import Hero from './hero/Hero';
+import Partners from './partners/Partners';
 import Reviews from './reviews/Reviews';
 import Store from './store/Store';
 
@@ -17,6 +18,7 @@ const HomePage = () => {
       <Hero />
       <Store />
       <Reviews />
+      <Partners />
       <Contact />
     </>
   );
