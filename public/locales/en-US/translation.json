@@ -7,6 +7,7 @@
     "home": "Home",
     "store": "Store",
     "reviews": "Reviews",
+    "partners": "Partners",
     "contact": "Contact"
   },
   "hero": {
@@ -68,6 +69,7 @@
   "fps-note": "NB. Results recorded on 1080p monitor with Medium quality settings.",
   "fps-performance": "FPS Performance",
   "last-updated": "Last Updated",
+  "since": "Since {{year}}",
   "footer": {
     "copyright": "© {{year}} Markku Customs. All rights reserved.",
     "privacy": "Privacy Policy",

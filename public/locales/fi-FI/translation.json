@@ -7,6 +7,7 @@
     "home": "Koti",
     "store": "Kauppa",
     "reviews": "Arvostelut",
+    "partners": "Kumppanuudet",
     "contact": "Yhteystiedot"
   },
   "hero": {
@@ -68,6 +69,7 @@
   "fps-note": "Huom. Tulokset tallennettu 1080p-näytöllä Medium-kuvanlaatuasetuksilla.",
   "fps-performance": "FPS-toimivuus",
   "last-updated": "Viimeksi Päivitetty",
+  "since": "Vuodesta {{year}} lähtien",
   "footer": {
     "copyright": "© {{year}} Markku Customs. Kaikki oikeudet pidätetään.",
     "privacy": "Tietosuojaseloste",

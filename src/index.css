@@ -118,6 +118,14 @@ body {
   flex-wrap: wrap;
 }
 
+/* Home Page | Partners Section */
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
 /* Product Page */
 
 .product-page-grid {
