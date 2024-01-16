@@ -16,12 +16,14 @@ const PartnerItem = ({ partner }) => {
       target="_blank"
       rel="noreferrer"
     >
-      <div className="grid items-center px-16 py-12">
-        <img src={`${getImageSrc(logo['en-US'])}?fm=webp&w=200`} alt="" />
+      <div className="grid h-full w-full place-items-center px-16 py-12">
+        <img src={`${getImageSrc(logo['en-US'])}?fm=webp&h=75`} alt="" />
       </div>
       <div className="bg-zinc-800 p-4">
         <div className="flex items-center gap-1">
-          <h3 className="font-semibold">{name['en-US']}</h3>
+          <h3 className="font-semibold group-hover:underline">
+            {name['en-US']}
+          </h3>
           <ArrowOutwardIcon className="h-4 w-4" />
         </div>
         <p className="mt-1 text-sm text-zinc-400">
