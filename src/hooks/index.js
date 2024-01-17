@@ -14,6 +14,12 @@ export const useReviews = () => {
   return { reviews, error };
 };
 
+export const usePartners = () => {
+  const { data: partners, error } = useSWR(`${API_BASE}getPartners`);
+
+  return { partners, error };
+};
+
 export const useProduct = (id) => {
   const { data: product, error } = useSWR(`${API_BASE}getProduct?id=${id}`);
 
