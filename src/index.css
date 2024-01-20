@@ -248,6 +248,7 @@ body {
     min-height: 100%;
     width: 100%;
     order: 0;
+    max-height: 16rem;
   }
 
   .slick-list {
