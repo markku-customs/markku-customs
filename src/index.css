@@ -64,6 +64,7 @@ body {
   width: 100%;
   order: 1;
   object-fit: cover;
+  max-height: 16rem;
 }
 
 .store-grid {
@@ -248,7 +249,6 @@ body {
     min-height: 100%;
     width: 100%;
     order: 0;
-    max-height: 16rem;
   }
 
   .slick-list {
