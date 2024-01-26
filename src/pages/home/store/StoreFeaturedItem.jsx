@@ -12,7 +12,7 @@ const StoreFeaturedItem = ({ product }) => {
 
   const { fields } = product;
 
-  const { name, description, price, featuredImage } = fields;
+  const { name, description, price, featuredImage, noLimitedTag } = fields;
 
   const lng = i18n.language;
 
@@ -29,12 +29,14 @@ const StoreFeaturedItem = ({ product }) => {
         loading="lazy"
       />
       <div className="flex flex-col gap-4 p-4 md:p-8">
-        <span className="border-l-1 absolute inset-2 left-4 top-4 flex h-min w-max items-center gap-2 border-l-4 border-l-red-600 bg-zinc-800 px-4 py-2 text-sm font-semibold text-white md:relative md:inset-0">
-          {t('limited-time')}
-          <TimerIcon className="h-4 w-4" />
-        </span>
+        {!noLimitedTag['en-US'] && (
+          <span className="border-l-1 absolute inset-2 left-4 top-4 flex h-min w-max items-center gap-2 border-l-4 border-l-red-600 bg-zinc-800 px-4 py-2 text-sm font-semibold text-white md:relative md:inset-0">
+            {t('limited-time')}
+            <TimerIcon className="h-4 w-4" />
+          </span>
+        )}
         <div>
-          <h3 className="font-heading text-xl">{name[lng]}</h3>
+          <h3 className="font-heading text-xl md:text-2xl">{name[lng]}</h3>
           <p className="mt-2 font-heading text-4xl md:text-5xl">
             {price ? formatPrice(price['en-US'], lng) : t('variable')}
           </p>
