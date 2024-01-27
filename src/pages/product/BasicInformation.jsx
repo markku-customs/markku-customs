@@ -58,7 +58,7 @@ const BasicInformation = ({
         itemsInStock > 0 ? (
           <span className="flex w-max items-center bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
             {itemsInStock} {t('in-stock')}
-            <span className="ml-2 inline-block h-2 w-2 rounded-full bg-green-500"></span>
+            <span className="ml-2 inline-block h-1.5 w-1.5 rounded-full bg-green-500"></span>
           </span>
         ) : (
           <span className="w-max bg-zinc-800 px-3 py-1.5 text-xs font-semibold">

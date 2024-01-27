@@ -12,7 +12,17 @@ const StoreFeaturedItem = ({ product }) => {
 
   const { fields } = product;
 
-  const { name, description, price, featuredImage, noLimitedTag } = fields;
+  const {
+    name,
+    description,
+    price,
+    featuredImage,
+    stockable,
+    itemsInStock,
+    noLimitedTag,
+  } = fields;
+
+  console.log(itemsInStock);
 
   const lng = i18n.language;
 
@@ -41,6 +51,24 @@ const StoreFeaturedItem = ({ product }) => {
             {price ? formatPrice(price['en-US'], lng) : t('variable')}
           </p>
         </div>
+
+        {stockable['en-US'] ? (
+          itemsInStock['en-US'] > 0 ? (
+            <span className="flex w-max items-center bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
+              {itemsInStock['en-US']} {t('in-stock')}
+              <span className="ml-2 inline-block h-1.5 w-1.5 rounded-full bg-green-500"></span>
+            </span>
+          ) : (
+            <span className="w-max bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
+              {t('sold-out')}
+            </span>
+          )
+        ) : (
+          <span className="w-max bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
+            {t('made-on-order')}
+          </span>
+        )}
+
         <p className="line-clamp-3 text-sm text-zinc-400">{description[lng]}</p>
         <Button
           as={Link}

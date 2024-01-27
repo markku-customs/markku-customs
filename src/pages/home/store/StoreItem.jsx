@@ -7,7 +7,8 @@ const StoreItem = ({ product }) => {
 
   const { fields } = product;
 
-  const { name, price, featuredImage, bundles } = fields;
+  const { name, price, featuredImage, bundles, stockable, itemsInStock } =
+    fields;
 
   const lng = i18n.language;
 
@@ -33,7 +34,17 @@ const StoreItem = ({ product }) => {
         />
       </div>
       <div className="flex flex-1 flex-col justify-between gap-2 p-4">
-        <h3 className="font-heading">{name[lng]}</h3>
+        <div className="flex gap-2">
+          <h3 className="font-heading">{name[lng]}</h3>
+          {stockable['en-US'] && itemsInStock['en-US'] > 0 && (
+            <span
+              className="flex aspect-square w-max items-center text-xs font-semibold"
+              title={`${itemsInStock['en-US']} ${t('in-stock')}`}
+            >
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-500"></span>
+            </span>
+          )}
+        </div>
         <p className="font-heading text-3xl">
           {price ? formatPrice(price['en-US'], lng) : t('variable')}
         </p>
