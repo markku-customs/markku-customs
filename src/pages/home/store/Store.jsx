@@ -11,9 +11,6 @@ import { useProducts } from '@/hooks';
 import StoreFeaturedItem from './StoreFeaturedItem';
 import StoreItem from './StoreItem';
 
-import 'slick-carousel/slick/slick-theme.css';
-import 'slick-carousel/slick/slick.css';
-
 const settings = {
   slidesToShow: 3,
   dots: true,
@@ -52,9 +49,12 @@ const Store = () => {
                 {products?.items
                   .filter((p) => p.fields.isFeatured['en-US'])
                   .map((product) => {
-                    const { id } = product.sys;
-
-                    return <StoreFeaturedItem product={product} key={id} />;
+                    return (
+                      <StoreFeaturedItem
+                        product={product}
+                        key={product.sys.id}
+                      />
+                    );
                   })}
               </div>
             )}
@@ -63,11 +63,9 @@ const Store = () => {
               {products?.items
                 .filter((p) => !p.fields.isFeatured['en-US'])
                 .map((product) => {
-                  const { id } = product.sys;
-
                   return (
-                    <div key={id}>
-                      <Link to={`/products/${id}`}>
+                    <div key={product.sys.id}>
+                      <Link to={`/products/${product.sys.id}`}>
                         <StoreItem product={product} />
                       </Link>
                     </div>

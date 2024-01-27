@@ -100,33 +100,7 @@ body {
   scale: 1.2;
 }
 
-/* Home Page | Reviews Section */
-
-.slick-track {
-  display: flex !important;
-}
-
-.slick-slide {
-  height: inherit !important;
-  margin-inline: 1rem !important;
-}
-
-.slick-dots {
-  position: unset !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  display: block;
-  margin-block: 1rem !important;
-}
-
-.slick-dots button::before {
-  color: white !important;
-}
-
-.slick-slide > div {
-  height: 100% !important;
-}
+/* Home Page | Contact Section */
 
 .contact-links-grid {
   display: flex;
@@ -265,14 +239,6 @@ body {
     width: 100%;
     order: 0;
   }
-
-  .slick-list {
-    margin-inline: -1rem !important;
-  }
-
-  .slick-arrow {
-    z-index: 10;
-  }
 }
 
 @media only screen and (max-width: 1024px) {
@@ -295,5 +261,42 @@ body {
 
   .game-performance-container {
     grid-column: 1;
+  }
+}
+
+/* Slick Override */
+
+.slick-track {
+  display: flex !important;
+}
+
+.slick-slide {
+  height: inherit !important;
+  margin-inline: 1rem !important;
+}
+
+.slick-dots {
+  position: unset !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-top: 1rem !important;
+}
+
+.slick-dots button::before {
+  color: white !important;
+}
+
+.slick-slide > div {
+  height: 100% !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .slick-list {
+    margin-inline: -1rem !important;
+  }
+
+  .slick-arrow {
+    z-index: 10;
   }
 }

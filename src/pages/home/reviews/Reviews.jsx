@@ -12,9 +12,6 @@ import { ArrowOutwardIcon } from '@/icons';
 
 import ReviewItem from './ReviewItem';
 
-import 'slick-carousel/slick/slick-theme.css';
-import 'slick-carousel/slick/slick.css';
-
 const settings = {
   centerMode: true,
   infinite: true,
