@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import Slider from 'react-slick';
 
 import Loading from '@/components/Loading';
 import Container from '@/components/layout/Container';
@@ -9,6 +10,28 @@ import { useProducts } from '@/hooks';
 
 import StoreFeaturedItem from './StoreFeaturedItem';
 import StoreItem from './StoreItem';
+
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
+
+const settings = {
+  slidesToShow: 3,
+  dots: true,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+  ],
+};
 
 const Store = () => {
   const { t } = useTranslation();
@@ -36,19 +59,21 @@ const Store = () => {
               </div>
             )}
 
-            <div className="store-grid">
+            <Slider {...settings} className="store-slider">
               {products?.items
                 .filter((p) => !p.fields.isFeatured['en-US'])
                 .map((product) => {
                   const { id } = product.sys;
 
                   return (
-                    <Link to={`/products/${id}`} key={id}>
-                      <StoreItem product={product} />
-                    </Link>
+                    <div key={id}>
+                      <Link to={`/products/${id}`}>
+                        <StoreItem product={product} />
+                      </Link>
+                    </div>
                   );
                 })}
-            </div>
+            </Slider>
           </>
         )}
       </Container>

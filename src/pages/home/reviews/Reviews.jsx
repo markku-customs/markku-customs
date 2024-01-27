@@ -20,6 +20,7 @@ const settings = {
   infinite: true,
   autoplay: true,
   centerPadding: '60px',
+  dots: true,
   slidesToShow: 2,
   speed: 500,
   autoplaySpeed: 10000,

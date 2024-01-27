@@ -67,26 +67,28 @@ body {
   max-height: 16rem;
 }
 
-.store-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
+.store-slider .slick-slide {
+  margin: 0 1rem !important;
 }
 
-.store-grid article {
+.store-slider .slick-list {
+  margin: 0 -1rem !important;
+}
+
+.store-slider article {
   overflow: hidden;
 }
 
-.store-grid .image-container {
+.store-slider .image-container {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   transition: var(--transition-200);
 }
 
-.store-grid article:hover .image-container {
+.store-slider article:hover .image-container {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
 }
 
-.store-grid img {
+.store-slider img {
   aspect-ratio: 4/3;
   object-fit: cover;
   height: 100%;
@@ -94,7 +96,7 @@ body {
   transition: var(--transition-200);
 }
 
-.store-grid article:hover img {
+.store-slider article:hover img {
   scale: 1.2;
 }
 
@@ -107,6 +109,19 @@ body {
 .slick-slide {
   height: inherit !important;
   margin-inline: 1rem !important;
+}
+
+.slick-dots {
+  position: unset !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  display: block;
+  margin-block: 1rem !important;
+}
+
+.slick-dots button::before {
+  color: white !important;
 }
 
 .slick-slide > div {
