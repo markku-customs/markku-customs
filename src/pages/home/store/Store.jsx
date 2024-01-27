@@ -35,6 +35,13 @@ const Store = () => {
 
   const { products, error } = useProducts();
 
+  const featuredItems = products?.items.filter(
+    (p) => p.fields.isFeatured['en-US']
+  );
+  const normalItems = products?.items.filter(
+    (p) => !p.fields.isFeatured['en-US']
+  );
+
   return (
     <section className="py-12 md:py-16" id="store">
       <Container>
@@ -43,34 +50,26 @@ const Store = () => {
           <Loading error={error} />
         ) : (
           <>
-            {products?.items.filter((p) => p.fields.isFeatured['en-US'])
-              .length > 0 && (
+            {featuredItems.length > 0 && (
               <div className="mb-8 flex flex-col gap-8">
-                {products?.items
-                  .filter((p) => p.fields.isFeatured['en-US'])
-                  .map((product) => {
-                    return (
-                      <StoreFeaturedItem
-                        product={product}
-                        key={product.sys.id}
-                      />
-                    );
-                  })}
+                {featuredItems.map((product) => {
+                  return (
+                    <StoreFeaturedItem product={product} key={product.sys.id} />
+                  );
+                })}
               </div>
             )}
 
             <Slider {...settings} className="store-slider">
-              {products?.items
-                .filter((p) => !p.fields.isFeatured['en-US'])
-                .map((product) => {
-                  return (
-                    <div key={product.sys.id}>
-                      <Link to={`/products/${product.sys.id}`}>
-                        <StoreItem product={product} />
-                      </Link>
-                    </div>
-                  );
-                })}
+              {normalItems.map((product) => {
+                return (
+                  <div key={product.sys.id}>
+                    <Link to={`/products/${product.sys.id}`}>
+                      <StoreItem product={product} />
+                    </Link>
+                  </div>
+                );
+              })}
             </Slider>
           </>
         )}
