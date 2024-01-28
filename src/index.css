@@ -239,6 +239,18 @@ body {
     width: 100%;
     order: 0;
   }
+
+  .store-slider article:hover .image-container {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .store-slider img {
+    transition: 0;
+  }
+
+  .store-slider article:hover img {
+    scale: 1;
+  }
 }
 
 @media only screen and (max-width: 1024px) {

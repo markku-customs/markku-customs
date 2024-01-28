@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { formatPrice, getImageSrc } from '@/utils';
+import { formatPrice, getImageSrc, getPlural } from '@/utils';
 
 const StoreItem = ({ product }) => {
   const { t, i18n } = useTranslation();
@@ -17,12 +17,14 @@ const StoreItem = ({ product }) => {
       <div className="image-container relative max-h-64">
         {bundles && (
           <span className="absolute left-4 top-4 z-20 bg-red-600 px-3 py-1.5 text-xs font-semibold">
-            {bundles['en-US'].length}{' '}
-            {bundles['en-US'].length > 1
-              ? t('bundle-plural')
-              : t('bundle-singular')}
+            {getPlural(
+              bundles['en-US'].length,
+              t('bundle-plural'),
+              t('bundle-singular')
+            )}
           </span>
         )}
+
         <img
           src={
             featuredImage
@@ -34,15 +36,16 @@ const StoreItem = ({ product }) => {
         />
       </div>
       <div className="flex flex-1 flex-col justify-between gap-2 p-4">
-        <div className="flex gap-2">
+        <div className="flex items-center justify-between">
           <h3 className="font-heading">{name[lng]}</h3>
           {stockable['en-US'] && itemsInStock['en-US'] > 0 && (
-            <span
-              className="flex aspect-square w-max items-center text-xs font-semibold"
+            <div
+              className="flex items-center gap-2 text-xs font-semibold"
               title={`${itemsInStock['en-US']} ${t('in-stock')}`}
             >
+              {itemsInStock['en-US']}
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-500"></span>
-            </span>
+            </div>
           )}
         </div>
         <p className="font-heading text-3xl">

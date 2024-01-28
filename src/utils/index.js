@@ -9,6 +9,14 @@ export const getImageSrc = (image, lang = 'en-US') => {
   return `https:${image.fields.file[lang].url}`;
 };
 
+export const getPlural = (number, singular, plural, inclusive = true) => {
+  if (inclusive) {
+    return `${number} ${number === 1 ? singular : plural}`;
+  }
+
+  return number === 1 ? singular : plural;
+};
+
 export const formatPrice = (price, locale = 'en-US') => {
   return new Intl.NumberFormat(locale, {
     style: 'currency',
