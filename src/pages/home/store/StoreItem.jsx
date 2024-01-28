@@ -1,5 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
+import Circle from '@/components/ui/Circle';
+
 import { formatPrice, getImageSrc, getPlural } from '@/utils';
 
 const StoreItem = ({ product }) => {
@@ -44,7 +46,7 @@ const StoreItem = ({ product }) => {
               title={`${itemsInStock['en-US']} ${t('in-stock')}`}
             >
               {itemsInStock['en-US']}
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-500"></span>
+              <Circle className="w-1.5 bg-green-500" />
             </div>
           )}
         </div>

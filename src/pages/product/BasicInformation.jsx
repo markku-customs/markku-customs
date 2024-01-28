@@ -3,6 +3,7 @@ import { HashLink as Link } from 'react-router-hash-link';
 
 import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
+import Circle from '@/components/ui/Circle';
 import HorizontalSeparator from '@/components/ui/HorizontalSeparator';
 
 import { formatPrice, formatUnit, splitLineBreaks } from '@/utils';
@@ -56,9 +57,9 @@ const BasicInformation = ({
 
       {stockable ? (
         itemsInStock > 0 ? (
-          <span className="flex w-max items-center bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
+          <span className="flex w-max items-center gap-2 bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
             {itemsInStock} {t('in-stock')}
-            <span className="ml-2 inline-block h-1.5 w-1.5 rounded-full bg-green-500"></span>
+            <Circle className="w-1.5 bg-green-500" />
           </span>
         ) : (
           <span className="w-max bg-zinc-800 px-3 py-1.5 text-xs font-semibold">

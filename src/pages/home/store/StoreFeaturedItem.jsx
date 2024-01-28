@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 import Button from '@/components/ui/Button';
+import Circle from '@/components/ui/Circle';
 
 import { formatPrice, getImageSrc } from '@/utils';
 
@@ -21,8 +22,6 @@ const StoreFeaturedItem = ({ product }) => {
     itemsInStock,
     noLimitedTag,
   } = fields;
-
-  console.log(itemsInStock);
 
   const lng = i18n.language;
 
@@ -54,9 +53,9 @@ const StoreFeaturedItem = ({ product }) => {
 
         {stockable['en-US'] ? (
           itemsInStock['en-US'] > 0 ? (
-            <span className="flex w-max items-center bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
+            <span className="flex w-max items-center gap-2 bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
               {itemsInStock['en-US']} {t('in-stock')}
-              <span className="ml-2 inline-block h-1.5 w-1.5 rounded-full bg-green-500"></span>
+              <Circle className="w-1.5 bg-green-500" />
             </span>
           ) : (
             <span className="w-max bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
