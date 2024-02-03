@@ -68,6 +68,7 @@ const ContactTabs = () => {
               <PanelItem title={t('tabs.cash')} />
               <PanelItem title="MobilePay" />
               <PanelItem title={t('tabs.bank-transfer')} />
+              <PanelItem title={t('tabs.online')} />
             </ul>
           </Tab.Panel>
           <Tab.Panel className="bg-zinc-900 p-4 lg:p-6">

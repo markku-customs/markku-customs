@@ -1,13 +1,16 @@
 import { useTranslation } from 'react-i18next';
 
-import { formatPrice, getImageSrc } from '@/utils';
+import Circle from '@/components/ui/Circle';
+
+import { formatPrice, getImageSrc, getPlural } from '@/utils';
 
 const StoreItem = ({ product }) => {
   const { t, i18n } = useTranslation();
 
   const { fields } = product;
 
-  const { name, price, featuredImage, bundles } = fields;
+  const { name, price, featuredImage, bundles, stockable, itemsInStock } =
+    fields;
 
   const lng = i18n.language;
 
@@ -16,12 +19,14 @@ const StoreItem = ({ product }) => {
       <div className="image-container relative max-h-64">
         {bundles && (
           <span className="absolute left-4 top-4 z-20 bg-red-600 px-3 py-1.5 text-xs font-semibold">
-            {bundles['en-US'].length}{' '}
-            {bundles['en-US'].length > 1
-              ? t('bundle-plural')
-              : t('bundle-singular')}
+            {getPlural(
+              bundles['en-US'].length,
+              t('bundle-plural'),
+              t('bundle-singular')
+            )}
           </span>
         )}
+
         <img
           src={
             featuredImage
@@ -33,7 +38,18 @@ const StoreItem = ({ product }) => {
         />
       </div>
       <div className="flex flex-1 flex-col justify-between gap-2 p-4">
-        <h3 className="font-heading">{name[lng]}</h3>
+        <div className="flex items-center justify-between">
+          <h3 className="font-heading">{name[lng]}</h3>
+          {stockable['en-US'] && itemsInStock['en-US'] > 0 && (
+            <div
+              className="flex items-center gap-2 text-xs font-semibold"
+              title={`${itemsInStock['en-US']} ${t('in-stock')}`}
+            >
+              {itemsInStock['en-US']}
+              <Circle className="w-1.5 bg-green-500" />
+            </div>
+          )}
+        </div>
         <p className="font-heading text-3xl">
           {price ? formatPrice(price['en-US'], lng) : t('variable')}
         </p>

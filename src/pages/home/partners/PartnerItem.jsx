@@ -18,7 +18,7 @@ const PartnerItem = ({ partner }) => {
       aria-labelledby="partner-name"
     >
       <div className="grid h-full w-full place-items-center px-16 py-12">
-        <img src={`${getImageSrc(logo['en-US'])}?fm=webp&h=75`} alt="" />
+        <img src={`${getImageSrc(logo['en-US'])}?fm=webp&h=64`} alt="" />
       </div>
       <div className="bg-zinc-800 p-4">
         <div className="flex items-center gap-1">

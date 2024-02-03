@@ -12,14 +12,12 @@ import { ArrowOutwardIcon } from '@/icons';
 
 import ReviewItem from './ReviewItem';
 
-import 'slick-carousel/slick/slick-theme.css';
-import 'slick-carousel/slick/slick.css';
-
 const settings = {
   centerMode: true,
   infinite: true,
   autoplay: true,
   centerPadding: '60px',
+  dots: true,
   slidesToShow: 2,
   speed: 500,
   autoplaySpeed: 10000,

@@ -8,6 +8,9 @@ import Partners from './partners/Partners';
 import Reviews from './reviews/Reviews';
 import Store from './store/Store';
 
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
+
 const HomePage = () => {
   const { t } = useTranslation();
 
