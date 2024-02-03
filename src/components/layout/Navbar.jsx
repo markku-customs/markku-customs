@@ -54,20 +54,20 @@ const Navbar = () => {
               <button
                 className="w-10 rounded bg-zinc-950 px-2 py-1 transition hover:bg-zinc-900"
                 type="button"
-                onClick={() => i18n.changeLanguage('en-US')}
-                title="Translate into English"
-                aria-label="translate into english"
-              >
-                <img src="/icons/uk-flag.svg" alt="" aria-hidden="true" />
-              </button>
-              <button
-                className="w-10 rounded bg-zinc-950 px-2 py-1 transition hover:bg-zinc-900"
-                type="button"
                 onClick={() => i18n.changeLanguage('fi-FI')}
                 title="Käännä suomeksi"
                 aria-label="käännä suomeksi"
               >
                 <img src="/icons/fi-flag.svg" alt="" aria-hidden="true" />
+              </button>
+              <button
+                className="w-10 rounded bg-zinc-950 px-2 py-1 transition hover:bg-zinc-900"
+                type="button"
+                onClick={() => i18n.changeLanguage('en-US')}
+                title="Translate into English"
+                aria-label="translate into english"
+              >
+                <img src="/icons/uk-flag.svg" alt="" aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -125,20 +125,20 @@ const Navbar = () => {
             <button
               className="w-10 rounded bg-zinc-950 px-2 py-1 transition hover:bg-zinc-900"
               type="button"
-              onClick={() => i18n.changeLanguage('en-US')}
-              title="Translate into English"
-              aria-label="translate into english"
-            >
-              <img src="/icons/uk-flag.svg" alt="" aria-hidden="true" />
-            </button>
-            <button
-              className="w-10 rounded bg-zinc-950 px-2 py-1 transition hover:bg-zinc-900"
-              type="button"
               onClick={() => i18n.changeLanguage('fi-FI')}
               title="Käännä suomeksi"
               aria-label="käännä suomeksi"
             >
               <img src="/icons/fi-flag.svg" alt="" aria-hidden="true" />
+            </button>
+            <button
+              className="w-10 rounded bg-zinc-950 px-2 py-1 transition hover:bg-zinc-900"
+              type="button"
+              onClick={() => i18n.changeLanguage('en-US')}
+              title="Translate into English"
+              aria-label="translate into english"
+            >
+              <img src="/icons/uk-flag.svg" alt="" aria-hidden="true" />
             </button>
           </div>
         </nav>

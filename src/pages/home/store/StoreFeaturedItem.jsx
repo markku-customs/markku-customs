@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 import Button from '@/components/ui/Button';
+import Circle from '@/components/ui/Circle';
 
 import { formatPrice, getImageSrc } from '@/utils';
 
@@ -12,7 +13,15 @@ const StoreFeaturedItem = ({ product }) => {
 
   const { fields } = product;
 
-  const { name, description, price, featuredImage, noLimitedTag } = fields;
+  const {
+    name,
+    description,
+    price,
+    featuredImage,
+    stockable,
+    itemsInStock,
+    noLimitedTag,
+  } = fields;
 
   const lng = i18n.language;
 
@@ -41,6 +50,24 @@ const StoreFeaturedItem = ({ product }) => {
             {price ? formatPrice(price['en-US'], lng) : t('variable')}
           </p>
         </div>
+
+        {stockable['en-US'] ? (
+          itemsInStock['en-US'] > 0 ? (
+            <span className="flex w-max items-center gap-2 bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
+              {itemsInStock['en-US']} {t('in-stock')}
+              <Circle className="w-1.5 bg-green-500" />
+            </span>
+          ) : (
+            <span className="w-max bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
+              {t('sold-out')}
+            </span>
+          )
+        ) : (
+          <span className="w-max bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
+            {t('made-on-order')}
+          </span>
+        )}
+
         <p className="line-clamp-3 text-sm text-zinc-400">{description[lng]}</p>
         <Button
           as={Link}

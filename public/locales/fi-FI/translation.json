@@ -48,7 +48,8 @@
     "money-back": "Palautusoikeus",
     "warranty": "Takuu",
     "cash": "Käteinen",
-    "bank-transfer": "Tilisiirto"
+    "bank-transfer": "Tilisiirto",
+    "online": "Verkkomaksu"
   },
   "limited-time": "Erikoistarjous",
   "view-product": "Näytä tuote",
