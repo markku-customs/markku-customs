@@ -58,8 +58,9 @@ const StoreFeaturedItem = ({ product }) => {
               <Circle className="w-1.5 bg-green-500" />
             </span>
           ) : (
-            <span className="w-max bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
+            <span className="flex w-max items-center gap-2 bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
               {t('sold-out')}
+              <Circle className="w-1.5 bg-red-500" />
             </span>
           )
         ) : (
