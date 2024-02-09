@@ -33,7 +33,7 @@ const Game = ({ game, fps }) => {
   const { image, name } = game.fields;
 
   return (
-    <li>
+    <li className="flex flex-col">
       <figure className="group relative">
         <img
           className="aspect-square w-full object-cover"
@@ -43,12 +43,14 @@ const Game = ({ game, fps }) => {
           height={192}
           loading="lazy"
         />
-        <figcaption className="transition-200 absolute inset-0 bg-black/80 p-4 text-xs opacity-0 transition group-hover:opacity-100">
-          <p>{image['en-US'].fields.description['en-US']}</p>
-        </figcaption>
+        {image['en-US'].fields.description['en-US'] && (
+          <figcaption className="transition-200 absolute inset-0 bg-black/80 p-4 text-xs opacity-0 transition group-hover:opacity-100">
+            <p>{image['en-US'].fields.description['en-US']}</p>
+          </figcaption>
+        )}
       </figure>
-      <h3 className="mt-2 text-sm text-zinc-400">{name['en-US']}</h3>
-      <p className="mt-1 font-semibold">{fps} FPS</p>
+      <h3 className="mb-1 mt-2 text-sm text-zinc-400">{name['en-US']}</h3>
+      <p className="mt-auto font-semibold">{fps} FPS</p>
     </li>
   );
 };
