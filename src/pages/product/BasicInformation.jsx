@@ -6,7 +6,7 @@ import Button from '@/components/ui/Button';
 import Circle from '@/components/ui/Circle';
 import HorizontalSeparator from '@/components/ui/HorizontalSeparator';
 
-import { formatPrice, formatUnit, splitLineBreaks } from '@/utils';
+import { formatPrice, splitLineBreaks } from '@/utils';
 
 const BasicInformation = ({
   name,
@@ -27,6 +27,7 @@ const BasicInformation = ({
       <p className="text-2xl font-semibold">
         {price ? formatPrice(price['en-US'], lng) : t('variable')}
       </p>
+
       {tags && (
         <div className="flex flex-wrap gap-2">
           {tags[lng].map((tag) => (
@@ -34,23 +35,6 @@ const BasicInformation = ({
           ))}
         </div>
       )}
-
-      {/* <div className="flex gap-2">
-          <Badge>{`${t('tabs.pickup')}: ${formatPrice(0, lng)}`}</Badge>
-          <Badge title={t('tabs.turku-region')}>{`${t(
-            'tabs.home-delivery'
-          )}: ${formatPrice(15, lng)}`}</Badge>
-        </div>
-        <div className="flex gap-2">
-          {!noReturn && (
-            <Badge>
-              {`${t('money-back')}: ${formatUnit(7, { unit: 'day' }, lng)}`}
-            </Badge>
-          )}
-          <Badge>
-            {`${t('warranty')}: ${formatUnit(1, { unit: 'year' }, lng)}`}
-          </Badge>
-        </div> */}
 
       <div className="flex flex-col gap-2">
         {splitLineBreaks(description, (text, key) => (
@@ -63,19 +47,21 @@ const BasicInformation = ({
       <HorizontalSeparator />
 
       {stockable ? (
-        itemsInStock > 0 ? (
-          <span className="flex w-max items-center gap-2 bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
-            {itemsInStock} {t('in-stock')}
-            <Circle className="w-1.5 bg-green-500" />
-          </span>
-        ) : (
-          <span className="flex w-max items-center gap-2 bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
-            {t('sold-out')}
-            <Circle className="w-1.5 bg-red-500" />
-          </span>
-        )
+        <span className="flex w-max items-center gap-2 rounded bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
+          {itemsInStock > 0 ? (
+            <>
+              {itemsInStock} {t('in-stock')}
+              <Circle className="w-1.5 bg-green-500" />
+            </>
+          ) : (
+            <>
+              {t('sold-out')}
+              <Circle className="w-1.5 bg-red-500" />
+            </>
+          )}
+        </span>
       ) : (
-        <span className="w-max bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
+        <span className="w-max rounded bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
           {t('made-on-order')}
         </span>
       )}
