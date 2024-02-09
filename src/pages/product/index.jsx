@@ -32,6 +32,7 @@ const ProductPage = () => {
   const stockable = product?.fields?.stockable;
   const itemsInStock = product?.fields?.itemsInStock;
   const specifications = product?.fields?.specifications;
+  const tags = product?.fields?.tags;
   const images = product?.fields?.images;
   const gameNames = product?.fields?.gameNames;
   const gameFrameRates = product?.fields?.gameFrameRates;
@@ -58,6 +59,7 @@ const ProductPage = () => {
               itemsInStock={itemsInStock['en-US']}
               noReturn={noReturn['en-US']}
               paymentLink={paymentLink}
+              tags={tags}
             />
 
             <ImageCarousel images={images} />

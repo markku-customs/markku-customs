@@ -14,8 +14,8 @@ const BasicInformation = ({
   price,
   stockable,
   itemsInStock,
-  noReturn,
   paymentLink,
+  tags,
 }) => {
   const { t, i18n } = useTranslation();
 
@@ -27,8 +27,15 @@ const BasicInformation = ({
       <p className="text-2xl font-semibold">
         {price ? formatPrice(price['en-US'], lng) : t('variable')}
       </p>
-      <div className="flex flex-wrap gap-2">
-        <div className="flex gap-2">
+      {tags && (
+        <div className="flex flex-wrap gap-2">
+          {tags[lng].map((tag) => (
+            <Badge key={tag}>{tag}</Badge>
+          ))}
+        </div>
+      )}
+
+      {/* <div className="flex gap-2">
           <Badge>{`${t('tabs.pickup')}: ${formatPrice(0, lng)}`}</Badge>
           <Badge title={t('tabs.turku-region')}>{`${t(
             'tabs.home-delivery'
@@ -43,8 +50,8 @@ const BasicInformation = ({
           <Badge>
             {`${t('warranty')}: ${formatUnit(1, { unit: 'year' }, lng)}`}
           </Badge>
-        </div>
-      </div>
+        </div> */}
+
       <div className="flex flex-col gap-2">
         {splitLineBreaks(description, (text, key) => (
           <p className="text-sm text-zinc-400" key={key}>
