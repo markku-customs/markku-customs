@@ -52,18 +52,21 @@ const StoreFeaturedItem = ({ product }) => {
         </div>
 
         {stockable['en-US'] ? (
-          itemsInStock['en-US'] > 0 ? (
-            <span className="flex w-max items-center gap-2 bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
-              {itemsInStock['en-US']} {t('in-stock')}
-              <Circle className="w-1.5 bg-green-500" />
-            </span>
-          ) : (
-            <span className="w-max bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
-              {t('sold-out')}
-            </span>
-          )
+          <span className="flex w-max items-center gap-2 rounded bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
+            {itemsInStock['en-US'] > 0 ? (
+              <>
+                {itemsInStock['en-US']} {t('in-stock')}
+                <Circle className="w-1.5 bg-green-500" />
+              </>
+            ) : (
+              <>
+                {t('sold-out')}
+                <Circle className="w-1.5 bg-red-500" />
+              </>
+            )}
+          </span>
         ) : (
-          <span className="w-max bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
+          <span className="w-max rounded bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
             {t('made-on-order')}
           </span>
         )}

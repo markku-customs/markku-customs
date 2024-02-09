@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 const SectionHeading = ({ children, className = '' }) => {
   return (
     <h2 className={clsx('font-heading text-4xl md:text-6xl', className)}>
-      <span className="mr-4 text-red-600" aria-hidden="true">
+      <span
+        className="mr-2 text-3xl text-red-600 md:mr-4 md:text-6xl"
+        aria-hidden="true"
+      >
         #
       </span>
       {children}

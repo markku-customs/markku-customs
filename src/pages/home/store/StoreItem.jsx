@@ -40,13 +40,22 @@ const StoreItem = ({ product }) => {
       <div className="flex flex-1 flex-col justify-between gap-2 p-4">
         <div className="flex items-center justify-between">
           <h3 className="font-heading">{name[lng]}</h3>
-          {stockable['en-US'] && itemsInStock['en-US'] > 0 && (
+
+          {stockable['en-US'] && (
             <div
               className="flex items-center gap-2 text-xs font-semibold"
-              title={`${itemsInStock['en-US']} ${t('in-stock')}`}
+              title={
+                itemsInStock['en-US'] > 0
+                  ? `${itemsInStock['en-US']} ${t('in-stock')}`
+                  : t('sold-out')
+              }
             >
               {itemsInStock['en-US']}
-              <Circle className="w-1.5 bg-green-500" />
+              <Circle
+                className={`w-1.5 ${
+                  itemsInStock['en-US'] > 0 ? 'bg-green-500' : 'bg-red-500'
+                }`}
+              />
             </div>
           )}
         </div>
