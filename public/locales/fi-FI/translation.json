@@ -33,7 +33,8 @@
     "send": "Lähetä Viesti",
     "feedback": {
       "success": "Lähetys onnistui!",
-      "error": "Tapahtui virhe! Katso lisätietoja konsolista."
+      "error": "Tapahtui virhe! Katso lisätietoja konsolista.",
+      "pending": "Lähetyksesi on vireillä..."
     }
   },
   "tabs": {
@@ -56,8 +57,6 @@
   "optional": "Valinnainen",
   "variable": "Muuttuva",
   "privacy-checkbox": "Valitsemalla tämän hyväksyt <2>tietosuojaselosteemme</2>.",
-  "money-back": "Palautusoikeus",
-  "warranty": "Takuu",
   "in-stock": "kpl varastossa",
   "sold-out": "Loppuunmyyty",
   "made-on-order": "Tehty tilauksesta",
@@ -84,9 +83,6 @@
     "title": " Hups! Jotain meni pieleen.",
     "subtitle": "Sovelluksessa tapahtui odottamaton virhe. Yritä hetken kuluttua uudelleen.",
     "button": "Yritä uudelleen"
-  },
-  "input": {
-    "required": "Tämä kenttä on pakollinen."
   },
   "loading": "Ladataan...",
   "automatic-retry": "Sivusto uudelleenlähettää pyyntöjä automaattisesti yrittääkseen korjata ongelman."

@@ -5,6 +5,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base Styles */
+
 :root {
   --color-background: #0c0c0e;
   --color-zinc-900: #18181d;
@@ -311,4 +313,37 @@ body {
   .slick-arrow {
     z-index: 10;
   }
+}
+
+/* Toastify Override */
+
+:root {
+  --toastify-color-success: #22c55e;
+  --toastify-color-error: #ef4444;
+
+  --toastify-font-family: 'Inter', sans-serif;
+  --toastify-toast-min-height: 72px;
+}
+
+.Toastify__toast {
+  font-size: 0.875rem;
+  background-color: #18181b;
+  border: 1px solid #27272a;
+  color: white;
+}
+
+.Toastify__toast-icon {
+  height: 16px;
+}
+
+.Toastify__progress-bar {
+  height: 2px;
+}
+
+.Toastify__close-button {
+  opacity: 0.6;
+}
+
+.Toastify__close-button > svg {
+  color: white;
 }
