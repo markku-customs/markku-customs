@@ -28,16 +28,17 @@ const ContactForm = () => {
     };
 
     try {
-      const response = await fetch(
-        '/.netlify/functions/sendEmail',
-        requestOptions
+      const response = await toast.promise(
+        fetch('/.netlify/functions/sendEmail', requestOptions),
+        {
+          pending: t('contact.feedback.pending'),
+          success: t('contact.feedback.success'),
+          error: t('contact.feedback.error'),
+        }
       );
-      const jsonData = await response.json();
-
-      console.log(jsonData);
-      toast.success(t('contact.feedback.success'));
+      console.info(response);
     } catch (error) {
-      console.log(error);
+      console.error(error);
       toast.error(t('contact.feedback.error'));
     }
   };

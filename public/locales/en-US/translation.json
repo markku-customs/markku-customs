@@ -33,7 +33,8 @@
     "send": "Send Message",
     "feedback": {
       "success": "Submission successful!",
-      "error": "An error occured! See console for more details."
+      "error": "An error occured! See console for more details.",
+      "pending": "Your submission is pending..."
     }
   },
   "tabs": {
