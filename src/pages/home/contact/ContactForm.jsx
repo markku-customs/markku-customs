@@ -1,24 +1,61 @@
 import { useEffect } from 'react';
 
+import { yupResolver } from '@hookform/resolvers/yup';
 import { clsx } from 'clsx';
 import { useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import { useHookFormMask } from 'use-mask-input';
+import * as yup from 'yup';
 
 import Button from '@/components/ui/Button';
+
+const schema = yup.object().shape({
+  email: yup
+    .string()
+    .email({
+      'en-US': 'Email is not valid.',
+      'fi-FI': 'Sähköposti ei ole kelvollinen.',
+    })
+    .required({
+      'en-US': 'Email is a required field.',
+      'fi-FI': 'Sähköposti on pakollinen kenttä.',
+    }),
+  name: yup.string().required({
+    'en-US': 'Name is a required field.',
+    'fi-FI': 'Nimi on pakollinen kenttä.',
+  }),
+  phone: yup.string(),
+  message: yup
+    .string()
+    .required({
+      'en-US': 'Message is a required field.',
+      'fi-FI': 'Viesti on pakollinen kenttä.',
+    })
+    .max(1000, {
+      'en-US': 'Message can contain a maximum of 1000 characters.',
+      'fi-FI': 'Viestissä saa olla enintään 1000 merkkiä.',
+    }),
+  privacy: yup.boolean().oneOf([true], {
+    'en-US': 'You must agree to our privacy policy.',
+    'fi-FI': 'Sinun täytyy hyväksyä tietosuojaselosteemme.',
+  }),
+});
 
 const ContactForm = () => {
   const {
     register,
     handleSubmit,
+    watch,
     reset,
     formState,
     formState: { isSubmitting, isSubmitSuccessful, errors },
-  } = useForm();
+  } = useForm({ resolver: yupResolver(schema) });
   const registerWithMask = useHookFormMask(register);
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const lng = i18n.language;
 
   const onSubmit = async (data) => {
     const requestOptions = {
@@ -28,16 +65,17 @@ const ContactForm = () => {
     };
 
     try {
-      const response = await fetch(
-        '/.netlify/functions/sendEmail',
-        requestOptions
+      const response = await toast.promise(
+        fetch('/.netlify/functions/sendEmail', requestOptions),
+        {
+          pending: t('contact.feedback.pending'),
+          success: t('contact.feedback.success'),
+          error: t('contact.feedback.error'),
+        }
       );
-      const jsonData = await response.json();
-
-      console.log(jsonData);
-      toast.success(t('contact.feedback.success'));
+      console.info(response);
     } catch (error) {
-      console.log(error);
+      console.error(error);
       toast.error(t('contact.feedback.error'));
     }
   };
@@ -58,10 +96,7 @@ const ContactForm = () => {
           <label className="text-sm" htmlFor="email-input">
             {t('contact.email')}
             <input
-              {...register('email', {
-                required: true,
-                pattern: /^[\w-/.]+@([\w-]+\.)+[\w-]{2,4}$/,
-              })}
+              {...register('email')}
               id="email-input"
               type="text"
               className={clsx(
@@ -70,7 +105,7 @@ const ContactForm = () => {
               )}
             />
             {errors.email && (
-              <span className="text-red-600">{t('input.required')}</span>
+              <span className="text-red-600">{errors.email.message[lng]}</span>
             )}
           </label>
         </div>
@@ -78,7 +113,7 @@ const ContactForm = () => {
           <label className="text-sm" htmlFor="name-input">
             {t('contact.name')}
             <input
-              {...register('name', { required: true })}
+              {...register('name')}
               id="name-input"
               type="text"
               className={clsx(
@@ -87,7 +122,7 @@ const ContactForm = () => {
               )}
             />
             {errors.name && (
-              <span className="text-red-600">{t('input.required')}</span>
+              <span className="text-red-600">{errors.name.message[lng]}</span>
             )}
           </label>
         </div>
@@ -104,7 +139,7 @@ const ContactForm = () => {
             )}
           />
           {errors.phone && (
-            <span className="text-red-600">{t('input.required')}</span>
+            <span className="text-red-600">{errors.phone.message}</span>
           )}
         </label>
       </div>
@@ -112,7 +147,7 @@ const ContactForm = () => {
         <label className="text-sm" htmlFor="message-input">
           {t('contact.message')}
           <textarea
-            {...register('message', { required: true })}
+            {...register('message')}
             id="message-input"
             placeholder={t('contact.type-message')}
             className={clsx(
@@ -120,9 +155,17 @@ const ContactForm = () => {
               errors.message && 'ring-1 ring-red-600'
             )}
           ></textarea>
-          {errors.message && (
-            <span className="text-red-600">{t('input.required')}</span>
-          )}
+
+          <div className="flex justify-between">
+            {errors.message && (
+              <span className="text-red-600">
+                {errors.message.message[lng]}
+              </span>
+            )}
+            <p className="text-sm text-zinc-400">
+              {watch('message') ? `${watch('message').length}/1000` : ''}
+            </p>
+          </div>
         </label>
       </div>
       <div>
@@ -131,7 +174,7 @@ const ContactForm = () => {
           htmlFor="privacy-policy-checkbox"
         >
           <input
-            {...register('privacy', { required: true })}
+            {...register('privacy')}
             id="privacy-policy-checkbox"
             type="checkbox"
             className={clsx(
@@ -154,7 +197,7 @@ const ContactForm = () => {
             </Trans>
           </span>
           {errors.privacy && (
-            <span className="text-red-600">{t('input.required')}</span>
+            <span className="text-red-600">{errors.privacy.message[lng]}</span>
           )}
         </label>
       </div>
