@@ -329,7 +329,7 @@ body {
   font-size: 0.875rem;
   background-color: #18181b;
   border: 1px solid #27272a;
-  color: #a1a1aa;
+  color: white;
 }
 
 .Toastify__toast-icon {
@@ -345,5 +345,5 @@ body {
 }
 
 .Toastify__close-button > svg {
-  color: #a1a1aa;
+  color: white;
 }

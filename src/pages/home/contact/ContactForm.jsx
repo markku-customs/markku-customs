@@ -32,7 +32,10 @@ const schema = yup.object().shape({
       'en-US': 'Message is a required field.',
       'fi-FI': 'Viesti on pakollinen kenttä.',
     })
-    .max(1000),
+    .max(1000, {
+      'en-US': 'Message can contain a maximum of 1000 characters.',
+      'fi-FI': 'Viestissä saa olla enintään 1000 merkkiä.',
+    }),
   privacy: yup.boolean().oneOf([true], {
     'en-US': 'You must agree to our privacy policy.',
     'fi-FI': 'Sinun täytyy hyväksyä tietosuojaselosteemme.',
@@ -43,6 +46,7 @@ const ContactForm = () => {
   const {
     register,
     handleSubmit,
+    watch,
     reset,
     formState,
     formState: { isSubmitting, isSubmitSuccessful, errors },
@@ -151,9 +155,17 @@ const ContactForm = () => {
               errors.message && 'ring-1 ring-red-600'
             )}
           ></textarea>
-          {errors.message && (
-            <span className="text-red-600">{errors.message.message[lng]}</span>
-          )}
+
+          <div className="flex justify-between">
+            {errors.message && (
+              <span className="text-red-600">
+                {errors.message.message[lng]}
+              </span>
+            )}
+            <p className="text-sm text-zinc-400">
+              {watch('message') ? `${watch('message').length}/1000` : ''}
+            </p>
+          </div>
         </label>
       </div>
       <div>
