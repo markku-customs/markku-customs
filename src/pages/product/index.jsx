@@ -38,7 +38,6 @@ const ProductPage = () => {
   const gameFrameRates = product?.fields?.gameFrameRates;
   const paymentLink = product?.fields?.paymentLink;
   const bundles = product?.fields?.bundles;
-  const noReturn = product?.fields?.noReturn;
 
   const lng = i18n.language;
 
@@ -57,7 +56,6 @@ const ProductPage = () => {
               description={description[lng] || description['en-US']}
               stockable={stockable['en-US']}
               itemsInStock={itemsInStock['en-US']}
-              noReturn={noReturn['en-US']}
               paymentLink={paymentLink}
               tags={tags}
             />
