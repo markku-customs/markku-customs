@@ -8,8 +8,8 @@ const links = [
   {
     icon: PhoneIcon,
     key: 'contact.phone',
-    content: '+358 40 932 3040',
-    href: 'tel: +358409323040',
+    content: '+358 46 800 3417',
+    href: 'tel: +358468003417',
     blank: false,
   },
   {
