@@ -30,7 +30,7 @@ const Bundle = ({ bundle }) => {
   const lng = i18n.language;
 
   return (
-    <article className="flex gap-4">
+    <article className="flex gap-6 bg-zinc-900 p-6">
       <div className="hidden md:block">
         <img
           className="aspect-square w-[6rem] max-w-[6rem] object-cover"
@@ -48,6 +48,9 @@ const Bundle = ({ bundle }) => {
       </div>
       <div className="flex h-full flex-col gap-2">
         <h3 className="font-semibold">{name[lng]}</h3>
+        <p className="text-2xl font-semibold">
+          {formatPrice(price['en-US'], lng)}
+        </p>
         {bundleProducts['en-US'].map((product) => (
           <a
             href={product.fields.link['en-US']}
@@ -68,11 +71,11 @@ const Bundle = ({ bundle }) => {
             target="_blank"
             rel="noreferrer"
           >
-            {t('order')} — {formatPrice(price['en-US'], lng)}
+            {t('order')}
           </Button>
         ) : (
           <Button size="small" className="mt-2 w-max" as={Link} to="/#contact">
-            {t('inquire')} — {formatPrice(price['en-US'], lng)}
+            {t('inquire')}
           </Button>
         )}
       </div>
