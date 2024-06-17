@@ -7,3 +7,4 @@ export { default as MenuOpenIcon } from './MenuOpenIcon';
 export { default as StarIcon } from './StarIcon';
 export { default as ArrowOutwardIcon } from './ArrowOutwardIcon';
 export { default as TimerIcon } from './TimerIcon';
+export { default as WhatsAppIcon } from './WhatsAppIcon';
