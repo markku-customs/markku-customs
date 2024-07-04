@@ -1,16 +1,16 @@
 import { useTranslation } from 'react-i18next';
 
-import { EmailIcon, InstagramIcon, PhoneIcon, TikTokIcon } from '@/icons';
+import { EmailIcon, InstagramIcon, TikTokIcon, WhatsAppIcon } from '@/icons';
 
 import ContactLink from './ContactLink';
 
 const links = [
   {
-    icon: PhoneIcon,
-    key: 'contact.phone',
+    icon: WhatsAppIcon,
+    key: 'contact.whatsapp',
     content: '+358 46 800 4649',
-    href: 'tel: +358468004649',
-    blank: false,
+    href: 'https://wa.me/358468004649',
+    blank: true,
   },
   {
     icon: EmailIcon,

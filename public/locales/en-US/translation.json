@@ -24,6 +24,7 @@
   },
   "contact": {
     "phone": "Phone Number",
+    "whatsapp": "WhatsApp",
     "email": "Email",
     "instagram": "Instagram",
     "tiktok": "TikTok",
@@ -41,7 +42,8 @@
     "delivery-options": "Delivery Options",
     "payment-options": "Payment Options",
     "guarantees": "Guarantees",
-    "turku-region": "Turku City Region",
+    "turku": "Turku and Helsinki",
+    "turku-region": "Turku City Region and Helsinki Capital Region",
     "pickup": "Pickup",
     "home-delivery": "Home Delivery",
     "post": "Post Delivery",
