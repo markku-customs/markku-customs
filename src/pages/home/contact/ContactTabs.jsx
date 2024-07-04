@@ -48,7 +48,7 @@ const ContactTabs = () => {
             <ul className="flex flex-col gap-4">
               <PanelItem
                 title={`${t('tabs.pickup')} \u2013 ${formatPrice(0, lng)}`}
-                subtitle="Turku"
+                subtitle={t('tabs.turku')}
               />
               <PanelItem
                 title={`${t('tabs.home-delivery')} \u2013 ${formatPrice(
