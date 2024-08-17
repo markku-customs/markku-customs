@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
-const Spinner = ({ className, ...props }) => {
+const Spinner = ({ className = '', ...props }) => {
   return (
     <svg
       aria-hidden="true"
@@ -25,10 +25,6 @@ const Spinner = ({ className, ...props }) => {
 
 Spinner.propTypes = {
   className: PropTypes.string,
-};
-
-Spinner.defaultProps = {
-  className: '',
 };
 
 export default Spinner;

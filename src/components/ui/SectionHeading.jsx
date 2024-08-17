@@ -20,8 +20,4 @@ SectionHeading.propTypes = {
   className: PropTypes.string,
 };
 
-SectionHeading.defaultProps = {
-  className: '',
-};
-
 export default SectionHeading;

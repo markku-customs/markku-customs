@@ -1,10 +1,11 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
+import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
 import Circle from '@/components/ui/Circle';
 
-import { formatPrice, getImageSrc } from '@/utils';
+import { formatPrice, getImageSrc, getPercentageDifference } from '@/utils';
 
 import { TimerIcon } from '@/icons';
 
@@ -17,6 +18,7 @@ const StoreFeaturedItem = ({ product }) => {
     name,
     description,
     price,
+    normalPrice,
     featuredImage,
     stockable,
     itemsInStock,
@@ -49,10 +51,20 @@ const StoreFeaturedItem = ({ product }) => {
           <p className="mt-2 font-heading text-4xl md:text-5xl">
             {price ? formatPrice(price['en-US'], lng) : t('variable')}
           </p>
+          {price && normalPrice && (
+            <div className="mt-1 flex items-center gap-2">
+              <p className="text-zinc-400">
+                Norm. {normalPrice && formatPrice(normalPrice['en-US'], lng)}
+              </p>
+              <Badge variant="green" size="small">
+                {getPercentageDifference(normalPrice['en-US'], price['en-US'])}%
+              </Badge>
+            </div>
+          )}
         </div>
 
         {stockable['en-US'] ? (
-          <span className="flex w-max items-center gap-2 rounded bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
+          <Badge className="w-max gap-2">
             {itemsInStock['en-US'] > 0 ? (
               <>
                 {itemsInStock['en-US']} {t('in-stock')}
@@ -64,11 +76,9 @@ const StoreFeaturedItem = ({ product }) => {
                 <Circle className="w-1.5 bg-red-500" />
               </>
             )}
-          </span>
+          </Badge>
         ) : (
-          <span className="w-max rounded bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
-            {t('made-on-order')}
-          </span>
+          <Badge className="w-max">{t('made-on-order')}</Badge>
         )}
 
         <p className="line-clamp-3 text-sm text-zinc-400">{description[lng]}</p>

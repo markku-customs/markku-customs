@@ -6,12 +6,13 @@ import Button from '@/components/ui/Button';
 import Circle from '@/components/ui/Circle';
 import HorizontalSeparator from '@/components/ui/HorizontalSeparator';
 
-import { formatPrice, splitLineBreaks } from '@/utils';
+import { formatPrice, getPercentageDifference, splitLineBreaks } from '@/utils';
 
 const BasicInformation = ({
   name,
   description,
   price,
+  normalPrice,
   stockable,
   itemsInStock,
   paymentLink,
@@ -24,9 +25,21 @@ const BasicInformation = ({
   return (
     <section className="basic-information-container flex flex-col gap-4">
       <h1 className="font-heading text-4xl">{name}</h1>
-      <p className="text-2xl font-semibold">
-        {price ? formatPrice(price['en-US'], lng) : t('variable')}
-      </p>
+      <div>
+        <p className="text-2xl font-semibold">
+          {price ? formatPrice(price['en-US'], lng) : t('variable')}
+        </p>
+        {price && normalPrice && (
+          <div className="mt-1 flex items-center gap-2">
+            <p className="text-zinc-400">
+              Norm. {normalPrice && formatPrice(normalPrice['en-US'], lng)}
+            </p>
+            <Badge variant="green" size="small">
+              {getPercentageDifference(normalPrice['en-US'], price['en-US'])}%
+            </Badge>
+          </div>
+        )}
+      </div>
 
       {tags && (
         <div className="flex flex-wrap gap-2">
@@ -47,10 +60,10 @@ const BasicInformation = ({
       <HorizontalSeparator />
 
       {stockable ? (
-        <span className="flex w-max items-center gap-2 rounded bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
-          {itemsInStock > 0 ? (
+        <Badge className="w-max gap-2">
+          {itemsInStock['en-US'] > 0 ? (
             <>
-              {itemsInStock} {t('in-stock')}
+              {itemsInStock['en-US']} {t('in-stock')}
               <Circle className="w-1.5 bg-green-500" />
             </>
           ) : (
@@ -59,11 +72,9 @@ const BasicInformation = ({
               <Circle className="w-1.5 bg-red-500" />
             </>
           )}
-        </span>
+        </Badge>
       ) : (
-        <span className="w-max rounded bg-zinc-800 px-3 py-1.5 text-xs font-semibold">
-          {t('made-on-order')}
-        </span>
+        <Badge className="w-max">{t('made-on-order')}</Badge>
       )}
 
       <div className="flex flex-wrap gap-4">

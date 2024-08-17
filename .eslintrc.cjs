@@ -54,5 +54,6 @@ module.exports = {
     'no-nested-ternary': 0,
     'import/extensions': 0,
     'react/forbid-prop-types': 0,
+    'react/require-default-props': 0,
   },
 };

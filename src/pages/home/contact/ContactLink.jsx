@@ -27,8 +27,4 @@ ContactLink.propTypes = {
   blank: PropTypes.bool,
 };
 
-ContactLink.defaultProps = {
-  blank: false,
-};
-
 export default ContactLink;

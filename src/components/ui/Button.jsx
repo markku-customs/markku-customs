@@ -17,7 +17,7 @@ const Button = ({
   variant = 'primary',
   size = 'base',
   transition = true,
-  icon,
+  icon = null,
   disabled = false,
   className = '',
   ...props
@@ -50,16 +50,6 @@ Button.propTypes = {
   icon: PropTypes.element,
   disabled: PropTypes.bool,
   className: PropTypes.string,
-};
-
-Button.defaultProps = {
-  as: 'button',
-  variant: 'primary',
-  size: 'base',
-  transition: true,
-  icon: null,
-  disabled: false,
-  className: '',
 };
 
 export default Button;

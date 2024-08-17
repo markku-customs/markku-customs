@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import Spinner from '@/components/ui/Spinner';
 
-const Loading = ({ error, className }) => {
+const Loading = ({ error = null, className = '' }) => {
   const { t, i18n } = useTranslation();
 
   const lng = i18n.language;
@@ -34,11 +34,6 @@ const Loading = ({ error, className }) => {
 Loading.propTypes = {
   error: PropTypes.object,
   className: PropTypes.string,
-};
-
-Loading.defaultProps = {
-  error: null,
-  className: '',
 };
 
 export default Loading;

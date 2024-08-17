@@ -35,3 +35,7 @@ export const formatUnit = (number, options, locale = 'en-US') => {
 export const formatDate = (date, options, locale = 'en-US') => {
   return new Intl.DateTimeFormat(locale, options).format(date);
 };
+
+export const getPercentageDifference = (initial, final, decimals = 0) => {
+  return (((final - initial) / initial) * 100).toFixed(decimals);
+};
