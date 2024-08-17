@@ -47,10 +47,4 @@ SEO.propTypes = {
   image: PropTypes.string,
 };
 
-SEO.defaultProps = {
-  description: null,
-  url: '/',
-  image: '/img/hero/hero-2xl-1536.webp',
-};
-
 export default SEO;
