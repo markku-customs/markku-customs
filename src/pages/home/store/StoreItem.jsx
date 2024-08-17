@@ -1,16 +1,29 @@
 import { useTranslation } from 'react-i18next';
 
+import Badge from '@/components/ui/Badge';
 import Circle from '@/components/ui/Circle';
 
-import { formatPrice, getImageSrc, getPlural } from '@/utils';
+import {
+  formatPrice,
+  getImageSrc,
+  getPercentageDifference,
+  getPlural,
+} from '@/utils';
 
 const StoreItem = ({ product }) => {
   const { t, i18n } = useTranslation();
 
   const { fields } = product;
 
-  const { name, price, featuredImage, bundles, stockable, itemsInStock } =
-    fields;
+  const {
+    name,
+    price,
+    normalPrice,
+    featuredImage,
+    bundles,
+    stockable,
+    itemsInStock,
+  } = fields;
 
   const lng = i18n.language;
 
@@ -59,9 +72,16 @@ const StoreItem = ({ product }) => {
             </div>
           )}
         </div>
-        <p className="font-heading text-3xl">
-          {price ? formatPrice(price['en-US'], lng) : t('variable')}
-        </p>
+        <div className="flex items-center justify-between">
+          <p className="font-heading text-3xl">
+            {price ? formatPrice(price['en-US'], lng) : t('variable')}
+          </p>
+          {price && normalPrice && (
+            <Badge variant="green" size="small">
+              {getPercentageDifference(normalPrice['en-US'], price['en-US'])}%
+            </Badge>
+          )}
+        </div>
       </div>
     </article>
   );
