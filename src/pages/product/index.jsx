@@ -29,6 +29,7 @@ const ProductPage = () => {
   const name = product?.fields?.name;
   const description = product?.fields?.description;
   const price = product?.fields?.price;
+  const normalPrice = product?.fields?.normalPrice;
   const stockable = product?.fields?.stockable;
   const itemsInStock = product?.fields?.itemsInStock;
   const specifications = product?.fields?.specifications;
@@ -53,6 +54,7 @@ const ProductPage = () => {
             <BasicInformation
               name={name[lng]}
               price={price}
+              normalPrice={normalPrice}
               description={description[lng] || description['en-US']}
               stockable={stockable['en-US']}
               itemsInStock={itemsInStock['en-US']}

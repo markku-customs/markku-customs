@@ -6,12 +6,13 @@ import Button from '@/components/ui/Button';
 import Circle from '@/components/ui/Circle';
 import HorizontalSeparator from '@/components/ui/HorizontalSeparator';
 
-import { formatPrice, splitLineBreaks } from '@/utils';
+import { formatPrice, getPercentageDifference, splitLineBreaks } from '@/utils';
 
 const BasicInformation = ({
   name,
   description,
   price,
+  normalPrice,
   stockable,
   itemsInStock,
   paymentLink,
@@ -24,9 +25,21 @@ const BasicInformation = ({
   return (
     <section className="basic-information-container flex flex-col gap-4">
       <h1 className="font-heading text-4xl">{name}</h1>
-      <p className="text-2xl font-semibold">
-        {price ? formatPrice(price['en-US'], lng) : t('variable')}
-      </p>
+      <div>
+        <p className="text-2xl font-semibold">
+          {price ? formatPrice(price['en-US'], lng) : t('variable')}
+        </p>
+        {price && normalPrice && (
+          <div className="mt-1 flex gap-2">
+            <p className="text-zinc-400">
+              Norm. {normalPrice && formatPrice(normalPrice['en-US'], lng)}
+            </p>
+            <span className="flex items-center rounded bg-green-950 px-2 text-xs font-semibold text-green-500">
+              {getPercentageDifference(normalPrice['en-US'], price['en-US'])}%
+            </span>
+          </div>
+        )}
+      </div>
 
       {tags && (
         <div className="flex flex-wrap gap-2">
