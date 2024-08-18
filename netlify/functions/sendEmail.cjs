@@ -1,5 +1,7 @@
 const nodemailer = require('nodemailer');
 
+const { LNG } = require('@/constants');
+
 exports.handler = async (event) => {
   const { name, email, phone, message } = JSON.parse(event.body);
 
@@ -35,9 +37,9 @@ exports.handler = async (event) => {
       statusCode: 400,
       body: JSON.stringify({
         message: {
-          'en-US':
+          [LNG.en]:
             'The server cannot handle that request due to a client error.',
-          'fi-FI':
+          [LNG.fi]:
             'Palvelin ei voi käsitellä tätä pyyntöä asiakasvirheen vuoksi.',
         },
       }),
@@ -47,8 +49,8 @@ exports.handler = async (event) => {
       statusCode: 500,
       body: JSON.stringify({
         message: {
-          'en-US': 'An unexpected error occured on the server.',
-          'fi-FI': 'Palvelimella tapahtui odottamaton virhe.',
+          [LNG.en]: 'An unexpected error occured on the server.',
+          [LNG.fi]: 'Palvelimella tapahtui odottamaton virhe.',
         },
         error,
       }),

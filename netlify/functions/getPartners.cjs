@@ -1,5 +1,7 @@
 const { createClient } = require('contentful');
 
+const { LNG } = require('@/constants');
+
 exports.handler = async () => {
   try {
     const client = createClient({
@@ -21,8 +23,8 @@ exports.handler = async () => {
       statusCode: 500,
       body: JSON.stringify({
         message: {
-          'en-US': 'An unexpected error occured on the server.',
-          'fi-FI': 'Palvelimella tapahtui odottamaton virhe.',
+          [LNG.en]: 'An unexpected error occured on the server.',
+          [LNG.fi]: 'Palvelimella tapahtui odottamaton virhe.',
         },
         error,
       }),
