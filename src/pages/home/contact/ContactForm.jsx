@@ -10,35 +10,37 @@ import * as yup from 'yup';
 
 import Button from '@/components/ui/Button';
 
+import { LNG } from '@/constants';
+
 const schema = yup.object().shape({
   email: yup
     .string()
     .email({
-      'en-US': 'Email is not valid.',
-      'fi-FI': 'Sähköposti ei ole kelvollinen.',
+      [LNG.en]: 'Email is not valid.',
+      [LNG.fi]: 'Sähköposti ei ole kelvollinen.',
     })
     .required({
-      'en-US': 'Email is a required field.',
-      'fi-FI': 'Sähköposti on pakollinen kenttä.',
+      [LNG.en]: 'Email is a required field.',
+      [LNG.fi]: 'Sähköposti on pakollinen kenttä.',
     }),
   name: yup.string().required({
-    'en-US': 'Name is a required field.',
-    'fi-FI': 'Nimi on pakollinen kenttä.',
+    [LNG.en]: 'Name is a required field.',
+    [LNG.fi]: 'Nimi on pakollinen kenttä.',
   }),
   phone: yup.string(),
   message: yup
     .string()
     .required({
-      'en-US': 'Message is a required field.',
-      'fi-FI': 'Viesti on pakollinen kenttä.',
+      [LNG.en]: 'Message is a required field.',
+      [LNG.fi]: 'Viesti on pakollinen kenttä.',
     })
     .max(1000, {
-      'en-US': 'Message can contain a maximum of 1000 characters.',
-      'fi-FI': 'Viestissä saa olla enintään 1000 merkkiä.',
+      [LNG.en]: 'Message can contain a maximum of 1000 characters.',
+      [LNG.fi]: 'Viestissä saa olla enintään 1000 merkkiä.',
     }),
   privacy: yup.boolean().oneOf([true], {
-    'en-US': 'You must agree to our privacy policy.',
-    'fi-FI': 'Sinun täytyy hyväksyä tietosuojaselosteemme.',
+    [LNG.en]: 'You must agree to our privacy policy.',
+    [LNG.fi]: 'Sinun täytyy hyväksyä tietosuojaselosteemme.',
   }),
 });
 

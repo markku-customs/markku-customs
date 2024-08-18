@@ -4,6 +4,8 @@ import StarRating from '@/components/ui/StarRating';
 
 import { formatDate, splitLineBreaks } from '@/utils';
 
+import { LNG } from '@/constants';
+
 const ReviewItem = ({ review }) => {
   const { i18n } = useTranslation();
 
@@ -15,21 +17,21 @@ const ReviewItem = ({ review }) => {
 
   return (
     <a
-      href={link['en-US']}
+      href={link[LNG.en]}
       target="_blank"
       rel="noreferrer"
       className="block h-full"
     >
       <article className="duration-400 flex h-full flex-col gap-4 bg-zinc-900 p-4 transition hover:bg-zinc-800">
-        <h3 className="font-heading text-lg">{name['en-US']}</h3>
+        <h3 className="font-heading text-lg">{name[LNG.en]}</h3>
 
         <div className="flex items-center gap-2">
-          <StarRating rating={rating['en-US']} />
-          <span className="text-sm text-zinc-400">{rating['en-US']}/5</span>
+          <StarRating rating={rating[LNG.en]} />
+          <span className="text-sm text-zinc-400">{rating[LNG.en]}/5</span>
         </div>
 
         <div className="flex flex-col gap-2">
-          {splitLineBreaks(content['en-US'], (text, key) => (
+          {splitLineBreaks(content[LNG.en], (text, key) => (
             <p className="text-sm text-zinc-400" key={key}>
               {text}
             </p>
@@ -38,7 +40,7 @@ const ReviewItem = ({ review }) => {
 
         <p className="mt-auto text-xs capitalize text-zinc-500">
           {formatDate(
-            new Date(date['en-US']),
+            new Date(date[LNG.en]),
             {
               month: 'long',
               year: 'numeric',

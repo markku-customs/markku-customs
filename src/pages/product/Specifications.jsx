@@ -1,12 +1,12 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-import { options } from '@/constants';
+import { RICH_TEXT_OPTIONS } from '@/constants';
 
 const Specifications = ({ specifications }) => {
   return (
     <section className="specifications-container">
       <div className="specifications">
-        {documentToReactComponents(specifications, options)}
+        {documentToReactComponents(specifications, RICH_TEXT_OPTIONS)}
       </div>
     </section>
   );

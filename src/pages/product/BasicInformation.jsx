@@ -6,7 +6,14 @@ import Button from '@/components/ui/Button';
 import Circle from '@/components/ui/Circle';
 import HorizontalSeparator from '@/components/ui/HorizontalSeparator';
 
-import { formatPrice, getPercentageDifference, splitLineBreaks } from '@/utils';
+import {
+  formatPercentage,
+  formatPrice,
+  getPercentageDifference,
+  splitLineBreaks,
+} from '@/utils';
+
+import { LNG } from '@/constants';
 
 const BasicInformation = ({
   name,
@@ -27,15 +34,18 @@ const BasicInformation = ({
       <h1 className="font-heading text-4xl">{name}</h1>
       <div>
         <p className="text-2xl font-semibold">
-          {price ? formatPrice(price['en-US'], lng) : t('variable')}
+          {price ? formatPrice(price[LNG.en], lng) : t('variable')}
         </p>
         {price && normalPrice && (
           <div className="mt-1 flex items-center gap-2">
             <p className="text-zinc-400">
-              Norm. {normalPrice && formatPrice(normalPrice['en-US'], lng)}
+              Norm. {formatPrice(normalPrice[LNG.en], lng)}
             </p>
             <Badge variant="green" size="small">
-              {getPercentageDifference(normalPrice['en-US'], price['en-US'])}%
+              {formatPercentage(
+                getPercentageDifference(normalPrice[LNG.en], price[LNG.en]),
+                lng
+              )}
             </Badge>
           </div>
         )}
@@ -61,9 +71,9 @@ const BasicInformation = ({
 
       {stockable ? (
         <Badge className="w-max gap-2">
-          {itemsInStock['en-US'] > 0 ? (
+          {itemsInStock[LNG.en] > 0 ? (
             <>
-              {itemsInStock['en-US']} {t('in-stock')}
+              {itemsInStock[LNG.en]} {t('in-stock')}
               <Circle className="w-1.5 bg-green-500" />
             </>
           ) : (
@@ -82,7 +92,7 @@ const BasicInformation = ({
           <>
             <Button
               as="a"
-              href={paymentLink['en-US']}
+              href={paymentLink[LNG.en]}
               target="_blank"
               rel="noreferrer"
             >

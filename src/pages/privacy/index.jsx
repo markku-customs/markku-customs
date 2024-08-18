@@ -11,7 +11,7 @@ import { usePage } from '@/hooks';
 
 import { formatDate } from '@/utils';
 
-import { options } from '@/constants';
+import { RICH_TEXT_OPTIONS } from '@/constants';
 
 const PrivacyPage = () => {
   const { t, i18n } = useTranslation();
@@ -37,7 +37,10 @@ const PrivacyPage = () => {
               {formatDate(new Date(page.sys.updatedAt), {}, lng)}
             </div>
             <section>
-              {documentToReactComponents(page.fields.content[lng], options)}
+              {documentToReactComponents(
+                page.fields.content[lng],
+                RICH_TEXT_OPTIONS
+              )}
             </section>
           </>
         )}

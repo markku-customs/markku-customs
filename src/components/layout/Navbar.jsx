@@ -6,6 +6,8 @@ import { HashLink as Link } from 'react-router-hash-link';
 
 import Container from '@/components/layout/Container';
 
+import { LNG } from '@/constants';
+
 import { MenuCloseIcon, MenuOpenIcon } from '@/icons';
 
 const links = [
@@ -54,7 +56,7 @@ const Navbar = () => {
               <button
                 className="w-10 rounded bg-zinc-950 px-2 py-1 transition hover:bg-zinc-900"
                 type="button"
-                onClick={() => i18n.changeLanguage('fi-FI')}
+                onClick={() => i18n.changeLanguage(LNG.fi)}
                 title="Käännä suomeksi"
                 aria-label="käännä suomeksi"
               >
@@ -63,7 +65,7 @@ const Navbar = () => {
               <button
                 className="w-10 rounded bg-zinc-950 px-2 py-1 transition hover:bg-zinc-900"
                 type="button"
-                onClick={() => i18n.changeLanguage('en-US')}
+                onClick={() => i18n.changeLanguage(LNG.en)}
                 title="Translate into English"
                 aria-label="translate into english"
               >
@@ -125,7 +127,7 @@ const Navbar = () => {
             <button
               className="w-10 rounded bg-zinc-950 px-2 py-1 transition hover:bg-zinc-900"
               type="button"
-              onClick={() => i18n.changeLanguage('fi-FI')}
+              onClick={() => i18n.changeLanguage(LNG.fi)}
               title="Käännä suomeksi"
               aria-label="käännä suomeksi"
             >
@@ -134,7 +136,7 @@ const Navbar = () => {
             <button
               className="w-10 rounded bg-zinc-950 px-2 py-1 transition hover:bg-zinc-900"
               type="button"
-              onClick={() => i18n.changeLanguage('en-US')}
+              onClick={() => i18n.changeLanguage(LNG.en)}
               title="Translate into English"
               aria-label="translate into english"
             >

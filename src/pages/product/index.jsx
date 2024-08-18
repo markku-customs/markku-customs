@@ -9,6 +9,8 @@ import Container from '@/components/layout/Container';
 
 import { useProduct } from '@/hooks';
 
+import { LNG } from '@/constants';
+
 import NotFoundPage from '../not-found';
 import BasicInformation from './BasicInformation';
 import Bundles from './Bundles';
@@ -55,9 +57,9 @@ const ProductPage = () => {
               name={name[lng]}
               price={price}
               normalPrice={normalPrice}
-              description={description[lng] || description['en-US']}
-              stockable={stockable['en-US']}
-              itemsInStock={itemsInStock['en-US']}
+              description={description[lng] || description[LNG.en]}
+              stockable={stockable[LNG.en]}
+              itemsInStock={itemsInStock[LNG.en]}
               paymentLink={paymentLink}
               tags={tags}
             />
