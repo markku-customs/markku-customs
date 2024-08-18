@@ -5,7 +5,12 @@ import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
 import Circle from '@/components/ui/Circle';
 
-import { formatPrice, getImageSrc, getPercentageDifference } from '@/utils';
+import {
+  formatPercentage,
+  formatPrice,
+  getImageSrc,
+  getPercentageDifference,
+} from '@/utils';
 
 import { TimerIcon } from '@/icons';
 
@@ -54,10 +59,13 @@ const StoreFeaturedItem = ({ product }) => {
           {price && normalPrice && (
             <div className="mt-1 flex items-center gap-2">
               <p className="text-zinc-400">
-                Norm. {normalPrice && formatPrice(normalPrice['en-US'], lng)}
+                Norm. {formatPrice(normalPrice['en-US'], lng)}
               </p>
               <Badge variant="green" size="small">
-                {getPercentageDifference(normalPrice['en-US'], price['en-US'])}%
+                {formatPercentage(
+                  getPercentageDifference(normalPrice['en-US'], price['en-US']),
+                  lng
+                )}
               </Badge>
             </div>
           )}

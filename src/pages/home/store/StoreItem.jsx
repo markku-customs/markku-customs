@@ -4,6 +4,7 @@ import Badge from '@/components/ui/Badge';
 import Circle from '@/components/ui/Circle';
 
 import {
+  formatPercentage,
   formatPrice,
   getImageSrc,
   getPercentageDifference,
@@ -78,7 +79,10 @@ const StoreItem = ({ product }) => {
           </p>
           {price && normalPrice && (
             <Badge variant="green" size="small">
-              {getPercentageDifference(normalPrice['en-US'], price['en-US'])}%
+              {formatPercentage(
+                getPercentageDifference(normalPrice['en-US'], price['en-US']),
+                lng
+              )}
             </Badge>
           )}
         </div>

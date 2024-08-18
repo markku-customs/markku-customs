@@ -6,7 +6,12 @@ import Button from '@/components/ui/Button';
 import Circle from '@/components/ui/Circle';
 import HorizontalSeparator from '@/components/ui/HorizontalSeparator';
 
-import { formatPrice, getPercentageDifference, splitLineBreaks } from '@/utils';
+import {
+  formatPercentage,
+  formatPrice,
+  getPercentageDifference,
+  splitLineBreaks,
+} from '@/utils';
 
 const BasicInformation = ({
   name,
@@ -32,10 +37,13 @@ const BasicInformation = ({
         {price && normalPrice && (
           <div className="mt-1 flex items-center gap-2">
             <p className="text-zinc-400">
-              Norm. {normalPrice && formatPrice(normalPrice['en-US'], lng)}
+              Norm. {formatPrice(normalPrice['en-US'], lng)}
             </p>
             <Badge variant="green" size="small">
-              {getPercentageDifference(normalPrice['en-US'], price['en-US'])}%
+              {formatPercentage(
+                getPercentageDifference(normalPrice['en-US'], price['en-US']),
+                lng
+              )}
             </Badge>
           </div>
         )}
