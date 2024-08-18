@@ -8,6 +8,8 @@ import SectionHeading from '@/components/ui/SectionHeading';
 
 import { useProducts } from '@/hooks';
 
+import { LNG } from '@/constants';
+
 import StoreFeaturedItem from './StoreFeaturedItem';
 import StoreItem from './StoreItem';
 
@@ -36,10 +38,10 @@ const Store = () => {
   const { products, error } = useProducts();
 
   const featuredItems = products?.items.filter(
-    (p) => p.fields.isFeatured['en-US']
+    (p) => p.fields.isFeatured[LNG.en]
   );
   const normalItems = products?.items.filter(
-    (p) => !p.fields.isFeatured['en-US']
+    (p) => !p.fields.isFeatured[LNG.en]
   );
 
   return (

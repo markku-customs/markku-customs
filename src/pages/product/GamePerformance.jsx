@@ -2,24 +2,23 @@ import { useTranslation } from 'react-i18next';
 
 import { getImageSrc } from '@/utils';
 
+import { LNG } from '@/constants';
+
 const GamePerformance = ({ gameNames, gameFrameRates }) => {
   const { t } = useTranslation();
 
-  const min = Math.min(
-    gameNames['en-US'].length,
-    gameFrameRates['en-US'].length
-  );
+  const min = Math.min(gameNames[LNG.en].length, gameFrameRates[LNG.en].length);
 
   return (
     <section className="game-performance-container">
       <h2 className="mb-4 text-2xl font-semibold">{t('fps-performance')}</h2>
       <p className="mb-4 text-sm text-zinc-400">{t('fps-note')}</p>
       <ul className="game-grid">
-        {gameNames['en-US'].slice(0, min).map((game, idx) => (
+        {gameNames[LNG.en].slice(0, min).map((game, idx) => (
           <Game
             key={game.sys.id}
             game={game}
-            fps={gameFrameRates['en-US'][idx]}
+            fps={gameFrameRates[LNG.en][idx]}
           />
         ))}
       </ul>
@@ -37,19 +36,19 @@ const Game = ({ game, fps }) => {
       <figure className="group relative">
         <img
           className="aspect-square w-full object-cover"
-          src={`${getImageSrc(image['en-US'])}?fm=webp&w=192&h=192`}
-          alt={name['en-US']}
+          src={`${getImageSrc(image[LNG.en])}?fm=webp&w=192&h=192`}
+          alt={name[LNG.en]}
           width={192}
           height={192}
           loading="lazy"
         />
-        {image['en-US'].fields.description['en-US'] && (
+        {image[LNG.en].fields.description[LNG.en] && (
           <figcaption className="transition-200 absolute inset-0 bg-black/80 p-4 text-xs opacity-0 transition group-hover:opacity-100">
-            <p>{image['en-US'].fields.description['en-US']}</p>
+            <p>{image[LNG.en].fields.description[LNG.en]}</p>
           </figcaption>
         )}
       </figure>
-      <h3 className="mb-1 mt-2 text-sm text-zinc-400">{name['en-US']}</h3>
+      <h3 className="mb-1 mt-2 text-sm text-zinc-400">{name[LNG.en]}</h3>
       <p className="mt-auto font-semibold">{fps} FPS</p>
     </li>
   );

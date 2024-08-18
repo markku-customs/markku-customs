@@ -2,8 +2,12 @@ import React from 'react';
 
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 
-// eslint-disable-next-line import/prefer-default-export
-export const options = {
+export const LNG = {
+  en: 'en-US',
+  fi: 'fi-FI',
+};
+
+export const RICH_TEXT_OPTIONS = {
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => (
       <p className="my-2 leading-8 text-zinc-400">{children}</p>

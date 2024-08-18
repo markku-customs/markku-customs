@@ -5,7 +5,14 @@ import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
 import Circle from '@/components/ui/Circle';
 
-import { formatPrice, getImageSrc, getPercentageDifference } from '@/utils';
+import {
+  formatPercentage,
+  formatPrice,
+  getImageSrc,
+  getPercentageDifference,
+} from '@/utils';
+
+import { LNG } from '@/constants';
 
 import { TimerIcon } from '@/icons';
 
@@ -33,14 +40,14 @@ const StoreFeaturedItem = ({ product }) => {
         className="featured-image"
         src={
           featuredImage
-            ? `${getImageSrc(featuredImage['en-US'])}?fm=webp&w=640`
+            ? `${getImageSrc(featuredImage[LNG.en])}?fm=webp&w=640`
             : '/product-default.png'
         }
         alt={name[lng]}
         loading="lazy"
       />
       <div className="flex flex-col gap-4 p-4 md:p-8">
-        {!noLimitedTag['en-US'] && (
+        {!noLimitedTag[LNG.en] && (
           <span className="border-l-1 absolute inset-2 left-4 top-4 flex h-min w-max items-center gap-2 border-l-4 border-l-red-600 bg-zinc-800 px-4 py-2 text-sm font-semibold text-white md:relative md:inset-0">
             {t('limited-time')}
             <TimerIcon className="h-4 w-4" />
@@ -49,25 +56,28 @@ const StoreFeaturedItem = ({ product }) => {
         <div>
           <h3 className="font-heading text-xl md:text-2xl">{name[lng]}</h3>
           <p className="mt-2 font-heading text-4xl md:text-5xl">
-            {price ? formatPrice(price['en-US'], lng) : t('variable')}
+            {price ? formatPrice(price[LNG.en], lng) : t('variable')}
           </p>
           {price && normalPrice && (
             <div className="mt-1 flex items-center gap-2">
               <p className="text-zinc-400">
-                Norm. {normalPrice && formatPrice(normalPrice['en-US'], lng)}
+                Norm. {formatPrice(normalPrice[LNG.en], lng)}
               </p>
               <Badge variant="green" size="small">
-                {getPercentageDifference(normalPrice['en-US'], price['en-US'])}%
+                {formatPercentage(
+                  getPercentageDifference(normalPrice[LNG.en], price[LNG.en]),
+                  lng
+                )}
               </Badge>
             </div>
           )}
         </div>
 
-        {stockable['en-US'] ? (
+        {stockable[LNG.en] ? (
           <Badge className="w-max gap-2">
-            {itemsInStock['en-US'] > 0 ? (
+            {itemsInStock[LNG.en] > 0 ? (
               <>
-                {itemsInStock['en-US']} {t('in-stock')}
+                {itemsInStock[LNG.en]} {t('in-stock')}
                 <Circle className="w-1.5 bg-green-500" />
               </>
             ) : (

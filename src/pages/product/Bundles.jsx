@@ -5,6 +5,8 @@ import Button from '@/components/ui/Button';
 
 import { formatPrice, getImageSrc } from '@/utils';
 
+import { LNG } from '@/constants';
+
 const Bundles = ({ bundles }) => {
   const { t } = useTranslation();
 
@@ -12,7 +14,7 @@ const Bundles = ({ bundles }) => {
     <section className="bundles-container">
       <h2 className="mb-4 text-2xl font-semibold">{t('bundles')}</h2>
       <div className="bundles-grid">
-        {bundles['en-US'].map((bundle) => (
+        {bundles[LNG.en].map((bundle) => (
           <Bundle key={bundle.sys.id} bundle={bundle} />
         ))}
       </div>
@@ -35,9 +37,9 @@ const Bundle = ({ bundle }) => {
         <img
           className="aspect-square w-[6rem] max-w-[6rem] object-cover"
           src={
-            bundleProducts['en-US'][0].fields.image
+            bundleProducts[LNG.en][0].fields.image
               ? `${getImageSrc(
-                  bundleProducts['en-US'][0].fields.image['en-US']
+                  bundleProducts[LNG.en][0].fields.image[LNG.en]
                 )}?fm=webp&w=180`
               : '/product-default.png'
           }
@@ -49,17 +51,17 @@ const Bundle = ({ bundle }) => {
       <div className="flex h-full flex-col gap-2">
         <h3 className="font-semibold">{name[lng]}</h3>
         <p className="text-2xl font-semibold">
-          {formatPrice(price['en-US'], lng)}
+          {formatPrice(price[LNG.en], lng)}
         </p>
-        {bundleProducts['en-US'].map((product) => (
+        {bundleProducts[LNG.en].map((product) => (
           <a
-            href={product.fields.link['en-US']}
+            href={product.fields.link[LNG.en]}
             rel="noreferrer"
             target="_blank"
             className="text-sm text-zinc-400 hover:underline"
             key={product.sys.id}
           >
-            {product.fields.name['en-US']}
+            {product.fields.name[LNG.en]}
           </a>
         ))}
         {paymentLink ? (
@@ -67,7 +69,7 @@ const Bundle = ({ bundle }) => {
             size="small"
             className="mt-2 w-max"
             as="a"
-            href={paymentLink['en-US']}
+            href={paymentLink[LNG.en]}
             target="_blank"
             rel="noreferrer"
           >

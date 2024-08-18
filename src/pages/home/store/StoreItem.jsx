@@ -4,11 +4,14 @@ import Badge from '@/components/ui/Badge';
 import Circle from '@/components/ui/Circle';
 
 import {
+  formatPercentage,
   formatPrice,
   getImageSrc,
   getPercentageDifference,
   getPlural,
 } from '@/utils';
+
+import { LNG } from '@/constants';
 
 const StoreItem = ({ product }) => {
   const { t, i18n } = useTranslation();
@@ -33,7 +36,7 @@ const StoreItem = ({ product }) => {
         {bundles && (
           <span className="absolute left-4 top-4 z-20 bg-red-600 px-3 py-1.5 text-xs font-semibold">
             {getPlural(
-              bundles['en-US'].length,
+              bundles[LNG.en].length,
               t('bundle-plural'),
               t('bundle-singular')
             )}
@@ -43,7 +46,7 @@ const StoreItem = ({ product }) => {
         <img
           src={
             featuredImage
-              ? `${getImageSrc(featuredImage['en-US'])}?fm=webp&w=400`
+              ? `${getImageSrc(featuredImage[LNG.en])}?fm=webp&w=400`
               : '/product-default.png'
           }
           alt={name[lng]}
@@ -54,19 +57,19 @@ const StoreItem = ({ product }) => {
         <div className="flex items-center justify-between">
           <h3 className="font-heading">{name[lng]}</h3>
 
-          {stockable['en-US'] && (
+          {stockable[LNG.en] && (
             <div
               className="flex items-center gap-2 text-xs font-semibold"
               title={
-                itemsInStock['en-US'] > 0
-                  ? `${itemsInStock['en-US']} ${t('in-stock')}`
+                itemsInStock[LNG.en] > 0
+                  ? `${itemsInStock[LNG.en]} ${t('in-stock')}`
                   : t('sold-out')
               }
             >
-              {itemsInStock['en-US']}
+              {itemsInStock[LNG.en]}
               <Circle
                 className={`w-1.5 ${
-                  itemsInStock['en-US'] > 0 ? 'bg-green-500' : 'bg-red-500'
+                  itemsInStock[LNG.en] > 0 ? 'bg-green-500' : 'bg-red-500'
                 }`}
               />
             </div>
@@ -74,11 +77,14 @@ const StoreItem = ({ product }) => {
         </div>
         <div className="flex items-center justify-between">
           <p className="font-heading text-3xl">
-            {price ? formatPrice(price['en-US'], lng) : t('variable')}
+            {price ? formatPrice(price[LNG.en], lng) : t('variable')}
           </p>
           {price && normalPrice && (
             <Badge variant="green" size="small">
-              {getPercentageDifference(normalPrice['en-US'], price['en-US'])}%
+              {formatPercentage(
+                getPercentageDifference(normalPrice[LNG.en], price[LNG.en]),
+                lng
+              )}
             </Badge>
           )}
         </div>
