@@ -71,9 +71,9 @@ const BasicInformation = ({
 
       {stockable ? (
         <Badge className="w-max gap-2">
-          {itemsInStock[LNG.en] > 0 ? (
+          {itemsInStock > 0 ? (
             <>
-              {itemsInStock[LNG.en]} {t('in-stock')}
+              {itemsInStock} {t('in-stock')}
               <Circle className="w-1.5 bg-green-500" />
             </>
           ) : (
