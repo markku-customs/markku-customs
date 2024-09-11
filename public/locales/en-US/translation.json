@@ -54,6 +54,7 @@
     "bank-transfer": "Bank Transfer",
     "online": "Online Payment"
   },
+  "alv": "Including VAT 25.5%",
   "limited-time": "Limited Time Offer",
   "view-product": "View Product",
   "optional": "Optional",
