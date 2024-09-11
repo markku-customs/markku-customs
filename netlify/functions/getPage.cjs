@@ -5,6 +5,10 @@ exports.handler = async (event) => {
     const client = createClient({
       space: process.env.VITE_CONTENTFUL_SPACE_ID,
       accessToken: process.env.VITE_CONTENTFUL_ACCESS_TOKEN,
+
+      // space: process.env.VITE_CONTENTFUL_SPACE_ID,
+      // accessToken: process.env.VITE_CONTENTFUL_ACCESS_TOKEN_PREVIEW,
+      // host: 'preview.contentful.com',
     });
 
     const { slug } = event.queryStringParameters;

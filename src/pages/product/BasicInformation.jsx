@@ -6,12 +6,7 @@ import Button from '@/components/ui/Button';
 import Circle from '@/components/ui/Circle';
 import HorizontalSeparator from '@/components/ui/HorizontalSeparator';
 
-import {
-  formatPercentage,
-  formatPrice,
-  getPercentageDifference,
-  splitLineBreaks,
-} from '@/utils';
+import { formatPrice, splitLineBreaks } from '@/utils';
 
 import { LNG } from '@/constants';
 
@@ -33,23 +28,22 @@ const BasicInformation = ({
     <section className="basic-information-container flex flex-col gap-4">
       <h1 className="font-heading text-4xl">{name}</h1>
       <div>
-        <p className="text-2xl font-semibold">
+        <p className="text-3xl font-semibold">
           {price ? formatPrice(price[LNG.en], lng) : t('variable')}
         </p>
-        {price && normalPrice && (
-          <div className="mt-1 flex items-center gap-2">
-            <p className="text-zinc-400">
-              Norm. {formatPrice(normalPrice[LNG.en], lng)}
-            </p>
-            <Badge variant="green" size="small">
-              {formatPercentage(
-                getPercentageDifference(normalPrice[LNG.en], price[LNG.en]),
-                lng
-              )}
-            </Badge>
-          </div>
-        )}
+        {price && <p className="mt-1 text-sm text-zinc-400">{t('alv')}</p>}
       </div>
+
+      {price && normalPrice && (
+        <div className="flex items-center gap-2">
+          <p className="text-zinc-400">
+            Norm. {formatPrice(normalPrice[LNG.en], lng)}
+          </p>
+          <Badge variant="green" size="small">
+            {formatPrice(price[LNG.en] - normalPrice[LNG.en], lng)}
+          </Badge>
+        </div>
+      )}
 
       {tags && (
         <div className="flex flex-wrap gap-2">

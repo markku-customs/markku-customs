@@ -3,13 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Badge from '@/components/ui/Badge';
 import Circle from '@/components/ui/Circle';
 
-import {
-  formatPercentage,
-  formatPrice,
-  getImageSrc,
-  getPercentageDifference,
-  getPlural,
-} from '@/utils';
+import { formatPrice, getImageSrc, getPlural } from '@/utils';
 
 import { LNG } from '@/constants';
 
@@ -81,10 +75,7 @@ const StoreItem = ({ product }) => {
           </p>
           {price && normalPrice && (
             <Badge variant="green" size="small">
-              {formatPercentage(
-                getPercentageDifference(normalPrice[LNG.en], price[LNG.en]),
-                lng
-              )}
+              {formatPrice(price[LNG.en] - normalPrice[LNG.en], lng)}
             </Badge>
           )}
         </div>

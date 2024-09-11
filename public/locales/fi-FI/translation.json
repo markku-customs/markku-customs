@@ -54,6 +54,7 @@
     "bank-transfer": "Tilisiirto",
     "online": "Verkkomaksu"
   },
+  "alv": "Sisältäen ALV 25,5 %",
   "limited-time": "Erikoistarjous",
   "view-product": "Näytä tuote",
   "optional": "Valinnainen",
