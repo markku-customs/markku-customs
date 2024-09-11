@@ -1,12 +1,14 @@
 const { createClient } = require('contentful');
 
-const { LNG } = require('@/constants');
-
 exports.handler = async (event) => {
   try {
     const client = createClient({
       space: process.env.VITE_CONTENTFUL_SPACE_ID,
       accessToken: process.env.VITE_CONTENTFUL_ACCESS_TOKEN,
+
+      // space: process.env.VITE_CONTENTFUL_SPACE_ID,
+      // accessToken: process.env.VITE_CONTENTFUL_ACCESS_TOKEN_PREVIEW,
+      // host: 'preview.contentful.com',
     });
 
     const { id } = event.queryStringParameters;
@@ -26,8 +28,8 @@ exports.handler = async (event) => {
       statusCode: 500,
       body: JSON.stringify({
         message: {
-          [LNG.en]: 'An unexpected error occured on the server.',
-          [LNG.fi]: 'Palvelimella tapahtui odottamaton virhe.',
+          'en-US': 'An unexpected error occured on the server.',
+          'fi-FI': 'Palvelimella tapahtui odottamaton virhe.',
         },
         error,
       }),

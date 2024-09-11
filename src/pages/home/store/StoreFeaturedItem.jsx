@@ -5,12 +5,7 @@ import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
 import Circle from '@/components/ui/Circle';
 
-import {
-  formatPercentage,
-  formatPrice,
-  getImageSrc,
-  getPercentageDifference,
-} from '@/utils';
+import { formatPrice, getImageSrc } from '@/utils';
 
 import { LNG } from '@/constants';
 
@@ -64,10 +59,7 @@ const StoreFeaturedItem = ({ product }) => {
                 Norm. {formatPrice(normalPrice[LNG.en], lng)}
               </p>
               <Badge variant="green" size="small">
-                {formatPercentage(
-                  getPercentageDifference(normalPrice[LNG.en], price[LNG.en]),
-                  lng
-                )}
+                {formatPrice(price[LNG.en] - normalPrice[LNG.en], lng)}
               </Badge>
             </div>
           )}
