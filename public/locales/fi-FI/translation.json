@@ -55,6 +55,7 @@
     "online": "Verkkomaksu"
   },
   "alv": "Sisältäen ALV 25,5 %",
+  "klarna": "{{months}} kuukausittaista maksua {{payment}}",
   "limited-time": "Erikoistarjous",
   "view-product": "Näytä tuote",
   "optional": "Valinnainen",

@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { HashLink as Link } from 'react-router-hash-link';
 
 import Badge from '@/components/ui/Badge';
@@ -19,10 +19,17 @@ const BasicInformation = ({
   itemsInStock,
   paymentLink,
   tags,
+  klarnaPayment,
+  klarnaMonths,
 }) => {
   const { t, i18n } = useTranslation();
 
   const lng = i18n.language;
+
+  const months = klarnaMonths ? klarnaMonths[LNG.en] : undefined;
+  const payment = klarnaPayment
+    ? formatPrice(klarnaPayment[LNG.en], lng, 2)
+    : undefined;
 
   return (
     <section className="basic-information-container flex flex-col gap-4">
@@ -81,7 +88,7 @@ const BasicInformation = ({
         <Badge className="w-max">{t('made-on-order')}</Badge>
       )}
 
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-col gap-4 sm:flex-row">
         {paymentLink ? (
           <>
             <Button
@@ -102,6 +109,22 @@ const BasicInformation = ({
           </Button>
         )}
       </div>
+
+      {klarnaPayment && klarnaMonths && (
+        <div className="bg-zinc-900 p-4">
+          <img src="/klarna.png" alt="" height={20} width={48} />
+          <p className="mt-2 text-sm text-zinc-400">
+            <Trans
+              i18nKey="klarna"
+              months={klarnaMonths[LNG.en]}
+              payment={formatPrice(klarnaPayment[LNG.en], lng, 2)}
+            >
+              {{ months }} monthly payments of
+              {{ payment }}
+            </Trans>
+          </p>
+        </div>
+      )}
     </section>
   );
 };
