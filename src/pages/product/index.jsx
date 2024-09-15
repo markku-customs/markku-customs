@@ -41,6 +41,8 @@ const ProductPage = () => {
   const gameFrameRates = product?.fields?.gameFrameRates;
   const paymentLink = product?.fields?.paymentLink;
   const bundles = product?.fields?.bundles;
+  const klarnaPayment = product?.fields?.klarnaPayment;
+  const klarnaMonths = product?.fields?.klarnaMonths;
 
   const lng = i18n.language;
 
@@ -62,6 +64,8 @@ const ProductPage = () => {
               itemsInStock={itemsInStock[LNG.en]}
               paymentLink={paymentLink}
               tags={tags}
+              klarnaPayment={klarnaPayment}
+              klarnaMonths={klarnaMonths}
             />
 
             <ImageCarousel images={images} />

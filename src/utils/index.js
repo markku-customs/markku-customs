@@ -19,11 +19,15 @@ export const getPlural = (number, singular, plural, inclusive = true) => {
   return number === 1 ? singular : plural;
 };
 
-export const formatPrice = (price, locale = LNG.en) => {
+export const formatPrice = (
+  price,
+  locale = LNG.en,
+  maximumFractionDigits = 0
+) => {
   return new Intl.NumberFormat(locale, {
     style: 'currency',
     currency: 'EUR',
-    maximumFractionDigits: 0,
+    maximumFractionDigits,
   }).format(price);
 };
 
