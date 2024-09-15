@@ -55,6 +55,7 @@
     "online": "Online Payment"
   },
   "alv": "Including VAT 25.5%",
+  "klarna": "{{months}} monthly payments of {{payment}}",
   "limited-time": "Limited Time Offer",
   "view-product": "View Product",
   "optional": "Optional",
