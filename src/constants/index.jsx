@@ -7,6 +7,11 @@ export const LNG = {
   fi: 'fi-FI',
 };
 
+export const PRODUCT_TYPE = {
+  computer: 'Computer',
+  component: 'Component',
+};
+
 export const RICH_TEXT_OPTIONS = {
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => (

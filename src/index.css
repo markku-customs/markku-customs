@@ -77,20 +77,24 @@ body {
   margin: 0 -1rem !important;
 }
 
-.store-slider article {
+.store-slider article,
+.store-grid article {
   overflow: hidden;
 }
 
-.store-slider .image-container {
+.store-slider .image-container,
+.store-grid .image-container {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   transition: var(--transition-200);
 }
 
-.store-slider article:hover .image-container {
+.store-slider article:hover .image-container,
+.store-grid article:hover .image-container {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
 }
 
-.store-slider img {
+.store-slider img,
+.store-grid img {
   aspect-ratio: 4/3;
   object-fit: cover;
   height: 100%;
@@ -98,8 +102,15 @@ body {
   transition: var(--transition-200);
 }
 
-.store-slider article:hover img {
+.store-slider article:hover img,
+.store-grid article:hover img {
   scale: 1.2;
+}
+
+.store-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
 /* Home Page | Contact Section */
@@ -223,7 +234,7 @@ body {
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1024px) {
   .mobile-nav {
     display: none;
   }

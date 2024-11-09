@@ -35,7 +35,7 @@ const Badge = ({
 
 Badge.propTypes = {
   children: PropTypes.node.isRequired,
-  variant: PropTypes.oneOf(['primary', 'secondary']),
+  variant: PropTypes.oneOf(['primary', 'green']),
   size: PropTypes.oneOf(['small', 'base']),
   className: PropTypes.string,
 };
