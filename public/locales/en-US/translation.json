@@ -6,6 +6,8 @@
   "links": {
     "home": "Home",
     "store": "Store",
+    "computers": "Computers",
+    "components": "Components",
     "reviews": "Reviews",
     "partners": "Partners",
     "contact": "Contact"
@@ -67,6 +69,8 @@
   "buy": "Buy Now",
   "order": "Order Now",
   "inquire": "Make an Inquiry",
+  "no-stock-title": "Fresh Stock Coming Soon!",
+  "no-stock-subtitle": "We're out of stock right now, but new products are on the way. Stay tuned!",
   "bundle-singular": "Bundle Offer",
   "bundle-plural": "Bundle Offers",
   "bundles": "Bundles",

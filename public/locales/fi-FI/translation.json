@@ -6,6 +6,8 @@
   "links": {
     "home": "Koti",
     "store": "Kauppa",
+    "computers": "Tietokoneet",
+    "components": "Komponentit",
     "reviews": "Arvostelut",
     "partners": "Kumppanuudet",
     "contact": "Yhteystiedot"
@@ -67,6 +69,8 @@
   "buy": "Osta Nyt",
   "order": "Tilaa Nyt",
   "inquire": "Tiedustele",
+  "no-stock-title": "Uutta tavaraa tulossa pian!",
+  "no-stock-subtitle": "Tuotteemme ovat tällä hetkellä loppuunmyytyjä, mutta uudet tuotteet ovat tulossa. Pysy kuulolla!",
   "bundle-singular": "Paketti",
   "bundle-plural": "Pakettia",
   "bundles": "Paketit",
