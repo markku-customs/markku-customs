@@ -11,9 +11,8 @@ import { LNG } from '@/constants';
 import { MenuCloseIcon, MenuOpenIcon } from '@/icons';
 
 const links = [
-  { key: 'links.home', to: '/#home' },
-  { key: 'links.store', to: '/#store' },
-  { key: 'links.reviews', to: '/#reviews' },
+  { key: 'links.computers', to: '/#computers' },
+  { key: 'links.components', to: '/#components' },
   { key: 'links.contact', to: '/#contact' },
 ];
 
@@ -73,7 +72,7 @@ const Navbar = () => {
               </button>
             </div>
           </div>
-          <div className="block md:hidden">
+          <div className="block lg:hidden">
             <button
               type="button"
               className={isMenuOpen ? 'hidden' : 'block'}
