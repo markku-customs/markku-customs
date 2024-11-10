@@ -3,6 +3,7 @@ import { HashLink as Link } from 'react-router-hash-link';
 
 import Container from '@/components/layout/Container';
 import Button from '@/components/ui/Button';
+import ButtonGroup from '@/components/ui/ButtonGroup';
 
 const Hero = () => {
   const { t } = useTranslation();
@@ -20,14 +21,14 @@ const Hero = () => {
         <p className="mt-6 max-w-prose text-sm leading-8 text-zinc-300 sm:mt-8 md:text-base">
           {t('hero.description')}
         </p>
-        <div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:flex-row">
+        <ButtonGroup className="mt-6 sm:mt-8">
           <Button as={Link} to="/#computers">
             {t('hero.buttons.store')}
           </Button>
           <Button as={Link} to="/#contact" variant="secondary">
             {t('hero.buttons.contact')}
           </Button>
-        </div>
+        </ButtonGroup>
       </Container>
       <div className="gradient"></div>
     </section>

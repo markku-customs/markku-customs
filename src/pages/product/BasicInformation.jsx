@@ -3,6 +3,7 @@ import { HashLink as Link } from 'react-router-hash-link';
 
 import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
+import ButtonGroup from '@/components/ui/ButtonGroup';
 import Circle from '@/components/ui/Circle';
 import HorizontalSeparator from '@/components/ui/HorizontalSeparator';
 
@@ -88,7 +89,7 @@ const BasicInformation = ({
         <Badge className="w-max">{t('made-on-order')}</Badge>
       )}
 
-      <div className="flex flex-col gap-4 sm:flex-row">
+      <ButtonGroup>
         {paymentLink ? (
           <>
             <Button
@@ -108,7 +109,7 @@ const BasicInformation = ({
             {t('inquire')}
           </Button>
         )}
-      </div>
+      </ButtonGroup>
 
       {klarnaPayment && klarnaMonths && (
         <div className="bg-zinc-900 p-4">
