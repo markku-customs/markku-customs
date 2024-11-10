@@ -2,6 +2,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import { HashLink as Link } from 'react-router-hash-link';
 
 import Badge from '@/components/ui/Badge';
+import BadgeGroup from '@/components/ui/BadgeGroup';
 import Button from '@/components/ui/Button';
 import ButtonGroup from '@/components/ui/ButtonGroup';
 import Circle from '@/components/ui/Circle';
@@ -63,11 +64,11 @@ const BasicInformation = ({
       )}
 
       {tags && (
-        <div className="flex flex-wrap gap-2">
+        <BadgeGroup>
           {tags[lng].map((tag) => (
             <Badge key={tag}>{tag}</Badge>
           ))}
-        </div>
+        </BadgeGroup>
       )}
 
       <div className="flex flex-col gap-2">
