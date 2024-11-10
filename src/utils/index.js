@@ -19,33 +19,36 @@ export const getPlural = (number, singular, plural, inclusive = true) => {
   return number === 1 ? singular : plural;
 };
 
-export const formatPrice = (
+export const formatPrice = ({
   price,
   locale = LNG.en,
-  maximumFractionDigits = 0
-) => {
+  maximumFractionDigits = 0,
+  ...options
+}) => {
   return new Intl.NumberFormat(locale, {
     style: 'currency',
     currency: 'EUR',
     maximumFractionDigits,
+    ...options,
   }).format(price);
 };
 
-export const formatUnit = (number, options, locale = LNG.en) => {
+export const formatUnit = ({ number, locale = LNG.en, ...options }) => {
   return new Intl.NumberFormat(locale, {
     style: 'unit',
     ...options,
   }).format(number);
 };
 
-export const formatDate = (date, options, locale = LNG.en) => {
-  return new Intl.DateTimeFormat(locale, options).format(date);
+export const formatDate = ({ date, locale = LNG.en, ...options }) => {
+  return new Intl.DateTimeFormat(locale, { ...options }).format(date);
 };
 
-export const formatPercentage = (decimal, locale = LNG.en) => {
+export const formatPercentage = ({ decimal, locale = LNG.en, ...options }) => {
   return new Intl.NumberFormat(locale, {
     style: 'percent',
     maximumFractionDigits: 0,
+    ...options,
   }).format(decimal);
 };
 
