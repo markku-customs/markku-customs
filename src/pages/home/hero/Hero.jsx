@@ -21,7 +21,7 @@ const Hero = () => {
           {t('hero.description')}
         </p>
         <div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:flex-row">
-          <Button as={Link} to="/#store">
+          <Button as={Link} to="/#computers">
             {t('hero.buttons.store')}
           </Button>
           <Button as={Link} to="/#contact" variant="secondary">
