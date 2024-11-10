@@ -29,7 +29,11 @@ const BasicInformation = ({
 
   const months = klarnaMonths ? klarnaMonths[LNG.en] : undefined;
   const payment = klarnaPayment
-    ? formatPrice(klarnaPayment[LNG.en], lng, 2)
+    ? formatPrice({
+        price: klarnaPayment[LNG.en],
+        locale: lng,
+        maximumFractionDigits: 2,
+      })
     : undefined;
 
   return (
@@ -37,7 +41,9 @@ const BasicInformation = ({
       <h1 className="font-heading text-4xl">{name}</h1>
       <div>
         <p className="text-3xl font-semibold">
-          {price ? formatPrice(price[LNG.en], lng) : t('variable')}
+          {price
+            ? formatPrice({ price: price[LNG.en], locale: lng })
+            : t('variable')}
         </p>
         {price && <p className="mt-1 text-sm text-zinc-400">{t('alv')}</p>}
       </div>
@@ -45,10 +51,13 @@ const BasicInformation = ({
       {price && normalPrice && (
         <div className="flex items-center gap-2">
           <p className="text-zinc-400">
-            Norm. {formatPrice(normalPrice[LNG.en], lng)}
+            Norm. {formatPrice({ price: normalPrice[LNG.en], locale: lng })}
           </p>
           <Badge variant="green" size="small">
-            {formatPrice(price[LNG.en] - normalPrice[LNG.en], lng)}
+            {formatPrice({
+              price: price[LNG.en] - normalPrice[LNG.en],
+              locale: lng,
+            })}
           </Badge>
         </div>
       )}
@@ -118,7 +127,11 @@ const BasicInformation = ({
             <Trans
               i18nKey="klarna"
               months={klarnaMonths[LNG.en]}
-              payment={formatPrice(klarnaPayment[LNG.en], lng, 2)}
+              payment={formatPrice({
+                price: klarnaPayment[LNG.en],
+                locale: lng,
+                maximumFractionDigits: 2,
+              })}
             >
               {{ months }} monthly payments of
               {{ payment }}

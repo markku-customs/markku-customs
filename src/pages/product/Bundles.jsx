@@ -51,7 +51,7 @@ const Bundle = ({ bundle }) => {
       <div className="flex h-full flex-col gap-2">
         <h3 className="font-semibold">{name[lng]}</h3>
         <p className="text-2xl font-semibold">
-          {formatPrice(price[LNG.en], lng)}
+          {formatPrice({ price: price[LNG.en], locale: lng })}
         </p>
         {bundleProducts[LNG.en].map((product) => (
           <a

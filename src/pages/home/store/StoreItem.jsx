@@ -71,11 +71,16 @@ const StoreItem = ({ product }) => {
         </div>
         <div className="flex items-center justify-between">
           <p className="font-heading text-3xl">
-            {price ? formatPrice(price[LNG.en], lng) : t('variable')}
+            {price
+              ? formatPrice({ price: price[LNG.en], locale: lng })
+              : t('variable')}
           </p>
           {price && normalPrice && (
             <Badge variant="green" size="small">
-              {formatPrice(price[LNG.en] - normalPrice[LNG.en], lng)}
+              {formatPrice({
+                price: price[LNG.en] - normalPrice[LNG.en],
+                locale: lng,
+              })}
             </Badge>
           )}
         </div>
