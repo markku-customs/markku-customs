@@ -2,7 +2,9 @@ import { Trans, useTranslation } from 'react-i18next';
 import { HashLink as Link } from 'react-router-hash-link';
 
 import Badge from '@/components/ui/Badge';
+import BadgeGroup from '@/components/ui/BadgeGroup';
 import Button from '@/components/ui/Button';
+import ButtonGroup from '@/components/ui/ButtonGroup';
 import Circle from '@/components/ui/Circle';
 import HorizontalSeparator from '@/components/ui/HorizontalSeparator';
 
@@ -28,7 +30,11 @@ const BasicInformation = ({
 
   const months = klarnaMonths ? klarnaMonths[LNG.en] : undefined;
   const payment = klarnaPayment
-    ? formatPrice(klarnaPayment[LNG.en], lng, 2)
+    ? formatPrice({
+        price: klarnaPayment[LNG.en],
+        locale: lng,
+        maximumFractionDigits: 2,
+      })
     : undefined;
 
   return (
@@ -36,7 +42,9 @@ const BasicInformation = ({
       <h1 className="font-heading text-4xl">{name}</h1>
       <div>
         <p className="text-3xl font-semibold">
-          {price ? formatPrice(price[LNG.en], lng) : t('variable')}
+          {price
+            ? formatPrice({ price: price[LNG.en], locale: lng })
+            : t('variable')}
         </p>
         {price && <p className="mt-1 text-sm text-zinc-400">{t('alv')}</p>}
       </div>
@@ -44,20 +52,23 @@ const BasicInformation = ({
       {price && normalPrice && (
         <div className="flex items-center gap-2">
           <p className="text-zinc-400">
-            Norm. {formatPrice(normalPrice[LNG.en], lng)}
+            Norm. {formatPrice({ price: normalPrice[LNG.en], locale: lng })}
           </p>
           <Badge variant="green" size="small">
-            {formatPrice(price[LNG.en] - normalPrice[LNG.en], lng)}
+            {formatPrice({
+              price: price[LNG.en] - normalPrice[LNG.en],
+              locale: lng,
+            })}
           </Badge>
         </div>
       )}
 
       {tags && (
-        <div className="flex flex-wrap gap-2">
+        <BadgeGroup>
           {tags[lng].map((tag) => (
             <Badge key={tag}>{tag}</Badge>
           ))}
-        </div>
+        </BadgeGroup>
       )}
 
       <div className="flex flex-col gap-2">
@@ -88,7 +99,7 @@ const BasicInformation = ({
         <Badge className="w-max">{t('made-on-order')}</Badge>
       )}
 
-      <div className="flex flex-col gap-4 sm:flex-row">
+      <ButtonGroup>
         {paymentLink ? (
           <>
             <Button
@@ -108,7 +119,7 @@ const BasicInformation = ({
             {t('inquire')}
           </Button>
         )}
-      </div>
+      </ButtonGroup>
 
       {klarnaPayment && klarnaMonths && (
         <div className="bg-zinc-900 p-4">
@@ -117,7 +128,11 @@ const BasicInformation = ({
             <Trans
               i18nKey="klarna"
               months={klarnaMonths[LNG.en]}
-              payment={formatPrice(klarnaPayment[LNG.en], lng, 2)}
+              payment={formatPrice({
+                price: klarnaPayment[LNG.en],
+                locale: lng,
+                maximumFractionDigits: 2,
+              })}
             >
               {{ months }} monthly payments of
               {{ payment }}

@@ -39,14 +39,12 @@ const ReviewItem = ({ review }) => {
         </div>
 
         <p className="mt-auto text-xs capitalize text-zinc-500">
-          {formatDate(
-            new Date(date[LNG.en]),
-            {
-              month: 'long',
-              year: 'numeric',
-            },
-            lng
-          )}
+          {formatDate({
+            date: new Date(date[LNG.en]),
+            locale: lng,
+            month: 'long',
+            year: 'numeric',
+          })}
         </p>
       </article>
     </a>

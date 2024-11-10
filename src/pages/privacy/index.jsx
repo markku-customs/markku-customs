@@ -34,7 +34,10 @@ const PrivacyPage = () => {
             </h1>
             <div className="my-4 w-max bg-zinc-900 px-4 py-2 text-sm text-zinc-400">
               {t('last-updated')}:{' '}
-              {formatDate(new Date(page.sys.updatedAt), {}, lng)}
+              {formatDate({
+                date: new Date(page.sys.updatedAt),
+                locale: lng,
+              })}
             </div>
             <section>
               {documentToReactComponents(

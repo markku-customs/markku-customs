@@ -47,18 +47,24 @@ const ContactTabs = () => {
           <Tab.Panel className="bg-zinc-900 p-4 lg:p-6">
             <ul className="flex flex-col gap-4">
               <PanelItem
-                title={`${t('tabs.pickup')} \u2013 ${formatPrice(0, lng)}`}
+                title={`${t('tabs.pickup')} \u2013 ${formatPrice({
+                  price: 0,
+                  locale: lng,
+                })}`}
                 subtitle={t('tabs.turku')}
               />
               <PanelItem
-                title={`${t('tabs.home-delivery')} \u2013 ${formatPrice(
-                  15,
-                  lng
-                )}`}
+                title={`${t('tabs.home-delivery')} \u2013 ${formatPrice({
+                  price: 15,
+                  locale: lng,
+                })}`}
                 subtitle={t('tabs.turku-region')}
               />
               <PanelItem
-                title={`${t('tabs.post')} \u2013 ${formatPrice(30, lng)}`}
+                title={`${t('tabs.post')} \u2013 ${formatPrice({
+                  price: 30,
+                  locale: lng,
+                })}`}
                 subtitle={t('tabs.finland')}
               />
             </ul>
@@ -76,19 +82,21 @@ const ContactTabs = () => {
             <ul className="flex flex-col gap-4">
               <PanelItem
                 title={t('tabs.money-back')}
-                subtitle={formatUnit(
-                  7,
-                  { unit: 'day', unitDisplay: 'long' },
-                  lng
-                )}
+                subtitle={formatUnit({
+                  number: 7,
+                  locale: lng,
+                  unit: 'day',
+                  unitDisplay: 'long',
+                })}
               />
               <PanelItem
                 title={t('tabs.warranty')}
-                subtitle={formatUnit(
-                  1,
-                  { unit: 'year', unitDisplay: 'long' },
-                  lng
-                )}
+                subtitle={formatUnit({
+                  number: 1,
+                  locale: lng,
+                  unit: 'year',
+                  unitDisplay: 'long',
+                })}
               />
             </ul>
           </Tab.Panel>

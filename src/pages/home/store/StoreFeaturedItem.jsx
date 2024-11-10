@@ -51,15 +51,20 @@ const StoreFeaturedItem = ({ product }) => {
         <div>
           <h3 className="font-heading text-xl md:text-2xl">{name[lng]}</h3>
           <p className="mt-2 font-heading text-4xl md:text-5xl">
-            {price ? formatPrice(price[LNG.en], lng) : t('variable')}
+            {price
+              ? formatPrice({ price: price[LNG.en], locale: lng })
+              : t('variable')}
           </p>
           {price && normalPrice && (
             <div className="mt-1 flex items-center gap-2">
               <p className="text-zinc-400">
-                Norm. {formatPrice(normalPrice[LNG.en], lng)}
+                Norm. {formatPrice({ price: normalPrice[LNG.en], locale: lng })}
               </p>
               <Badge variant="green" size="small">
-                {formatPrice(price[LNG.en] - normalPrice[LNG.en], lng)}
+                {formatPrice({
+                  price: price[LNG.en] - normalPrice[LNG.en],
+                  locale: lng,
+                })}
               </Badge>
             </div>
           )}
