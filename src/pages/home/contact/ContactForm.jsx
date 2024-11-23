@@ -4,6 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { clsx } from 'clsx';
 import { useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useHookFormMask } from 'use-mask-input';
 import * as yup from 'yup';
@@ -187,14 +188,9 @@ const ContactForm = () => {
           <span>
             <Trans i18nKey="privacy-checkbox">
               By selecting this, you agree to our{' '}
-              <a
-                className=" text-red-600 underline"
-                href="https://www.iubenda.com/privacy-policy/59126036"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <Link to="/privacy" className=" text-red-600 underline">
                 privacy policy
-              </a>
+              </Link>
               .
             </Trans>
           </span>
